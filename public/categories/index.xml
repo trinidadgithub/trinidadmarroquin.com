@@ -2,17 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Trinidad Marroquin</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://trinidadmarroquin.com/categories/</link>
     <description>Recent content in Categories on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jun 2026 12:36:18 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Thu, 16 Jan 2025 00:00:00 -0600</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Notes</title>
-      <link>http://localhost:1313/categories/notes/</link>
-      <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
-      <guid>http://localhost:1313/categories/notes/</guid>
+      <title>DevOps Dirty Dozen</title>
+      <link>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</guid>
       <description></description>
     </item>
   </channel>

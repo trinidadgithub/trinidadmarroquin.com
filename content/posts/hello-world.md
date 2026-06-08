@@ -1,7 +1,7 @@
 +++
 title = 'Why This Site Exists'
 date = 2026-06-08T12:36:18-05:00
-draft = false
+draft = true
 tags = ['sre', 'devops', 'infrastructure']
 categories = ['notes']
 +++

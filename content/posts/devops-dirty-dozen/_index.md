@@ -1,0 +1,16 @@
++++
+title = "The DevOps Dirty Dozen: Unmasking the Tripl D's of Anti-Patterns"
+date = 2025-01-16T00:00:00-06:00
+draft = false
+description = "A twelve-part series on DevOps anti-patterns, systems thinking, and the practical habits that make teams more effective."
++++
+
+The DevOps Dirty Dozen is a twelve-part series about common anti-patterns that show up in engineering organizations.
+
+The focus is practical: how teams create friction, how systems drift into unhealthy patterns, and what can be done to improve collaboration, reliability, and delivery without adding unnecessary process.
+
+## Posts In This Series
+
+1. [Breaking Barriers: The DevOps Silos Anti-Pattern](/posts/devops-dirty-dozen/breaking-barriers-devops-silos/)
+
+More posts will be added as the series is migrated from LinkedIn.

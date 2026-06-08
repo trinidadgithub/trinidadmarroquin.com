@@ -1,0 +1,81 @@
+.site-hero {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  margin: 1rem 0 2rem;
+  padding: 2rem;
+  background: var(--entry);
+}
+
+.site-hero h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.05;
+  margin: 0.35rem 0 1rem;
+}
+
+.eyebrow {
+  color: var(--secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hero-copy {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  max-width: 42rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.hero-actions a {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: none;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 0.55rem 0.95rem;
+}
+
+.card-grid,
+.project-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin: 1.25rem 0 2rem;
+}
+
+.info-card,
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--entry);
+  padding: 1rem;
+}
+
+.info-card h3,
+.project-card h2 {
+  margin-top: 0.25rem;
+}
+
+.info-card p,
+.project-card p,
+.project-card li {
+  color: var(--secondary);
+}
+
+.project-card ul {
+  padding-inline-start: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  .site-hero {
+    padding: 1.25rem;
+  }
+}

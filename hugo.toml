@@ -2,13 +2,34 @@ baseURL = 'https://trinidadmarroquin.com/'
 locale = 'en-us'
 title = 'Trinidad Marroquin'
 theme = "PaperMod"
+copyright = "Trinidad Marroquin"
 
 enableRobotsTXT = true
 enableEmoji = false
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "github"
+
 [params]
   env = "production"
-  description = "Trinidad Marroquin is an SRE and DevOps engineer focused on reliable infrastructure, Kubernetes platforms, Terraform automation, and practical observability."
+  description = "Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, Terraform, Rancher, Packer, observability, CI/CD, and reliable infrastructure."
+  keywords = ["SRE", "DevOps", "Kubernetes", "Terraform", "Rancher", "Packer", "Observability", "CI/CD", "Infrastructure"]
   author = "Trinidad Marroquin"
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -16,12 +37,15 @@ enableEmoji = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
   disableSpecial1stPost = true
   disableScrollToTop = false
 
-[params.homeInfoParams]
-  Title = "Trinidad Marroquin"
-  Content = "SRE / DevOps engineer building reliable infrastructure with Kubernetes, Terraform, Packer, Rancher, Concourse, and observability tooling. This site collects practical notes, project writeups, and operational lessons learned."
+[params.schema]
+  publisherType = "Person"
+
+[params.footer]
+  text = "[GitHub](https://github.com/tmarroquin) · [LinkedIn](https://www.linkedin.com/in/trinidadmarroquin/)"
 
 [[params.socialIcons]]
   name = "github"

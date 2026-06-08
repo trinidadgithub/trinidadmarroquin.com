@@ -2,71 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Home on Trinidad Marroquin</title>
-    <link>http://localhost:1313/</link>
+    <link>https://trinidadmarroquin.com/</link>
     <description>Recent content in Home on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Mon, 08 Jun 2026 12:36:18 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://trinidadmarroquin.com/about/</link>
       <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;I am Trinidad Marroquin, an SRE / DevOps engineer focused on reliable infrastructure and practical automation.&lt;/p&gt;
-&lt;p&gt;I work across the parts of the stack where build systems, deployment pipelines, clusters, and production operations meet. My day-to-day interests include Kubernetes, Terraform, Packer, Rancher, Concourse, observability, Linux systems, and the process work needed to keep infrastructure understandable over time.&lt;/p&gt;
-&lt;p&gt;I value systems that are simple enough to debug under pressure. That usually means clear ownership, reproducible builds, versioned infrastructure, useful alerts, and runbooks that explain the actual operating model.&lt;/p&gt;</description>
+      <guid>https://trinidadmarroquin.com/about/</guid>
+      <description>About Trinidad Marroquin, an SRE and DevOps engineer focused on reliable infrastructure and practical automation.</description>
     </item>
     <item>
       <title>Projects</title>
-      <link>http://localhost:1313/projects/</link>
+      <link>https://trinidadmarroquin.com/projects/</link>
       <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
-      <guid>http://localhost:1313/projects/</guid>
-      <description>&lt;p&gt;These are starter areas for project writeups. Each project should explain the problem, constraints, design choices, and what changed operationally.&lt;/p&gt;
-&lt;h2 id=&#34;kubernetes-platform-operations&#34;&gt;Kubernetes Platform Operations&lt;/h2&gt;
-&lt;p&gt;Work around keeping Kubernetes clusters maintainable: upgrades, node lifecycle, add-on management, access patterns, backup and restore expectations, and production readiness checks.&lt;/p&gt;
-&lt;p&gt;Good writeup topics:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Cluster upgrade notes and rollback planning.&lt;/li&gt;
-&lt;li&gt;Rancher-managed fleet organization.&lt;/li&gt;
-&lt;li&gt;Standard namespace, ingress, storage, and policy conventions.&lt;/li&gt;
-&lt;li&gt;Operational checklists for new clusters.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;terraform-infrastructure-modules&#34;&gt;Terraform Infrastructure Modules&lt;/h2&gt;
-&lt;p&gt;Reusable Terraform patterns for infrastructure that needs to be reviewed, promoted, and changed safely.&lt;/p&gt;</description>
+      <guid>https://trinidadmarroquin.com/projects/</guid>
+      <description>Project areas for Kubernetes, Terraform, Packer, CI/CD, Rancher, and observability work.</description>
     </item>
     <item>
       <title>Resume</title>
-      <link>http://localhost:1313/resume/</link>
+      <link>https://trinidadmarroquin.com/resume/</link>
       <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
-      <guid>http://localhost:1313/resume/</guid>
-      <description>&lt;p&gt;This page is reserved for my current resume.&lt;/p&gt;
-&lt;h2 id=&#34;trinidad-marroquin&#34;&gt;Trinidad Marroquin&lt;/h2&gt;
-&lt;p&gt;SRE / DevOps engineer focused on infrastructure reliability, Kubernetes operations, infrastructure as code, CI/CD, and observability.&lt;/p&gt;
-&lt;h2 id=&#34;resume-download&#34;&gt;Resume Download&lt;/h2&gt;
-&lt;p&gt;Add a PDF resume to &lt;code&gt;static/resume.pdf&lt;/code&gt;, then link it here:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/resume.pdf&#34;&gt;Download resume&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;core-skills&#34;&gt;Core Skills&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Kubernetes and Rancher operations.&lt;/li&gt;
-&lt;li&gt;Terraform infrastructure provisioning and review workflows.&lt;/li&gt;
-&lt;li&gt;Packer image builds and repeatable machine provisioning.&lt;/li&gt;
-&lt;li&gt;Concourse CI/CD pipeline design and maintenance.&lt;/li&gt;
-&lt;li&gt;Observability with metrics, logs, alerting, dashboards, and incident follow-up.&lt;/li&gt;
-&lt;li&gt;Linux systems, automation, troubleshooting, and production support.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
-&lt;p&gt;Add current and previous roles here with a short summary of scope, systems owned, and operational outcomes.&lt;/p&gt;</description>
+      <guid>https://trinidadmarroquin.com/resume/</guid>
+      <description>Resume summary for Trinidad Marroquin, SRE and DevOps engineer.</description>
     </item>
     <item>
-      <title>Why This Site Exists</title>
-      <link>http://localhost:1313/posts/hello-world/</link>
-      <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
-      <guid>http://localhost:1313/posts/hello-world/</guid>
-      <description>&lt;p&gt;This site is a place for practical notes about running infrastructure.&lt;/p&gt;
-&lt;p&gt;Most engineering writing is more useful when it includes constraints. What was the system supposed to do? What failed? What tradeoff was acceptable at the time? What would be done differently after operating it for a while?&lt;/p&gt;
-&lt;p&gt;That is the kind of writing I want to keep here.&lt;/p&gt;
-&lt;p&gt;Topics will likely include Kubernetes, Terraform, Packer, Rancher, Concourse, observability, incident response, and the small habits that make production systems easier to change. The goal is not to make infrastructure sound exciting. The goal is to make it reliable, explainable, and easier to operate.&lt;/p&gt;</description>
+      <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
+      <description>Part 1 of the DevOps Dirty Dozen series: how organizational silos undermine DevOps collaboration and what teams can do about it.</description>
     </item>
   </channel>
 </rss>

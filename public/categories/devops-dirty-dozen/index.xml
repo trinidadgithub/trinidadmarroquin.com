@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Sre on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/sre/</link>
-    <description>Recent content in Sre on Trinidad Marroquin</description>
+    <title>DevOps Dirty Dozen on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</link>
+    <description>Recent content in DevOps Dirty Dozen on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Thu, 16 Jan 2025 00:00:00 -0600</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/sre/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/categories/devops-dirty-dozen/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>
       <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>

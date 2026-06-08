@@ -2,61 +2,74 @@
 title = 'Projects'
 date = 2026-06-08T12:36:18-05:00
 draft = false
+description = 'Project areas for Kubernetes, Terraform, Packer, CI/CD, Rancher, and observability work.'
 +++
 
-These are starter areas for project writeups. Each project should explain the problem, constraints, design choices, and what changed operationally.
+These project areas are starting points for writeups. Each one should explain the problem, constraints, design choices, and what changed operationally.
 
-## Kubernetes Platform Operations
+<div class="project-grid">
+  <section class="project-card">
+    <p class="eyebrow">Platform</p>
+    <h2>Kubernetes Platform Operations</h2>
+    <p>Cluster operations, upgrades, node lifecycle, add-on management, access patterns, backup expectations, and production readiness checks.</p>
+    <ul>
+      <li>Rancher-managed fleet organization.</li>
+      <li>Upgrade notes and rollback planning.</li>
+      <li>Namespace, ingress, storage, and policy conventions.</li>
+    </ul>
+  </section>
 
-Work around keeping Kubernetes clusters maintainable: upgrades, node lifecycle, add-on management, access patterns, backup and restore expectations, and production readiness checks.
+  <section class="project-card">
+    <p class="eyebrow">Infrastructure</p>
+    <h2>Terraform Infrastructure Modules</h2>
+    <p>Reusable Terraform patterns for infrastructure that needs to be reviewed, promoted, and changed safely.</p>
+    <ul>
+      <li>Module boundaries that match ownership.</li>
+      <li>State layout and environment promotion.</li>
+      <li>Plan review practices and change visibility.</li>
+    </ul>
+  </section>
 
-Good writeup topics:
+  <section class="project-card">
+    <p class="eyebrow">Images</p>
+    <h2>Packer Image Pipelines</h2>
+    <p>Machine image builds for repeatable node and VM provisioning with validation before publication.</p>
+    <ul>
+      <li>Base image hardening and patch cadence.</li>
+      <li>Versioning for rollback and auditability.</li>
+      <li>Simple validation steps before use.</li>
+    </ul>
+  </section>
 
-- Cluster upgrade notes and rollback planning.
-- Rancher-managed fleet organization.
-- Standard namespace, ingress, storage, and policy conventions.
-- Operational checklists for new clusters.
+  <section class="project-card">
+    <p class="eyebrow">Delivery</p>
+    <h2>CI/CD Pipeline Design</h2>
+    <p>Pipeline work focused on clear promotion paths, repeatable tasks, and useful failure output.</p>
+    <ul>
+      <li>Validation, planning, and apply stages.</li>
+      <li>Credential handling and resource design.</li>
+      <li>Concourse workflows for infrastructure repositories.</li>
+    </ul>
+  </section>
 
-## Terraform Infrastructure Modules
+  <section class="project-card">
+    <p class="eyebrow">Operations</p>
+    <h2>Observability And Incident Response</h2>
+    <p>Monitoring and alerting work that helps operators make decisions instead of only collecting data.</p>
+    <ul>
+      <li>Actionable alerts and useful dashboards.</li>
+      <li>Log and metric naming conventions.</li>
+      <li>Post-incident follow-up tied to system changes.</li>
+    </ul>
+  </section>
+</div>
 
-Reusable Terraform patterns for infrastructure that needs to be reviewed, promoted, and changed safely.
+## Writeup Format
 
-Good writeup topics:
+Project posts should stay practical and include:
 
-- Module boundaries that match ownership.
-- State layout and environment promotion.
-- Plan review practices.
-- Handling secrets and generated values without hiding important changes.
-
-## Packer Image Pipelines
-
-Machine image builds for repeatable node or VM provisioning.
-
-Good writeup topics:
-
-- Base image hardening and patch cadence.
-- Validation steps before publishing an image.
-- Versioning images for rollback and auditability.
-- Keeping image builds boring and predictable.
-
-## Concourse CI/CD
-
-Pipeline work focused on clear promotion paths, repeatable tasks, and failure visibility.
-
-Good writeup topics:
-
-- Pipeline structure for infrastructure repositories.
-- Separating validation, planning, and apply steps.
-- Resource design and credential handling.
-- Making failures easy to triage from job output.
-
-## Observability And Operations
-
-Monitoring and alerting work that helps operators make decisions.
-
-Good writeup topics:
-
-- Service-level indicators and actionable alerts.
-- Dashboard design for incident response.
-- Log and metric naming conventions.
-- Post-incident follow-up that improves the system instead of only the document.
+- The operational problem being solved.
+- Constraints and assumptions.
+- Design choices and rejected alternatives.
+- Failure modes and rollback expectations.
+- What became easier to operate after the change.
