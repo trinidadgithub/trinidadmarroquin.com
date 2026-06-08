@@ -1,0 +1,57 @@
+baseURL = 'https://trinidadmarroquin.com/'
+locale = 'en-us'
+title = 'Trinidad Marroquin'
+theme = "PaperMod"
+
+enableRobotsTXT = true
+enableEmoji = false
+
+[params]
+  env = "production"
+  description = "Trinidad Marroquin is an SRE and DevOps engineer focused on reliable infrastructure, Kubernetes platforms, Terraform automation, and practical observability."
+  author = "Trinidad Marroquin"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  disableSpecial1stPost = true
+  disableScrollToTop = false
+
+[params.homeInfoParams]
+  Title = "Trinidad Marroquin"
+  Content = "SRE / DevOps engineer building reliable infrastructure with Kubernetes, Terraform, Packer, Rancher, Concourse, and observability tooling. This site collects practical notes, project writeups, and operational lessons learned."
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/tmarroquin"
+
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/trinidadmarroquin/"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/posts/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "resume"
+    name = "Resume"
+    url = "/resume/"
+    weight = 40

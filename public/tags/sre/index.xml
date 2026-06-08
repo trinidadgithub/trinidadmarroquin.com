@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sre on Trinidad Marroquin</title>
+    <link>http://localhost:1313/tags/sre/</link>
+    <description>Recent content in Sre on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jun 2026 12:36:18 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sre/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why This Site Exists</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;p&gt;This site is a place for practical notes about running infrastructure.&lt;/p&gt;
+&lt;p&gt;Most engineering writing is more useful when it includes constraints. What was the system supposed to do? What failed? What tradeoff was acceptable at the time? What would be done differently after operating it for a while?&lt;/p&gt;
+&lt;p&gt;That is the kind of writing I want to keep here.&lt;/p&gt;
+&lt;p&gt;Topics will likely include Kubernetes, Terraform, Packer, Rancher, Concourse, observability, incident response, and the small habits that make production systems easier to change. The goal is not to make infrastructure sound exciting. The goal is to make it reliable, explainable, and easier to operate.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
