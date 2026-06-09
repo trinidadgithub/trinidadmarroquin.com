@@ -2,7 +2,7 @@
 title = 'Projects'
 date = 2026-06-08T12:36:18-05:00
 draft = false
-description = 'Professional project areas covering platform operations, virtualization, infrastructure automation, image pipelines, delivery, and observability.'
+description = 'Professional project areas covering platform operations, cloud platforms, virtualization, secrets management, infrastructure automation, image pipelines, delivery, and observability.'
 +++
 
 <div class="project-grid">
@@ -18,6 +18,17 @@ description = 'Professional project areas covering platform operations, virtuali
   </section>
 
   <section class="project-card">
+    <p class="eyebrow">Platform</p>
+    <h2>Cloud Based Platforms</h2>
+    <p>Cloud platform work focused on reliable foundations for infrastructure, application delivery, identity, networking, and operational visibility.</p>
+    <ul>
+      <li>Account, project, subscription, and environment organization.</li>
+      <li>Networking, IAM, logging, and guardrails for platform teams.</li>
+      <li>Operational patterns that can later be broken down by provider and discipline.</li>
+    </ul>
+  </section>
+
+  <section class="project-card">
     <p class="eyebrow">Virtualization</p>
     <h2>vCenter Platform Administration</h2>
     <p>VMware vCenter work focused on stable virtualization foundations for application teams, platform services, and infrastructure automation.</p>
@@ -25,6 +36,17 @@ description = 'Professional project areas covering platform operations, virtuali
       <li>Cluster, datastore, network, template, and permission hygiene.</li>
       <li>Operational runbooks for VM lifecycle, capacity review, and incident response.</li>
       <li>Integration points for Terraform, Packer, Kubernetes nodes, and backup workflows.</li>
+    </ul>
+  </section>
+
+  <section class="project-card">
+    <p class="eyebrow">Security</p>
+    <h2>Secrets Management With Vault</h2>
+    <p>HashiCorp Vault deployment and operations work for centralizing secrets, tightening access, and giving teams safer ways to consume credentials.</p>
+    <ul>
+      <li>Vault deployment, initialization, unseal expectations, and operational runbooks.</li>
+      <li>Policy design, authentication methods, and secrets engine organization.</li>
+      <li>Token, lease, audit, backup, and recovery practices for production use.</li>
     </ul>
   </section>
 

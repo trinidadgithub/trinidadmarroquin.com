@@ -28,8 +28,8 @@ enableEmoji = false
 
 [params]
   env = "production"
-  description = "Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, vCenter, Terraform, Rancher, Packer, observability, CI/CD, and reliable infrastructure."
-  keywords = ["SRE", "DevOps", "Kubernetes", "vCenter", "VMware", "Terraform", "Rancher", "Packer", "Observability", "CI/CD", "Infrastructure"]
+  description = "Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure."
+  keywords = ["SRE", "DevOps", "Kubernetes", "Cloud Platforms", "AWS", "GCP", "vCenter", "VMware", "Terraform", "Rancher", "Packer", "Vault", "Secrets Management", "Observability", "CI/CD", "Infrastructure"]
   author = "Trinidad Marroquin"
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -69,13 +69,19 @@ enableEmoji = false
     weight = 20
 
   [[menu.main]]
+    identifier = "field-notes"
+    name = "Field Notes"
+    url = "/field-notes/"
+    weight = 30
+
+  [[menu.main]]
     identifier = "blog"
     name = "Blog"
     url = "/posts/"
-    weight = 30
+    weight = 40
 
   [[menu.main]]
     identifier = "resume"
     name = "Resume"
     url = "/resume/"
-    weight = 40
+    weight = 50

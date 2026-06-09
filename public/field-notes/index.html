@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>404 Page not found | Trinidad Marroquin</title>
+<title>Field Notes | Trinidad Marroquin</title>
 <meta name="keywords" content="">
-<meta name="description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+<meta name="description" content="Practical operations references for Kubernetes, Rancher, vCenter, Terraform, Packer, Vault, cloud platforms, CI/CD, and observability.">
 <meta name="author" content="Trinidad Marroquin">
-<link rel="canonical" href="http://localhost:1313/404.html">
+<link rel="canonical" href="http://localhost:1313/field-notes/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.40d1b7d52cc627376dfb898ed8d9c3b8591f575927746e754396e9017c141857.css" integrity="sha256-QNG31SzGJzdt&#43;4mO2NnDuFkfV1kndG51Q5bpAXwUGFc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,7 +18,8 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/404.html">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/field-notes/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/field-notes/">
 <noscript>
     <style>
         #theme-toggle,
@@ -64,17 +65,32 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:1313/404.html">
+</script><meta property="og:url" content="http://localhost:1313/field-notes/">
   <meta property="og:site_name" content="Trinidad Marroquin">
-  <meta property="og:title" content="404 Page not found">
-  <meta property="og:description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+  <meta property="og:title" content="Field Notes">
+  <meta property="og:description" content="Practical operations references for Kubernetes, Rancher, vCenter, Terraform, Packer, Vault, cloud platforms, CI/CD, and observability.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="404 Page not found">
-  <meta name="twitter:description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+  <meta name="twitter:title" content="Field Notes">
+  <meta name="twitter:description" content="Practical operations references for Kubernetes, Rancher, vCenter, Terraform, Packer, Vault, cloud platforms, CI/CD, and observability.">
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Field Notes",
+      "item": "http://localhost:1313/field-notes/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="list" id="top">
     <header class="header">
@@ -117,7 +133,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/field-notes/" title="Field Notes">
-                    <span>Field Notes</span>
+                    <span class="active">Field Notes</span>
                 </a>
             </li>
             <li>
@@ -134,15 +150,83 @@
     </nav>
 </header>
 <main class="main">
-<div class="not-found">404</div>
-    </main>
-    
-<footer class="footer">
-        <span>Trinidad Marroquin</span> · 
-        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+  <h1>
+    Field Notes
+    <a href="/field-notes/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+  <div class="post-description">
+    Practical operations references for Kubernetes, Rancher, vCenter, Terraform, Packer, Vault, cloud platforms, CI/CD, and observability.
+  </div>
+</header>
+<div class="post-content md-content"><p>Field Notes are practical operating references: commands, checks, failure modes, and recovery patterns that are useful during real infrastructure work.</p>
+<div class="project-grid">
+  <section class="project-card">
+    <p class="eyebrow">Platform</p>
+    <h2>Kubernetes And Rancher</h2>
+    <p>Cluster inspection, rollout triage, node health, namespace checks, Rancher-managed fleet behavior, and common failure signals.</p>
+  </section>
+  <section class="project-card">
+    <p class="eyebrow">Virtualization</p>
+    <h2>vCenter Operations</h2>
+    <p>VM lifecycle checks, datastore and cluster review, template hygiene, snapshots, permissions, and platform integration touchpoints.</p>
+  </section>
+  <section class="project-card">
+    <p class="eyebrow">Infrastructure</p>
+    <h2>Terraform Change Review</h2>
+    <p>Plan inspection, state safety, provider behavior, module boundaries, promotion checks, and recovery steps for failed applies.</p>
+  </section>
+  <section class="project-card">
+    <p class="eyebrow">Images</p>
+    <h2>Packer Builds</h2>
+    <p>Template build checks, image versioning, validation steps, common build failures, and release criteria before publishing images.</p>
+  </section>
+  <section class="project-card">
+    <p class="eyebrow">Security</p>
+    <h2>Vault And Secrets</h2>
+    <p>Secrets engine checks, token behavior, policy review, authentication methods, lease handling, and operational safety practices.</p>
+  </section>
+  <section class="project-card">
+    <p class="eyebrow">Cloud</p>
+    <h2>Cloud Platforms</h2>
+    <p>Operational notes for cloud-based platforms, account structure, identity, networking, cost awareness, and service-level troubleshooting.</p>
+  </section>
+  <section class="project-card">
+    <p class="eyebrow">Delivery</p>
+    <h2>CI/CD Pipelines</h2>
+    <p>Pipeline triage, credential checks, artifact flow, promotion behavior, Concourse patterns, and failure output worth preserving.</p>
+  </section>
+  <section class="project-card">
+    <p class="eyebrow">Operations</p>
+    <h2>Observability And Incidents</h2>
+    <p>Alert review, dashboard checks, log queries, incident timelines, service ownership, and post-incident follow-up prompts.</p>
+  </section>
+</div>
+<!-- These notes should stay short, opinionated, and operational. The goal is not to replace official documentation; it is to capture the judgment that makes the commands useful. -->
 
-    
-    
+
+</div>
+    </main>
+
+<footer class="footer">
+        <span>Trinidad Marroquin</span> ·
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> ·
+
+
+
     <span>
         Powered by
         <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
@@ -160,12 +244,12 @@
 <script>
     let menu = document.getElementById('menu');
     if (menu) {
-        
+
         const scrollPosition = localStorage.getItem("menu-scroll-position");
         if (scrollPosition) {
             menu.scrollLeft = parseInt(scrollPosition, 10);
         }
-        
+
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
