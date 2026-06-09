@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Navigating uncertainty with evidence</title>
+  <desc id="desc">A person uses a flashlight to cut through fog toward evidence.</desc>
+  <rect width="1200" height="675" fill="#111827"/>
+  <g opacity="0.26" stroke="#f8fafc" stroke-width="28" stroke-linecap="round">
+    <path d="M80 170h500M650 170h470M160 300h380M610 300h430M80 430h470M630 430h490"/>
+  </g>
+  <path d="M455 315 1030 180 1030 470Z" fill="#facc15" opacity="0.28"/>
+  <g fill="#f8fafc">
+    <circle cx="330" cy="270" r="38"/>
+    <rect x="292" y="315" width="76" height="140" rx="18"/>
+  </g>
+  <path d="M365 350l105-35" stroke="#f8fafc" stroke-width="18" stroke-linecap="round"/>
+  <rect x="450" y="292" width="92" height="36" rx="12" fill="#f97316" transform="rotate(-18 496 310)"/>
+  <text x="880" y="230" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="700" text-anchor="middle">Evidence</text>
+  <text x="600" y="610" fill="#f8fafc" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">Better questions cut through organizational fog.</text>
+</svg>

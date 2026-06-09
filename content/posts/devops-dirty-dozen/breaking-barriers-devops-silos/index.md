@@ -18,7 +18,7 @@ In this first article of the DevOps Dirty Dozen, we delve into DevOps silos, the
 
 Originally published on [LinkedIn](https://www.linkedin.com/pulse/breaking-barriers-devops-silos-anti-pattern-trinidad-marroquin-pxqdc/).
 
-<!-- Image placeholder: Teams as disconnected islands in a stormy sea. Add image beside this post bundle and reference it here. -->
+{{< figure src="silos-islands.svg" alt="Disconnected teams on separate islands in rough water" caption="Silos leave teams close enough to see each other, but too disconnected to move together." >}}
 
 ## The Anatomy Of Silos
 
@@ -30,7 +30,7 @@ Silos are more than physical barriers. They are ingrained mindsets and practices
 
 These silos create invisible walls that hinder the flow of information, innovation, and progress.
 
-<!-- Image placeholder: Teams in a maze of inefficiencies. -->
+{{< figure src="silos-maze.svg" alt="Teams separated by a maze of process walls" caption="Siloed work creates extra paths, duplicate effort, and slow feedback." >}}
 
 ## The Cost Of Silos
 
@@ -48,7 +48,7 @@ Consider the infamous [Healthcare.gov](https://www.healthcare.gov/) launch in 20
 
 The lack of collaboration between teams meant critical integration testing was not completed, leaving the system vulnerable to failure under real-world conditions. This high-profile failure highlighted how silos can derail even the most critical initiatives.
 
-<!-- Image placeholder: Blinded leader with a siloed team. -->
+{{< figure src="leadership-blind-spots.svg" alt="A leader overlooking disconnected team columns" caption="Leadership blind spots can preserve silos even when everyone is trying to improve delivery." >}}
 
 ## Why Silos Develop In The First Place
 
@@ -62,7 +62,7 @@ Silos are not built overnight. They emerge from systemic issues. Here are seven 
 6. **Resource scarcity:** Competing for limited resources reinforces isolation.
 7. **Over-specialization:** Highly specialized teams focus narrowly on their domain, neglecting the broader organizational picture.
 
-<!-- Image placeholder: A light bulb representing innovation sparked by teamwork. -->
+{{< figure src="teamwork-innovation.svg" alt="Connected teams forming a light bulb" caption="Collaboration turns isolated expertise into shared learning and better outcomes." >}}
 
 ## Breaking Down Silos
 
@@ -74,7 +74,7 @@ To eliminate silos, organizations need a structured approach:
 4. **Encourage transparency:** Share successes and failures openly to build trust.
 5. **Invest in cross-functional projects:** Encourage teams to collaborate on initiatives that span multiple disciplines.
 
-<!-- Image placeholder: Steps in the scientific method. -->
+{{< figure src="scientific-method.svg" alt="A loop showing question, hypothesis, test, and learn" caption="Treat organizational improvement as an experiment: ask, test, measure, and adapt." >}}
 
 ## Applying The Scientific Method
 
@@ -85,7 +85,7 @@ Breaking silos requires experimentation and critical thinking, much like the sci
 - **Test solutions:** Pilot changes like cross-team meetings or shared goals.
 - **Analyze results:** Did these changes improve collaboration and outcomes? Refine as needed.
 
-<!-- Image placeholder: A person navigating through fog, with clarity amid confusion. -->
+{{< figure src="baloney-detection.svg" alt="A person using a flashlight to navigate fog" caption="Clear evidence helps teams challenge assumptions and move through uncertainty." >}}
 
 ## Carl Sagan's Baloney Detection Kit
 
@@ -95,7 +95,7 @@ To challenge assumptions about silos, apply Carl Sagan's Baloney Detection Kit:
 - **Demand evidence:** What data supports the effectiveness of silos or their removal?
 - **Test assumptions:** Experiment with breaking silos and measure the results.
 
-<!-- Image placeholder: The sunrise symbolizing new beginnings. -->
+{{< figure src="moving-forward.svg" alt="A sunrise over connected paths" caption="Breaking silos is not a one-time fix. It is a commitment to moving forward together." >}}
 
 ## Moving Forward Together
 
@@ -106,5 +106,6 @@ What is your experience with DevOps silos? How has your team overcome them? Let 
 ## References
 
 - [Issues with silos in architecture and engineering firms](https://www.csemag.com/articles/issues-with-silos-in-architecture-and-engineering-firms/)
-- [Engineering silos](https://www.heykona.com/blog/engineering-silos)
-- [Organizational silos](https://asana.com/resources/organizational-silo)
+- [The Three Ways: The Principles Underpinning DevOps](https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/)
+- [Team Topologies key concepts](https://teamtopologies.com/key-concepts)
+- [DevOps culture: Westrum organizational culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)

@@ -2,7 +2,7 @@
 title = 'Blog'
 date = 2026-06-08T12:36:18-05:00
 draft = false
-description = 'Technical notes on SRE, DevOps, Kubernetes, Terraform, Rancher, Packer, CI/CD, observability, and systems operations.'
+description = 'Technical notes on SRE, DevOps, Kubernetes, vCenter, Terraform, Rancher, Packer, CI/CD, observability, and systems operations.'
 +++
 
 Practical notes on infrastructure and operations.
@@ -15,7 +15,7 @@ The goal of this blog is to document how systems are built, changed, operated, a
 
 ## Common Topics
 
-- Kubernetes and Rancher operations.
+- Kubernetes, Rancher, and vCenter operations.
 - Terraform infrastructure changes.
 - Packer image build workflows.
 - CI/CD pipeline design and troubleshooting.

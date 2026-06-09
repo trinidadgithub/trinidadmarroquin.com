@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Teams separated by process walls</title>
+  <desc id="desc">A maze divides several teams, showing the operational cost of silos.</desc>
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <g stroke="#1e293b" stroke-width="24" stroke-linecap="square" fill="none">
+    <path d="M130 120h940M130 555h940M130 120v435M1070 120v435"/>
+    <path d="M280 120v270M430 285v270M580 120v270M730 285v270M880 120v270"/>
+    <path d="M130 255h220M430 255h220M730 255h220M250 420h220M550 420h220M850 420h220"/>
+  </g>
+  <g fill="#2563eb">
+    <circle cx="215" cy="190" r="34"/><circle cx="520" cy="190" r="34"/><circle cx="830" cy="485" r="34"/><circle cx="980" cy="190" r="34"/>
+  </g>
+  <g fill="#0f172a" font-family="Arial, sans-serif" font-size="34" font-weight="700">
+    <text x="155" y="630">Duplicated work</text>
+    <text x="455" y="630">Slow feedback</text>
+    <text x="760" y="630">Hidden dependencies</text>
+  </g>
+  <path d="M215 190c130 30 120 170 305 0 150-135 220 110 310 295" stroke="#f97316" stroke-width="10" stroke-dasharray="20 18" fill="none" stroke-linecap="round"/>
+</svg>
