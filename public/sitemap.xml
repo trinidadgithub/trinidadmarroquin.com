@@ -2,49 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/field-notes/</loc>
+    <loc>https://trinidadmarroquin.com/archives/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://trinidadmarroquin.com/categories/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/cloud-init/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/categories/field-notes/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/infrastructure/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/linux/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/modules/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/netplan/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/categories/notes/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/packer/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/categories/projects/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/search/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/sre/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/state/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/systems-thinking/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/terraform/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/vsphere/</loc>
+    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/about/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://trinidadmarroquin.com/posts/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://trinidadmarroquin.com/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/</loc>
+    <loc>https://trinidadmarroquin.com/projects/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/resume/</loc>
+    <loc>https://trinidadmarroquin.com/resume/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</loc>
+    <loc>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://trinidadmarroquin.com/tags/collaboration/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/collaboration/</loc>
+    <loc>https://trinidadmarroquin.com/tags/devops/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/devops/</loc>
+    <loc>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/devops-dirty-dozen/</loc>
-    <lastmod>2025-01-16T00:00:00-06:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/sre/</loc>
-    <lastmod>2025-01-16T00:00:00-06:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/systems-thinking/</loc>
-    <lastmod>2025-01-16T00:00:00-06:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-01-16T00:00:00-06:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/devops-dirty-dozen/</loc>
+    <loc>https://trinidadmarroquin.com/posts/devops-dirty-dozen/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url>
 </urlset>

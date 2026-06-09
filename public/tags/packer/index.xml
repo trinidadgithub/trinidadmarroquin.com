@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Packer on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/packer/</link>
+    <description>Recent content in Packer on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/packer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling</title>
+      <link>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
+      <description>A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.</description>
+    </item>
+  </channel>
+</rss>

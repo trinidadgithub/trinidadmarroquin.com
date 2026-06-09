@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling | Trinidad Marroquin</title>
+<meta name="keywords" content="terraform, vsphere, packer, cloud-init, systems-thinking">
+<meta name="description" content="A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2716027e01d2f9486378a989178e12983a515f5014f538e49adc917edec7e080.css" integrity="sha256-JxYCfgHS&#43;UhjeKmJF44SmDpRX1AU9TjkmtyRft7H4IA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling">
+  <meta property="og:description" content="A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-09T00:00:00-05:00">
+    <meta property="article:modified_time" content="2026-06-09T00:00:00-05:00">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="Vsphere">
+    <meta property="article:tag" content="Packer">
+    <meta property="article:tag" content="Cloud-Init">
+    <meta property="article:tag" content="Systems-Thinking">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling">
+  <meta name="twitter:description" content="A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog",
+      "item": "https://trinidadmarroquin.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling",
+      "item": "https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling",
+  "name": "Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling",
+  "description": "A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.",
+  "keywords": [
+    "terraform", "vsphere", "packer", "cloud-init", "systems-thinking"
+  ],
+  "articleBody": "A Terraform refactor can look like a file organization problem until the first plan, clone, and bootstrap run.\nThe repo I was working on had the usual signs of age: copied environment roots, local state files, duplicated templates, inconsistent variable files, and old one-off directories that were still sitting beside active infrastructure. The obvious fix was to move toward a cleaner layout:\nenvironments/// modules/vsphere-vm-group/ templates/ archive/ That was the right direction. It was also only the beginning.\nThe Refactor Was The Easy Part The first pass was structural. Move active roots under environments/, preserve old state under archive/, keep templates available, and create a shared vsphere-vm-group module.\nThe design decision that mattered most was matching the module boundary to the real Terraform shape. The existing roots created VM groups from a map, so a VM group module made more sense than forcing everything through a single-VM abstraction.\nThat gave the repo a better operating shape:\nSite and environment roots became easier to find. Module behavior became reusable. Historical artifacts stopped cluttering active work. terraform plan became easier to reason about. But then the refactor exposed the actual system.\nThe Module Changed First-Boot Behavior Moving VM creation into a module changed more than the address of the resource. The module also started injecting VMware guestinfo data for cloud-init:\nguestinfo.metadata guestinfo.userdata guestinfo.network-config That meant the VM was no longer just a vSphere clone with guest customization. It was now a vSphere clone plus cloud-init plus bootstrap execution.\nThat matters because first boot was already being influenced by multiple systems:\nPacker built the template. vSphere customization set hostname, network, and DNS. Terraform provided the clone configuration. cloud-init consumed guestinfo data. Bootstrap scripts configured SSH, users, disks, and storage networking. Once cloud-init was enabled and guestinfo userdata was injected, login behavior changed. SSH was reachable, but authentication failed. That was not a Terraform syntax problem. It was an ownership problem.\nPreserve Behavior Before Improving It One lesson from this session: refactors should preserve behavior first.\nIf an environment root has special behavior, the module needs to support it explicitly before that root is converted. In this case, important behavior included:\nwait_for_guest_ip_timeout = 0 disk UUID support for Kubernetes nodes two disks vSphere guest customization post-create power behavior cloud-init userdata bootstrap execution The module could support those things, but they had to be treated as intentional inputs, not incidental details copied from an old main.tf.\nNetwork Ownership Was The Real Problem The most useful discovery was that several systems were trying to influence networking.\nVMware customization created:\n/etc/netplan/99-netcfg-vmware.yaml The template also had older netplan files. In some cases both sets of files declared default routes. That produced errors like:\nError: Conflicting default route declarations for IPv4 first declared in nic0 but also in ens192 That kind of conflict can disturb Kubernetes node communication, DNS resolution, kubelet behavior, storage paths, and bootstrap scripts. It is not just cosmetic drift.\nThe fix was to choose one authority. For the immediate path, VMware customization owned the primary NIC, hostname, gateway, and DNS. Bootstrap owned additional storage NICs and iSCSI setup. Cloud-init ran bootstrap but did not try to own the same network settings.\nThe useful rule became simple:\none network authority per layer The Storage Lesson The iSCSI work exposed another boundary.\nThe node needed to be storage-ready, but it did not need to see every disk immediately. For Kubernetes with CSI-backed storage, the sequence is:\nPVC -\u003e CSI -\u003e array creates volume -\u003e array maps LUN -\u003e node sees disk -\u003e kubelet mounts volume So a new node can have working iSCSI sessions and still not show a new disk in lsblk until the array maps a LUN to that node’s initiator.\nThat distinction matters during troubleshooting. Connected to the array does not mean a volume is mapped. It only means the node is ready for the storage lifecycle to happen.\nWhat Changed Operationally The end state was not just a cleaner repo. The real improvement was clearer ownership:\nTerraform owns VM intent and vSphere resources. Environment roots own site-specific values. Shared modules own repeated provisioning behavior. Packer owns the template baseline. cloud-init triggers first-boot behavior. Bootstrap owns environment-specific OS configuration. CSI owns persistent volume lifecycle. That model is easier to operate because each layer has a job. When something fails, the question becomes sharper: which layer owns this behavior?\nTakeaways A Terraform refactor can reveal hidden coupling between infrastructure layers. Module boundaries should match the real resource shape before they are made more abstract. State moves are part of module refactors, not an afterthought. Do not let vSphere customization, cloud-init, and bootstrap all own the same network settings. Guest logs and generated OS config often explain more than Terraform plan output. A clean repo layout helps, but clear ownership is what makes the system operable. The refactor succeeded because it forced the infrastructure model to become explicit. That is the real value of the work.\n",
+  "wordCount" : "819",
+  "inLanguage": "en",
+  "datePublished": "2026-06-09T00:00:00-05:00",
+  "dateModified": "2026-06-09T00:00:00-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trinidadmarroquin.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://trinidadmarroquin.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Blog</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling
+    </h1>
+    <div class="post-description">
+      A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>A Terraform refactor can look like a file organization problem until the first plan, clone, and bootstrap run.</p>
+<p>The repo I was working on had the usual signs of age: copied environment roots, local state files, duplicated templates, inconsistent variable files, and old one-off directories that were still sitting beside active infrastructure. The obvious fix was to move toward a cleaner layout:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">environments/&lt;site&gt;/&lt;env&gt;/
+</span></span><span class="line"><span class="cl">modules/vsphere-vm-group/
+</span></span><span class="line"><span class="cl">templates/
+</span></span><span class="line"><span class="cl">archive/
+</span></span></code></pre></div><p>That was the right direction. It was also only the beginning.</p>
+<h2 id="the-refactor-was-the-easy-part">The Refactor Was The Easy Part<a hidden class="anchor" aria-hidden="true" href="#the-refactor-was-the-easy-part">#</a></h2>
+<p>The first pass was structural. Move active roots under <code>environments/</code>, preserve old state under <code>archive/</code>, keep templates available, and create a shared <code>vsphere-vm-group</code> module.</p>
+<p>The design decision that mattered most was matching the module boundary to the real Terraform shape. The existing roots created VM groups from a map, so a VM group module made more sense than forcing everything through a single-VM abstraction.</p>
+<p>That gave the repo a better operating shape:</p>
+<ul>
+<li>Site and environment roots became easier to find.</li>
+<li>Module behavior became reusable.</li>
+<li>Historical artifacts stopped cluttering active work.</li>
+<li><code>terraform plan</code> became easier to reason about.</li>
+</ul>
+<p>But then the refactor exposed the actual system.</p>
+<h2 id="the-module-changed-first-boot-behavior">The Module Changed First-Boot Behavior<a hidden class="anchor" aria-hidden="true" href="#the-module-changed-first-boot-behavior">#</a></h2>
+<p>Moving VM creation into a module changed more than the address of the resource. The module also started injecting VMware guestinfo data for cloud-init:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">guestinfo.metadata
+</span></span><span class="line"><span class="cl">guestinfo.userdata
+</span></span><span class="line"><span class="cl">guestinfo.network-config
+</span></span></code></pre></div><p>That meant the VM was no longer just a vSphere clone with guest customization. It was now a vSphere clone plus cloud-init plus bootstrap execution.</p>
+<p>That matters because first boot was already being influenced by multiple systems:</p>
+<ul>
+<li>Packer built the template.</li>
+<li>vSphere customization set hostname, network, and DNS.</li>
+<li>Terraform provided the clone configuration.</li>
+<li>cloud-init consumed guestinfo data.</li>
+<li>Bootstrap scripts configured SSH, users, disks, and storage networking.</li>
+</ul>
+<p>Once cloud-init was enabled and guestinfo userdata was injected, login behavior changed. SSH was reachable, but authentication failed. That was not a Terraform syntax problem. It was an ownership problem.</p>
+<h2 id="preserve-behavior-before-improving-it">Preserve Behavior Before Improving It<a hidden class="anchor" aria-hidden="true" href="#preserve-behavior-before-improving-it">#</a></h2>
+<p>One lesson from this session: refactors should preserve behavior first.</p>
+<p>If an environment root has special behavior, the module needs to support it explicitly before that root is converted. In this case, important behavior included:</p>
+<ul>
+<li><code>wait_for_guest_ip_timeout = 0</code></li>
+<li>disk UUID support for Kubernetes nodes</li>
+<li>two disks</li>
+<li>vSphere guest customization</li>
+<li>post-create power behavior</li>
+<li>cloud-init userdata</li>
+<li>bootstrap execution</li>
+</ul>
+<p>The module could support those things, but they had to be treated as intentional inputs, not incidental details copied from an old <code>main.tf</code>.</p>
+<h2 id="network-ownership-was-the-real-problem">Network Ownership Was The Real Problem<a hidden class="anchor" aria-hidden="true" href="#network-ownership-was-the-real-problem">#</a></h2>
+<p>The most useful discovery was that several systems were trying to influence networking.</p>
+<p>VMware customization created:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/etc/netplan/99-netcfg-vmware.yaml
+</span></span></code></pre></div><p>The template also had older netplan files. In some cases both sets of files declared default routes. That produced errors like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Error: Conflicting default route declarations for IPv4
+</span></span><span class="line"><span class="cl">first declared in nic0 but also in ens192
+</span></span></code></pre></div><p>That kind of conflict can disturb Kubernetes node communication, DNS resolution, kubelet behavior, storage paths, and bootstrap scripts. It is not just cosmetic drift.</p>
+<p>The fix was to choose one authority. For the immediate path, VMware customization owned the primary NIC, hostname, gateway, and DNS. Bootstrap owned additional storage NICs and iSCSI setup. Cloud-init ran bootstrap but did not try to own the same network settings.</p>
+<p>The useful rule became simple:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">one network authority per layer
+</span></span></code></pre></div><h2 id="the-storage-lesson">The Storage Lesson<a hidden class="anchor" aria-hidden="true" href="#the-storage-lesson">#</a></h2>
+<p>The iSCSI work exposed another boundary.</p>
+<p>The node needed to be storage-ready, but it did not need to see every disk immediately. For Kubernetes with CSI-backed storage, the sequence is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PVC -&gt; CSI -&gt; array creates volume -&gt; array maps LUN -&gt; node sees disk -&gt; kubelet mounts volume
+</span></span></code></pre></div><p>So a new node can have working iSCSI sessions and still not show a new disk in <code>lsblk</code> until the array maps a LUN to that node&rsquo;s initiator.</p>
+<p>That distinction matters during troubleshooting. Connected to the array does not mean a volume is mapped. It only means the node is ready for the storage lifecycle to happen.</p>
+<h2 id="what-changed-operationally">What Changed Operationally<a hidden class="anchor" aria-hidden="true" href="#what-changed-operationally">#</a></h2>
+<p>The end state was not just a cleaner repo. The real improvement was clearer ownership:</p>
+<ul>
+<li>Terraform owns VM intent and vSphere resources.</li>
+<li>Environment roots own site-specific values.</li>
+<li>Shared modules own repeated provisioning behavior.</li>
+<li>Packer owns the template baseline.</li>
+<li>cloud-init triggers first-boot behavior.</li>
+<li>Bootstrap owns environment-specific OS configuration.</li>
+<li>CSI owns persistent volume lifecycle.</li>
+</ul>
+<p>That model is easier to operate because each layer has a job. When something fails, the question becomes sharper: which layer owns this behavior?</p>
+<h2 id="takeaways">Takeaways<a hidden class="anchor" aria-hidden="true" href="#takeaways">#</a></h2>
+<ul>
+<li>A Terraform refactor can reveal hidden coupling between infrastructure layers.</li>
+<li>Module boundaries should match the real resource shape before they are made more abstract.</li>
+<li>State moves are part of module refactors, not an afterthought.</li>
+<li>Do not let vSphere customization, cloud-init, and bootstrap all own the same network settings.</li>
+<li>Guest logs and generated OS config often explain more than Terraform plan output.</li>
+<li>A clean repo layout helps, but clear ownership is what makes the system operable.</li>
+</ul>
+<p>The refactor succeeded because it forced the infrastructure model to become explicit. That is the real value of the work.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://trinidadmarroquin.com/tags/terraform/">Terraform</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/vsphere/">Vsphere</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/packer/">Packer</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/cloud-init/">Cloud-Init</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/systems-thinking/">Systems-Thinking</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/">
+    <span class="title">« Prev</span>
+    <span>Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules</span>
+  </a>
+  <a class="next" href="https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/">
+    <span class="title">Next »</span>
+    <span>Terraform State Moves During A Module Refactor</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

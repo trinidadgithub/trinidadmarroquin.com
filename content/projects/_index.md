@@ -55,8 +55,8 @@ description = 'Professional project areas covering platform operations, cloud pl
     <h2>Terraform Infrastructure Modules</h2>
     <p>Reusable Terraform patterns for infrastructure changes that need clear ownership, reviewable plans, safe promotion, and consistent state management.</p>
     <ul>
+      <li><a href="/projects/terraform-vsphere-refactor/">Refactoring a vSphere Terraform repo into environment roots and shared modules.</a></li>
       <li>Module boundaries that match operational ownership.</li>
-      <li>State layout, environment promotion, and provider version control.</li>
       <li>Plan review practices that improve change visibility before apply.</li>
     </ul>
   </section>
