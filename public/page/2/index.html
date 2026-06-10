@@ -217,6 +217,42 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Variable File Hygiene
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Terraform repositories often accumulate terraform.tfvars, *.auto.tfvars, shell env files, examples, and helper scripts. That works until nobody remembers which file is authoritative.
+Problem A single environment directory may contain:
+terraform.tfvars vars.auto.tfvars vars.env terraform.tfvars.example vars.auto.tfvars.example vars.env.example That creates three problems:
+Terraform may load values from multiple files. shell helper files look like Terraform configuration. secrets may drift into files that should be committed safely. How Terraform Loads Values Terraform automatically loads:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Variable File Hygiene" href="http://localhost:1313/field-notes/terraform-variable-file-hygiene/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Clone Customization Failures
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Terraform can successfully ask vSphere to clone a VM and still fail during guest customization. In that case, the problem is usually inside the guest/template, not Terraform syntax.
+Symptom Terraform reports an error like:
+Virtual machine customization failed An error occurred while customizing VM ... For details reference the log file /var/log/vmware-imc/toolsDeployPkg.log in the guest OS. Terraform may leave the VM in place to help troubleshooting.
+First Checks From the VM console or SSH if available:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Clone Customization Failures" href="http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain
     </h2>
   </header>

@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
+      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
+    </item>
     <item>
       <title>First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap</title>
       <link>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
