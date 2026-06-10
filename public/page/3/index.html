@@ -217,6 +217,66 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Packer Image Validation Gates
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A Packer build that completes is not necessarily a usable image.
+Validation gates should prove that downstream provisioning can consume the image without rediscovering template defects.
+Build-Time Validation During the build, validate:
+package installation. service enablement. guest agent status. SSH or WinRM access. cleanup scripts. cloud-init or customization readiness. Post-Build Validation After the template is created, clone it in a test environment.
+Check:
+VM boots cleanly. hostname customization works. primary network config works. SSH access works through expected users. guest tools report healthy. bootstrap logs are present. storage prerequisites are installed. For Kubernetes node images, also validate container runtime, kubelet prerequisites, CSI prerequisites, and any required kernel modules or packages.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Packer Image Validation Gates" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Packer Image Versioning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Image versioning should make rollback boring.
+If operators cannot tell which template built a VM, what changed in that template, and whether it is safe to roll back, the image pipeline is incomplete.
+Version Format Use a version format that carries time and intent:
+ubuntu-22.04-k8s-node-2026.06.10-1 ubuntu-22.04-base-2026.06.10-1 Include:
+OS family and version. purpose. build date. build sequence or semantic version. Metadata Store metadata with the image:
+Git commit. Packer version. builder plugin versions. package manifest or important package versions. validation result. deprecation state. In vSphere, use template names, notes, tags, or custom attributes consistently.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Packer Image Versioning" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Pipeline Credential Handling And Promotion
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Pipelines are privileged automation. Treat their credentials like production access, because that is what they are.
+Credential design should match the environment and action being performed.
+Credential Handling Use separate credentials for:
+read-only validation. non-production deploys. production plans. production applies. artifact publication. Prefer short-lived credentials from Vault, cloud identity federation, or platform-native workload identity. Avoid storing long-lived credentials in pipeline definitions.
+Resource Design Pipeline resources should make flow visible:
+source repository. versioned artifact. environment configuration. approval gate. deployment target. Do not let a pipeline secretly fetch mutable inputs without recording what it used.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Pipeline Credential Handling And Promotion" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Pipeline Validation Planning And Apply Stages
     </h2>
   </header>
@@ -274,6 +334,23 @@ Access Model Rancher should authenticate normal users through Active Directory. 
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Rollback Strategies With Sentinel Files And Package Management
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
+The Sentinel File Pattern A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:
+exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt/v1/c-app.deb&#39;, onlyif =&gt; &#39;test -f /tmp/simulate_failure&#39;, } The sentinel file is a teaching proxy. In production, the sentinel would be a health check failure, a metrics threshold breach, or a monitoring alert.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
     </h2>
   </header>
@@ -324,79 +401,6 @@ Who owns this infrastructure after apply? What lifecycle does it follow? What in
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform Operational Module Boundaries" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Plan Review Practices
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform plan review is where infrastructure intent becomes operational risk.
-A good review does not ask only whether the syntax is valid. It asks whether the planned changes match the expected blast radius.
-Review Inputs Every plan review should include:
-changed files. selected workspace or root module. variable files used. provider versions. plan output. expected changes. rollback or recovery notes. Do not review a plan if the command that generated it is unclear.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Plan Review Practices" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Storage incidents in Kubernetes are rarely just storage incidents.
-In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
-The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vault Deployment And Unseal Runbooks
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Vault deployment work should be treated as security infrastructure, not just another stateful service.
-The runbooks need to cover normal operation and the uncomfortable moments: initialization, sealing, unsealing, leader changes, backup, and recovery.
-Deployment Baseline Document:
-storage backend. HA topology. TLS certificates. seal mechanism. audit devices. auth methods. backup and restore path. monitoring and alerting expectations. Vault should not run in production without audit logging and a tested recovery path.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Vault Deployment And Unseal Runbooks" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vault Policy Auth And Secrets Engines
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Vault policies are path-based and deny by default. That makes policy design powerful, but it also makes messy path design painful.
-Start by organizing secrets engines and paths around ownership and consumption patterns.
-Policy Design Policies should be small, named clearly, and mapped to roles or groups.
-Good policy names describe intent:
-team-a-kv-read platform-transit-admin ci-prod-db-read Avoid broad wildcard policies unless the path is already tightly scoped.
-Auth Methods Use auth methods that match the consumer:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Vault Policy Auth And Secrets Engines" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

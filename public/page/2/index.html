@@ -217,6 +217,61 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
+The Pattern Python:
+import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
+#include &lt;stdlib.h&gt; #include &lt;string.h&gt; const char* val = getenv(&#34;FEATURE_ENABLED&#34;); int feature_enabled = (val != NULL &amp;&amp; strcmp(val, &#34;true&#34;) == 0); Both implementations check a single environment variable. The toggle is consistent across languages.
+Cross-Language Gotchas C’s strcmp is case-sensitive. FEATURE_ENABLED=True evaluates to false. Python’s .lower() normalizes the input. Standardize on lowercase true/false values across all services to avoid surprises.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">From Local IaC Labs To Production-Ready Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs are valuable when they are treated honestly.
+They are not production. They are a controlled way to isolate a workflow, prove sequencing, expose assumptions, and build operational muscle memory before the real platform adds more failure modes.
+The mistake is promoting a lab by copying it directly into production. The better path is to promote the pattern, not the implementation.
+What Local Labs Are Good For Local IaC labs are especially useful for learning dependencies.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to From Local IaC Labs To Production-Ready Patterns" href="https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GCP Operational Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>GCP organizes resources into projects, which are lighter and more numerous than AWS accounts. This changes how isolation, IAM, and networking are approached.
+Project Structure A GCP project is the primary boundary for resources, IAM, and billing. Use separate projects for production, non-production, shared services, and sandbox work.
+Key differences from other providers:
+projects belong to a hierarchy: organization -&gt; folder -&gt; project. IAM policies are inherited from parent nodes in the hierarchy. service accounts are project-scoped but can be shared across projects. VPCs are global, not regional. projects have a quota and API enablement surface that must be managed. GKE Cluster Operations GKE offers three modes: Autopilot, Standard (regional), and Standard (zonal). Regional clusters are the recommended default for production because the control plane and nodes are replicated across zones.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to GCP Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Helm And Terraform Validation Strategy
     </h2>
   </header>
@@ -339,66 +394,6 @@ OS updates at build time. required agents. VMware tools or cloud guest agents. l
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Packer Base Image Hardening" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Packer Image Validation Gates
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Packer build that completes is not necessarily a usable image.
-Validation gates should prove that downstream provisioning can consume the image without rediscovering template defects.
-Build-Time Validation During the build, validate:
-package installation. service enablement. guest agent status. SSH or WinRM access. cleanup scripts. cloud-init or customization readiness. Post-Build Validation After the template is created, clone it in a test environment.
-Check:
-VM boots cleanly. hostname customization works. primary network config works. SSH access works through expected users. guest tools report healthy. bootstrap logs are present. storage prerequisites are installed. For Kubernetes node images, also validate container runtime, kubelet prerequisites, CSI prerequisites, and any required kernel modules or packages.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Packer Image Validation Gates" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Packer Image Versioning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Image versioning should make rollback boring.
-If operators cannot tell which template built a VM, what changed in that template, and whether it is safe to roll back, the image pipeline is incomplete.
-Version Format Use a version format that carries time and intent:
-ubuntu-22.04-k8s-node-2026.06.10-1 ubuntu-22.04-base-2026.06.10-1 Include:
-OS family and version. purpose. build date. build sequence or semantic version. Metadata Store metadata with the image:
-Git commit. Packer version. builder plugin versions. package manifest or important package versions. validation result. deprecation state. In vSphere, use template names, notes, tags, or custom attributes consistently.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Packer Image Versioning" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Pipeline Credential Handling And Promotion
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Pipelines are privileged automation. Treat their credentials like production access, because that is what they are.
-Credential design should match the environment and action being performed.
-Credential Handling Use separate credentials for:
-read-only validation. non-production deploys. production plans. production applies. artifact publication. Prefer short-lived credentials from Vault, cloud identity federation, or platform-native workload identity. Avoid storing long-lived credentials in pipeline definitions.
-Resource Design Pipeline resources should make flow visible:
-source repository. versioned artifact. environment configuration. approval gate. deployment target. Do not let a pipeline secretly fetch mutable inputs without recording what it used.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Pipeline Credential Handling And Promotion" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

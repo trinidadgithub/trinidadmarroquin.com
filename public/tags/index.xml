@@ -129,6 +129,13 @@
       <description></description>
     </item>
     <item>
+      <title>Haproxy</title>
+      <link>https://trinidadmarroquin.com/tags/haproxy/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/haproxy/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Helm</title>
       <link>https://trinidadmarroquin.com/tags/helm/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -220,6 +227,13 @@
       <description></description>
     </item>
     <item>
+      <title>Nginx</title>
+      <link>https://trinidadmarroquin.com/tags/nginx/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/nginx/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Observability</title>
       <link>https://trinidadmarroquin.com/tags/observability/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -259,6 +273,20 @@
       <link>https://trinidadmarroquin.com/tags/prometheus/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Puppet</title>
+      <link>https://trinidadmarroquin.com/tags/puppet/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/puppet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://trinidadmarroquin.com/tags/python/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/python/</guid>
       <description></description>
     </item>
     <item>

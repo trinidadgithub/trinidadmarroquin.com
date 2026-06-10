@@ -10,11 +10,32 @@
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/field-notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Blue-Green Deployment With NGINX</title>
+      <link>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</guid>
+      <description>Field note for blue-green deployment mechanics using NGINX upstream switching, covering manual and weighted patterns.</description>
+    </item>
+    <item>
+      <title>Canary Deployments With HAProxy Weighted Routing</title>
+      <link>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
+      <description>Field note for canary deployment mechanics using HAProxy weighted backends to control blast radius during rollout.</description>
+    </item>
+    <item>
       <title>Docker Stale Binaries In Usr Local Bin</title>
       <link>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</guid>
       <description>Field note for diagnosing Docker failures caused by stale runc and containerd-shim-runc-v2 binaries in /usr/local/bin shadowing package-managed versions.</description>
+    </item>
+    <item>
+      <title>Feature Toggles With Environment Variables</title>
+      <link>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</guid>
+      <description>Field note for using environment variables as feature toggles, including cross-language patterns and the limits of the approach.</description>
     </item>
     <item>
       <title>Kafka Readiness Checks In Terraform Docker Labs</title>
@@ -29,6 +50,13 @@
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
+    </item>
+    <item>
+      <title>Rollback Strategies With Sentinel Files And Package Management</title>
+      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
+      <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
     <item>
       <title>Secret Handling In Terraform Managed Labs</title>

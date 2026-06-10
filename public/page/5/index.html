@@ -217,6 +217,79 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The hardest part of automating VM provisioning is not always creating the VM. It is deciding which layer owns first boot.
+In one troubleshooting session, a Terraform refactor exposed a chain of hidden coupling between Packer, Terraform, vSphere customization, cloud-init, bootstrap scripts, netplan, SSH, and iSCSI. Each tool was doing something useful. The problem was that several of them were trying to own the same parts of the machine lifecycle.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap" href="https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>govc is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
+Load Environment Use a clearly named helper file, not vars.env if it is only for govc:
+source govc.env govc about Typical values:
+export GOVC_URL=&#39;vcenter.example.com&#39; export GOVC_USERNAME=&#39;administrator@vsphere.local&#39; export GOVC_PASSWORD=&#39;...&#39; export GOVC_INSECURE=1 export GOVC_DATACENTER=&#39;VC-Austin&#39; Find A VM Path Search by VM name:
+govc find / -type m -name &#39;AUS-1-wrkr-12-uat&#39; Example result:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to govc Commands For vSphere VM Verification" href="https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
+Target State For a node with primary and iSCSI networks:
+ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
+deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Netplan Conflicts After VMware Guest Customization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>VMware guest customization can write /etc/netplan/99-netcfg-vmware.yaml. If the template already has another active netplan file, the host can end up with multiple network authorities.
+That can break routing, DNS, bootstrap scripts, Kubernetes node communication, and storage initialization.
+Symptoms Common signs:
+Error: Conflicting default route declarations for IPv4 first declared in nic0 but also in ens192 or:
+Destination Host Unreachable or DNS search drift like:
+resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/netplan sudo grep -R &#34;routes:\|gateway\|search:&#34; /etc/netplan -n If both a template file and VMware file are present, decide which one owns networking.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules
     </h2>
   </header>
@@ -319,45 +392,12 @@ During a recent Terraform and vSphere refactor, an LLM helped connect several la
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain" href="https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vSphere Guestinfo And Cloud-Init On Cloned VMs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform can inject cloud-init data into vSphere clones through VMware guestinfo keys. That only works if the template is built to let cloud-init run on first boot.
-Symptom Terraform creates or replaces the VM, but the expected userdata.yaml behavior does not happen. Bootstrap does not run, SSH is not configured, or /var/log/futurex-bootstrap.log is missing.
-Check Guestinfo From vSphere Use govc to inspect the VM extra config:
-source govc.env govc vm.info -e /FX-Bulverde/vm/K8-Cluster/OpsTools/sat-1-api-lb-1-qaops \ | grep &#39;guestinfo\|disk.enableUUID&#39; Look for keys like:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vSphere Guestinfo And Cloud-Init On Cloned VMs" href="https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Breaking Barriers: The DevOps Silos Anti-Pattern
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Part 1 of the DevOps Dirty Dozen Series: Divide et impera — divide and conquer.
-Insight: Creating silos fragments unity and purpose.
-DevOps was supposed to unite us, but too often, it divides us into silos. Silos isolate teams, stifle communication, and undermine the very principles DevOps was built upon. Why do these silos exist? What makes them so destructive? And how can we tear them down to deliver on DevOps’ promise of collaboration and innovation?
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2025-01-16 00:00:00 -0600 CST'>January 16, 2025</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Breaking Barriers: The DevOps Silos Anti-Pattern" href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://trinidadmarroquin.com/page/4/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://trinidadmarroquin.com/page/6/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

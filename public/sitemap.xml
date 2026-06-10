@@ -23,6 +23,12 @@
     <loc>https://trinidadmarroquin.com/tags/azure/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/categories/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -71,6 +77,9 @@
     <loc>https://trinidadmarroquin.com/tags/eks/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/categories/field-notes/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -93,6 +102,9 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/grafana/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/haproxy/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/helm/</loc>
@@ -155,6 +167,9 @@
     <loc>https://trinidadmarroquin.com/tags/networking/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/tags/nginx/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/categories/notes/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -203,6 +218,12 @@
     <loc>https://trinidadmarroquin.com/tags/prometheus/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/tags/puppet/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/python/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/tags/rancher/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -216,6 +237,9 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/review/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/runc/</loc>

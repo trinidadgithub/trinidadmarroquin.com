@@ -177,6 +177,41 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Blue-Green Deployment With NGINX
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Blue-green deployment keeps two environments running. At any time, one environment serves production traffic and the other waits for the next release.
+The switch is the critical moment. How it happens determines whether the pattern is fast rollback or just extra complexity.
+The NGINX Upstream Switch The simplest blue-green switch is an NGINX upstream block with one active server and one standby:
+upstream backend { server blue:5000; # server green:5000; } Comment or uncomment the server line, then reload NGINX. Traffic moves to the active environment.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Blue-Green Deployment With NGINX" href="https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Canary Deployments With HAProxy Weighted Routing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A canary deployment sends a small fraction of traffic to a new version while the stable version handles the rest. If the canary fails, only the test fraction is affected.
+HAProxy makes this pattern visible and controllable through weighted backend servers.
+Weight Ratio backend servers balance leastconn server v1 api_v1:8080 weight 10 check server v2 api_v2:8080 weight 1 check With weights 10 and 1, approximately 9% of requests reach v2. The weight proportion directly controls the blast radius:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Canary Deployments With HAProxy Weighted Routing" href="https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Docker Stale Binaries In Usr Local Bin
     </h2>
   </header>
@@ -189,6 +224,25 @@ The Pattern docker ps # works, lists containers docker run hello-world # hangs o
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Docker Stale Binaries In Usr Local Bin" href="https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
+The Pattern Python:
+import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
+#include &lt;stdlib.h&gt; #include &lt;string.h&gt; const char* val = getenv(&#34;FEATURE_ENABLED&#34;); int feature_enabled = (val != NULL &amp;&amp; strcmp(val, &#34;true&#34;) == 0); Both implementations check a single environment variable. The toggle is consistent across languages.
+Cross-Language Gotchas C’s strcmp is case-sensitive. FEATURE_ENABLED=True evaluates to false. Python’s .lower() normalizes the input. Standardize on lowercase true/false values across all services to avoid surprises.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -223,6 +277,23 @@ The important part is not that everything runs on one machine. The important par
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Local SLI Labs With Prometheus Grafana And cAdvisor" href="https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Rollback Strategies With Sentinel Files And Package Management
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
+The Sentinel File Pattern A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:
+exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt/v1/c-app.deb&#39;, onlyif =&gt; &#39;test -f /tmp/simulate_failure&#39;, } The sentinel file is a teaching proxy. In production, the sentinel would be a health check failure, a metrics threshold breach, or a monitoring alert.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -276,80 +347,6 @@ StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kub
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Bootstrap Logging, Locks, And Continue-On-Failure Behavior
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>First-boot bootstrap scripts should be easy to debug after the VM is already running. For operational bootstrap, fail-fast is not always the best default.
-If a bootstrap framework configures hostname, SSH, disks, iSCSI, and node labels, stopping at the first failure may hide useful evidence from later checks. A better pattern is to run each stage, log the result, continue, and summarize failures at the end.
-Symptoms Bootstrap log stops after the first or second script. Later configuration steps never run. cloud-init-output.log shows only partial output. Re-running the bootstrap manually succeeds, but first boot did not. Log lines appear duplicated or interleaved. Use A Stage Runner Wrap each bootstrap step so failures are recorded but do not prevent later diagnostics:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Bootstrap Logging, Locks, And Continue-On-Failure Behavior" href="https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>govc is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
-Load Environment Use a clearly named helper file, not vars.env if it is only for govc:
-source govc.env govc about Typical values:
-export GOVC_URL=&#39;vcenter.example.com&#39; export GOVC_USERNAME=&#39;administrator@vsphere.local&#39; export GOVC_PASSWORD=&#39;...&#39; export GOVC_INSECURE=1 export GOVC_DATACENTER=&#39;VC-Austin&#39; Find A VM Path Search by VM name:
-govc find / -type m -name &#39;AUS-1-wrkr-12-uat&#39; Example result:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to govc Commands For vSphere VM Verification" href="https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
-Target State For a node with primary and iSCSI networks:
-ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
-deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Netplan Conflicts After VMware Guest Customization
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>VMware guest customization can write /etc/netplan/99-netcfg-vmware.yaml. If the template already has another active netplan file, the host can end up with multiple network authorities.
-That can break routing, DNS, bootstrap scripts, Kubernetes node communication, and storage initialization.
-Symptoms Common signs:
-Error: Conflicting default route declarations for IPv4 first declared in nic0 but also in ens192 or:
-Destination Host Unreachable or DNS search drift like:
-resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/netplan sudo grep -R &#34;routes:\|gateway\|search:&#34; /etc/netplan -n If both a template file and VMware file are present, decide which one owns networking.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

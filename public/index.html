@@ -254,6 +254,41 @@ account is also a billing boundary. some services (CloudTrail, Config) are per-a
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Blue-Green Deployment With NGINX
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Blue-green deployment keeps two environments running. At any time, one environment serves production traffic and the other waits for the next release.
+The switch is the critical moment. How it happens determines whether the pattern is fast rollback or just extra complexity.
+The NGINX Upstream Switch The simplest blue-green switch is an NGINX upstream block with one active server and one standby:
+upstream backend { server blue:5000; # server green:5000; } Comment or uncomment the server line, then reload NGINX. Traffic moves to the active environment.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Blue-Green Deployment With NGINX" href="https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Canary Deployments With HAProxy Weighted Routing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A canary deployment sends a small fraction of traffic to a new version while the stable version handles the rest. If the canary fails, only the test fraction is affected.
+HAProxy makes this pattern visible and controllable through weighted backend servers.
+Weight Ratio backend servers balance leastconn server v1 api_v1:8080 weight 10 check server v2 api_v2:8080 weight 1 check With weights 10 and 1, approximately 9% of requests reach v2. The weight proportion directly controls the blast radius:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Canary Deployments With HAProxy Weighted Routing" href="https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Cloud Account And Environment Organization
     </h2>
   </header>
@@ -358,42 +393,6 @@ The Pattern docker ps # works, lists containers docker run hello-world # hangs o
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Docker Stale Binaries In Usr Local Bin" href="https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">From Local IaC Labs To Production-Ready Patterns
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Local infrastructure labs are valuable when they are treated honestly.
-They are not production. They are a controlled way to isolate a workflow, prove sequencing, expose assumptions, and build operational muscle memory before the real platform adds more failure modes.
-The mistake is promoting a lab by copying it directly into production. The better path is to promote the pattern, not the implementation.
-What Local Labs Are Good For Local IaC labs are especially useful for learning dependencies.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to From Local IaC Labs To Production-Ready Patterns" href="https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">GCP Operational Patterns
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>GCP organizes resources into projects, which are lighter and more numerous than AWS accounts. This changes how isolation, IAM, and networking are approached.
-Project Structure A GCP project is the primary boundary for resources, IAM, and billing. Use separate projects for production, non-production, shared services, and sandbox work.
-Key differences from other providers:
-projects belong to a hierarchy: organization -&gt; folder -&gt; project. IAM policies are inherited from parent nodes in the hierarchy. service accounts are project-scoped but can be shared across projects. VPCs are global, not regional. projects have a quota and API enablement surface that must be managed. GKE Cluster Operations GKE offers three modes: Autopilot, Standard (regional), and Standard (zonal). Regional clusters are the recommended default for production because the control plane and nodes are replicated across zones.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to GCP Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

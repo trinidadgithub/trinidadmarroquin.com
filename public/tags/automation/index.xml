@@ -44,5 +44,12 @@
       <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
+    <item>
+      <title>Rollback Strategies With Sentinel Files And Package Management</title>
+      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
+      <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
+    </item>
   </channel>
 </rss>

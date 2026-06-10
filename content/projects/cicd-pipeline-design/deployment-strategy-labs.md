@@ -40,6 +40,13 @@ In production, the deployment strategy should be tied to service risk.
 
 Low-risk internal services may only need rolling updates and clear health checks. Customer-facing services with high blast radius may need canaries, automated analysis, and fast rollback. Database changes require a separate migration and recovery plan regardless of the application rollout strategy.
 
+## Related Field Notes
+
+- [Blue-Green Deployment With NGINX](/field-notes/blue-green-deployment-nginx-swap/) -- upstream switching mechanics, weighted routing, reload vs restart.
+- [Canary Deployments With HAProxy Weighted Routing](/field-notes/canary-deployment-haproxy-weighted-routing/) -- weight ratio math, health checks, balance strategy.
+- [Feature Toggles With Environment Variables](/field-notes/feature-toggles-environment-variables/) -- cross-language patterns, limitations, progression path.
+- [Rollback Strategies With Sentinel Files And Package Management](/field-notes/rollback-sentinel-package-management/) -- failure detection, dependency chaining, production checklist.
+
 ## Acceptance Criteria
 
 - Strategy is matched to service risk.
