@@ -23,5 +23,12 @@
       <guid>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</guid>
       <description>Initial conventions for log fields, metric names, labels, cardinality, and operational searchability.</description>
     </item>
+    <item>
+      <title>Secret Handling In Terraform Managed Labs</title>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
+      <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
+    </item>
   </channel>
 </rss>

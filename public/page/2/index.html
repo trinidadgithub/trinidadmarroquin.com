@@ -314,6 +314,42 @@ Access Model Rancher should authenticate normal users through Active Directory. 
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
+The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
+Common Lab Shortcuts Terraform-managed Docker labs often include:
+Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
+The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
+Target Shape For Azure Blob Storage, the backend needs:
+a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Operational Module Boundaries
     </h2>
   </header>
@@ -363,44 +399,6 @@ The useful move was not to fix the first scary event. It was to separate the fai
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vault Deployment And Unseal Runbooks
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Vault deployment work should be treated as security infrastructure, not just another stateful service.
-The runbooks need to cover normal operation and the uncomfortable moments: initialization, sealing, unsealing, leader changes, backup, and recovery.
-Deployment Baseline Document:
-storage backend. HA topology. TLS certificates. seal mechanism. audit devices. auth methods. backup and restore path. monitoring and alerting expectations. Vault should not run in production without audit logging and a tested recovery path.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Vault Deployment And Unseal Runbooks" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vault Policy Auth And Secrets Engines
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Vault policies are path-based and deny by default. That makes policy design powerful, but it also makes messy path design painful.
-Start by organizing secrets engines and paths around ownership and consumption patterns.
-Policy Design Policies should be small, named clearly, and mapped to roles or groups.
-Good policy names describe intent:
-team-a-kv-read platform-transit-admin ci-prod-db-read Avoid broad wildcard policies unless the path is already tightly scoped.
-Auth Methods Use auth methods that match the consumer:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Vault Policy Auth And Secrets Engines" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

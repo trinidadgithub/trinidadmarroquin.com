@@ -197,6 +197,42 @@ formatting. static syntax validation. provider initialization without touching p
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
+The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
+Common Lab Shortcuts Terraform-managed Docker labs often include:
+Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
+The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
+Target Shape For Azure Blob Storage, the backend needs:
+a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Operational Module Boundaries
     </h2>
   </header>
@@ -320,41 +356,6 @@ The original Terraform repo had grown into a collection of copied root modules. 
 
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules" href="https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Terraform refactor can look like a file organization problem until the first plan, clone, and bootstrap run.
-The repo I was working on had the usual signs of age: copied environment roots, local state files, duplicated templates, inconsistent variable files, and old one-off directories that were still sitting beside active infrastructure. The obvious fix was to move toward a cleaner layout:
-environments/&lt;site&gt;/&lt;env&gt;/ modules/vsphere-vm-group/ templates/ archive/ That was the right direction. It was also only the beginning.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling" href="https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform State Moves During A Module Refactor
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When an existing Terraform resource is moved into a module, Terraform sees a new resource address. If state is not moved first, the plan may try to create the module resource and destroy the old root resource.
-Symptom After converting a root resource to a module call, the plan shows addresses like this:
-# module.vm_group.vsphere_virtual_machine.vm[&#34;lb1&#34;] will be created while the existing state still has:
-vsphere_virtual_machine.vm[&#34;lb1&#34;] Check Current State Run from the environment root:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform State Moves During A Module Refactor" href="https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

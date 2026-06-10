@@ -30,5 +30,12 @@
       <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
+    <item>
+      <title>Secret Handling In Terraform Managed Labs</title>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
+      <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
+    </item>
   </channel>
 </rss>

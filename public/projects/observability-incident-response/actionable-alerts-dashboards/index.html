@@ -118,8 +118,8 @@
   "keywords": [
     "observability", "alerting", "sre"
   ],
-  "articleBody": "An alert should earn the right to interrupt a human.\nGoogle SRE guidance emphasizes alerting on urgent, actionable, user-visible or imminently user-visible problems. That is the useful standard.\nAlert Review Every page should answer:\nWhat is broken? Who owns it? What is the impact? What action should the responder take? Can this wait until business hours? If the response is always robotic, automate it or downgrade it.\nGolden Signals Dashboards should expose the four golden signals where applicable:\nlatency. traffic. errors. saturation. For infrastructure, add platform health signals such as node readiness, storage attach failures, controller health, certificate expiry, and capacity pressure.\nDashboard Design Dashboards should support decisions:\nIs the service healthy? Are users affected? What changed recently? Which dependency is unhealthy? Is capacity becoming a constraint? Avoid dashboards that are just metric galleries.\nAcceptance Criteria Every paging alert has an owner and runbook. Alerts are actionable and urgent. Dashboards show symptoms first, causes second. Noisy alerts are reviewed and removed. On-call feedback changes alert behavior. References Google SRE Book: Monitoring Distributed Systems. Google SRE Book: Practical Alerting. ",
-  "wordCount" : "178",
+  "articleBody": "An alert should earn the right to interrupt a human.\nGoogle SRE guidance emphasizes alerting on urgent, actionable, user-visible or imminently user-visible problems. That is the useful standard.\nAlert Review Every page should answer:\nWhat is broken? Who owns it? What is the impact? What action should the responder take? Can this wait until business hours? If the response is always robotic, automate it or downgrade it.\nGolden Signals Dashboards should expose the four golden signals where applicable:\nlatency. traffic. errors. saturation. For infrastructure, add platform health signals such as node readiness, storage attach failures, controller health, certificate expiry, and capacity pressure.\nDashboard Design Dashboards should support decisions:\nIs the service healthy? Are users affected? What changed recently? Which dependency is unhealthy? Is capacity becoming a constraint? Avoid dashboards that are just metric galleries.\nLocal SLI Labs A small Docker-based lab with an application, Prometheus, Grafana, and a container exporter is a useful way to practice SLI design. The lab should prove that metrics are scraped, dashboards answer operational questions, and credentials or host mounts are not mistaken for production-safe defaults.\nSee also: Secret Handling In Terraform Managed Labs.\nAcceptance Criteria Every paging alert has an owner and runbook. Alerts are actionable and urgent. Dashboards show symptoms first, causes second. Noisy alerts are reviewed and removed. On-call feedback changes alert behavior. References Google SRE Book: Monitoring Distributed Systems. Google SRE Book: Practical Alerting. ",
+  "wordCount" : "233",
   "inLanguage": "en",
   "datePublished": "2026-06-10T00:00:00-05:00",
   "dateModified": "2026-06-10T00:00:00-05:00",
@@ -243,7 +243,7 @@
     </div>
     <div class="post-meta">
 
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
 
 </div>
   </header> 
@@ -278,6 +278,9 @@
 <li>Is capacity becoming a constraint?</li>
 </ul>
 <p>Avoid dashboards that are just metric galleries.</p>
+<h2 id="local-sli-labs">Local SLI Labs<a hidden class="anchor" aria-hidden="true" href="#local-sli-labs">#</a></h2>
+<p>A small Docker-based lab with an application, Prometheus, Grafana, and a container exporter is a useful way to practice SLI design. The lab should prove that metrics are scraped, dashboards answer operational questions, and credentials or host mounts are not mistaken for production-safe defaults.</p>
+<p>See also: <a href="/field-notes/terraform-lab-secret-handling/">Secret Handling In Terraform Managed Labs</a>.</p>
 <h2 id="acceptance-criteria">Acceptance Criteria<a hidden class="anchor" aria-hidden="true" href="#acceptance-criteria">#</a></h2>
 <ul>
 <li>Every paging alert has an owner and runbook.</li>

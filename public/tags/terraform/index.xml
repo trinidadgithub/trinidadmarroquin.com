@@ -17,6 +17,20 @@
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
     <item>
+      <title>Secret Handling In Terraform Managed Labs</title>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
+      <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
+    </item>
+    <item>
+      <title>Terraform Azure Backend Bootstrap</title>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</guid>
+      <description>Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.</description>
+    </item>
+    <item>
       <title>Terraform Operational Module Boundaries</title>
       <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>

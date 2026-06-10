@@ -55,6 +55,12 @@ A failed job should show:
 - link to plan or logs.
 - owner or next action.
 
+## Lab-To-Production Checks
+
+Local Concourse labs are useful for learning pipeline shape, worker behavior, and Terraform-driven platform setup. Before reusing the pattern in shared infrastructure, review secret handling, generated keys, local users, privileged workers, and exposed ports.
+
+See also: [Secret Handling In Terraform Managed Labs](/field-notes/terraform-lab-secret-handling/).
+
 ## Acceptance Criteria
 
 - Pipeline graph matches promotion flow.

@@ -43,6 +43,12 @@ Avoid using naming alone as the control. Names help humans, but policies, IAM, n
 - Are budgets, quotas, or alerts configured?
 - Is there a retirement path for unused environments?
 
+## Terraform State Foundations
+
+Cloud account and environment organization should include where Terraform state lives, who can access it, and how state is separated by environment or blast radius. A remote backend is not just a Terraform setting; it is shared operational infrastructure.
+
+See also: [Terraform Azure Backend Bootstrap](/field-notes/terraform-azure-backend-bootstrap/).
+
 ## References
 
 - AWS Well-Architected Framework.

@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Terraform Operational Module Boundaries | Trinidad Marroquin</title>
-<meta name="keywords" content="terraform, modules, operations">
-<meta name="description" content="Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.">
+<title>Terraform Azure Backend Bootstrap | Trinidad Marroquin</title>
+<meta name="keywords" content="terraform, azure, state, cloud">
+<meta name="description" content="Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.">
 <meta name="author" content="Trinidad Marroquin">
-<link rel="canonical" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/">
+<link rel="canonical" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.40c9e9a23b839d241bbe1ace530d4f5f0918782c06b4eb25b1821bc15b180bac.css" integrity="sha256-QMnpojuDnSQbvhrOUw1PXwkYeCwGtOslsYIbwVsYC6w=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/">
 <noscript>
     <style>
         #theme-toggle,
@@ -64,22 +64,23 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/">
+</script><meta property="og:url" content="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/">
   <meta property="og:site_name" content="Trinidad Marroquin">
-  <meta property="og:title" content="Terraform Operational Module Boundaries">
-  <meta property="og:description" content="Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.">
+  <meta property="og:title" content="Terraform Azure Backend Bootstrap">
+  <meta property="og:description" content="Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
-    <meta property="article:section" content="projects">
+    <meta property="article:section" content="field-notes">
     <meta property="article:published_time" content="2026-06-10T00:00:00-05:00">
     <meta property="article:modified_time" content="2026-06-10T00:00:00-05:00">
     <meta property="article:tag" content="Terraform">
-    <meta property="article:tag" content="Modules">
-    <meta property="article:tag" content="Operations">
+    <meta property="article:tag" content="Azure">
+    <meta property="article:tag" content="State">
+    <meta property="article:tag" content="Cloud">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Terraform Operational Module Boundaries">
-  <meta name="twitter:description" content="Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.">
+  <meta name="twitter:title" content="Terraform Azure Backend Bootstrap">
+  <meta name="twitter:description" content="Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.">
 
 
 <script type="application/ld+json">
@@ -90,20 +91,14 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Projects",
-      "item": "https://trinidadmarroquin.com/projects/"
+      "name": "Field Notes",
+      "item": "https://trinidadmarroquin.com/field-notes/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Terraform Infrastructure Modules",
-      "item": "https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "Terraform Operational Module Boundaries",
-      "item": "https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/"
+      "name": "Terraform Azure Backend Bootstrap",
+      "item": "https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"
     }
   ]
 }
@@ -112,14 +107,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Terraform Operational Module Boundaries",
-  "name": "Terraform Operational Module Boundaries",
-  "description": "Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.",
+  "headline": "Terraform Azure Backend Bootstrap",
+  "name": "Terraform Azure Backend Bootstrap",
+  "description": "Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.",
   "keywords": [
-    "terraform", "modules", "operations"
+    "terraform", "azure", "state", "cloud"
   ],
-  "articleBody": "Terraform modules should represent operational concepts, not just folders around resources.\nHashiCorp guidance recommends moderation: modules are useful when they raise the abstraction level, but thin wrappers around single resources often add complexity without improving ownership.\nBoundary Principles Good module boundaries answer:\nWho owns this infrastructure after apply? What lifecycle does it follow? What inputs must vary by environment? What outputs does another layer consume? What failure modes does the module hide or expose? Avoid modules that combine unrelated ownership domains. A Kubernetes node module, network module, and storage module may interact, but they are not necessarily owned by the same team or changed on the same cadence.\nRoot Modules Root modules should map to deployable units:\nenvironments/prod/network environments/prod/compute environments/nonprod/kubernetes This makes plan review safer because the blast radius is visible from the working directory.\nReusable Modules Reusable modules should have:\nclear inputs. stable outputs. examples. versioning. provider requirements. assumptions documented near the code. Keep module trees relatively flat. Deep nesting makes ownership and state movement harder to understand.\nAcceptance Criteria Each module has a named operational owner. Root modules match environment and blast-radius boundaries. Reusable modules expose architecture-level concepts. Module outputs are intentional contracts. Refactors use moved blocks or explicit state moves. References Terraform documentation: Creating Modules. Terraform documentation: Best Practices for Composing Modules. Terraform documentation: Refactoring Modules. ",
-  "wordCount" : "219",
+  "articleBody": "Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.\nThe clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.\nTarget Shape For Azure Blob Storage, the backend needs:\na resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:\nterraform { backend \"azurerm\" { resource_group_name = \"platform-state-rg\" storage_account_name = \"platformstateacct\" container_name = \"terraform-state\" key = \"prod/network/terraform.tfstate\" } } The exact names should match the environment and ownership model. Avoid reusing one vague state key for unrelated infrastructure.\nBootstrap Sequence Start with the backend block commented out or absent:\nterraform init terraform validate terraform plan terraform apply After the resource group, storage account, and container exist, add the backend block and migrate:\nterraform init -migrate-state Verify that Terraform now reads and writes remote state:\nterraform state list terraform plan The plan should be clean unless other intentional changes exist.\nState Key Rules Use state keys that express blast radius:\nprod/network/terraform.tfstate prod/aks/terraform.tfstate nonprod/network/terraform.tfstate shared/observability/terraform.tfstate Avoid:\nterraform.tfstate main.tfstate test.tfstate Those names hide ownership and make recovery harder when multiple roots exist.\nAccess And Safety Checks Before using the backend for shared work, confirm:\nthe container is private. only the automation and operators that need state access can read it. state access is logged through Azure activity logs or storage diagnostics where required. the storage account is protected by the expected network and identity controls. state files are excluded from Git. At minimum, keep this out of source control:\n**/*.tfstate **/*.tfstate.* **/*.tfplan Recovery Notes If backend migration fails, do not delete local state casually. First identify where the current authoritative state lives:\nterraform state list Then inspect the backend configuration and rerun initialization only after the storage account, container, and key are correct:\nterraform init -reconfigure Use -reconfigure when changing backend settings without migrating existing state. Use -migrate-state when intentionally moving state from one backend to another.\nOperating Rule Backend bootstrapping is infrastructure work, not a throwaway setup step.\nWrite down:\nwho owns the state storage. which root module owns each key. how access is granted. how state is recovered. how old local state files are removed after migration. The goal is not just remote state. The goal is state that an operator can find, protect, and recover under pressure.\n",
+  "wordCount" : "415",
   "inLanguage": "en",
   "datePublished": "2026-06-10T00:00:00-05:00",
   "dateModified": "2026-06-10T00:00:00-05:00",
@@ -129,7 +124,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/"
+    "@id": "https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"
   },
   "publisher": {
     "@type": "Person",
@@ -224,22 +219,17 @@
                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
                 <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
-            <a href="/projects/">Projects</a>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-            <a href="/projects/terraform-infrastructure-modules/">Terraform Infrastructure Modules</a>
+            <a href="/field-notes/">Field Notes</a>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
         <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
 </nav>
     <h1 class="post-title entry-hint-parent">
-      Terraform Operational Module Boundaries
+      Terraform Azure Backend Bootstrap
     </h1>
     <div class="post-description">
-      Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.
+      Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.
     </div>
     <div class="post-meta">
 
@@ -247,49 +237,79 @@
 
 </div>
   </header> 
-  <div class="post-content md-content"><p>Terraform modules should represent operational concepts, not just folders around resources.</p>
-<p>HashiCorp guidance recommends moderation: modules are useful when they raise the abstraction level, but thin wrappers around single resources often add complexity without improving ownership.</p>
-<h2 id="boundary-principles">Boundary Principles<a hidden class="anchor" aria-hidden="true" href="#boundary-principles">#</a></h2>
-<p>Good module boundaries answer:</p>
+  <div class="post-content md-content"><p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.</p>
+<p>The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.</p>
+<h2 id="target-shape">Target Shape<a hidden class="anchor" aria-hidden="true" href="#target-shape">#</a></h2>
+<p>For Azure Blob Storage, the backend needs:</p>
 <ul>
-<li>Who owns this infrastructure after apply?</li>
-<li>What lifecycle does it follow?</li>
-<li>What inputs must vary by environment?</li>
-<li>What outputs does another layer consume?</li>
-<li>What failure modes does the module hide or expose?</li>
+<li>a resource group.</li>
+<li>a storage account.</li>
+<li>a private blob container.</li>
+<li>a stable state key per root module or environment.</li>
 </ul>
-<p>Avoid modules that combine unrelated ownership domains. A Kubernetes node module, network module, and storage module may interact, but they are not necessarily owned by the same team or changed on the same cadence.</p>
-<h2 id="root-modules">Root Modules<a hidden class="anchor" aria-hidden="true" href="#root-modules">#</a></h2>
-<p>Root modules should map to deployable units:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">environments/prod/network
-</span></span><span class="line"><span class="cl">environments/prod/compute
-</span></span><span class="line"><span class="cl">environments/nonprod/kubernetes
-</span></span></code></pre></div><p>This makes plan review safer because the blast radius is visible from the working directory.</p>
-<h2 id="reusable-modules">Reusable Modules<a hidden class="anchor" aria-hidden="true" href="#reusable-modules">#</a></h2>
-<p>Reusable modules should have:</p>
+<p>Example backend shape:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">backend</span> <span class="s2">&#34;azurerm&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    resource_group_name</span>  <span class="o">=</span> <span class="s2">&#34;platform-state-rg&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    storage_account_name</span> <span class="o">=</span> <span class="s2">&#34;platformstateacct&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    container_name</span>       <span class="o">=</span> <span class="s2">&#34;terraform-state&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>                  <span class="o">=</span> <span class="s2">&#34;prod/network/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>The exact names should match the environment and ownership model. Avoid reusing one vague state key for unrelated infrastructure.</p>
+<h2 id="bootstrap-sequence">Bootstrap Sequence<a hidden class="anchor" aria-hidden="true" href="#bootstrap-sequence">#</a></h2>
+<p>Start with the backend block commented out or absent:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform init
+</span></span><span class="line"><span class="cl">terraform validate
+</span></span><span class="line"><span class="cl">terraform plan
+</span></span><span class="line"><span class="cl">terraform apply
+</span></span></code></pre></div><p>After the resource group, storage account, and container exist, add the backend block and migrate:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform init -migrate-state
+</span></span></code></pre></div><p>Verify that Terraform now reads and writes remote state:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform state list
+</span></span><span class="line"><span class="cl">terraform plan
+</span></span></code></pre></div><p>The plan should be clean unless other intentional changes exist.</p>
+<h2 id="state-key-rules">State Key Rules<a hidden class="anchor" aria-hidden="true" href="#state-key-rules">#</a></h2>
+<p>Use state keys that express blast radius:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">prod/network/terraform.tfstate
+</span></span><span class="line"><span class="cl">prod/aks/terraform.tfstate
+</span></span><span class="line"><span class="cl">nonprod/network/terraform.tfstate
+</span></span><span class="line"><span class="cl">shared/observability/terraform.tfstate
+</span></span></code></pre></div><p>Avoid:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">terraform.tfstate
+</span></span><span class="line"><span class="cl">main.tfstate
+</span></span><span class="line"><span class="cl">test.tfstate
+</span></span></code></pre></div><p>Those names hide ownership and make recovery harder when multiple roots exist.</p>
+<h2 id="access-and-safety-checks">Access And Safety Checks<a hidden class="anchor" aria-hidden="true" href="#access-and-safety-checks">#</a></h2>
+<p>Before using the backend for shared work, confirm:</p>
 <ul>
-<li>clear inputs.</li>
-<li>stable outputs.</li>
-<li>examples.</li>
-<li>versioning.</li>
-<li>provider requirements.</li>
-<li>assumptions documented near the code.</li>
+<li>the container is private.</li>
+<li>only the automation and operators that need state access can read it.</li>
+<li>state access is logged through Azure activity logs or storage diagnostics where required.</li>
+<li>the storage account is protected by the expected network and identity controls.</li>
+<li>state files are excluded from Git.</li>
 </ul>
-<p>Keep module trees relatively flat. Deep nesting makes ownership and state movement harder to understand.</p>
-<h2 id="acceptance-criteria">Acceptance Criteria<a hidden class="anchor" aria-hidden="true" href="#acceptance-criteria">#</a></h2>
+<p>At minimum, keep this out of source control:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">**/*.tfstate
+</span></span><span class="line"><span class="cl">**/*.tfstate.*
+</span></span><span class="line"><span class="cl">**/*.tfplan
+</span></span></code></pre></div><h2 id="recovery-notes">Recovery Notes<a hidden class="anchor" aria-hidden="true" href="#recovery-notes">#</a></h2>
+<p>If backend migration fails, do not delete local state casually. First identify where the current authoritative state lives:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform state list
+</span></span></code></pre></div><p>Then inspect the backend configuration and rerun initialization only after the storage account, container, and key are correct:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform init -reconfigure
+</span></span></code></pre></div><p>Use <code>-reconfigure</code> when changing backend settings without migrating existing state. Use <code>-migrate-state</code> when intentionally moving state from one backend to another.</p>
+<h2 id="operating-rule">Operating Rule<a hidden class="anchor" aria-hidden="true" href="#operating-rule">#</a></h2>
+<p>Backend bootstrapping is infrastructure work, not a throwaway setup step.</p>
+<p>Write down:</p>
 <ul>
-<li>Each module has a named operational owner.</li>
-<li>Root modules match environment and blast-radius boundaries.</li>
-<li>Reusable modules expose architecture-level concepts.</li>
-<li>Module outputs are intentional contracts.</li>
-<li>Refactors use moved blocks or explicit state moves.</li>
+<li>who owns the state storage.</li>
+<li>which root module owns each key.</li>
+<li>how access is granted.</li>
+<li>how state is recovered.</li>
+<li>how old local state files are removed after migration.</li>
 </ul>
-<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
-<ul>
-<li>Terraform documentation: Creating Modules.</li>
-<li>Terraform documentation: Best Practices for Composing Modules.</li>
-<li>Terraform documentation: Refactoring Modules.</li>
-</ul>
+<p>The goal is not just remote state. The goal is state that an operator can find, protect, and recover under pressure.</p>
 
 
   </div>
@@ -297,17 +317,18 @@
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://trinidadmarroquin.com/tags/terraform/">Terraform</a></li>
-      <li><a href="https://trinidadmarroquin.com/tags/modules/">Modules</a></li>
-      <li><a href="https://trinidadmarroquin.com/tags/operations/">Operations</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/azure/">Azure</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/state/">State</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/cloud/">Cloud</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/">
+  <a class="prev" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/">
     <span class="title">« Prev</span>
-    <span>Terraform Azure Backend Bootstrap</span>
+    <span>Secret Handling In Terraform Managed Labs</span>
   </a>
-  <a class="next" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/">
+  <a class="next" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/">
     <span class="title">Next »</span>
-    <span>Terraform Plan Review Practices</span>
+    <span>Terraform Operational Module Boundaries</span>
   </a>
 </nav>
 

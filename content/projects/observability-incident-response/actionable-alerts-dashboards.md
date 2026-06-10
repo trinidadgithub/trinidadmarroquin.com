@@ -46,6 +46,12 @@ Dashboards should support decisions:
 
 Avoid dashboards that are just metric galleries.
 
+## Local SLI Labs
+
+A small Docker-based lab with an application, Prometheus, Grafana, and a container exporter is a useful way to practice SLI design. The lab should prove that metrics are scraped, dashboards answer operational questions, and credentials or host mounts are not mistaken for production-safe defaults.
+
+See also: [Secret Handling In Terraform Managed Labs](/field-notes/terraform-lab-secret-handling/).
+
 ## Acceptance Criteria
 
 - Every paging alert has an owner and runbook.

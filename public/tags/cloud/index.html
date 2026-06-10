@@ -228,6 +228,24 @@ identity and access. network routing and exposure. compute lifecycle. storage an
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Cloud Provider Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/"></a>
 </article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
+The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
+Target Shape For Azure Blob Storage, the backend needs:
+a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
+</article>
     </main>
     
 <footer class="footer">

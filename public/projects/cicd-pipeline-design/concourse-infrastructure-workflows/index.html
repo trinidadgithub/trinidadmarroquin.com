@@ -118,8 +118,8 @@
   "keywords": [
     "cicd", "concourse", "infrastructure"
   ],
-  "articleBody": "Concourse works well for infrastructure when the pipeline graph tells the truth about the change flow.\nJobs should be small enough to understand and resources should capture the actual inputs.\nPipeline Shape Common jobs:\nlint. validate. plan. plan review or approval. apply non-production. apply production. post-apply verification. Use serial groups for stateful targets so two applies do not compete for the same backend or environment.\nTask Design Tasks should:\nrun from versioned scripts. print the exact target environment. fail loudly on missing variables. keep secrets out of logs. publish plan or verification artifacts. Resource Patterns Useful resources:\nGit repository. versioned image for task runtime. artifact store for plans. notification or issue tracker integration. environment promotion marker. Failure Output A failed job should show:\ncommand executed. environment target. safe error output. link to plan or logs. owner or next action. Acceptance Criteria Pipeline graph matches promotion flow. Stateful applies are serialized. Plans are retained. Secrets are not printed. Operators can rerun safely after fixing inputs. ",
-  "wordCount" : "164",
+  "articleBody": "Concourse works well for infrastructure when the pipeline graph tells the truth about the change flow.\nJobs should be small enough to understand and resources should capture the actual inputs.\nPipeline Shape Common jobs:\nlint. validate. plan. plan review or approval. apply non-production. apply production. post-apply verification. Use serial groups for stateful targets so two applies do not compete for the same backend or environment.\nTask Design Tasks should:\nrun from versioned scripts. print the exact target environment. fail loudly on missing variables. keep secrets out of logs. publish plan or verification artifacts. Resource Patterns Useful resources:\nGit repository. versioned image for task runtime. artifact store for plans. notification or issue tracker integration. environment promotion marker. Failure Output A failed job should show:\ncommand executed. environment target. safe error output. link to plan or logs. owner or next action. Lab-To-Production Checks Local Concourse labs are useful for learning pipeline shape, worker behavior, and Terraform-driven platform setup. Before reusing the pattern in shared infrastructure, review secret handling, generated keys, local users, privileged workers, and exposed ports.\nSee also: Secret Handling In Terraform Managed Labs.\nAcceptance Criteria Pipeline graph matches promotion flow. Stateful applies are serialized. Plans are retained. Secrets are not printed. Operators can rerun safely after fixing inputs. ",
+  "wordCount" : "208",
   "inLanguage": "en",
   "datePublished": "2026-06-10T00:00:00-05:00",
   "dateModified": "2026-06-10T00:00:00-05:00",
@@ -288,6 +288,9 @@
 <li>link to plan or logs.</li>
 <li>owner or next action.</li>
 </ul>
+<h2 id="lab-to-production-checks">Lab-To-Production Checks<a hidden class="anchor" aria-hidden="true" href="#lab-to-production-checks">#</a></h2>
+<p>Local Concourse labs are useful for learning pipeline shape, worker behavior, and Terraform-driven platform setup. Before reusing the pattern in shared infrastructure, review secret handling, generated keys, local users, privileged workers, and exposed ports.</p>
+<p>See also: <a href="/field-notes/terraform-lab-secret-handling/">Secret Handling In Terraform Managed Labs</a>.</p>
 <h2 id="acceptance-criteria">Acceptance Criteria<a hidden class="anchor" aria-hidden="true" href="#acceptance-criteria">#</a></h2>
 <ul>
 <li>Pipeline graph matches promotion flow.</li>
