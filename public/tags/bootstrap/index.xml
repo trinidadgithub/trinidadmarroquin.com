@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bootstrap on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/bootstrap/</link>
+    <link>http://localhost:1313/tags/bootstrap/</link>
     <description>Recent content in Bootstrap on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/bootstrap/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/bootstrap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bootstrap Logging, Locks, And Continue-On-Failure Behavior</title>
-      <link>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</link>
+      <link>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</guid>
+      <guid>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</guid>
       <description>Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.</description>
     </item>
   </channel>

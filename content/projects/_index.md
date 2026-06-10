@@ -84,7 +84,8 @@ description = 'Professional project areas covering platform operations, cloud pl
     <p>Pipeline work focused on clear promotion paths, repeatable tasks, controlled credentials, and failure output that helps teams recover quickly.</p>
     <ul>
       <li><a href="/projects/cicd-pipeline-design/validation-planning-apply-stages/">Validation, planning, and apply stages.</a></li>
-      <li><a href="/projects/cicd-pipeline-design/credential-handling-promotion/">Credential handling, resource design, and branch-based promotion.</a></li>
+      <li><a href="/projects/cicd-pipeline-design/helm-terraform-validation/">Helm and Terraform validation strategy.</a></li>
+      <li><a href="/projects/cicd-pipeline-design/deployment-strategy-labs/">Deployment strategy labs.</a></li>
       <li><a href="/projects/cicd-pipeline-design/concourse-infrastructure-workflows/">Concourse workflows for infrastructure and platform repositories.</a></li>
     </ul>
     <p class="card-more"><a href="/projects/cicd-pipeline-design/">More</a></p>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Deployment Strategy Labs | Trinidad Marroquin</title>
+<meta name="keywords" content="cicd, deployment, validation, automation">
+<meta name="description" content="Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Deployment Strategy Labs">
+  <meta property="og:description" content="Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:modified_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:tag" content="Cicd">
+    <meta property="article:tag" content="Deployment">
+    <meta property="article:tag" content="Validation">
+    <meta property="article:tag" content="Automation">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Deployment Strategy Labs">
+  <meta name="twitter:description" content="Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CI/CD Pipeline Design",
+      "item": "http://localhost:1313/projects/cicd-pipeline-design/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Deployment Strategy Labs",
+      "item": "http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Deployment Strategy Labs",
+  "name": "Deployment Strategy Labs",
+  "description": "Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.",
+  "keywords": [
+    "cicd", "deployment", "validation", "automation"
+  ],
+  "articleBody": "Deployment strategy labs are useful when they make failure handling visible.\nThe goal is not to prove that blue-green, canary, feature toggles, or rollback scripts are fashionable. The goal is to understand which failure mode each strategy reduces and which operational cost it adds.\nStrategy Comparison Useful lab scenarios include:\nblue-green switching for fast rollback to a known environment. canary rollout for limiting user exposure. feature toggles for disabling behavior without redeploying. rollback packages or manifests for restoring a previous version. health checks that block promotion or trigger investigation. Each strategy should be tested with a deliberate failure. If the lab only demonstrates a successful deployment, it misses the point.\nOperator Questions For each deployment pattern, answer:\nHow is traffic shifted? What proves the new version is healthy? What metric or alert stops the rollout? How quickly can the previous version be restored? What state changes cannot be rolled back safely? Who owns the decision to continue, pause, or revert? Production Translation In production, the deployment strategy should be tied to service risk.\nLow-risk internal services may only need rolling updates and clear health checks. Customer-facing services with high blast radius may need canaries, automated analysis, and fast rollback. Database changes require a separate migration and recovery plan regardless of the application rollout strategy.\nAcceptance Criteria Strategy is matched to service risk. Health checks are meaningful, not just process checks. Rollback is rehearsed. Monitoring can detect the failure the strategy is meant to contain. Database and external dependency changes are handled separately. ",
+  "wordCount" : "252",
+  "inLanguage": "en",
+  "datePublished": "2026-06-10T00:00:00-05:00",
+  "dateModified": "2026-06-10T00:00:00-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/">Projects</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/cicd-pipeline-design/">CI/CD Pipeline Design</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Deployment Strategy Labs
+    </h1>
+    <div class="post-description">
+      Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Deployment strategy labs are useful when they make failure handling visible.</p>
+<p>The goal is not to prove that blue-green, canary, feature toggles, or rollback scripts are fashionable. The goal is to understand which failure mode each strategy reduces and which operational cost it adds.</p>
+<h2 id="strategy-comparison">Strategy Comparison<a hidden class="anchor" aria-hidden="true" href="#strategy-comparison">#</a></h2>
+<p>Useful lab scenarios include:</p>
+<ul>
+<li>blue-green switching for fast rollback to a known environment.</li>
+<li>canary rollout for limiting user exposure.</li>
+<li>feature toggles for disabling behavior without redeploying.</li>
+<li>rollback packages or manifests for restoring a previous version.</li>
+<li>health checks that block promotion or trigger investigation.</li>
+</ul>
+<p>Each strategy should be tested with a deliberate failure. If the lab only demonstrates a successful deployment, it misses the point.</p>
+<h2 id="operator-questions">Operator Questions<a hidden class="anchor" aria-hidden="true" href="#operator-questions">#</a></h2>
+<p>For each deployment pattern, answer:</p>
+<ul>
+<li>How is traffic shifted?</li>
+<li>What proves the new version is healthy?</li>
+<li>What metric or alert stops the rollout?</li>
+<li>How quickly can the previous version be restored?</li>
+<li>What state changes cannot be rolled back safely?</li>
+<li>Who owns the decision to continue, pause, or revert?</li>
+</ul>
+<h2 id="production-translation">Production Translation<a hidden class="anchor" aria-hidden="true" href="#production-translation">#</a></h2>
+<p>In production, the deployment strategy should be tied to service risk.</p>
+<p>Low-risk internal services may only need rolling updates and clear health checks. Customer-facing services with high blast radius may need canaries, automated analysis, and fast rollback. Database changes require a separate migration and recovery plan regardless of the application rollout strategy.</p>
+<h2 id="acceptance-criteria">Acceptance Criteria<a hidden class="anchor" aria-hidden="true" href="#acceptance-criteria">#</a></h2>
+<ul>
+<li>Strategy is matched to service risk.</li>
+<li>Health checks are meaningful, not just process checks.</li>
+<li>Rollback is rehearsed.</li>
+<li>Monitoring can detect the failure the strategy is meant to contain.</li>
+<li>Database and external dependency changes are handled separately.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/cicd/">Cicd</a></li>
+      <li><a href="http://localhost:1313/tags/deployment/">Deployment</a></li>
+      <li><a href="http://localhost:1313/tags/validation/">Validation</a></li>
+      <li><a href="http://localhost:1313/tags/automation/">Automation</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/">
+    <span class="title">« Prev</span>
+    <span>Concourse Infrastructure Workflows</span>
+  </a>
+  <a class="next" href="http://localhost:1313/field-notes/docker-stale-binaries-path/">
+    <span class="title">Next »</span>
+    <span>Docker Stale Binaries In Usr Local Bin</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

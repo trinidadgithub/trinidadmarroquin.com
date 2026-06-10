@@ -2,39 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Notes on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/categories/notes/</link>
+    <link>http://localhost:1313/categories/notes/</link>
     <description>Recent content in Notes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Local IaC Labs To Production-Ready Patterns</title>
+      <link>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</guid>
+      <description>A practical SRE view of how local Terraform, Docker, Helm, Kafka, and observability labs can become production-ready infrastructure patterns without pretending the lab is production.</description>
+    </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
-      <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
       <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
     </item>
     <item>
       <title>First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap</title>
-      <link>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
+      <link>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
+      <guid>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
       <description>A systems note on assigning clear ownership between Packer templates, Terraform vSphere clones, guest customization, cloud-init, bootstrap scripts, and CSI storage.</description>
     </item>
     <item>
       <title>Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling</title>
-      <link>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
+      <link>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
+      <guid>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
       <description>A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.</description>
     </item>
     <item>
       <title>Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain</title>
-      <link>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</link>
+      <link>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</guid>
+      <guid>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</guid>
       <description>Practical lessons for using LLMs during infrastructure troubleshooting while preserving operator judgment, validation, and evidence-based debugging.</description>
     </item>
   </channel>

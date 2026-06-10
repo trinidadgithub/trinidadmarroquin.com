@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Storage on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/storage/</link>
+    <link>http://localhost:1313/tags/storage/</link>
     <description>Recent content in Storage on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes Platform Conventions</title>
-      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</link>
+      <link>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</guid>
+      <guid>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</guid>
       <description>Platform conventions for Kubernetes namespaces, ingress, storage, labels, policies, and ownership patterns that reduce operational drift.</description>
     </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
-      <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
       <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
     </item>
     <item>
       <title>vSphere CSI Attach And Mount Checklist</title>
-      <link>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</link>
+      <link>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</guid>
+      <guid>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</guid>
       <description>Field note for checking Kubernetes PVCs, StorageClasses, VolumeAttachments, worker VM disk UUID settings, and vSphere CSI mount readiness.</description>
     </item>
     <item>
       <title>iSCSI Bootstrap Readiness For Kubernetes Nodes</title>
-      <link>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
+      <link>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
+      <guid>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
       <description>Field note for preparing Kubernetes nodes with iSCSI networking, discovery, sessions, and CSI-ready storage behavior.</description>
     </item>
   </channel>
