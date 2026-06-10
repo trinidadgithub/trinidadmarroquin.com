@@ -25,7 +25,9 @@ description = 'Professional project areas covering platform operations, cloud pl
     <ul>
       <li><a href="/projects/cloud-based-platforms/account-environment-organization/">Account, project, subscription, and environment organization.</a></li>
       <li><a href="/projects/cloud-based-platforms/networking-iam-guardrails/">Networking, IAM, logging, and guardrails for platform teams.</a></li>
-      <li><a href="/projects/cloud-based-platforms/provider-operational-patterns/">Operational patterns that can later be broken down by provider and discipline.</a></li>
+      <li><a href="/projects/cloud-based-platforms/provider-operational-patterns/">Operational patterns broken down by provider and discipline.</a></li>
+      <li><a href="/projects/cloud-based-platforms/aws-operational-patterns/">AWS-specific patterns for EKS, networking, IAM, and IoT.</a></li>
+      <li><a href="/projects/cloud-based-platforms/gcp-operational-patterns/">GCP-specific patterns for GKE, project structure, IAM, and SRE discipline.</a></li>
     </ul>
     <p class="card-more"><a href="/projects/cloud-based-platforms/">More</a></p>
   </section>

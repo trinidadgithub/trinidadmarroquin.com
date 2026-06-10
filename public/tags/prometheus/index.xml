@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Prometheus on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/prometheus/</link>
+    <link>https://trinidadmarroquin.com/tags/prometheus/</link>
     <description>Recent content in Prometheus on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Local SLI Labs With Prometheus Grafana And cAdvisor</title>
-      <link>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
+      <link>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
     </item>
   </channel>

@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Vmware on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/vmware/</link>
+    <link>https://trinidadmarroquin.com/tags/vmware/</link>
     <description>Recent content in Vmware on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
-      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
       <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
     </item>
     <item>
       <title>vCenter Platform Hygiene</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</guid>
       <description>Initial operating standards for vCenter cluster, datastore, network, template, tag, and permission hygiene.</description>
     </item>
     <item>
       <title>VM Lifecycle Runbooks</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
       <description>Initial runbook model for vCenter VM lifecycle, capacity review, maintenance, and incident response.</description>
     </item>
     <item>
       <title>vSphere CSI Attach And Mount Checklist</title>
-      <link>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</guid>
       <description>Field note for checking Kubernetes PVCs, StorageClasses, VolumeAttachments, worker VM disk UUID settings, and vSphere CSI mount readiness.</description>
     </item>
     <item>
       <title>govc Commands For vSphere VM Verification</title>
-      <link>http://localhost:1313/field-notes/govc-vsphere-verification/</link>
+      <link>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/govc-vsphere-verification/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</guid>
       <description>Field note with govc commands for finding VMs, checking NIC backing, guestinfo keys, and comparing working versus broken vSphere clones.</description>
     </item>
     <item>
       <title>Terraform vSphere Clone Customization Failures</title>
-      <link>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</guid>
       <description>Field note for diagnosing Terraform vSphere clone failures caused by VMware guest customization inside the VM.</description>
     </item>
   </channel>

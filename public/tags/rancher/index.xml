@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Rancher on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/rancher/</link>
+    <link>https://trinidadmarroquin.com/tags/rancher/</link>
     <description>Recent content in Rancher on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rancher/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/rancher/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes Upgrade Sequencing</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
     </item>
     <item>
       <title>Rancher Fleet Standards</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
       <description>Operating standards for Rancher-managed Kubernetes fleets, including Active Directory authentication, break-glass access, RBAC, Fleet GitRepo organization, and cluster ownership.</description>
     </item>
   </channel>

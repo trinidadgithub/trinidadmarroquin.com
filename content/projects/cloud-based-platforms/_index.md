@@ -13,4 +13,6 @@ Discussion space for cloud platform foundation work.
 
 - [Account, project, subscription, and environment organization](account-environment-organization/)
 - [Networking, IAM, logging, and guardrails](networking-iam-guardrails/)
-- [Provider and discipline-specific operational patterns](provider-operational-patterns/)
+- [Provider-specific operational patterns](provider-operational-patterns/)
+- [AWS operational patterns](aws-operational-patterns/)
+- [GCP operational patterns](gcp-operational-patterns/)

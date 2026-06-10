@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AWS Operational Patterns | Trinidad Marroquin</title>
+<meta name="keywords" content="aws, cloud, eks, iam, networking">
+<meta name="description" content="AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="AWS Operational Patterns">
+  <meta property="og:description" content="AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:modified_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:tag" content="Aws">
+    <meta property="article:tag" content="Cloud">
+    <meta property="article:tag" content="Eks">
+    <meta property="article:tag" content="Iam">
+    <meta property="article:tag" content="Networking">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AWS Operational Patterns">
+  <meta name="twitter:description" content="AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://trinidadmarroquin.com/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Cloud Based Platforms",
+      "item": "https://trinidadmarroquin.com/projects/cloud-based-platforms/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "AWS Operational Patterns",
+      "item": "https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AWS Operational Patterns",
+  "name": "AWS Operational Patterns",
+  "description": "AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.",
+  "keywords": [
+    "aws", "cloud", "eks", "iam", "networking"
+  ],
+  "articleBody": "AWS operations differ from other providers in naming, service boundaries, and tooling defaults. The patterns below capture what is useful to remember without reaching for the console.\nAccount Structure AWS uses accounts as the hard isolation boundary. Use separate accounts for production, non-production, shared services, security, and sandbox. Organization-level SCPs enforce guardrails before IAM comes into play.\nKey differences from other clouds:\naccount is also a billing boundary. some services (CloudTrail, Config) are per-account by default and must be aggregated. VPCs are regional, not global. IAM roles are global, but trust policies reference specific accounts. EKS Cluster Operations An EKS cluster needs a VPC with at least two subnets in different AZs, an IAM role with AmazonEKSClusterPolicy, and a node group with an instance profile. The control plane is managed, but the node group lifecycle and CNI configuration still require operational attention.\nTerraform module shape:\nmodule \"eks_cluster\" { source = \"./modules/eks-cluster\" cluster_name = var.cluster_name subnet_ids = aws_subnet.private[*].id node_instance_type = var.node_instance_type desired_capacity = var.desired_capacity min_size = var.min_size max_size = var.max_size } Common issues:\nnode groups fail to join the cluster if the IAM instance profile role is missing the required trust policy. the CNI must be compatible with the instance type and available IP addresses in the subnet. cluster endpoint access settings control whether kubectl works from outside the VPC. version upgrades require a node group replacement or rolling update strategy. Application Deployment On EKS A Node.js or similar application deployed to EKS follows a standard path: containerize with Docker, package as a Helm chart, deploy with Terraform using helm_release.\nThe Helm chart should expose:\nreplicaCount for scaling. image.repository and image.tag for promotion. service.type for exposure model (ClusterIP vs LoadBalancer). Terraform manages the Helm release, but the chart templates stay in the application repository. This keeps deployment configuration with the team that owns the service.\nIoT And Edge AWS IoT Core uses X.509 certificates for device authentication. A local Docker container with device certificates mounted as volumes can simulate edge workloads during development.\nThe IoT data path:\ndevice -\u003e MQTT (port 8883) -\u003e AWS IoT Core -\u003e rule action -\u003e downstream service Local labs should use the same certificate paths as production to avoid configuration drift.\nWorkstation Tooling The AWS CLI, Session Manager plugin, and SDKs should be installed through the package manager, not downloaded once and forgotten. Regular updates matter because API versions and signing algorithms change.\nEssential tooling:\nAWS CLI v2 with named profiles for each account. Session Manager for SSH-less instance access. terraform with the AWS provider. kubectl with aws eks update-kubeconfig. linters: TFLint, Checkov, terrascan. infracost for cost awareness during planning. Observability CloudWatch is the default log and metric sink, but it is not always the best place to view operational state. Use CloudWatch for retention and alerting, and a separate observability stack (Prometheus + Grafana) for interactive debugging and dashboarding.\nExport CloudWatch metrics to Prometheus where cross-service dashboards need them. Do not rely on the CloudWatch console as the primary dashboard for operator response.\nAcceptance Criteria Operators can create an EKS cluster with known networking and IAM requirements. Helm-deployed applications follow a consistent chart structure. IoT device certificates are treated as secrets with rotation expectations. Workstation tooling is version-managed and reproducible. Observability data flows to the same dashboards used for other providers. ",
+  "wordCount" : "546",
+  "inLanguage": "en",
+  "datePublished": "2026-06-10T00:00:00-05:00",
+  "dateModified": "2026-06-10T00:00:00-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trinidadmarroquin.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://trinidadmarroquin.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/">Projects</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/cloud-based-platforms/">Cloud Based Platforms</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      AWS Operational Patterns
+    </h1>
+    <div class="post-description">
+      AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>AWS operations differ from other providers in naming, service boundaries, and tooling defaults. The patterns below capture what is useful to remember without reaching for the console.</p>
+<h2 id="account-structure">Account Structure<a hidden class="anchor" aria-hidden="true" href="#account-structure">#</a></h2>
+<p>AWS uses accounts as the hard isolation boundary. Use separate accounts for production, non-production, shared services, security, and sandbox. Organization-level SCPs enforce guardrails before IAM comes into play.</p>
+<p>Key differences from other clouds:</p>
+<ul>
+<li>account is also a billing boundary.</li>
+<li>some services (CloudTrail, Config) are per-account by default and must be aggregated.</li>
+<li>VPCs are regional, not global.</li>
+<li>IAM roles are global, but trust policies reference specific accounts.</li>
+</ul>
+<h2 id="eks-cluster-operations">EKS Cluster Operations<a hidden class="anchor" aria-hidden="true" href="#eks-cluster-operations">#</a></h2>
+<p>An EKS cluster needs a VPC with at least two subnets in different AZs, an IAM role with <code>AmazonEKSClusterPolicy</code>, and a node group with an instance profile. The control plane is managed, but the node group lifecycle and CNI configuration still require operational attention.</p>
+<p>Terraform module shape:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">module &#34;eks_cluster&#34; {
+</span></span><span class="line"><span class="cl">  source          = &#34;./modules/eks-cluster&#34;
+</span></span><span class="line"><span class="cl">  cluster_name    = var.cluster_name
+</span></span><span class="line"><span class="cl">  subnet_ids      = aws_subnet.private[*].id
+</span></span><span class="line"><span class="cl">  node_instance_type = var.node_instance_type
+</span></span><span class="line"><span class="cl">  desired_capacity   = var.desired_capacity
+</span></span><span class="line"><span class="cl">  min_size           = var.min_size
+</span></span><span class="line"><span class="cl">  max_size           = var.max_size
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Common issues:</p>
+<ul>
+<li>node groups fail to join the cluster if the IAM instance profile role is missing the required trust policy.</li>
+<li>the CNI must be compatible with the instance type and available IP addresses in the subnet.</li>
+<li>cluster endpoint access settings control whether <code>kubectl</code> works from outside the VPC.</li>
+<li>version upgrades require a node group replacement or rolling update strategy.</li>
+</ul>
+<h2 id="application-deployment-on-eks">Application Deployment On EKS<a hidden class="anchor" aria-hidden="true" href="#application-deployment-on-eks">#</a></h2>
+<p>A Node.js or similar application deployed to EKS follows a standard path: containerize with Docker, package as a Helm chart, deploy with Terraform using <code>helm_release</code>.</p>
+<p>The Helm chart should expose:</p>
+<ul>
+<li><code>replicaCount</code> for scaling.</li>
+<li><code>image.repository</code> and <code>image.tag</code> for promotion.</li>
+<li><code>service.type</code> for exposure model (ClusterIP vs LoadBalancer).</li>
+</ul>
+<p>Terraform manages the Helm release, but the chart templates stay in the application repository. This keeps deployment configuration with the team that owns the service.</p>
+<h2 id="iot-and-edge">IoT And Edge<a hidden class="anchor" aria-hidden="true" href="#iot-and-edge">#</a></h2>
+<p>AWS IoT Core uses X.509 certificates for device authentication. A local Docker container with device certificates mounted as volumes can simulate edge workloads during development.</p>
+<p>The IoT data path:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">device -&gt; MQTT (port 8883) -&gt; AWS IoT Core -&gt; rule action -&gt; downstream service
+</span></span></code></pre></div><p>Local labs should use the same certificate paths as production to avoid configuration drift.</p>
+<h2 id="workstation-tooling">Workstation Tooling<a hidden class="anchor" aria-hidden="true" href="#workstation-tooling">#</a></h2>
+<p>The AWS CLI, Session Manager plugin, and SDKs should be installed through the package manager, not downloaded once and forgotten. Regular updates matter because API versions and signing algorithms change.</p>
+<p>Essential tooling:</p>
+<ul>
+<li>AWS CLI v2 with named profiles for each account.</li>
+<li>Session Manager for SSH-less instance access.</li>
+<li><code>terraform</code> with the AWS provider.</li>
+<li><code>kubectl</code> with <code>aws eks update-kubeconfig</code>.</li>
+<li>linters: TFLint, Checkov, terrascan.</li>
+<li><code>infracost</code> for cost awareness during planning.</li>
+</ul>
+<h2 id="observability">Observability<a hidden class="anchor" aria-hidden="true" href="#observability">#</a></h2>
+<p>CloudWatch is the default log and metric sink, but it is not always the best place to view operational state. Use CloudWatch for retention and alerting, and a separate observability stack (Prometheus + Grafana) for interactive debugging and dashboarding.</p>
+<p>Export CloudWatch metrics to Prometheus where cross-service dashboards need them. Do not rely on the CloudWatch console as the primary dashboard for operator response.</p>
+<h2 id="acceptance-criteria">Acceptance Criteria<a hidden class="anchor" aria-hidden="true" href="#acceptance-criteria">#</a></h2>
+<ul>
+<li>Operators can create an EKS cluster with known networking and IAM requirements.</li>
+<li>Helm-deployed applications follow a consistent chart structure.</li>
+<li>IoT device certificates are treated as secrets with rotation expectations.</li>
+<li>Workstation tooling is version-managed and reproducible.</li>
+<li>Observability data flows to the same dashboards used for other providers.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://trinidadmarroquin.com/tags/aws/">Aws</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/cloud/">Cloud</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/eks/">Eks</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/iam/">Iam</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/networking/">Networking</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/">
+    <span class="title">« Prev</span>
+    <span>Actionable Alerts And Dashboards</span>
+  </a>
+  <a class="next" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/">
+    <span class="title">Next »</span>
+    <span>Cloud Account And Environment Organization</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Sre on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/sre/</link>
+    <link>https://trinidadmarroquin.com/tags/sre/</link>
     <description>Recent content in Sre on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/sre/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/sre/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Actionable Alerts And Dashboards</title>
-      <link>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
       <description>Initial guidance for actionable alerts, useful dashboards, ownership, and SRE-style signal quality.</description>
     </item>
     <item>
       <title>From Local IaC Labs To Production-Ready Patterns</title>
-      <link>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</link>
+      <link>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</guid>
       <description>A practical SRE view of how local Terraform, Docker, Helm, Kafka, and observability labs can become production-ready infrastructure patterns without pretending the lab is production.</description>
     </item>
     <item>
       <title>Local SLI Labs With Prometheus Grafana And cAdvisor</title>
-      <link>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
+      <link>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
     </item>
     <item>
       <title>Post-Incident Follow-Up</title>
-      <link>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</guid>
       <description>Initial post-incident follow-up model for timelines, contributing factors, corrective actions, and measurable system improvements.</description>
     </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
-      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
       <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
     </item>
     <item>
       <title>Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules</title>
-      <link>http://localhost:1313/projects/terraform-vsphere-refactor/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-vsphere-refactor/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</guid>
       <description>A Terraform infrastructure project writeup about reorganizing a vSphere repo into environment roots, shared modules, templates, and archived legacy state.</description>
     </item>
     <item>
       <title>Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain</title>
-      <link>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</guid>
       <description>Practical lessons for using LLMs during infrastructure troubleshooting while preserving operator judgment, validation, and evidence-based debugging.</description>
     </item>
     <item>
       <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>
-      <link>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
       <description>Part 1 of the DevOps Dirty Dozen series: how organizational silos undermine DevOps collaboration and what teams can do about it.</description>
     </item>
   </channel>
