@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Packer Image Versioning | Trinidad Marroquin</title>
+<meta name="keywords" content="packer, images, automation">
+<meta name="description" content="Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.40c9e9a23b839d241bbe1ace530d4f5f0918782c06b4eb25b1821bc15b180bac.css" integrity="sha256-QMnpojuDnSQbvhrOUw1PXwkYeCwGtOslsYIbwVsYC6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Packer Image Versioning">
+  <meta property="og:description" content="Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:modified_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:tag" content="Packer">
+    <meta property="article:tag" content="Images">
+    <meta property="article:tag" content="Automation">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Packer Image Versioning">
+  <meta name="twitter:description" content="Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://trinidadmarroquin.com/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Packer Image Pipelines",
+      "item": "https://trinidadmarroquin.com/projects/packer-image-pipelines/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Packer Image Versioning",
+      "item": "https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Packer Image Versioning",
+  "name": "Packer Image Versioning",
+  "description": "Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.",
+  "keywords": [
+    "packer", "images", "automation"
+  ],
+  "articleBody": "Image versioning should make rollback boring.\nIf operators cannot tell which template built a VM, what changed in that template, and whether it is safe to roll back, the image pipeline is incomplete.\nVersion Format Use a version format that carries time and intent:\nubuntu-22.04-k8s-node-2026.06.10-1 ubuntu-22.04-base-2026.06.10-1 Include:\nOS family and version. purpose. build date. build sequence or semantic version. Metadata Store metadata with the image:\nGit commit. Packer version. builder plugin versions. package manifest or important package versions. validation result. deprecation state. In vSphere, use template names, notes, tags, or custom attributes consistently.\nPromotion Separate build from promotion:\nbuild -\u003e validate -\u003e mark candidate -\u003e promote -\u003e consume Terraform should consume promoted images, not whatever Packer happened to build most recently.\nAcceptance Criteria Every VM can be traced to an image version. Rollback image is known. Image metadata links to source. Promotion is explicit. Deprecated images are not silently consumed. References Packer documentation: HCL Templates. HashiCorp guidance on artifact and image workflows. ",
+  "wordCount" : "162",
+  "inLanguage": "en",
+  "datePublished": "2026-06-10T00:00:00-05:00",
+  "dateModified": "2026-06-10T00:00:00-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trinidadmarroquin.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://trinidadmarroquin.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/">Projects</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projects/packer-image-pipelines/">Packer Image Pipelines</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Packer Image Versioning
+    </h1>
+    <div class="post-description">
+      Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Image versioning should make rollback boring.</p>
+<p>If operators cannot tell which template built a VM, what changed in that template, and whether it is safe to roll back, the image pipeline is incomplete.</p>
+<h2 id="version-format">Version Format<a hidden class="anchor" aria-hidden="true" href="#version-format">#</a></h2>
+<p>Use a version format that carries time and intent:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ubuntu-22.04-k8s-node-2026.06.10-1
+</span></span><span class="line"><span class="cl">ubuntu-22.04-base-2026.06.10-1
+</span></span></code></pre></div><p>Include:</p>
+<ul>
+<li>OS family and version.</li>
+<li>purpose.</li>
+<li>build date.</li>
+<li>build sequence or semantic version.</li>
+</ul>
+<h2 id="metadata">Metadata<a hidden class="anchor" aria-hidden="true" href="#metadata">#</a></h2>
+<p>Store metadata with the image:</p>
+<ul>
+<li>Git commit.</li>
+<li>Packer version.</li>
+<li>builder plugin versions.</li>
+<li>package manifest or important package versions.</li>
+<li>validation result.</li>
+<li>deprecation state.</li>
+</ul>
+<p>In vSphere, use template names, notes, tags, or custom attributes consistently.</p>
+<h2 id="promotion">Promotion<a hidden class="anchor" aria-hidden="true" href="#promotion">#</a></h2>
+<p>Separate build from promotion:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">build -&gt; validate -&gt; mark candidate -&gt; promote -&gt; consume
+</span></span></code></pre></div><p>Terraform should consume promoted images, not whatever Packer happened to build most recently.</p>
+<h2 id="acceptance-criteria">Acceptance Criteria<a hidden class="anchor" aria-hidden="true" href="#acceptance-criteria">#</a></h2>
+<ul>
+<li>Every VM can be traced to an image version.</li>
+<li>Rollback image is known.</li>
+<li>Image metadata links to source.</li>
+<li>Promotion is explicit.</li>
+<li>Deprecated images are not silently consumed.</li>
+</ul>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ul>
+<li>Packer documentation: HCL Templates.</li>
+<li>HashiCorp guidance on artifact and image workflows.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://trinidadmarroquin.com/tags/packer/">Packer</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/images/">Images</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/automation/">Automation</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/">
+    <span class="title">« Prev</span>
+    <span>Packer Image Validation Gates</span>
+  </a>
+  <a class="next" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/">
+    <span class="title">Next »</span>
+    <span>Pipeline Credential Handling And Promotion</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -74,6 +74,15 @@
   padding-inline-start: 1.2rem;
 }
 
+.card-more {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.card-more a {
+  font-weight: 700;
+}
+
 @media (max-width: 640px) {
   .site-hero {
     padding: 1.25rem;

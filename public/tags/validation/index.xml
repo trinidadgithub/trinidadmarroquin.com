@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Validation on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/validation/</link>
+    <description>Recent content in Validation on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/validation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Packer Image Validation Gates</title>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</guid>
+      <description>Initial validation gates for Packer-built images, including boot, access, agents, cloud-init, storage, and baseline configuration.</description>
+    </item>
+  </channel>
+</rss>

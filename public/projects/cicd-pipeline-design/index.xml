@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CI/CD Pipeline Design on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/</link>
+    <description>Recent content in CI/CD Pipeline Design on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Concourse Infrastructure Workflows</title>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
+      <description>Initial Concourse workflow patterns for infrastructure repositories, platform changes, promotion, and failure visibility.</description>
+    </item>
+    <item>
+      <title>Pipeline Credential Handling And Promotion</title>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
+      <description>Initial practices for CI/CD credential handling, pipeline resources, environment promotion, and branch-based controls.</description>
+    </item>
+    <item>
+      <title>Pipeline Validation Planning And Apply Stages</title>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
+      <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
+    </item>
+  </channel>
+</rss>

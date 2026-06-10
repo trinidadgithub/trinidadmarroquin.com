@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cloud on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/cloud/</link>
+    <description>Recent content in Cloud on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Account And Environment Organization</title>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</guid>
+      <description>Initial operating model for cloud account, project, subscription, and environment organization.</description>
+    </item>
+    <item>
+      <title>Cloud Networking IAM And Guardrails</title>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</guid>
+      <description>Initial guardrails for cloud networking, IAM, logging, and platform controls.</description>
+    </item>
+    <item>
+      <title>Cloud Provider Operational Patterns</title>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</guid>
+      <description>Initial model for documenting cloud operational patterns by provider and platform discipline.</description>
+    </item>
+  </channel>
+</rss>

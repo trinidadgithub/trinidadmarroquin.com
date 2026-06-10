@@ -2,32 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Operations on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/operations/</link>
+    <link>https://trinidadmarroquin.com/tags/operations/</link>
     <description>Recent content in Operations on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/operations/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/operations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Provider Operational Patterns</title>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</guid>
+      <description>Initial model for documenting cloud operational patterns by provider and platform discipline.</description>
+    </item>
+    <item>
+      <title>Kubernetes Upgrade Sequencing</title>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
+      <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
+    </item>
+    <item>
+      <title>Post-Incident Follow-Up</title>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</guid>
+      <description>Initial post-incident follow-up model for timelines, contributing factors, corrective actions, and measurable system improvements.</description>
+    </item>
+    <item>
+      <title>Terraform Operational Module Boundaries</title>
+      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
+      <description>Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.</description>
+    </item>
+    <item>
+      <title>Vault Deployment And Unseal Runbooks</title>
+      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</guid>
+      <description>Initial operating model for Vault deployment, initialization, seal and unseal expectations, and recovery runbooks.</description>
+    </item>
+    <item>
+      <title>VM Lifecycle Runbooks</title>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
+      <description>Initial runbook model for vCenter VM lifecycle, capacity review, maintenance, and incident response.</description>
+    </item>
     <item>
       <title>Bootstrap Logging, Locks, And Continue-On-Failure Behavior</title>
-      <link>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</link>
+      <link>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</guid>
       <description>Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.</description>
     </item>
     <item>
       <title>Terraform Variable File Hygiene</title>
-      <link>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</guid>
       <description>Field note for separating Terraform inputs, auto-loaded tfvars, govc environment files, and secrets in infrastructure repositories.</description>
     </item>
     <item>
       <title>Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain</title>
-      <link>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</guid>
       <description>Practical lessons for using LLMs during infrastructure troubleshooting while preserving operator judgment, validation, and evidence-based debugging.</description>
     </item>
   </channel>
