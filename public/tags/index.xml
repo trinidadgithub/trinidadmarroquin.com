@@ -2,102 +2,172 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap</title>
+      <link>http://localhost:1313/tags/bootstrap/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/bootstrap/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cloud-Init</title>
-      <link>https://trinidadmarroquin.com/tags/cloud-init/</link>
+      <link>http://localhost:1313/tags/cloud-init/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/cloud-init/</guid>
+      <guid>http://localhost:1313/tags/cloud-init/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Govc</title>
+      <link>http://localhost:1313/tags/govc/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/govc/</guid>
       <description></description>
     </item>
     <item>
       <title>Infrastructure</title>
-      <link>https://trinidadmarroquin.com/tags/infrastructure/</link>
+      <link>http://localhost:1313/tags/infrastructure/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/infrastructure/</guid>
+      <guid>http://localhost:1313/tags/infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iscsi</title>
+      <link>http://localhost:1313/tags/iscsi/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/iscsi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/tags/kubernetes/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://trinidadmarroquin.com/tags/linux/</link>
+      <link>http://localhost:1313/tags/linux/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/linux/</guid>
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>http://localhost:1313/tags/llm/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/llm/</guid>
       <description></description>
     </item>
     <item>
       <title>Modules</title>
-      <link>https://trinidadmarroquin.com/tags/modules/</link>
+      <link>http://localhost:1313/tags/modules/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/modules/</guid>
+      <guid>http://localhost:1313/tags/modules/</guid>
       <description></description>
     </item>
     <item>
       <title>Netplan</title>
-      <link>https://trinidadmarroquin.com/tags/netplan/</link>
+      <link>http://localhost:1313/tags/netplan/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/netplan/</guid>
+      <guid>http://localhost:1313/tags/netplan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations</title>
+      <link>http://localhost:1313/tags/operations/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/operations/</guid>
       <description></description>
     </item>
     <item>
       <title>Packer</title>
-      <link>https://trinidadmarroquin.com/tags/packer/</link>
+      <link>http://localhost:1313/tags/packer/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/packer/</guid>
+      <guid>http://localhost:1313/tags/packer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Secrets</title>
+      <link>http://localhost:1313/tags/secrets/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/secrets/</guid>
       <description></description>
     </item>
     <item>
       <title>Sre</title>
-      <link>https://trinidadmarroquin.com/tags/sre/</link>
+      <link>http://localhost:1313/tags/sre/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/sre/</guid>
+      <guid>http://localhost:1313/tags/sre/</guid>
       <description></description>
     </item>
     <item>
       <title>State</title>
-      <link>https://trinidadmarroquin.com/tags/state/</link>
+      <link>http://localhost:1313/tags/state/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/state/</guid>
+      <guid>http://localhost:1313/tags/state/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Storage</title>
+      <link>http://localhost:1313/tags/storage/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/storage/</guid>
       <description></description>
     </item>
     <item>
       <title>Systems-Thinking</title>
-      <link>https://trinidadmarroquin.com/tags/systems-thinking/</link>
+      <link>http://localhost:1313/tags/systems-thinking/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/systems-thinking/</guid>
+      <guid>http://localhost:1313/tags/systems-thinking/</guid>
       <description></description>
     </item>
     <item>
       <title>Terraform</title>
-      <link>https://trinidadmarroquin.com/tags/terraform/</link>
+      <link>http://localhost:1313/tags/terraform/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/terraform/</guid>
+      <guid>http://localhost:1313/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Troubleshooting</title>
+      <link>http://localhost:1313/tags/troubleshooting/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/troubleshooting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vmware</title>
+      <link>http://localhost:1313/tags/vmware/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/vmware/</guid>
       <description></description>
     </item>
     <item>
       <title>Vsphere</title>
-      <link>https://trinidadmarroquin.com/tags/vsphere/</link>
+      <link>http://localhost:1313/tags/vsphere/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/vsphere/</guid>
+      <guid>http://localhost:1313/tags/vsphere/</guid>
       <description></description>
     </item>
     <item>
       <title>Collaboration</title>
-      <link>https://trinidadmarroquin.com/tags/collaboration/</link>
+      <link>http://localhost:1313/tags/collaboration/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/collaboration/</guid>
+      <guid>http://localhost:1313/tags/collaboration/</guid>
       <description></description>
     </item>
     <item>
       <title>Devops</title>
-      <link>https://trinidadmarroquin.com/tags/devops/</link>
+      <link>http://localhost:1313/tags/devops/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/devops/</guid>
+      <guid>http://localhost:1313/tags/devops/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,26 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Field-Notes on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/categories/field-notes/</link>
+    <link>http://localhost:1313/categories/field-notes/</link>
     <description>Recent content in Field-Notes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/categories/field-notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/field-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap Logging, Locks, And Continue-On-Failure Behavior</title>
+      <link>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</guid>
+      <description>Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.</description>
+    </item>
+    <item>
+      <title>govc Commands For vSphere VM Verification</title>
+      <link>http://localhost:1313/field-notes/govc-vsphere-verification/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/govc-vsphere-verification/</guid>
+      <description>Field note with govc commands for finding VMs, checking NIC backing, guestinfo keys, and comparing working versus broken vSphere clones.</description>
+    </item>
+    <item>
+      <title>iSCSI Bootstrap Readiness For Kubernetes Nodes</title>
+      <link>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
+      <description>Field note for preparing Kubernetes nodes with iSCSI networking, discovery, sessions, and CSI-ready storage behavior.</description>
+    </item>
     <item>
       <title>Netplan Conflicts After VMware Guest Customization</title>
-      <link>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</link>
+      <link>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</guid>
+      <guid>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</guid>
       <description>Field note for diagnosing duplicate netplan ownership, missing default routes, and DNS drift on vSphere Ubuntu VMs.</description>
     </item>
     <item>
       <title>Terraform State Moves During A Module Refactor</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</link>
+      <link>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</guid>
       <description>Field note for moving Terraform resources into a module without forcing VM replacement.</description>
+    </item>
+    <item>
+      <title>Terraform Variable File Hygiene</title>
+      <link>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</guid>
+      <description>Field note for separating Terraform inputs, auto-loaded tfvars, govc environment files, and secrets in infrastructure repositories.</description>
+    </item>
+    <item>
+      <title>Terraform vSphere Clone Customization Failures</title>
+      <link>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</guid>
+      <description>Field note for diagnosing Terraform vSphere clone failures caused by VMware guest customization inside the VM.</description>
+    </item>
+    <item>
+      <title>vSphere Guestinfo And Cloud-Init On Cloned VMs</title>
+      <link>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</guid>
+      <description>Field note for verifying Terraform guestinfo userdata, cloud-init state, and first-boot behavior on vSphere Ubuntu clones.</description>
     </item>
   </channel>
 </rss>

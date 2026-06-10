@@ -1,5 +1,5 @@
 +++
-title = "The DevOps Dirty Dozen: Unmasking the Tripl D's of Anti-Patterns"
+title = "The DevOps Dirty Dozen: Unmasking the Triple D's of Anti-Patterns"
 date = 2025-01-16T00:00:00-06:00
 draft = false
 description = "A twelve-part series on DevOps anti-patterns, systems thinking, and the practical habits that make teams more effective."

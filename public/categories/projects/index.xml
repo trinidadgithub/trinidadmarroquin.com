@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Projects on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/categories/projects/</link>
+    <link>http://localhost:1313/categories/projects/</link>
     <description>Recent content in Projects on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules</title>
-      <link>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</link>
+      <link>http://localhost:1313/projects/terraform-vsphere-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</guid>
+      <guid>http://localhost:1313/projects/terraform-vsphere-refactor/</guid>
       <description>A Terraform infrastructure project writeup about reorganizing a vSphere repo into environment roots, shared modules, templates, and archived legacy state.</description>
     </item>
   </channel>

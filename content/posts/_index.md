@@ -11,7 +11,7 @@ The goal of this blog is to document how systems are built, changed, operated, a
 
 ## Series
 
-- [The DevOps Dirty Dozen: Unmasking the Tripl D's of Anti-Patterns](/posts/devops-dirty-dozen/)
+- [The DevOps Dirty Dozen: Unmasking the Triple D's of Anti-Patterns](/posts/devops-dirty-dozen/)
 
 ## Common Topics
 

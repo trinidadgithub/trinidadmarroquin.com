@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>State on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/state/</link>
+    <link>http://localhost:1313/tags/state/</link>
     <description>Recent content in State on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/state/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/state/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terraform State Moves During A Module Refactor</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</link>
+      <link>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</guid>
       <description>Field note for moving Terraform resources into a module without forcing VM replacement.</description>
     </item>
   </channel>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bootstrap Logging, Locks, And Continue-On-Failure Behavior | Trinidad Marroquin</title>
+<meta name="keywords" content="bootstrap, linux, cloud-init, operations">
+<meta name="description" content="Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="http://localhost:1313/field-notes/bootstrap-logging-idempotency/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2716027e01d2f9486378a989178e12983a515f5014f538e49adc917edec7e080.css" integrity="sha256-JxYCfgHS&#43;UhjeKmJF44SmDpRX1AU9TjkmtyRft7H4IA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/field-notes/bootstrap-logging-idempotency/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/field-notes/bootstrap-logging-idempotency/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Bootstrap Logging, Locks, And Continue-On-Failure Behavior">
+  <meta property="og:description" content="Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="field-notes">
+    <meta property="article:published_time" content="2026-06-09T00:00:00-05:00">
+    <meta property="article:modified_time" content="2026-06-09T00:00:00-05:00">
+    <meta property="article:tag" content="Bootstrap">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Cloud-Init">
+    <meta property="article:tag" content="Operations">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bootstrap Logging, Locks, And Continue-On-Failure Behavior">
+  <meta name="twitter:description" content="Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Field Notes",
+      "item": "http://localhost:1313/field-notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bootstrap Logging, Locks, And Continue-On-Failure Behavior",
+      "item": "http://localhost:1313/field-notes/bootstrap-logging-idempotency/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bootstrap Logging, Locks, And Continue-On-Failure Behavior",
+  "name": "Bootstrap Logging, Locks, And Continue-On-Failure Behavior",
+  "description": "Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.",
+  "keywords": [
+    "bootstrap", "linux", "cloud-init", "operations"
+  ],
+  "articleBody": "First-boot bootstrap scripts should be easy to debug after the VM is already running. For operational bootstrap, fail-fast is not always the best default.\nIf a bootstrap framework configures hostname, SSH, disks, iSCSI, and node labels, stopping at the first failure may hide useful evidence from later checks. A better pattern is to run each stage, log the result, continue, and summarize failures at the end.\nSymptoms Bootstrap log stops after the first or second script. Later configuration steps never run. cloud-init-output.log shows only partial output. Re-running the bootstrap manually succeeds, but first boot did not. Log lines appear duplicated or interleaved. Use A Stage Runner Wrap each bootstrap step so failures are recorded but do not prevent later diagnostics:\n#!/usr/bin/env bash set -uo pipefail LOG_FILE=\"/var/log/futurex-bootstrap.log\" FAILED_STEPS=() log() { echo \"[$(date -Is)] $*\" | tee -a \"$LOG_FILE\" } run_step() { local label=\"$1\" shift log \"========== START ${label} ==========\" if \"$@\" 2\u003e\u00261 | tee -a \"$LOG_FILE\"; then log \"========== PASS ${label} ==========\" else local rc=${PIPESTATUS[0]} log \"========== FAIL ${label} rc=${rc} ==========\" FAILED_STEPS+=(\"${label}:rc=${rc}\") fi } Then call each stage explicitly:\nrun_step \"01_set_hostname\" sudo \"${SCRIPT_DIR}/01_set_hostname.sh\" \"${VARS_FILE}\" \"${HOSTNAME_VALUE}\" run_step \"02_base_and_ssh\" sudo \"${SCRIPT_DIR}/02_base_and_ssh.sh\" \"${VARS_FILE}\" run_step \"05_iscsi\" sudo \"${SCRIPT_DIR}/05_iscsi.sh\" \"${VARS_FILE}\" run_step \"03_data_disk_lvm\" sudo \"${SCRIPT_DIR}/03_data_disk_lvm.sh\" \"${VARS_FILE}\" run_step \"04_setup_rancher_disk_label\" sudo \"${SCRIPT_DIR}/04_setup_rancher_dik_lable.sh\" \"${VARS_FILE}\" Add A Summary End every run with a summary:\nlog \"========== BOOTSTRAP SUMMARY ==========\" if (( ${#FAILED_STEPS[@]} \u003e 0 )); then log \"Completed with failed steps:\" for failed in \"${FAILED_STEPS[@]}\"; do log \"FAILED: ${failed}\" done else log \"Completed successfully.\" fi exit 0 Exit 0 when the goal is evidence collection and the host should stay reachable. Use a non-zero exit only when another system must treat the bootstrap as failed.\nPrevent Concurrent Runs If cloud-init, a systemd unit, or a manual command can trigger the same script, add a lock:\nLOCK_FILE=\"/run/futurex-bootstrap.lock\" exec 9\u003e\"${LOCK_FILE}\" if ! flock -n 9; then echo \"[$(date -Is)] Another futurex-bootstrap process is already running; exiting.\" | tee -a \"$LOG_FILE\" exit 0 fi Duplicate log entries often mean the script was run twice or that an outer tee is also writing the same output.\nAvoid Double Logging If the bootstrap script writes its own log, keep cloud-init simple:\n#cloud-config runcmd: - [ bash, -lc, '/usr/local/bin/futurex-bootstrap' ] Avoid wrapping it like this unless you intentionally want a second wrapper log:\nruncmd: - [ bash, -lc, '/usr/local/bin/futurex-bootstrap 2\u003e\u00261 | tee -a /var/log/futurex-bootstrap.log' ] Operating Rule Bootstrap should produce enough evidence for the next operator:\nwhat ran. what passed. what failed. what command returned the failure. whether a second bootstrap process tried to run. The goal is not to hide failures. The goal is to preserve enough context to fix them without guessing.\n",
+  "wordCount" : "437",
+  "inLanguage": "en",
+  "datePublished": "2026-06-09T00:00:00-05:00",
+  "dateModified": "2026-06-09T00:00:00-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/field-notes/bootstrap-logging-idempotency/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/field-notes/">Field Notes</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Bootstrap Logging, Locks, And Continue-On-Failure Behavior
+    </h1>
+    <div class="post-description">
+      Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>First-boot bootstrap scripts should be easy to debug after the VM is already running. For operational bootstrap, fail-fast is not always the best default.</p>
+<p>If a bootstrap framework configures hostname, SSH, disks, iSCSI, and node labels, stopping at the first failure may hide useful evidence from later checks. A better pattern is to run each stage, log the result, continue, and summarize failures at the end.</p>
+<h2 id="symptoms">Symptoms<a hidden class="anchor" aria-hidden="true" href="#symptoms">#</a></h2>
+<ul>
+<li>Bootstrap log stops after the first or second script.</li>
+<li>Later configuration steps never run.</li>
+<li><code>cloud-init-output.log</code> shows only partial output.</li>
+<li>Re-running the bootstrap manually succeeds, but first boot did not.</li>
+<li>Log lines appear duplicated or interleaved.</li>
+</ul>
+<h2 id="use-a-stage-runner">Use A Stage Runner<a hidden class="anchor" aria-hidden="true" href="#use-a-stage-runner">#</a></h2>
+<p>Wrap each bootstrap step so failures are recorded but do not prevent later diagnostics:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span> -uo pipefail
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">LOG_FILE</span><span class="o">=</span><span class="s2">&#34;/var/log/futurex-bootstrap.log&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">FAILED_STEPS</span><span class="o">=()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;[</span><span class="k">$(</span>date -Is<span class="k">)</span><span class="s2">] </span><span class="nv">$*</span><span class="s2">&#34;</span> <span class="p">|</span> tee -a <span class="s2">&#34;</span><span class="nv">$LOG_FILE</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">run_step<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">label</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">shift</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  log <span class="s2">&#34;========== START </span><span class="si">${</span><span class="nv">label</span><span class="si">}</span><span class="s2"> ==========&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee -a <span class="s2">&#34;</span><span class="nv">$LOG_FILE</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    log <span class="s2">&#34;========== PASS </span><span class="si">${</span><span class="nv">label</span><span class="si">}</span><span class="s2"> ==========&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">rc</span><span class="o">=</span><span class="si">${</span><span class="nv">PIPESTATUS</span><span class="p">[0]</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">    log <span class="s2">&#34;========== FAIL </span><span class="si">${</span><span class="nv">label</span><span class="si">}</span><span class="s2"> rc=</span><span class="si">${</span><span class="nv">rc</span><span class="si">}</span><span class="s2"> ==========&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">FAILED_STEPS</span><span class="o">+=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">label</span><span class="si">}</span><span class="s2">:rc=</span><span class="si">${</span><span class="nv">rc</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>Then call each stage explicitly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">run_step <span class="s2">&#34;01_set_hostname&#34;</span> sudo <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/01_set_hostname.sh&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">VARS_FILE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOSTNAME_VALUE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">run_step <span class="s2">&#34;02_base_and_ssh&#34;</span> sudo <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/02_base_and_ssh.sh&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">VARS_FILE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">run_step <span class="s2">&#34;05_iscsi&#34;</span> sudo <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/05_iscsi.sh&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">VARS_FILE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">run_step <span class="s2">&#34;03_data_disk_lvm&#34;</span> sudo <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/03_data_disk_lvm.sh&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">VARS_FILE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">run_step <span class="s2">&#34;04_setup_rancher_disk_label&#34;</span> sudo <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SCRIPT_DIR</span><span class="si">}</span><span class="s2">/04_setup_rancher_dik_lable.sh&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">VARS_FILE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><h2 id="add-a-summary">Add A Summary<a hidden class="anchor" aria-hidden="true" href="#add-a-summary">#</a></h2>
+<p>End every run with a summary:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">log <span class="s2">&#34;========== BOOTSTRAP SUMMARY ==========&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">((</span> <span class="si">${#</span><span class="nv">FAILED_STEPS</span><span class="p">[@]</span><span class="si">}</span> &gt; <span class="m">0</span> <span class="o">))</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  log <span class="s2">&#34;Completed with failed steps:&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> failed in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">FAILED_STEPS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    log <span class="s2">&#34;FAILED: </span><span class="si">${</span><span class="nv">failed</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  log <span class="s2">&#34;Completed successfully.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">0</span>
+</span></span></code></pre></div><p>Exit <code>0</code> when the goal is evidence collection and the host should stay reachable. Use a non-zero exit only when another system must treat the bootstrap as failed.</p>
+<h2 id="prevent-concurrent-runs">Prevent Concurrent Runs<a hidden class="anchor" aria-hidden="true" href="#prevent-concurrent-runs">#</a></h2>
+<p>If cloud-init, a systemd unit, or a manual command can trigger the same script, add a lock:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">LOCK_FILE</span><span class="o">=</span><span class="s2">&#34;/run/futurex-bootstrap.lock&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> 9&gt;<span class="s2">&#34;</span><span class="si">${</span><span class="nv">LOCK_FILE</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> ! flock -n 9<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;[</span><span class="k">$(</span>date -Is<span class="k">)</span><span class="s2">] Another futurex-bootstrap process is already running; exiting.&#34;</span> <span class="p">|</span> tee -a <span class="s2">&#34;</span><span class="nv">$LOG_FILE</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></div><p>Duplicate log entries often mean the script was run twice or that an outer <code>tee</code> is also writing the same output.</p>
+<h2 id="avoid-double-logging">Avoid Double Logging<a hidden class="anchor" aria-hidden="true" href="#avoid-double-logging">#</a></h2>
+<p>If the bootstrap script writes its own log, keep cloud-init simple:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">#cloud-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">runcmd</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="p">[</span><span class="w"> </span><span class="l">bash, -lc, &#39;/usr/local/bin/futurex-bootstrap&#39; ]</span><span class="w">
+</span></span></span></code></pre></div><p>Avoid wrapping it like this unless you intentionally want a second wrapper log:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">runcmd</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="p">[</span><span class="w"> </span><span class="l">bash, -lc, &#39;/usr/local/bin/futurex-bootstrap 2&gt;&amp;1 | tee -a /var/log/futurex-bootstrap.log&#39; ]</span><span class="w">
+</span></span></span></code></pre></div><h2 id="operating-rule">Operating Rule<a hidden class="anchor" aria-hidden="true" href="#operating-rule">#</a></h2>
+<p>Bootstrap should produce enough evidence for the next operator:</p>
+<ul>
+<li>what ran.</li>
+<li>what passed.</li>
+<li>what failed.</li>
+<li>what command returned the failure.</li>
+<li>whether a second bootstrap process tried to run.</li>
+</ul>
+<p>The goal is not to hide failures. The goal is to preserve enough context to fix them without guessing.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/bootstrap/">Bootstrap</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/cloud-init/">Cloud-Init</a></li>
+      <li><a href="http://localhost:1313/tags/operations/">Operations</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/">
+    <span class="title">Next »</span>
+    <span>First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

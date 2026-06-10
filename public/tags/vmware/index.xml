@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vmware on Trinidad Marroquin</title>
+    <link>http://localhost:1313/tags/vmware/</link>
+    <description>Recent content in Vmware on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>govc Commands For vSphere VM Verification</title>
+      <link>http://localhost:1313/field-notes/govc-vsphere-verification/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/govc-vsphere-verification/</guid>
+      <description>Field note with govc commands for finding VMs, checking NIC backing, guestinfo keys, and comparing working versus broken vSphere clones.</description>
+    </item>
+    <item>
+      <title>Terraform vSphere Clone Customization Failures</title>
+      <link>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</guid>
+      <description>Field note for diagnosing Terraform vSphere clone failures caused by VMware guest customization inside the VM.</description>
+    </item>
+  </channel>
+</rss>
