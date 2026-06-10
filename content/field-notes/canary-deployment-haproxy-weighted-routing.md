@@ -9,6 +9,8 @@ categories = ['field-notes']
 
 A canary deployment sends a small fraction of traffic to a new version while the stable version handles the rest. If the canary fails, only the test fraction is affected.
 
+For a runnable lab, see the [`canary-deployment` directory in the IaC repository](https://github.com/trinidadgithub/IaC/tree/main/Deployments/canary-deployment). It uses HAProxy weighted routing with raw C API servers.
+
 HAProxy makes this pattern visible and controllable through weighted backend servers.
 
 ## Weight Ratio

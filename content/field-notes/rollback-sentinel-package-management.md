@@ -9,6 +9,8 @@ categories = ['field-notes']
 
 Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
 
+For a runnable lab, see the [`rollback-deployment` directory in the IaC repository](https://github.com/trinidadgithub/IaC/tree/main/Deployments/rollback-deployment). It uses a sentinel file to trigger Puppet-driven dpkg rollback.
+
 ## The Sentinel File Pattern
 
 A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:

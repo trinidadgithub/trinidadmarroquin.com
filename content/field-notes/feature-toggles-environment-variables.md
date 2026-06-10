@@ -9,6 +9,8 @@ categories = ['field-notes']
 
 Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
 
+For a runnable lab, see the [`feature-toggle` directory in the IaC repository](https://github.com/trinidadgithub/IaC/tree/main/Deployments/feature-toggle). It demonstrates the same toggle pattern in both C and Python.
+
 ## The Pattern
 
 Python:

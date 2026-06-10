@@ -9,6 +9,8 @@ categories = ['field-notes']
 
 Blue-green deployment keeps two environments running. At any time, one environment serves production traffic and the other waits for the next release.
 
+For a runnable lab, see the [`blue-green-simulation` directory in the IaC repository](https://github.com/trinidadgithub/IaC/tree/main/Deployments/blue-green-simulation). Version 1 demonstrates a manual NGINX upstream switch. Version 2 adds weighted routing and named containers.
+
 The switch is the critical moment. How it happens determines whether the pattern is fast rollback or just extra complexity.
 
 ## The NGINX Upstream Switch

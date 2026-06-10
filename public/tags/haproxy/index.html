@@ -182,13 +182,14 @@
   </header>
   <div class="entry-content">
     <p>A canary deployment sends a small fraction of traffic to a new version while the stable version handles the rest. If the canary fails, only the test fraction is affected.
+For a runnable lab, see the canary-deployment directory in the IaC repository. It uses HAProxy weighted routing with raw C API servers.
 HAProxy makes this pattern visible and controllable through weighted backend servers.
 Weight Ratio backend servers balance leastconn server v1 api_v1:8080 weight 10 check server v2 api_v2:8080 weight 1 check With weights 10 and 1, approximately 9% of requests reach v2. The weight proportion directly controls the blast radius:
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Canary Deployments With HAProxy Weighted Routing" href="https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/"></a>
 </article>
     </main>

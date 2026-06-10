@@ -182,10 +182,9 @@
   </header>
   <div class="entry-content">
     <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
+For a runnable lab, see the feature-toggle directory in the IaC repository. It demonstrates the same toggle pattern in both C and Python.
 The Pattern Python:
 import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
-#include &lt;stdlib.h&gt; #include &lt;string.h&gt; const char* val = getenv(&#34;FEATURE_ENABLED&#34;); int feature_enabled = (val != NULL &amp;&amp; strcmp(val, &#34;true&#34;) == 0); Both implementations check a single environment variable. The toggle is consistent across languages.
-Cross-Language Gotchas C’s strcmp is case-sensitive. FEATURE_ENABLED=True evaluates to false. Python’s .lower() normalizes the input. Standardize on lowercase true/false values across all services to avoid surprises.
 ...</p>
   </div>
   <footer class="entry-footer">
