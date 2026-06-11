@@ -17,6 +17,13 @@
       <description>Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.</description>
     </item>
     <item>
+      <title>Image Factory Workflow With vSphere And Packer</title>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</guid>
+      <description>Project page for the Packer-based image factory workflow: template pipeline, versioning strategy, cross-site distribution, validation gates, and the operating model that keeps node images consistent across the fleet.</description>
+    </item>
+    <item>
       <title>Kafka Readiness Checks In Terraform Docker Labs</title>
       <link>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>

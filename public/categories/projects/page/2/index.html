@@ -235,6 +235,23 @@ terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt;
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
+This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
+Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kafka Streams Pipeline With Terraform
     </h2>
   </header>
@@ -361,26 +378,6 @@ Git commit. Packer version. builder plugin versions. package manifest or importa
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Packer Image Versioning" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Pipeline Credential Handling And Promotion
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Pipelines are privileged automation. Treat their credentials like production access, because that is what they are.
-Credential design should match the environment and action being performed.
-Credential Handling Use separate credentials for:
-read-only validation. non-production deploys. production plans. production applies. artifact publication. Prefer short-lived credentials from Vault, cloud identity federation, or platform-native workload identity. Avoid storing long-lived credentials in pipeline definitions.
-Resource Design Pipeline resources should make flow visible:
-source repository. versioned artifact. environment configuration. approval gate. deployment target. Do not let a pipeline secretly fetch mutable inputs without recording what it used.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Pipeline Credential Handling And Promotion" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

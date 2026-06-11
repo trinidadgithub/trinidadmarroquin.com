@@ -17,6 +17,9 @@
     <loc>https://trinidadmarroquin.com/tags/ansible/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/tags/anti-patterns/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/tags/automation/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -30,6 +33,9 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/backup/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</loc>
@@ -113,6 +119,15 @@
     <loc>https://trinidadmarroquin.com/tags/eks/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/tags/etcd/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/etcd-member-management/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -162,6 +177,9 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/iam/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/images/</loc>
@@ -227,10 +245,25 @@
     <loc>https://trinidadmarroquin.com/tags/logging/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/tags/longhorn/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/tags/metrics/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/tags/migration/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/tags/modules/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/monitoring/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/netplan/</loc>
@@ -252,6 +285,9 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/field-notes/observability/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/observability-before-ai/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/posts/operating-in-gitops/</loc>
@@ -276,6 +312,9 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/pipeline/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</loc>
@@ -347,6 +386,9 @@
     <loc>https://trinidadmarroquin.com/tags/sre/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/sre-mindset/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/tags/state/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -375,6 +417,9 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</loc>
+    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/troubleshooting/</loc>

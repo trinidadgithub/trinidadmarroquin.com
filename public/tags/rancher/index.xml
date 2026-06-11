@@ -17,6 +17,13 @@
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
     </item>
     <item>
+      <title>Multi-Site RKE2 Operations: Lessons From The Fleet</title>
+      <link>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</guid>
+      <description>Operational lessons from running RKE2 clusters across multiple data centers: inventory design, node naming conventions, upgrade sequencing across sites, and the patterns that break first at scale.</description>
+    </item>
+    <item>
       <title>Rancher Fleet Standards</title>
       <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>

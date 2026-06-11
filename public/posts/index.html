@@ -248,6 +248,23 @@ What Local Labs Are Good For Local IaC labs are especially useful for learning d
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Multi-Site RKE2 Operations: Lessons From The Fleet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Running RKE2 across multiple data centers reveals problems that single-cluster operations never expose. The differences between sites — hardware generations, network latency, storage backend versions, DNS configurations, operating system versions — become the primary operational concern.
+This post captures the lessons that held up across sites.
+Inventory Design Predicts Operational Pain The inventory is the single source of truth for what runs where. If the inventory is incomplete or inconsistent, every automation step requires manual verification.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Multi-Site RKE2 Operations: Lessons From The Fleet" href="https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Operating In A GitOps Environment: Practices That Hold Up
     </h2>
   </header>
@@ -278,6 +295,22 @@ This post covers the audit, the diagnostics, the remediation script, and the edg
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters" href="https://trinidadmarroquin.com/posts/dns-search-domain-remediation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The DevOps Dirty Dozen covered anti-patterns in DevOps culture. SRE has its own set of traps — practices that look like reliability work but do not improve reliability.
+1. Alert Frequency As A Paging Criterion “If it pages, it matters” sounds correct. The reality is that teams habituate to frequent pages within weeks. An alert that fires every night at 3 AM for a non-critical condition trains operators to silence notifications, miss the genuine page, and burn out.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering" href="https://trinidadmarroquin.com/posts/sre-dirty-dozen/"></a>
 </article>
 
 <article class="post-entry"> 

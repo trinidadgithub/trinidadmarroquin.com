@@ -199,6 +199,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
+This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
+Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Packer Base Image Hardening
     </h2>
   </header>

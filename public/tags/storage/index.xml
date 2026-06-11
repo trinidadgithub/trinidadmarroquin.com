@@ -17,6 +17,13 @@
       <description>Platform conventions for Kubernetes namespaces, ingress, storage, labels, policies, and ownership patterns that reduce operational drift.</description>
     </item>
     <item>
+      <title>Longhorn To Enterprise Storage Migration Patterns</title>
+      <link>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</guid>
+      <description>Field note for migrating Kubernetes storage from Longhorn to enterprise storage platforms: volume migration strategies, application downtime expectations, PVC rebinding, and validation checks before and after migration.</description>
+    </item>
+    <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
       <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>

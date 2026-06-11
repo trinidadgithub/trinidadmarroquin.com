@@ -218,6 +218,22 @@ metadata: labels: owner: team-platform environment: prod workload-tier: platform
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Longhorn To Enterprise Storage Migration Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Migration Strategies Attach-And-Clone (Lowest Downtime) For platforms that support concurrent attachment:
+1. Deploy new StorageClass targeting enterprise storage. 2. Create a clone of the existing PVC on the new StorageClass. 3. Attach the clone to a verification pod and validate data integrity. 4. Scale down the workload, detach old PVC, attach new PVC. 5. Scale up the workload. Downtime is limited to the time between scale-down and attach. Data integrity is verified before the cutover.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Longhorn To Enterprise Storage Migration Patterns" href="https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
     </h2>
   </header>

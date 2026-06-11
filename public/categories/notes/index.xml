@@ -17,6 +17,13 @@
       <description>A practical SRE view of how local Terraform, Docker, Helm, Kafka, and observability labs can become production-ready infrastructure patterns without pretending the lab is production.</description>
     </item>
     <item>
+      <title>Multi-Site RKE2 Operations: Lessons From The Fleet</title>
+      <link>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</guid>
+      <description>Operational lessons from running RKE2 clusters across multiple data centers: inventory design, node naming conventions, upgrade sequencing across sites, and the patterns that break first at scale.</description>
+    </item>
+    <item>
       <title>Operating In A GitOps Environment: Practices That Hold Up</title>
       <link>https://trinidadmarroquin.com/posts/operating-in-gitops/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -29,6 +36,13 @@
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</guid>
       <description>A production walkthrough of auditing, diagnosing, and remediating DNS search domain drift across five RKE2 cluster sites, including netplan staging, systemd-resolved link-level debugging, and a Subiquity YAML indentation trap.</description>
+    </item>
+    <item>
+      <title>The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering</title>
+      <link>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
+      <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
     </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>

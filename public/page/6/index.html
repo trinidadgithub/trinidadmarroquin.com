@@ -239,6 +239,153 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Plan Review Practices
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Terraform plan review is where infrastructure intent becomes operational risk.
+A good review does not ask only whether the syntax is valid. It asks whether the planned changes match the expected blast radius.
+Review Inputs Every plan review should include:
+changed files. selected workspace or root module. variable files used. provider versions. plan output. expected changes. rollback or recovery notes. Do not review a plan if the command that generated it is unclear.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Plan Review Practices" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The DevOps Dirty Dozen covered anti-patterns in DevOps culture. SRE has its own set of traps — practices that look like reliability work but do not improve reliability.
+1. Alert Frequency As A Paging Criterion “If it pages, it matters” sounds correct. The reality is that teams habituate to frequent pages within weeks. An alert that fires every night at 3 AM for a non-critical condition trains operators to silence notifications, miss the genuine page, and burn out.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering" href="https://trinidadmarroquin.com/posts/sre-dirty-dozen/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Storage incidents in Kubernetes are rarely just storage incidents.
+In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
+The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Vault Deployment And Unseal Runbooks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vault deployment work should be treated as security infrastructure, not just another stateful service.
+The runbooks need to cover normal operation and the uncomfortable moments: initialization, sealing, unsealing, leader changes, backup, and recovery.
+Deployment Baseline Document:
+storage backend. HA topology. TLS certificates. seal mechanism. audit devices. auth methods. backup and restore path. monitoring and alerting expectations. Vault should not run in production without audit logging and a tested recovery path.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Vault Deployment And Unseal Runbooks" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Vault Policy Auth And Secrets Engines
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vault policies are path-based and deny by default. That makes policy design powerful, but it also makes messy path design painful.
+Start by organizing secrets engines and paths around ownership and consumption patterns.
+Policy Design Policies should be small, named clearly, and mapped to roles or groups.
+Good policy names describe intent:
+team-a-kv-read platform-transit-admin ci-prod-db-read Avoid broad wildcard policies unless the path is already tightly scoped.
+Auth Methods Use auth methods that match the consumer:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Vault Policy Auth And Secrets Engines" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Vault Token Lease Audit And Recovery Practices
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vault operations are mostly about lifecycle control: who received a secret, how long it is valid, when it renews, and how quickly it can be revoked.
+Tokens and leases are not implementation details. They are the operational handles for incident response.
+Token Practices Use short-lived and renewable tokens where possible. Avoid long-lived service tokens unless there is a documented reason.
+Token expectations:
+root tokens are not used for normal administration. human tokens come from an auth method. automation tokens are scoped and rotated. orphan and periodic tokens are reviewed carefully. token accessors are treated as sensitive operational data. Lease Practices Dynamic secrets have leases. Consumers must renew or replace them before expiry.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Vault Token Lease Audit And Recovery Practices" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">vCenter Automation Integration Points
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Automation works best when vCenter exposes stable contracts.
+Terraform, Packer, Kubernetes, CSI drivers, and backup tools all depend on vCenter inventory behaving predictably.
+Terraform Contracts Terraform needs stable references for:
+datacenters. clusters and resource pools. datastores and datastore clusters. folders. port groups. templates. tags and custom attributes. If these names change casually, infrastructure code becomes fragile.
+Packer Contracts Packer needs a reliable build path:
+build network. ISO or content library access. temporary VM folder. template destination. credentials with limited build permissions. cleanup behavior for failed builds. Template promotion should include validation before downstream Terraform consumes the image.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">vCenter Platform Hygiene
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>vCenter hygiene is the difference between a virtualization platform and a pile of VMs.
+The goal is to keep inventory, networks, storage, permissions, and templates understandable enough that automation can safely depend on them.
+Inventory Organization Folders, tags, and naming should expose ownership and lifecycle.
+Recommended metadata:
+environment. application or platform owner. lifecycle state. backup policy. automation owner. cost or capacity group. Use vSphere tags and custom attributes for metadata that operators need to search, report, or automate against.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to vCenter Platform Hygiene" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">VM Lifecycle Runbooks
     </h2>
   </header>
@@ -272,147 +419,6 @@ StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kub
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Bootstrap Logging, Locks, And Continue-On-Failure Behavior
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>First-boot bootstrap scripts should be easy to debug after the VM is already running. For operational bootstrap, fail-fast is not always the best default.
-If a bootstrap framework configures hostname, SSH, disks, iSCSI, and node labels, stopping at the first failure may hide useful evidence from later checks. A better pattern is to run each stage, log the result, continue, and summarize failures at the end.
-Symptoms Bootstrap log stops after the first or second script. Later configuration steps never run. cloud-init-output.log shows only partial output. Re-running the bootstrap manually succeeds, but first boot did not. Log lines appear duplicated or interleaved. Use A Stage Runner Wrap each bootstrap step so failures are recorded but do not prevent later diagnostics:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Bootstrap Logging, Locks, And Continue-On-Failure Behavior" href="https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The hardest part of automating VM provisioning is not always creating the VM. It is deciding which layer owns first boot.
-In one troubleshooting session, a Terraform refactor exposed a chain of hidden coupling between Packer, Terraform, vSphere customization, cloud-init, bootstrap scripts, netplan, SSH, and iSCSI. Each tool was doing something useful. The problem was that several of them were trying to own the same parts of the machine lifecycle.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap" href="https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>govc is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
-Load Environment Use a clearly named helper file, not vars.env if it is only for govc:
-source govc.env govc about Typical values:
-export GOVC_URL=&#39;vcenter.example.com&#39; export GOVC_USERNAME=&#39;administrator@vsphere.local&#39; export GOVC_PASSWORD=&#39;...&#39; export GOVC_INSECURE=1 export GOVC_DATACENTER=&#39;VC-Austin&#39; Find A VM Path Search by VM name:
-govc find / -type m -name &#39;AUS-1-wrkr-12-uat&#39; Example result:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to govc Commands For vSphere VM Verification" href="https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
-Target State For a node with primary and iSCSI networks:
-ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
-deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Netplan Conflicts After VMware Guest Customization
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>VMware guest customization can write /etc/netplan/99-netcfg-vmware.yaml. If the template already has another active netplan file, the host can end up with multiple network authorities.
-That can break routing, DNS, bootstrap scripts, Kubernetes node communication, and storage initialization.
-Symptoms Common signs:
-Error: Conflicting default route declarations for IPv4 first declared in nic0 but also in ens192 or:
-Destination Host Unreachable or DNS search drift like:
-resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/netplan sudo grep -R &#34;routes:\|gateway\|search:&#34; /etc/netplan -n If both a template file and VMware file are present, decide which one owns networking.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>This project started as a repository cleanup and turned into a clearer operating model for vSphere infrastructure.
-The original Terraform repo had grown into a collection of copied root modules. Each site and environment had its own directory with a familiar set of files: main.tf, variables.tf, output.tf, terraform.tfvars, vars.auto.tfvars, vars.env, local state files, and copied templates. That worked while the repo was small, but it made every change harder to review.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules" href="https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Terraform refactor can look like a file organization problem until the first plan, clone, and bootstrap run.
-The repo I was working on had the usual signs of age: copied environment roots, local state files, duplicated templates, inconsistent variable files, and old one-off directories that were still sitting beside active infrastructure. The obvious fix was to move toward a cleaner layout:
-environments/&lt;site&gt;/&lt;env&gt;/ modules/vsphere-vm-group/ templates/ archive/ That was the right direction. It was also only the beginning.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling" href="https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform State Moves During A Module Refactor
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When an existing Terraform resource is moved into a module, Terraform sees a new resource address. If state is not moved first, the plan may try to create the module resource and destroy the old root resource.
-Symptom After converting a root resource to a module call, the plan shows addresses like this:
-# module.vm_group.vsphere_virtual_machine.vm[&#34;lb1&#34;] will be created while the existing state still has:
-vsphere_virtual_machine.vm[&#34;lb1&#34;] Check Current State Run from the environment root:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform State Moves During A Module Refactor" href="https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

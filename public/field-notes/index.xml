@@ -52,6 +52,20 @@
       <description>Field note for diagnosing Docker failures caused by stale runc and containerd-shim-runc-v2 binaries in /usr/local/bin shadowing package-managed versions.</description>
     </item>
     <item>
+      <title>etcd Backup, Restore, And Disaster Recovery</title>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</guid>
+      <description>Field note for etcd snapshot and restore procedures in Kubernetes clusters: automated backups, restore validation, cluster rebuild from snapshot, and recovery patterns for RKE2.</description>
+    </item>
+    <item>
+      <title>etcd Member Management And Cluster Health</title>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-member-management/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-member-management/</guid>
+      <description>Field note for etcd member lifecycle: adding and removing members, quorum safety, endpoint health, alarm management, and common failure modes in RKE2 clusters.</description>
+    </item>
+    <item>
       <title>Feature Toggles With Environment Variables</title>
       <link>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -101,6 +115,20 @@
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
     </item>
     <item>
+      <title>Longhorn To Enterprise Storage Migration Patterns</title>
+      <link>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</guid>
+      <description>Field note for migrating Kubernetes storage from Longhorn to enterprise storage platforms: volume migration strategies, application downtime expectations, PVC rebinding, and validation checks before and after migration.</description>
+    </item>
+    <item>
+      <title>Observability Before AI: What Every Operator Needs First</title>
+      <link>https://trinidadmarroquin.com/field-notes/observability-before-ai/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/observability-before-ai/</guid>
+      <description>Field note for building observability foundations before introducing AI-assisted operations: structured metrics, actionable dashboards, coherent alert routing, and incident response patterns that make AI useful rather than noisy.</description>
+    </item>
+    <item>
       <title>Rollback Strategies With Sentinel Files And Package Management</title>
       <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -113,6 +141,13 @@
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
       <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
+    </item>
+    <item>
+      <title>SRE Mindset: Operational Judgment Over Tooling</title>
+      <link>https://trinidadmarroquin.com/field-notes/sre-mindset/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/sre-mindset/</guid>
+      <description>Field note for the SRE mindset: how operators think about reliability, error budgets, incident response, toil management, and the decisions that determine whether tooling improves or complicates operations.</description>
     </item>
     <item>
       <title>Terraform Azure Backend Bootstrap</title>

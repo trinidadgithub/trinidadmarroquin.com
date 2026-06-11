@@ -199,6 +199,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
+This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
+Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
     </h2>
   </header>
@@ -361,22 +378,6 @@ resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/
 
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>This project started as a repository cleanup and turned into a clearer operating model for vSphere infrastructure.
-The original Terraform repo had grown into a collection of copied root modules. Each site and environment had its own directory with a familiar set of files: main.tf, variables.tf, output.tf, terraform.tfvars, vars.auto.tfvars, vars.env, local state files, and copied templates. That worked while the repo was small, but it made every change harder to review.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules" href="https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

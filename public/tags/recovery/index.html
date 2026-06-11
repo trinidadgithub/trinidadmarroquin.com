@@ -199,6 +199,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Backup, Restore, And Disaster Recovery
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Snapshot Manual Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt \ ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt \ ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key \ etcdctl snapshot save /backup/etcd-snapshot-$(date &#43;%Y%m%d-%H%M%S).db Automated Snapshot (RKE2) RKE2 includes etcd-snapshot as a subcommand:
+rke2 etcd-snapshot save \ --node-name &lt;node-name&gt; \ --s3 \ --s3-bucket=&lt;bucket&gt; \ --s3-region=&lt;region&gt; \ --s3-access-key=&lt;key&gt; \ --s3-secret-key=&lt;secret&gt; Automated snapshots can be configured via the RKE2 config file with etcd-snapshot-schedule-cron and etcd-snapshot-retention.
+Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot status /backup/etcd-snapshot-&lt;date&gt;.db -w table Verify the snapshot is not corrupt and check the revision and hash. A snapshot with zero revisions or a mismatched hash indicates corruption.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Vault Token Lease Audit And Recovery Practices
     </h2>
   </header>

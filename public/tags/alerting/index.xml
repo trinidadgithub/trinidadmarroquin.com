@@ -16,5 +16,12 @@
       <guid>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
       <description>Initial guidance for actionable alerts, useful dashboards, ownership, and SRE-style signal quality.</description>
     </item>
+    <item>
+      <title>Observability Before AI: What Every Operator Needs First</title>
+      <link>https://trinidadmarroquin.com/field-notes/observability-before-ai/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/observability-before-ai/</guid>
+      <description>Field note for building observability foundations before introducing AI-assisted operations: structured metrics, actionable dashboards, coherent alert routing, and incident response patterns that make AI useful rather than noisy.</description>
+    </item>
   </channel>
 </rss>

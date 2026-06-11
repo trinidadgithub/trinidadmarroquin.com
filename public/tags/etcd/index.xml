@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Etcd on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/etcd/</link>
+    <description>Recent content in Etcd on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/etcd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>etcd Backup, Restore, And Disaster Recovery</title>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</guid>
+      <description>Field note for etcd snapshot and restore procedures in Kubernetes clusters: automated backups, restore validation, cluster rebuild from snapshot, and recovery patterns for RKE2.</description>
+    </item>
+    <item>
+      <title>etcd Member Management And Cluster Health</title>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-member-management/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-member-management/</guid>
+      <description>Field note for etcd member lifecycle: adding and removing members, quorum safety, endpoint health, alarm management, and common failure modes in RKE2 clusters.</description>
+    </item>
+  </channel>
+</rss>

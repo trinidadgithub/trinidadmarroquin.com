@@ -199,6 +199,26 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Pipeline Credential Handling And Promotion
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Pipelines are privileged automation. Treat their credentials like production access, because that is what they are.
+Credential design should match the environment and action being performed.
+Credential Handling Use separate credentials for:
+read-only validation. non-production deploys. production plans. production applies. artifact publication. Prefer short-lived credentials from Vault, cloud identity federation, or platform-native workload identity. Avoid storing long-lived credentials in pipeline definitions.
+Resource Design Pipeline resources should make flow visible:
+source repository. versioned artifact. environment configuration. approval gate. deployment target. Do not let a pipeline secretly fetch mutable inputs without recording what it used.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Pipeline Credential Handling And Promotion" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Pipeline Validation Planning And Apply Stages
     </h2>
   </header>
@@ -365,25 +385,6 @@ build network. ISO or content library access. temporary VM folder. template dest
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Platform Hygiene
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>vCenter hygiene is the difference between a virtualization platform and a pile of VMs.
-The goal is to keep inventory, networks, storage, permissions, and templates understandable enough that automation can safely depend on them.
-Inventory Organization Folders, tags, and naming should expose ownership and lifecycle.
-Recommended metadata:
-environment. application or platform owner. lifecycle state. backup policy. automation owner. cost or capacity group. Use vSphere tags and custom attributes for metadata that operators need to search, report, or automate against.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Platform Hygiene" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

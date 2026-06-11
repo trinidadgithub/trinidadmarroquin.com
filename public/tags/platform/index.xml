@@ -44,5 +44,19 @@
       <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</guid>
       <description>Platform conventions for Kubernetes namespaces, ingress, storage, labels, policies, and ownership patterns that reduce operational drift.</description>
     </item>
+    <item>
+      <title>SRE Mindset: Operational Judgment Over Tooling</title>
+      <link>https://trinidadmarroquin.com/field-notes/sre-mindset/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/sre-mindset/</guid>
+      <description>Field note for the SRE mindset: how operators think about reliability, error budgets, incident response, toil management, and the decisions that determine whether tooling improves or complicates operations.</description>
+    </item>
+    <item>
+      <title>The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering</title>
+      <link>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
+      <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
+    </item>
   </channel>
 </rss>

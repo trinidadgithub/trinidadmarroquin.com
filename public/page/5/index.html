@@ -239,6 +239,118 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Pipeline Credential Handling And Promotion
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Pipelines are privileged automation. Treat their credentials like production access, because that is what they are.
+Credential design should match the environment and action being performed.
+Credential Handling Use separate credentials for:
+read-only validation. non-production deploys. production plans. production applies. artifact publication. Prefer short-lived credentials from Vault, cloud identity federation, or platform-native workload identity. Avoid storing long-lived credentials in pipeline definitions.
+Resource Design Pipeline resources should make flow visible:
+source repository. versioned artifact. environment configuration. approval gate. deployment target. Do not let a pipeline secretly fetch mutable inputs without recording what it used.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Pipeline Credential Handling And Promotion" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Pipeline Validation Planning And Apply Stages
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Infrastructure pipelines should make change intent visible before they mutate anything.
+The stage design should separate fast feedback from approval and execution.
+Stage Model A practical infrastructure pipeline usually has:
+format -&gt; validate -&gt; security checks -&gt; plan -&gt; review -&gt; apply -&gt; verify Each stage should produce evidence that the next stage can trust.
+Validation Validation should be fast and safe:
+formatting. static syntax validation. provider initialization without touching production state when possible. unit-style checks for generated manifests. policy checks for obvious violations. Planning Plan output is the core review artifact.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Pipeline Validation Planning And Apply Stages" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post-Incident Follow-Up
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Post-incident follow-up should improve the system, not just produce a document.
+The useful output is a small set of changes that reduce recurrence, shorten detection, or make recovery safer.
+Timeline Build a factual timeline:
+first signal. detection time. acknowledgement time. mitigation actions. recovery time. customer or user impact. follow-up decisions. Avoid filling gaps with guesses. Mark unknowns explicitly.
+Analysis Separate:
+trigger. contributing factors. detection gap. mitigation gap. recovery gap. durable fix. Do not stop at the first human mistake. Ask what system condition made that mistake possible or likely.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Post-Incident Follow-Up" href="https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Rancher Fleet Standards
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rancher is useful because it gives operators a single control plane for many Kubernetes clusters. That centralization is also the risk: if access, workspace boundaries, cluster ownership, and GitOps conventions are loose, the management plane becomes another source of drift.
+The operating standard should make the boring parts explicit.
+Access Model Rancher should authenticate normal users through Active Directory. Roles should be assigned to AD groups, not individual users, wherever possible.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rancher Fleet Standards" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>RKE2 clusters across five sites had DNS search domains leaking into Kubernetes name resolution. Hostnames that should have resolved as-is were getting suffix expansion, and the behavior was inconsistent across data centers.
+The fix required understanding which layer was injecting the search domain — and it was not always the same layer.
+This post covers the audit, the diagnostics, the remediation script, and the edge cases that made it interesting.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters" href="https://trinidadmarroquin.com/posts/dns-search-domain-remediation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Rollback Strategies With Sentinel Files And Package Management
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
+For a runnable lab, see the rollback-deployment directory in the IaC repository. It uses a sentinel file to trigger Puppet-driven dpkg rollback.
+The Sentinel File Pattern A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:
+exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt/v1/c-app.deb&#39;, onlyif =&gt; &#39;test -f /tmp/simulate_failure&#39;, } The sentinel file is a teaching proxy. In production, the sentinel would be a health check failure, a metrics threshold breach, or a monitoring alert.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
     </h2>
   </header>
@@ -253,6 +365,23 @@ Grafana admin credentials in container environment variables. Concourse local us
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SRE Mindset: Operational Judgment Over Tooling
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SRE Is Not A Role, It Is A Decision Framework The tools matter less than the judgment about when to use them. SRE is the discipline of converting operational data into decisions about system reliability.
+The Essential Questions Every operational decision reduces to three questions:
+What is the acceptable failure rate? (SLO target) How much failure budget is left? (Error budget tracking) What are we doing about it? (Error budget policy) If the team cannot answer these three questions for a service, the SRE practice has not arrived yet.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -289,137 +418,6 @@ Who owns this infrastructure after apply? What lifecycle does it follow? What in
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform Operational Module Boundaries" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Plan Review Practices
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform plan review is where infrastructure intent becomes operational risk.
-A good review does not ask only whether the syntax is valid. It asks whether the planned changes match the expected blast radius.
-Review Inputs Every plan review should include:
-changed files. selected workspace or root module. variable files used. provider versions. plan output. expected changes. rollback or recovery notes. Do not review a plan if the command that generated it is unclear.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Plan Review Practices" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Storage incidents in Kubernetes are rarely just storage incidents.
-In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
-The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vault Deployment And Unseal Runbooks
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Vault deployment work should be treated as security infrastructure, not just another stateful service.
-The runbooks need to cover normal operation and the uncomfortable moments: initialization, sealing, unsealing, leader changes, backup, and recovery.
-Deployment Baseline Document:
-storage backend. HA topology. TLS certificates. seal mechanism. audit devices. auth methods. backup and restore path. monitoring and alerting expectations. Vault should not run in production without audit logging and a tested recovery path.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Vault Deployment And Unseal Runbooks" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vault Policy Auth And Secrets Engines
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Vault policies are path-based and deny by default. That makes policy design powerful, but it also makes messy path design painful.
-Start by organizing secrets engines and paths around ownership and consumption patterns.
-Policy Design Policies should be small, named clearly, and mapped to roles or groups.
-Good policy names describe intent:
-team-a-kv-read platform-transit-admin ci-prod-db-read Avoid broad wildcard policies unless the path is already tightly scoped.
-Auth Methods Use auth methods that match the consumer:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Vault Policy Auth And Secrets Engines" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vault Token Lease Audit And Recovery Practices
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Vault operations are mostly about lifecycle control: who received a secret, how long it is valid, when it renews, and how quickly it can be revoked.
-Tokens and leases are not implementation details. They are the operational handles for incident response.
-Token Practices Use short-lived and renewable tokens where possible. Avoid long-lived service tokens unless there is a documented reason.
-Token expectations:
-root tokens are not used for normal administration. human tokens come from an auth method. automation tokens are scoped and rotated. orphan and periodic tokens are reviewed carefully. token accessors are treated as sensitive operational data. Lease Practices Dynamic secrets have leases. Consumers must renew or replace them before expiry.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Vault Token Lease Audit And Recovery Practices" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Automation Integration Points
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Automation works best when vCenter exposes stable contracts.
-Terraform, Packer, Kubernetes, CSI drivers, and backup tools all depend on vCenter inventory behaving predictably.
-Terraform Contracts Terraform needs stable references for:
-datacenters. clusters and resource pools. datastores and datastore clusters. folders. port groups. templates. tags and custom attributes. If these names change casually, infrastructure code becomes fragile.
-Packer Contracts Packer needs a reliable build path:
-build network. ISO or content library access. temporary VM folder. template destination. credentials with limited build permissions. cleanup behavior for failed builds. Template promotion should include validation before downstream Terraform consumes the image.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Platform Hygiene
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>vCenter hygiene is the difference between a virtualization platform and a pile of VMs.
-The goal is to keep inventory, networks, storage, permissions, and templates understandable enough that automation can safely depend on them.
-Inventory Organization Folders, tags, and naming should expose ownership and lifecycle.
-Recommended metadata:
-environment. application or platform owner. lifecycle state. backup policy. automation owner. cost or capacity group. Use vSphere tags and custom attributes for metadata that operators need to search, report, or automate against.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Platform Hygiene" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

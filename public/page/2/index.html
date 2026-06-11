@@ -322,6 +322,38 @@ The Pattern docker ps # works, lists containers docker run hello-world # hangs o
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Backup, Restore, And Disaster Recovery
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Snapshot Manual Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt \ ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt \ ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key \ etcdctl snapshot save /backup/etcd-snapshot-$(date &#43;%Y%m%d-%H%M%S).db Automated Snapshot (RKE2) RKE2 includes etcd-snapshot as a subcommand:
+rke2 etcd-snapshot save \ --node-name &lt;node-name&gt; \ --s3 \ --s3-bucket=&lt;bucket&gt; \ --s3-region=&lt;region&gt; \ --s3-access-key=&lt;key&gt; \ --s3-secret-key=&lt;secret&gt; Automated snapshots can be configured via the RKE2 config file with etcd-snapshot-schedule-cron and etcd-snapshot-retention.
+Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot status /backup/etcd-snapshot-&lt;date&gt;.db -w table Verify the snapshot is not corrupt and check the revision and hash. A snapshot with zero revisions or a mismatched hash indicates corruption.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
     </h2>
   </header>
@@ -372,41 +404,6 @@ projects belong to a hierarchy: organization -&gt; folder -&gt; project. IAM pol
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to GCP Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">GitOps For Infrastructure Teams
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>GitOps for a platform team is not about syncing a Kubernetes manifest directory. It is about making Git the source of truth for infrastructure state and using pipelines to enforce that state across environments, sites, and provider boundaries.
-This page collects patterns, pipeline shapes, and operating model decisions for GitOps in infrastructure teams.
-Scope These patterns apply to:
-Multi-site RKE2 cluster fleets. vSphere and cloud provider resource lifecycle. Template and image pipeline workflows. Platform tenant onboarding. Secrets and certificate lifecycle management. Configuration drift detection and remediation. The common thread is that Git is the single entry point for change, and pipelines are the only path to production.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to GitOps For Infrastructure Teams" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">GitOps Pipeline Patterns For Platform Teams
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Make Git The Only Entry Point If a change can be made without opening a pull request, it will eventually be made without a pull request. The rule is simple: no PR, no change.
-This applies to:
-Terraform and Ansible runs. Image template version bumps. Pipeline configuration changes. DNS and load balancer records. Monitoring and alerting rules. Pipeline Shapes Change Pipeline PR → lint → validate → plan → plan review → apply non-prod → apply prod → verify Plan output must be retained as an artifact. Apply stages must be serialized per state backend.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to GitOps Pipeline Patterns For Platform Teams" href="https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

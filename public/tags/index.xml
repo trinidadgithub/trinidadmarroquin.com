@@ -38,6 +38,13 @@
       <description></description>
     </item>
     <item>
+      <title>Anti-Patterns</title>
+      <link>https://trinidadmarroquin.com/tags/anti-patterns/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/anti-patterns/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Automation</title>
       <link>https://trinidadmarroquin.com/tags/automation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -56,6 +63,13 @@
       <link>https://trinidadmarroquin.com/tags/azure/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Backup</title>
+      <link>https://trinidadmarroquin.com/tags/backup/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/backup/</guid>
       <description></description>
     </item>
     <item>
@@ -126,6 +140,13 @@
       <link>https://trinidadmarroquin.com/tags/eks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/eks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Etcd</title>
+      <link>https://trinidadmarroquin.com/tags/etcd/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/etcd/</guid>
       <description></description>
     </item>
     <item>
@@ -269,6 +290,13 @@
       <description></description>
     </item>
     <item>
+      <title>Longhorn</title>
+      <link>https://trinidadmarroquin.com/tags/longhorn/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/longhorn/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Metrics</title>
       <link>https://trinidadmarroquin.com/tags/metrics/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -276,10 +304,24 @@
       <description></description>
     </item>
     <item>
+      <title>Migration</title>
+      <link>https://trinidadmarroquin.com/tags/migration/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/migration/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Modules</title>
       <link>https://trinidadmarroquin.com/tags/modules/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/modules/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>https://trinidadmarroquin.com/tags/monitoring/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/monitoring/</guid>
       <description></description>
     </item>
     <item>
@@ -322,6 +364,13 @@
       <link>https://trinidadmarroquin.com/tags/packer/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/packer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pipeline</title>
+      <link>https://trinidadmarroquin.com/tags/pipeline/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/pipeline/</guid>
       <description></description>
     </item>
     <item>

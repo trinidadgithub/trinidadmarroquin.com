@@ -239,6 +239,41 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">GitOps For Infrastructure Teams
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>GitOps for a platform team is not about syncing a Kubernetes manifest directory. It is about making Git the source of truth for infrastructure state and using pipelines to enforce that state across environments, sites, and provider boundaries.
+This page collects patterns, pipeline shapes, and operating model decisions for GitOps in infrastructure teams.
+Scope These patterns apply to:
+Multi-site RKE2 cluster fleets. vSphere and cloud provider resource lifecycle. Template and image pipeline workflows. Platform tenant onboarding. Secrets and certificate lifecycle management. Configuration drift detection and remediation. The common thread is that Git is the single entry point for change, and pipelines are the only path to production.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to GitOps For Infrastructure Teams" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GitOps Pipeline Patterns For Platform Teams
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Make Git The Only Entry Point If a change can be made without opening a pull request, it will eventually be made without a pull request. The rule is simple: no PR, no change.
+This applies to:
+Terraform and Ansible runs. Image template version bumps. Pipeline configuration changes. DNS and load balancer records. Monitoring and alerting rules. Pipeline Shapes Change Pipeline PR → lint → validate → plan → plan review → apply non-prod → apply prod → verify Plan output must be retained as an artifact. Apply stages must be serialized per state backend.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to GitOps Pipeline Patterns For Platform Teams" href="https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
     </h2>
   </header>
@@ -271,6 +306,23 @@ terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt;
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Helm And Terraform Validation Strategy" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
+This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
+Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -359,60 +411,6 @@ metadata: labels: owner: team-platform environment: prod workload-tier: platform
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Kubernetes Platform Conventions" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kubernetes Upgrade Sequencing
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kubernetes upgrades should be treated as controlled production changes, not package updates.
-The hard part is rarely clicking upgrade. The hard part is sequencing the change so operators know what can fail, what is safe to continue, and when to stop.
-Upgrade Principles Use a conservative model:
-upgrade non-production first. upgrade one minor version at a time unless the vendor path explicitly supports otherwise. keep control-plane, etcd, and worker sequencing explicit. drain nodes intentionally rather than relying on surprise evictions. validate platform add-ons before application teams validate workloads. define rollback and stop criteria before the maintenance window starts. For Rancher-managed clusters, also validate Rancher support for the target Kubernetes/RKE2/K3s version before scheduling the work.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kubernetes Upgrade Sequencing" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Local SLI Labs With Prometheus Grafana And cAdvisor
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A local SLI lab is useful when the goal is to understand the signal path before introducing production platform complexity.
-For a live local demo, see the sli_app lab in the IaC repository. If the lab does not run as expected, open a bug fix request against that repository with the failing command, host OS, Docker version, Terraform version, and relevant logs.
-The important part is not that everything runs on one machine. The important part is that the lab has the same basic observability chain operators rely on later:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Local SLI Labs With Prometheus Grafana And cAdvisor" href="https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Log And Metric Naming Conventions
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Telemetry is only useful if operators can find and compare it during pressure.
-Naming conventions reduce the translation tax between teams, dashboards, alerts, and incident notes.
-Log Fields Useful common fields:
-timestamp level service environment cluster namespace pod trace_id request_id user_safe_error_code Do not put secrets or personal data in logs. Redaction should be a platform expectation, not an afterthought.
-Metric Names Metric names should describe the measured thing and unit.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Log And Metric Naming Conventions" href="https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

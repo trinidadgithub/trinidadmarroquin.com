@@ -14,3 +14,4 @@ Discussion space for Packer image pipeline work.
 - [Base image hardening, patch cadence, and template retirement](base-image-hardening/)
 - [Image versioning for rollback, auditability, and change history](image-versioning/)
 - [Validation gates for boot, access, agents, and baseline configuration](image-validation-gates/)
+- [Image factory workflow with vSphere and Packer](image-factory-workflow/)

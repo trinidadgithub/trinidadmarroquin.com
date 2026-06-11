@@ -38,11 +38,25 @@
       <description>Initial conventions for log fields, metric names, labels, cardinality, and operational searchability.</description>
     </item>
     <item>
+      <title>Observability Before AI: What Every Operator Needs First</title>
+      <link>https://trinidadmarroquin.com/field-notes/observability-before-ai/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/observability-before-ai/</guid>
+      <description>Field note for building observability foundations before introducing AI-assisted operations: structured metrics, actionable dashboards, coherent alert routing, and incident response patterns that make AI useful rather than noisy.</description>
+    </item>
+    <item>
       <title>Secret Handling In Terraform Managed Labs</title>
       <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
       <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
+    </item>
+    <item>
+      <title>The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering</title>
+      <link>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
+      <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
     </item>
   </channel>
 </rss>

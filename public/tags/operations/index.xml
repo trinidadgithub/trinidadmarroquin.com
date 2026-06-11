@@ -17,6 +17,13 @@
       <description>Initial model for documenting cloud operational patterns by provider and platform discipline.</description>
     </item>
     <item>
+      <title>etcd Member Management And Cluster Health</title>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-member-management/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-member-management/</guid>
+      <description>Field note for etcd member lifecycle: adding and removing members, quorum safety, endpoint health, alarm management, and common failure modes in RKE2 clusters.</description>
+    </item>
+    <item>
       <title>Kubernetes Upgrade Sequencing</title>
       <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -24,11 +31,32 @@
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
     </item>
     <item>
+      <title>Longhorn To Enterprise Storage Migration Patterns</title>
+      <link>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</guid>
+      <description>Field note for migrating Kubernetes storage from Longhorn to enterprise storage platforms: volume migration strategies, application downtime expectations, PVC rebinding, and validation checks before and after migration.</description>
+    </item>
+    <item>
+      <title>Multi-Site RKE2 Operations: Lessons From The Fleet</title>
+      <link>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</guid>
+      <description>Operational lessons from running RKE2 clusters across multiple data centers: inventory design, node naming conventions, upgrade sequencing across sites, and the patterns that break first at scale.</description>
+    </item>
+    <item>
       <title>Post-Incident Follow-Up</title>
       <link>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</guid>
       <description>Initial post-incident follow-up model for timelines, contributing factors, corrective actions, and measurable system improvements.</description>
+    </item>
+    <item>
+      <title>SRE Mindset: Operational Judgment Over Tooling</title>
+      <link>https://trinidadmarroquin.com/field-notes/sre-mindset/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/sre-mindset/</guid>
+      <description>Field note for the SRE mindset: how operators think about reliability, error budgets, incident response, toil management, and the decisions that determine whether tooling improves or complicates operations.</description>
     </item>
     <item>
       <title>Terraform Operational Module Boundaries</title>

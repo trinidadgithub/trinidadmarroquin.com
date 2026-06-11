@@ -230,6 +230,38 @@ Pod DNS lookups that should resolve as-is getting unexpected suffix expansion. I
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Backup, Restore, And Disaster Recovery
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Snapshot Manual Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt \ ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt \ ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key \ etcdctl snapshot save /backup/etcd-snapshot-$(date &#43;%Y%m%d-%H%M%S).db Automated Snapshot (RKE2) RKE2 includes etcd-snapshot as a subcommand:
+rke2 etcd-snapshot save \ --node-name &lt;node-name&gt; \ --s3 \ --s3-bucket=&lt;bucket&gt; \ --s3-region=&lt;region&gt; \ --s3-access-key=&lt;key&gt; \ --s3-secret-key=&lt;secret&gt; Automated snapshots can be configured via the RKE2 config file with etcd-snapshot-schedule-cron and etcd-snapshot-retention.
+Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot status /backup/etcd-snapshot-&lt;date&gt;.db -w table Verify the snapshot is not corrupt and check the revision and hash. A snapshot with zero revisions or a mismatched hash indicates corruption.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
     </h2>
   </header>
@@ -303,73 +335,35 @@ upgrade non-production first. upgrade one minor version at a time unless the ven
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Rancher Fleet Standards
+    <h2 class="entry-hint-parent">Longhorn To Enterprise Storage Migration Patterns
     </h2>
   </header>
   <div class="entry-content">
-    <p>Rancher is useful because it gives operators a single control plane for many Kubernetes clusters. That centralization is also the risk: if access, workspace boundaries, cluster ownership, and GitOps conventions are loose, the management plane becomes another source of drift.
-The operating standard should make the boring parts explicit.
-Access Model Rancher should authenticate normal users through Active Directory. Roles should be assigned to AD groups, not individual users, wherever possible.
+    <p>Migration Strategies Attach-And-Clone (Lowest Downtime) For platforms that support concurrent attachment:
+1. Deploy new StorageClass targeting enterprise storage. 2. Create a clone of the existing PVC on the new StorageClass. 3. Attach the clone to a verification pod and validate data integrity. 4. Scale down the workload, detach old PVC, attach new PVC. 5. Scale up the workload. Downtime is limited to the time between scale-down and attach. Data integrity is verified before the cutover.
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Rancher Fleet Standards" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/"></a>
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Longhorn To Enterprise Storage Migration Patterns" href="https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters
+    <h2 class="entry-hint-parent">Multi-Site RKE2 Operations: Lessons From The Fleet
     </h2>
   </header>
   <div class="entry-content">
-    <p>RKE2 clusters across five sites had DNS search domains leaking into Kubernetes name resolution. Hostnames that should have resolved as-is were getting suffix expansion, and the behavior was inconsistent across data centers.
-The fix required understanding which layer was injecting the search domain — and it was not always the same layer.
-This post covers the audit, the diagnostics, the remediation script, and the edge cases that made it interesting.
+    <p>Running RKE2 across multiple data centers reveals problems that single-cluster operations never expose. The differences between sites — hardware generations, network latency, storage backend versions, DNS configurations, operating system versions — become the primary operational concern.
+This post captures the lessons that held up across sites.
+Inventory Design Predicts Operational Pain The inventory is the single source of truth for what runs where. If the inventory is incomplete or inconsistent, every automation step requires manual verification.
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters" href="https://trinidadmarroquin.com/posts/dns-search-domain-remediation/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Storage incidents in Kubernetes are rarely just storage incidents.
-In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
-The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Automation Integration Points
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Automation works best when vCenter exposes stable contracts.
-Terraform, Packer, Kubernetes, CSI drivers, and backup tools all depend on vCenter inventory behaving predictably.
-Terraform Contracts Terraform needs stable references for:
-datacenters. clusters and resource pools. datastores and datastore clusters. folders. port groups. templates. tags and custom attributes. If these names change casually, infrastructure code becomes fragile.
-Packer Contracts Packer needs a reliable build path:
-build network. ISO or content library access. temporary VM folder. template destination. credentials with limited build permissions. cleanup behavior for failed builds. Template promotion should include validation before downstream Terraform consumes the image.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Multi-Site RKE2 Operations: Lessons From The Fleet" href="https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

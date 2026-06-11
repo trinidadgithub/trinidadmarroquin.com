@@ -24,6 +24,20 @@
       <description>Operating pattern for maintaining consistent DNS search domain state across RKE2 clusters: audit, stage, runtime fix, and drift detection across three resolver layers.</description>
     </item>
     <item>
+      <title>etcd Backup, Restore, And Disaster Recovery</title>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</guid>
+      <description>Field note for etcd snapshot and restore procedures in Kubernetes clusters: automated backups, restore validation, cluster rebuild from snapshot, and recovery patterns for RKE2.</description>
+    </item>
+    <item>
+      <title>etcd Member Management And Cluster Health</title>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-member-management/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-member-management/</guid>
+      <description>Field note for etcd member lifecycle: adding and removing members, quorum safety, endpoint health, alarm management, and common failure modes in RKE2 clusters.</description>
+    </item>
+    <item>
       <title>Helm And Terraform Boundary On EKS</title>
       <link>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -50,6 +64,20 @@
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
+    </item>
+    <item>
+      <title>Longhorn To Enterprise Storage Migration Patterns</title>
+      <link>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</guid>
+      <description>Field note for migrating Kubernetes storage from Longhorn to enterprise storage platforms: volume migration strategies, application downtime expectations, PVC rebinding, and validation checks before and after migration.</description>
+    </item>
+    <item>
+      <title>Multi-Site RKE2 Operations: Lessons From The Fleet</title>
+      <link>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</guid>
+      <description>Operational lessons from running RKE2 clusters across multiple data centers: inventory design, node naming conventions, upgrade sequencing across sites, and the patterns that break first at scale.</description>
     </item>
     <item>
       <title>Rancher Fleet Standards</title>

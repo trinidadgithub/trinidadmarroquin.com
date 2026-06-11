@@ -253,6 +253,40 @@ The important part is not that everything runs on one machine. The important par
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Multi-Site RKE2 Operations: Lessons From The Fleet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Running RKE2 across multiple data centers reveals problems that single-cluster operations never expose. The differences between sites — hardware generations, network latency, storage backend versions, DNS configurations, operating system versions — become the primary operational concern.
+This post captures the lessons that held up across sites.
+Inventory Design Predicts Operational Pain The inventory is the single source of truth for what runs where. If the inventory is incomplete or inconsistent, every automation step requires manual verification.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Multi-Site RKE2 Operations: Lessons From The Fleet" href="https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Observability Before AI: What Every Operator Needs First
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI-assisted operations tools are entering the market rapidly. Their value depends entirely on the quality of the observability data they consume. If the data is noisy, incomplete, or unstructured, AI tools amplify the noise instead of reducing it.
+This field note covers the foundations every operator should have in place before adding AI to the observability stack.
+Required Foundations Structured Metrics Metrics must have consistent labels across services. The same label (service, environment, region) should mean the same thing in every metric. If one service uses env and another uses environment, any tool consuming both will produce unreliable correlations.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Observability Before AI: What Every Operator Needs First" href="https://trinidadmarroquin.com/field-notes/observability-before-ai/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Operating In A GitOps Environment: Practices That Hold Up
     </h2>
   </header>
@@ -307,71 +341,42 @@ This post covers the audit, the diagnostics, the remediation script, and the edg
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
+    <h2 class="entry-hint-parent">SRE Mindset: Operational Judgment Over Tooling
     </h2>
   </header>
   <div class="entry-content">
-    <p>Storage incidents in Kubernetes are rarely just storage incidents.
-In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
-The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
+    <p>SRE Is Not A Role, It Is A Decision Framework The tools matter less than the judgment about when to use them. SRE is the discipline of converting operational data into decisions about system reliability.
+The Essential Questions Every operational decision reduces to three questions:
+What is the acceptable failure rate? (SLO target) How much failure budget is left? (Error budget tracking) What are we doing about it? (Error budget policy) If the team cannot answer these three questions for a service, the SRE practice has not arrived yet.
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules
+    <h2 class="entry-hint-parent">The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering
     </h2>
   </header>
   <div class="entry-content">
-    <p>This project started as a repository cleanup and turned into a clearer operating model for vSphere infrastructure.
-The original Terraform repo had grown into a collection of copied root modules. Each site and environment had its own directory with a familiar set of files: main.tf, variables.tf, output.tf, terraform.tfvars, vars.auto.tfvars, vars.env, local state files, and copied templates. That worked while the repo was small, but it made every change harder to review.
+    <p>The DevOps Dirty Dozen covered anti-patterns in DevOps culture. SRE has its own set of traps — practices that look like reliability work but do not improve reliability.
+1. Alert Frequency As A Paging Criterion “If it pages, it matters” sounds correct. The reality is that teams habituate to frequent pages within weeks. An alert that fires every night at 3 AM for a non-critical condition trains operators to silence notifications, miss the genuine page, and burn out.
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules" href="https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/"></a>
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering" href="https://trinidadmarroquin.com/posts/sre-dirty-dozen/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>LLMs can speed up infrastructure troubleshooting, but only if the operator stays in control.
-The useful pattern is not “ask the model what is wrong and do what it says.” That is risky. The better pattern is to treat the model like a second engineer who can help organize evidence, generate hypotheses, suggest verification commands, and turn the final diagnosis into reusable documentation.
-That distinction matters.
-During a recent Terraform and vSphere refactor, an LLM helped connect several layers of the system: Terraform modules, vSphere guest customization, Packer-built templates, cloud-init, netplan, bootstrap scripts, govc, iSCSI, and Kubernetes CSI. That was useful. It also suggested at least one invalid vSphere provider argument. terraform validate caught it.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain" href="https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Breaking Barriers: The DevOps Silos Anti-Pattern
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Part 1 of the DevOps Dirty Dozen Series: Divide et impera — divide and conquer.
-Insight: Creating silos fragments unity and purpose.
-DevOps was supposed to unite us, but too often, it divides us into silos. Silos isolate teams, stifle communication, and undermine the very principles DevOps was built upon. Why do these silos exist? What makes them so destructive? And how can we tear them down to deliver on DevOps’ promise of collaboration and innovation?
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2025-01-16 00:00:00 -0600 CST'>January 16, 2025</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Breaking Barriers: The DevOps Silos Anti-Pattern" href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://trinidadmarroquin.com/tags/sre/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

@@ -199,6 +199,77 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Rancher Fleet Standards
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rancher is useful because it gives operators a single control plane for many Kubernetes clusters. That centralization is also the risk: if access, workspace boundaries, cluster ownership, and GitOps conventions are loose, the management plane becomes another source of drift.
+The operating standard should make the boring parts explicit.
+Access Model Rancher should authenticate normal users through Active Directory. Roles should be assigned to AD groups, not individual users, wherever possible.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rancher Fleet Standards" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>RKE2 clusters across five sites had DNS search domains leaking into Kubernetes name resolution. Hostnames that should have resolved as-is were getting suffix expansion, and the behavior was inconsistent across data centers.
+The fix required understanding which layer was injecting the search domain — and it was not always the same layer.
+This post covers the audit, the diagnostics, the remediation script, and the edge cases that made it interesting.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters" href="https://trinidadmarroquin.com/posts/dns-search-domain-remediation/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Storage incidents in Kubernetes are rarely just storage incidents.
+In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
+The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">vCenter Automation Integration Points
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Automation works best when vCenter exposes stable contracts.
+Terraform, Packer, Kubernetes, CSI drivers, and backup tools all depend on vCenter inventory behaving predictably.
+Terraform Contracts Terraform needs stable references for:
+datacenters. clusters and resource pools. datastores and datastore clusters. folders. port groups. templates. tags and custom attributes. If these names change casually, infrastructure code becomes fragile.
+Packer Contracts Packer needs a reliable build path:
+build network. ISO or content library access. temporary VM folder. template destination. credentials with limited build permissions. cleanup behavior for failed builds. Template promotion should include validation before downstream Terraform consumes the image.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">vSphere CSI Attach And Mount Checklist
     </h2>
   </header>
