@@ -18,3 +18,4 @@ Discussion space for CI/CD pipeline design work.
 - [Concourse workflows for infrastructure and platform repositories](concourse-infrastructure-workflows/)
 - [Concourse CI/CD on Windows with Terraform](concourse-windows-deployment/)
 - [Kafka Streams pipeline managed by Terraform](kafka-streams-terraform-pipeline/)
+- [GitOps patterns for infrastructure teams](gitops-infrastructure-teams/)

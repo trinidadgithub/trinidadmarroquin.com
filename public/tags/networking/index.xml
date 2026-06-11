@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Networking on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/networking/</link>
+    <link>https://trinidadmarroquin.com/tags/networking/</link>
     <description>Recent content in Networking on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/aws-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/aws-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/</guid>
       <description>AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.</description>
     </item>
     <item>
       <title>Cloud Networking IAM And Guardrails</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/networking-iam-guardrails/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/networking-iam-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</guid>
       <description>Initial guardrails for cloud networking, IAM, logging, and platform controls.</description>
     </item>
     <item>
       <title>GCP Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
       <description>GCP-specific operational patterns for project structure, GKE, IAM, networking, and SRE discipline.</description>
     </item>
   </channel>

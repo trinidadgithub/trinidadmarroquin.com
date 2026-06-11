@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Gitops on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/gitops/</link>
+    <description>Recent content in Gitops on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/gitops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitOps For Infrastructure Teams</title>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
+      <description>Project page for GitOps patterns applied to infrastructure operations: pipeline-controlled infrastructure, platform tenant workflows, fleet-wide change orchestration, and the operating model that makes GitOps practical for platform teams.</description>
+    </item>
+    <item>
+      <title>GitOps Pipeline Patterns For Platform Teams</title>
+      <link>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</guid>
+      <description>Field note for GitOps pipeline patterns in infrastructure teams: change pipelines, fleet rollouts, tenant onboarding, and the operating model that keeps Git as the single source of truth.</description>
+    </item>
+    <item>
+      <title>Operating In A GitOps Environment: Practices That Hold Up</title>
+      <link>https://trinidadmarroquin.com/posts/operating-in-gitops/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/operating-in-gitops/</guid>
+      <description>Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Operating In A GitOps Environment: Practices That Hold Up | Trinidad Marroquin</title>
+<meta name="keywords" content="gitops, cicd, devops, sre, automation">
+<meta name="description" content="Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="https://trinidadmarroquin.com/posts/operating-in-gitops/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/posts/operating-in-gitops/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><style>
+.mermaid-wrapper { margin: 1.5em 0; }
+.mermaid-wrapper details.mermaid-source { margin-top: 0.5em; }
+.mermaid-wrapper details.mermaid-source summary {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.85em;
+  color: var(--secondary);
+  user-select: none;
+}
+.mermaid-wrapper details.mermaid-source summary:hover { color: var(--link); }
+.mermaid-wrapper details.mermaid-source pre {
+  margin-top: 0.5em;
+  padding: 0.75em 1em;
+  background: var(--code-bg);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid-wrapper details.mermaid-source code {
+  font-size: 0.8em;
+  white-space: pre;
+}
+</style><meta property="og:url" content="https://trinidadmarroquin.com/posts/operating-in-gitops/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Operating In A GitOps Environment: Practices That Hold Up">
+  <meta property="og:description" content="Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:modified_time" content="2026-06-10T00:00:00-05:00">
+    <meta property="article:tag" content="Gitops">
+    <meta property="article:tag" content="Cicd">
+    <meta property="article:tag" content="Devops">
+    <meta property="article:tag" content="Sre">
+    <meta property="article:tag" content="Automation">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Operating In A GitOps Environment: Practices That Hold Up">
+  <meta name="twitter:description" content="Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog",
+      "item": "https://trinidadmarroquin.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Operating In A GitOps Environment: Practices That Hold Up",
+      "item": "https://trinidadmarroquin.com/posts/operating-in-gitops/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Operating In A GitOps Environment: Practices That Hold Up",
+  "name": "Operating In A GitOps Environment: Practices That Hold Up",
+  "description": "Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.",
+  "keywords": [
+    "gitops", "cicd", "devops", "sre", "automation"
+  ],
+  "articleBody": "GitOps adoption usually starts with the tooling and the pipeline mechanics. The harder part is the operating discipline: how a team of humans uses Git to communicate intent, manage risk, and recover from mistakes without bypassing the process.\nThis post covers the practices that matter most once the pipeline is running.\nCommit Messages Are Deployment Descriptions In a GitOps model, the commit message is the primary documentation for every change. It is what operators read during incident review, what the rollback decision is based on, and what appears in the deployment log.\nA useful commit message for an infrastructure change:\nplatform/phx: bump K8s node template to ubuntu-2204-v2026.06.01 TICKET-4172 This image includes the kernel fix for CVE-2026-1234 and updates containerd to v2.0.4. The previous template (ubuntu-2204-v2026.04.15) is retained in vSphere and can be reinstated by reverting this commit. Pre-apply validation: netplan generate passed on phx-1-etcd-1. Post-apply verification: kubelet version, node ready, and pod CIDR all confirmed on the canary node before fleet rollout. The format is:\nA subject line that identifies the target and the change. A ticket reference. A body that explains why, what the rollback path is, and what verification was done. Commit messages that say “fix bug” or “update config” are not useful in a GitOps model because the commit is the deployment instruction. Every operator should be able to read git log and understand what was deployed and why.\nTagging For Deployment Not every commit should trigger a deployment. Branch-based triggers (every push to main) work for application code with fast feedback loops. Infrastructure changes benefit from explicit tagging:\ngit tag deploy/platform/prod/v2026.06.10-01 The tag is the deployment request. The pipeline picks up the tag, validates the tree, and applies. This separates “merged” from “deployed” and gives operators control over timing.\nSemver for infrastructure is useful when the artifact has a meaningful version boundary:\nvmware-template/v2026.06.01 # date-based, not semantic terraform-module/storage/v1.4.2 # semantic, module consumers need compatibility pipeline-config/v2 # major version indicates breaking change in pipeline behavior Date-based versioning works better for infrastructure artifacts that do not have consumer compatibility contracts. Semantic versioning works for shared modules and APIs where consumers need to know the impact of an upgrade.\nCI Triggers CD: The Tradeoffs The most natural GitOps pattern is CI discovers a change and triggers CD. This works well when:\nThe change is small and scoped (single module version bump, one config key change). The target environment has good test coverage and fast feedback. The team is small and changes are infrequent. It creates problems when:\nA documentation PR or comment-only change triggers a full deployment pipeline. Multiple commits land within minutes and the pipeline cannot keep up. An urgent hotfix must skip validation but the trigger does not support it. The CI system is down and no changes can be deployed even if they are safe. These are not theoretical problems. Every team I have seen hit production scale with an automatic CI-to-CD trigger has added an approval gate or a manual release step within a year.\nPractical Middle Ground Separate the CI trigger from the CD decision:\nAction CI CD Trigger Every push to any branch Explicit tag or manual release Validation Lint, validate, plan Same, plus approval gate Apply Never Only from CD trigger Rollback No Git revert + CD trigger The CI pipeline runs on every push and publishes artifacts (plans, validation results, image hashes). The CD pipeline only runs when an operator creates a tag or clicks approve. This gives CI the speed of automation and CD the control of human judgment.\nWebhook Implementations Webhooks are the most common trigger mechanism for GitOps pipelines. The implementation choice matters for reliability.\nPolling Vs. Push Polling (checking Git on a cron schedule) is simpler to debug but introduces delay and wastes pipeline worker cycles. Push (webhook from the Git provider to the pipeline) is responsive but adds a failure point.\nFor infrastructure, a hybrid approach works:\nWebhook triggers the pipeline for normal operations (fast feedback). A periodic polling job catches missed webhooks and reconciles state (safety net). Webhook Reliability Patterns A webhook that fires but does not reach the pipeline is an undelivered deployment request. To handle this:\nMake webhooks idempotent. The pipeline should check whether the commit or tag has already been processed. If it has, skip. Log every webhook payload. Store the raw payload in a durable location so missed webhooks can be replayed. Monitor webhook delivery. If the Git provider reports failed deliveries, the platform team should get an alert. Use a webhook proxy or relay. A lightweight service that accepts webhooks, stores them, and forwards to the pipeline removes the pipeline’s uptime from the webhook delivery path. Avoiding The Webhook Stampede A force push that updates 20 commits in one event should not create 20 pipeline runs. The webhook handler should:\nBuffer events for a short window (5-30 seconds). Collapse multiple events on the same ref into a single trigger. Trigger the pipeline once with the latest commit. Without this, a rebase or force push can overwhelm the pipeline workers with redundant runs.\nOperating Cadence A GitOps team’s operating cadence should reflect the fact that Git is the control plane:\nActivity Cadence Tool Merge minor changes Daily as ready PR + CI validation Deploy to non-production After merge Tag or approval Deploy to production Scheduled or on demand Tag + CD Audit deployed state Weekly Pipeline verification job Rehearse rollback Monthly Pipeline rollback job Review Git log as deployment history Per incident git log --oneline The key principle: if it is not in Git, it is not deployed. If it is not in Git, it cannot be audited. If it is not in Git, it cannot be rolled back.\nWhat Breaks First New GitOps teams hit these failure modes early:\nThe merge-to-deploy pipeline. Every merge triggers a deployment, including documentation-only changes and WIP branches. Solution: tag-based or approval-gated CD. The credential sprawl. Pipeline credentials are shared across environments because it is easier to set up. Then a dev pipeline compromise becomes a prod incident. Solution: per-environment credentials scoped in the pipeline config. The ad-hoc exception. An urgent change is made via SSH because “the pipeline would take too long.” The change is not documented, not in Git, and not rolled back when the pipeline runs the next normal deployment. Solution: create a hotfix branch and expedited review path, still through the pipeline. The blind apply. The pipeline applies without verification. A failed apply is not detected until the next alert. Solution: verification jobs after every apply that check the declared state against the target. Documentation As Code A GitOps repo is not just configuration. It is the authoritative source for how the infrastructure works. If the documentation lives outside the repo (wiki, shared drive, chat history), it will drift from the configuration and operators will stop trusting it.\nMermaid Diagrams In Repo Mermaid lets you write diagrams as markdown code blocks. This is valuable in a GitOps repo because the diagram lives alongside the config it describes and changes in the same pull request.\nA pipeline flow diagram in a repo README:\ngraph LR PR[Pull Request] --\u003e CI[CI: Lint + Validate + Plan] CI --\u003e Review[Plan Review] Review --\u003e Tag[Create Deployment Tag] Tag --\u003e CD[CD: Apply Non-Prod] CD --\u003e Approve[Approve Prod] Approve --\u003e Prod[CD: Apply Prod] Prod --\u003e Verify[Verify State] Verify --\u003e Done[Done] style Tag fill:#e6ccff,stroke:#333 style Approve fill:#ffe6cc,stroke:#333 Show Mermaid source graph LR PR[Pull Request] --\u003e CI[CI: Lint + Validate + Plan] CI --\u003e Review[Plan Review] Review --\u003e Tag[Create Deployment Tag] Tag --\u003e CD[CD: Apply Non-Prod] CD --\u003e Approve[Approve Prod] Approve --\u003e Prod[CD: Apply Prod] Prod --\u003e Verify[Verify State] Verify --\u003e Done[Done] style Tag fill:#e6ccff,stroke:#333 style Approve fill:#ffe6cc,stroke:#333 An architecture diagram for a multi-site cluster fleet:\ngraph TB subgraph \"Git Repo\" CONFIG[Infra Config] PIPELINES[Pipeline Definitions] DOCS[Documentation] end CONFIG --\u003e CI PIPELINES --\u003e CI CI{CI Pipeline} --\u003e VALIDATE[Validate] VALIDATE --\u003e APPLY[Apply] subgraph \"Site A\" APPLY --\u003e A_ETCD[etcd-1..5] APPLY --\u003e A_MSTR[master-1..3] APPLY --\u003e A_WRKR[worker-1..10] end subgraph \"Site B\" APPLY --\u003e B_ETCD[etcd-1..5] APPLY --\u003e B_MSTR[master-1..3] APPLY --\u003e B_WRKR[worker-1..10] end subgraph \"Site C\" APPLY --\u003e C_ETCD[etcd-1..3] APPLY --\u003e C_MSTR[master-1..3] APPLY --\u003e C_WRKR[worker-1..5] end Show Mermaid source graph TB subgraph \"Git Repo\" CONFIG[Infra Config] PIPELINES[Pipeline Definitions] DOCS[Documentation] end CONFIG --\u003e CI PIPELINES --\u003e CI CI{CI Pipeline} --\u003e VALIDATE[Validate] VALIDATE --\u003e APPLY[Apply] subgraph \"Site A\" APPLY --\u003e A_ETCD[etcd-1..5] APPLY --\u003e A_MSTR[master-1..3] APPLY --\u003e A_WRKR[worker-1..10] end subgraph \"Site B\" APPLY --\u003e B_ETCD[etcd-1..5] APPLY --\u003e B_MSTR[master-1..3] APPLY --\u003e B_WRKR[worker-1..10] end subgraph \"Site C\" APPLY --\u003e C_ETCD[etcd-1..3] APPLY --\u003e C_MSTR[master-1..3] APPLY --\u003e C_WRKR[worker-1..5] end A state machine for a deployment strategy:\nstateDiagram-v2 [*] --\u003e Staged Staged --\u003e Validated: netplan generate Validated --\u003e Applied: maintenance window Applied --\u003e Verified: resolvectl verify Verified --\u003e [*] Validated --\u003e Staged: validation fails Applied --\u003e Staged: rollback Show Mermaid source stateDiagram-v2 [*] --\u003e Staged Staged --\u003e Validated: netplan generate Validated --\u003e Applied: maintenance window Applied --\u003e Verified: resolvectl verify Verified --\u003e [*] Validated --\u003e Staged: validation fails Applied --\u003e Staged: rollback These render automatically on GitHub, GitLab, and any markdown renderer that supports Mermaid. No screenshot tool, no image upload, no out-of-date asset.\nKeeping Diagrams Honest The risk with any documentation is that it drifts from reality. Mermaid reduces the friction to update (edit the text, rerender) but does not eliminate drift. Two patterns help:\nInline in README. For simple flows that change infrequently, write the Mermaid block directly in the markdown file. It is reviewed with every PR that touches the related config.\nGenerated from source. For diagrams that should always match the infrastructure, generate them in CI. A pipeline job can parse Terraform state, Ansible inventory, or a cluster registry and produce a Mermaid diagram:\n# Example: generate a cluster topology diagram from inventory ansible-inventory -i inventory/prod.yaml --list \\ | jq -r ' ._meta.hostvars | to_entries[] | select(.value.group_names[] | contains(\"rke2\")) | \"\\(.key)[\\(.value.group_names | join(\",\"))]\" ' \\ | mermaid-cli-input-generator \u003e topology.mmd The generated diagram is published as a pipeline artifact and linked from the README. If the inventory changes, the diagram changes in the next pipeline run. No manual update step.\nTools like mermaid-cli (mmdc) can render .mmd files to SVG or PNG in CI, which is useful for platforms that do not support native Mermaid rendering:\nnpx @mermaid-js/mermaid-cli mmdc -i topology.mmd -o topology.svg -w 1200 Breaking READMEs Into Meaningful Places A single monolithic README works for a small repo with one audience. Most infrastructure repos have multiple audiences with different questions:\nAudience Wants To Know Where To Put It New team member What does this repo own? How do I set up locally? Top-level README.md Operator How do I deploy? How do I rollback? docs/deploy.md, docs/rollback.md Reviewer What does the pipeline do? What are the gates? docs/pipeline.md Auditor What changed, when, and who approved? Link to pipeline runs + CHANGELOG.md Consumer What version of the module is current? What is the API? docs/consumer.md or module-level README.md A structure that holds up:\ninfra-repo/ ├── README.md # repo overview, local setup, links to docs/ ├── docs/ │ ├── architecture.md # Mermaid diagrams for system architecture │ ├── pipeline.md # pipeline stages, gates, rollback procedure │ ├── deploy.md # deployment walkthrough for operators │ └── tenant-onboarding.md # how to add a new cluster or environment ├── CONTRIBUTING.md # PR workflow, commit message format, review expectations └── CHANGELOG.md # version history, notable changes, breaking changes The top-level README should be short enough to read in one minute. Everything else goes in docs/. This is the same principle as small functions in code: single responsibility makes each file reviewable and maintainable.\nPipeline-Friendly Documentation Documentation in a GitOps repo should be CI-friendly. This means:\nMarkdown, not PDF or Word. Markdown is reviewable in a PR diff. PDFs and Word docs are binary blobs that hide changes. Mermaid blocks, not screenshots. Screenshots cannot be diffed. A Mermaid block change shows up clearly in a PR diff as added and removed lines. Generated content has a CI step. If a diagram or table is generated from infrastructure data, the generation script runs in CI and fails if the output does not match what is committed. This is the same pattern as terraform validate or go generate. Links are relative. Absolute links to external wikis rot. Relative links within the repo are validated by the pipeline and break visibly if a file is moved. Summary Of Practices Practice Why It Matters Commit messages describe the deployment The commit log is the deployment history Tags trigger CD, not branches Separates merged from deployed CI runs on every push, CD only on request Speed with control Webhooks are idempotent and monitored Reliable delivery without duplicates Per-environment credentials Limits blast radius of credential leaks Verification after apply Detects failed or partial applies Rollback is a practiced procedure Not all changes revert cleanly GitOps is not just about putting YAML in a repo and syncing it. The operating model around the tooling is what determines whether the team trusts the pipeline or works around it.\n",
+  "wordCount" : "2150",
+  "inLanguage": "en",
+  "datePublished": "2026-06-10T00:00:00-05:00",
+  "dateModified": "2026-06-10T00:00:00-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://trinidadmarroquin.com/posts/operating-in-gitops/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trinidadmarroquin.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://trinidadmarroquin.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Blog</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Operating In A GitOps Environment: Practices That Hold Up
+    </h1>
+    <div class="post-description">
+      Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>11 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>GitOps adoption usually starts with the tooling and the pipeline mechanics. The harder part is the operating discipline: how a team of humans uses Git to communicate intent, manage risk, and recover from mistakes without bypassing the process.</p>
+<p>This post covers the practices that matter most once the pipeline is running.</p>
+<h2 id="commit-messages-are-deployment-descriptions">Commit Messages Are Deployment Descriptions<a hidden class="anchor" aria-hidden="true" href="#commit-messages-are-deployment-descriptions">#</a></h2>
+<p>In a GitOps model, the commit message is the primary documentation for every change. It is what operators read during incident review, what the rollback decision is based on, and what appears in the deployment log.</p>
+<p>A useful commit message for an infrastructure change:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">platform/phx: bump K8s node template to ubuntu-2204-v2026.06.01
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">TICKET-4172
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This image includes the kernel fix for CVE-2026-1234 and updates
+</span></span><span class="line"><span class="cl">containerd to v2.0.4. The previous template (ubuntu-2204-v2026.04.15)
+</span></span><span class="line"><span class="cl">is retained in vSphere and can be reinstated by reverting this commit.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Pre-apply validation: netplan generate passed on phx-1-etcd-1.
+</span></span><span class="line"><span class="cl">Post-apply verification: kubelet version, node ready, and pod CIDR
+</span></span><span class="line"><span class="cl">all confirmed on the canary node before fleet rollout.
+</span></span></code></pre></div><p>The format is:</p>
+<ul>
+<li>A subject line that identifies the target and the change.</li>
+<li>A ticket reference.</li>
+<li>A body that explains why, what the rollback path is, and what verification was done.</li>
+</ul>
+<p>Commit messages that say &ldquo;fix bug&rdquo; or &ldquo;update config&rdquo; are not useful in a GitOps model because the commit is the deployment instruction. Every operator should be able to read <code>git log</code> and understand what was deployed and why.</p>
+<h3 id="tagging-for-deployment">Tagging For Deployment<a hidden class="anchor" aria-hidden="true" href="#tagging-for-deployment">#</a></h3>
+<p>Not every commit should trigger a deployment. Branch-based triggers (every push to main) work for application code with fast feedback loops. Infrastructure changes benefit from explicit tagging:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git tag deploy/platform/prod/v2026.06.10-01
+</span></span></code></pre></div><p>The tag is the deployment request. The pipeline picks up the tag, validates the tree, and applies. This separates &ldquo;merged&rdquo; from &ldquo;deployed&rdquo; and gives operators control over timing.</p>
+<p>Semver for infrastructure is useful when the artifact has a meaningful version boundary:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">vmware-template/v2026.06.01  # date-based, not semantic
+</span></span><span class="line"><span class="cl">terraform-module/storage/v1.4.2  # semantic, module consumers need compatibility
+</span></span><span class="line"><span class="cl">pipeline-config/v2  # major version indicates breaking change in pipeline behavior
+</span></span></code></pre></div><p>Date-based versioning works better for infrastructure artifacts that do not have consumer compatibility contracts. Semantic versioning works for shared modules and APIs where consumers need to know the impact of an upgrade.</p>
+<h2 id="ci-triggers-cd-the-tradeoffs">CI Triggers CD: The Tradeoffs<a hidden class="anchor" aria-hidden="true" href="#ci-triggers-cd-the-tradeoffs">#</a></h2>
+<p>The most natural GitOps pattern is CI discovers a change and triggers CD. This works well when:</p>
+<ul>
+<li>The change is small and scoped (single module version bump, one config key change).</li>
+<li>The target environment has good test coverage and fast feedback.</li>
+<li>The team is small and changes are infrequent.</li>
+</ul>
+<p>It creates problems when:</p>
+<ul>
+<li>A documentation PR or comment-only change triggers a full deployment pipeline.</li>
+<li>Multiple commits land within minutes and the pipeline cannot keep up.</li>
+<li>An urgent hotfix must skip validation but the trigger does not support it.</li>
+<li>The CI system is down and no changes can be deployed even if they are safe.</li>
+</ul>
+<p>These are not theoretical problems. Every team I have seen hit production scale with an automatic CI-to-CD trigger has added an approval gate or a manual release step within a year.</p>
+<h3 id="practical-middle-ground">Practical Middle Ground<a hidden class="anchor" aria-hidden="true" href="#practical-middle-ground">#</a></h3>
+<p>Separate the CI trigger from the CD decision:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Action</th>
+          <th>CI</th>
+          <th>CD</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Trigger</td>
+          <td>Every push to any branch</td>
+          <td>Explicit tag or manual release</td>
+      </tr>
+      <tr>
+          <td>Validation</td>
+          <td>Lint, validate, plan</td>
+          <td>Same, plus approval gate</td>
+      </tr>
+      <tr>
+          <td>Apply</td>
+          <td>Never</td>
+          <td>Only from CD trigger</td>
+      </tr>
+      <tr>
+          <td>Rollback</td>
+          <td>No</td>
+          <td>Git revert + CD trigger</td>
+      </tr>
+  </tbody>
+</table>
+<p>The CI pipeline runs on every push and publishes artifacts (plans, validation results, image hashes). The CD pipeline only runs when an operator creates a tag or clicks approve. This gives CI the speed of automation and CD the control of human judgment.</p>
+<h2 id="webhook-implementations">Webhook Implementations<a hidden class="anchor" aria-hidden="true" href="#webhook-implementations">#</a></h2>
+<p>Webhooks are the most common trigger mechanism for GitOps pipelines. The implementation choice matters for reliability.</p>
+<h3 id="polling-vs-push">Polling Vs. Push<a hidden class="anchor" aria-hidden="true" href="#polling-vs-push">#</a></h3>
+<p>Polling (checking Git on a cron schedule) is simpler to debug but introduces delay and wastes pipeline worker cycles. Push (webhook from the Git provider to the pipeline) is responsive but adds a failure point.</p>
+<p>For infrastructure, a hybrid approach works:</p>
+<ul>
+<li>Webhook triggers the pipeline for normal operations (fast feedback).</li>
+<li>A periodic polling job catches missed webhooks and reconciles state (safety net).</li>
+</ul>
+<h3 id="webhook-reliability-patterns">Webhook Reliability Patterns<a hidden class="anchor" aria-hidden="true" href="#webhook-reliability-patterns">#</a></h3>
+<p>A webhook that fires but does not reach the pipeline is an undelivered deployment request. To handle this:</p>
+<ol>
+<li><strong>Make webhooks idempotent.</strong> The pipeline should check whether the commit or tag has already been processed. If it has, skip.</li>
+<li><strong>Log every webhook payload.</strong> Store the raw payload in a durable location so missed webhooks can be replayed.</li>
+<li><strong>Monitor webhook delivery.</strong> If the Git provider reports failed deliveries, the platform team should get an alert.</li>
+<li><strong>Use a webhook proxy or relay.</strong> A lightweight service that accepts webhooks, stores them, and forwards to the pipeline removes the pipeline&rsquo;s uptime from the webhook delivery path.</li>
+</ol>
+<h3 id="avoiding-the-webhook-stampede">Avoiding The Webhook Stampede<a hidden class="anchor" aria-hidden="true" href="#avoiding-the-webhook-stampede">#</a></h3>
+<p>A force push that updates 20 commits in one event should not create 20 pipeline runs. The webhook handler should:</p>
+<ol>
+<li>Buffer events for a short window (5-30 seconds).</li>
+<li>Collapse multiple events on the same ref into a single trigger.</li>
+<li>Trigger the pipeline once with the latest commit.</li>
+</ol>
+<p>Without this, a rebase or force push can overwhelm the pipeline workers with redundant runs.</p>
+<h2 id="operating-cadence">Operating Cadence<a hidden class="anchor" aria-hidden="true" href="#operating-cadence">#</a></h2>
+<p>A GitOps team&rsquo;s operating cadence should reflect the fact that Git is the control plane:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Activity</th>
+          <th>Cadence</th>
+          <th>Tool</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Merge minor changes</td>
+          <td>Daily as ready</td>
+          <td>PR + CI validation</td>
+      </tr>
+      <tr>
+          <td>Deploy to non-production</td>
+          <td>After merge</td>
+          <td>Tag or approval</td>
+      </tr>
+      <tr>
+          <td>Deploy to production</td>
+          <td>Scheduled or on demand</td>
+          <td>Tag + CD</td>
+      </tr>
+      <tr>
+          <td>Audit deployed state</td>
+          <td>Weekly</td>
+          <td>Pipeline verification job</td>
+      </tr>
+      <tr>
+          <td>Rehearse rollback</td>
+          <td>Monthly</td>
+          <td>Pipeline rollback job</td>
+      </tr>
+      <tr>
+          <td>Review Git log as deployment history</td>
+          <td>Per incident</td>
+          <td><code>git log --oneline</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>The key principle: if it is not in Git, it is not deployed. If it is not in Git, it cannot be audited. If it is not in Git, it cannot be rolled back.</p>
+<h2 id="what-breaks-first">What Breaks First<a hidden class="anchor" aria-hidden="true" href="#what-breaks-first">#</a></h2>
+<p>New GitOps teams hit these failure modes early:</p>
+<ul>
+<li><strong>The merge-to-deploy pipeline.</strong> Every merge triggers a deployment, including documentation-only changes and WIP branches. Solution: tag-based or approval-gated CD.</li>
+<li><strong>The credential sprawl.</strong> Pipeline credentials are shared across environments because it is easier to set up. Then a dev pipeline compromise becomes a prod incident. Solution: per-environment credentials scoped in the pipeline config.</li>
+<li><strong>The ad-hoc exception.</strong> An urgent change is made via SSH because &ldquo;the pipeline would take too long.&rdquo; The change is not documented, not in Git, and not rolled back when the pipeline runs the next normal deployment. Solution: create a hotfix branch and expedited review path, still through the pipeline.</li>
+<li><strong>The blind apply.</strong> The pipeline applies without verification. A failed apply is not detected until the next alert. Solution: verification jobs after every apply that check the declared state against the target.</li>
+</ul>
+<h2 id="documentation-as-code">Documentation As Code<a hidden class="anchor" aria-hidden="true" href="#documentation-as-code">#</a></h2>
+<p>A GitOps repo is not just configuration. It is the authoritative source for how the infrastructure works. If the documentation lives outside the repo (wiki, shared drive, chat history), it will drift from the configuration and operators will stop trusting it.</p>
+<h3 id="mermaid-diagrams-in-repo">Mermaid Diagrams In Repo<a hidden class="anchor" aria-hidden="true" href="#mermaid-diagrams-in-repo">#</a></h3>
+<p>Mermaid lets you write diagrams as markdown code blocks. This is valuable in a GitOps repo because the diagram lives alongside the config it describes and changes in the same pull request.</p>
+<p>A pipeline flow diagram in a repo README:</p>
+<div class="mermaid-wrapper">
+  <pre class="mermaid">graph LR
+    PR[Pull Request] --&gt; CI[CI: Lint &#43; Validate &#43; Plan]
+    CI --&gt; Review[Plan Review]
+    Review --&gt; Tag[Create Deployment Tag]
+    Tag --&gt; CD[CD: Apply Non-Prod]
+    CD --&gt; Approve[Approve Prod]
+    Approve --&gt; Prod[CD: Apply Prod]
+    Prod --&gt; Verify[Verify State]
+    Verify --&gt; Done[Done]
+    style Tag fill:#e6ccff,stroke:#333
+    style Approve fill:#ffe6cc,stroke:#333</pre>
+  <details class="mermaid-source">
+    <summary>Show Mermaid source</summary>
+    <pre><code>graph LR
+    PR[Pull Request] --&gt; CI[CI: Lint &#43; Validate &#43; Plan]
+    CI --&gt; Review[Plan Review]
+    Review --&gt; Tag[Create Deployment Tag]
+    Tag --&gt; CD[CD: Apply Non-Prod]
+    CD --&gt; Approve[Approve Prod]
+    Approve --&gt; Prod[CD: Apply Prod]
+    Prod --&gt; Verify[Verify State]
+    Verify --&gt; Done[Done]
+    style Tag fill:#e6ccff,stroke:#333
+    style Approve fill:#ffe6cc,stroke:#333</code></pre>
+  </details>
+</div><p>An architecture diagram for a multi-site cluster fleet:</p>
+<div class="mermaid-wrapper">
+  <pre class="mermaid">graph TB
+    subgraph &#34;Git Repo&#34;
+        CONFIG[Infra Config]
+        PIPELINES[Pipeline Definitions]
+        DOCS[Documentation]
+    end
+    CONFIG --&gt; CI
+    PIPELINES --&gt; CI
+    CI{CI Pipeline} --&gt; VALIDATE[Validate]
+    VALIDATE --&gt; APPLY[Apply]
+    subgraph &#34;Site A&#34;
+        APPLY --&gt; A_ETCD[etcd-1..5]
+        APPLY --&gt; A_MSTR[master-1..3]
+        APPLY --&gt; A_WRKR[worker-1..10]
+    end
+    subgraph &#34;Site B&#34;
+        APPLY --&gt; B_ETCD[etcd-1..5]
+        APPLY --&gt; B_MSTR[master-1..3]
+        APPLY --&gt; B_WRKR[worker-1..10]
+    end
+    subgraph &#34;Site C&#34;
+        APPLY --&gt; C_ETCD[etcd-1..3]
+        APPLY --&gt; C_MSTR[master-1..3]
+        APPLY --&gt; C_WRKR[worker-1..5]
+    end</pre>
+  <details class="mermaid-source">
+    <summary>Show Mermaid source</summary>
+    <pre><code>graph TB
+    subgraph &#34;Git Repo&#34;
+        CONFIG[Infra Config]
+        PIPELINES[Pipeline Definitions]
+        DOCS[Documentation]
+    end
+    CONFIG --&gt; CI
+    PIPELINES --&gt; CI
+    CI{CI Pipeline} --&gt; VALIDATE[Validate]
+    VALIDATE --&gt; APPLY[Apply]
+    subgraph &#34;Site A&#34;
+        APPLY --&gt; A_ETCD[etcd-1..5]
+        APPLY --&gt; A_MSTR[master-1..3]
+        APPLY --&gt; A_WRKR[worker-1..10]
+    end
+    subgraph &#34;Site B&#34;
+        APPLY --&gt; B_ETCD[etcd-1..5]
+        APPLY --&gt; B_MSTR[master-1..3]
+        APPLY --&gt; B_WRKR[worker-1..10]
+    end
+    subgraph &#34;Site C&#34;
+        APPLY --&gt; C_ETCD[etcd-1..3]
+        APPLY --&gt; C_MSTR[master-1..3]
+        APPLY --&gt; C_WRKR[worker-1..5]
+    end</code></pre>
+  </details>
+</div><p>A state machine for a deployment strategy:</p>
+<div class="mermaid-wrapper">
+  <pre class="mermaid">stateDiagram-v2
+    [*] --&gt; Staged
+    Staged --&gt; Validated: netplan generate
+    Validated --&gt; Applied: maintenance window
+    Applied --&gt; Verified: resolvectl verify
+    Verified --&gt; [*]
+    Validated --&gt; Staged: validation fails
+    Applied --&gt; Staged: rollback</pre>
+  <details class="mermaid-source">
+    <summary>Show Mermaid source</summary>
+    <pre><code>stateDiagram-v2
+    [*] --&gt; Staged
+    Staged --&gt; Validated: netplan generate
+    Validated --&gt; Applied: maintenance window
+    Applied --&gt; Verified: resolvectl verify
+    Verified --&gt; [*]
+    Validated --&gt; Staged: validation fails
+    Applied --&gt; Staged: rollback</code></pre>
+  </details>
+</div><p>These render automatically on GitHub, GitLab, and any markdown renderer that supports Mermaid. No screenshot tool, no image upload, no out-of-date asset.</p>
+<h3 id="keeping-diagrams-honest">Keeping Diagrams Honest<a hidden class="anchor" aria-hidden="true" href="#keeping-diagrams-honest">#</a></h3>
+<p>The risk with any documentation is that it drifts from reality. Mermaid reduces the friction to update (edit the text, rerender) but does not eliminate drift. Two patterns help:</p>
+<p><strong>Inline in README.</strong> For simple flows that change infrequently, write the Mermaid block directly in the markdown file. It is reviewed with every PR that touches the related config.</p>
+<p><strong>Generated from source.</strong> For diagrams that should always match the infrastructure, generate them in CI. A pipeline job can parse Terraform state, Ansible inventory, or a cluster registry and produce a Mermaid diagram:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Example: generate a cluster topology diagram from inventory</span>
+</span></span><span class="line"><span class="cl">ansible-inventory -i inventory/prod.yaml --list <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq -r <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    ._meta.hostvars | to_entries[]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    | select(.value.group_names[] | contains(&#34;rke2&#34;))
+</span></span></span><span class="line"><span class="cl"><span class="s1">    | &#34;\(.key)[\(.value.group_names | join(&#34;,&#34;))]&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> mermaid-cli-input-generator &gt; topology.mmd
+</span></span></code></pre></div><p>The generated diagram is published as a pipeline artifact and linked from the README. If the inventory changes, the diagram changes in the next pipeline run. No manual update step.</p>
+<p>Tools like <code>mermaid-cli</code> (<code>mmdc</code>) can render <code>.mmd</code> files to SVG or PNG in CI, which is useful for platforms that do not support native Mermaid rendering:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx @mermaid-js/mermaid-cli mmdc -i topology.mmd -o topology.svg -w <span class="m">1200</span>
+</span></span></code></pre></div><h3 id="breaking-readmes-into-meaningful-places">Breaking READMEs Into Meaningful Places<a hidden class="anchor" aria-hidden="true" href="#breaking-readmes-into-meaningful-places">#</a></h3>
+<p>A single monolithic README works for a small repo with one audience. Most infrastructure repos have multiple audiences with different questions:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Audience</th>
+          <th>Wants To Know</th>
+          <th>Where To Put It</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>New team member</td>
+          <td>What does this repo own? How do I set up locally?</td>
+          <td>Top-level <code>README.md</code></td>
+      </tr>
+      <tr>
+          <td>Operator</td>
+          <td>How do I deploy? How do I rollback?</td>
+          <td><code>docs/deploy.md</code>, <code>docs/rollback.md</code></td>
+      </tr>
+      <tr>
+          <td>Reviewer</td>
+          <td>What does the pipeline do? What are the gates?</td>
+          <td><code>docs/pipeline.md</code></td>
+      </tr>
+      <tr>
+          <td>Auditor</td>
+          <td>What changed, when, and who approved?</td>
+          <td>Link to pipeline runs + <code>CHANGELOG.md</code></td>
+      </tr>
+      <tr>
+          <td>Consumer</td>
+          <td>What version of the module is current? What is the API?</td>
+          <td><code>docs/consumer.md</code> or module-level <code>README.md</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>A structure that holds up:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">infra-repo/
+</span></span><span class="line"><span class="cl">├── README.md                 # repo overview, local setup, links to docs/
+</span></span><span class="line"><span class="cl">├── docs/
+</span></span><span class="line"><span class="cl">│   ├── architecture.md       # Mermaid diagrams for system architecture
+</span></span><span class="line"><span class="cl">│   ├── pipeline.md           # pipeline stages, gates, rollback procedure
+</span></span><span class="line"><span class="cl">│   ├── deploy.md             # deployment walkthrough for operators
+</span></span><span class="line"><span class="cl">│   └── tenant-onboarding.md  # how to add a new cluster or environment
+</span></span><span class="line"><span class="cl">├── CONTRIBUTING.md           # PR workflow, commit message format, review expectations
+</span></span><span class="line"><span class="cl">└── CHANGELOG.md              # version history, notable changes, breaking changes
+</span></span></code></pre></div><p>The top-level README should be short enough to read in one minute. Everything else goes in <code>docs/</code>. This is the same principle as small functions in code: single responsibility makes each file reviewable and maintainable.</p>
+<h3 id="pipeline-friendly-documentation">Pipeline-Friendly Documentation<a hidden class="anchor" aria-hidden="true" href="#pipeline-friendly-documentation">#</a></h3>
+<p>Documentation in a GitOps repo should be CI-friendly. This means:</p>
+<ul>
+<li><strong>Markdown, not PDF or Word.</strong> Markdown is reviewable in a PR diff. PDFs and Word docs are binary blobs that hide changes.</li>
+<li><strong>Mermaid blocks, not screenshots.</strong> Screenshots cannot be diffed. A Mermaid block change shows up clearly in a PR diff as added and removed lines.</li>
+<li><strong>Generated content has a CI step.</strong> If a diagram or table is generated from infrastructure data, the generation script runs in CI and fails if the output does not match what is committed. This is the same pattern as <code>terraform validate</code> or <code>go generate</code>.</li>
+<li><strong>Links are relative.</strong> Absolute links to external wikis rot. Relative links within the repo are validated by the pipeline and break visibly if a file is moved.</li>
+</ul>
+<h2 id="summary-of-practices">Summary Of Practices<a hidden class="anchor" aria-hidden="true" href="#summary-of-practices">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Practice</th>
+          <th>Why It Matters</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Commit messages describe the deployment</td>
+          <td>The commit log is the deployment history</td>
+      </tr>
+      <tr>
+          <td>Tags trigger CD, not branches</td>
+          <td>Separates merged from deployed</td>
+      </tr>
+      <tr>
+          <td>CI runs on every push, CD only on request</td>
+          <td>Speed with control</td>
+      </tr>
+      <tr>
+          <td>Webhooks are idempotent and monitored</td>
+          <td>Reliable delivery without duplicates</td>
+      </tr>
+      <tr>
+          <td>Per-environment credentials</td>
+          <td>Limits blast radius of credential leaks</td>
+      </tr>
+      <tr>
+          <td>Verification after apply</td>
+          <td>Detects failed or partial applies</td>
+      </tr>
+      <tr>
+          <td>Rollback is a practiced procedure</td>
+          <td>Not all changes revert cleanly</td>
+      </tr>
+  </tbody>
+</table>
+<p>GitOps is not just about putting YAML in a repo and syncing it. The operating model around the tooling is what determines whether the team trusts the pipeline or works around it.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://trinidadmarroquin.com/tags/gitops/">Gitops</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/cicd/">Cicd</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/devops/">Devops</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/sre/">Sre</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/automation/">Automation</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/">
+    <span class="title">« Prev</span>
+    <span>Log And Metric Naming Conventions</span>
+  </a>
+  <a class="next" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/">
+    <span class="title">Next »</span>
+    <span>Packer Base Image Hardening</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a><script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
