@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Secrets Management With Vault on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/</link>
+    <link>http://localhost:1313/projects/secrets-management-with-vault/</link>
     <description>Recent content in Secrets Management With Vault on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/projects/secrets-management-with-vault/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vault Deployment And Unseal Runbooks</title>
-      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</link>
+      <link>http://localhost:1313/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</guid>
+      <guid>http://localhost:1313/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</guid>
       <description>Initial operating model for Vault deployment, initialization, seal and unseal expectations, and recovery runbooks.</description>
     </item>
     <item>
       <title>Vault Policy Auth And Secrets Engines</title>
-      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/</link>
+      <link>http://localhost:1313/projects/secrets-management-with-vault/policy-auth-secrets-engines/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/</guid>
+      <guid>http://localhost:1313/projects/secrets-management-with-vault/policy-auth-secrets-engines/</guid>
       <description>Initial standards for Vault policy design, authentication methods, identity mapping, and secrets engine organization.</description>
     </item>
     <item>
       <title>Vault Token Lease Audit And Recovery Practices</title>
-      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/</link>
+      <link>http://localhost:1313/projects/secrets-management-with-vault/token-lease-audit-recovery/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/</guid>
+      <guid>http://localhost:1313/projects/secrets-management-with-vault/token-lease-audit-recovery/</guid>
       <description>Initial operating practices for Vault tokens, leases, audit logs, backup, revocation, and recovery.</description>
     </item>
   </channel>

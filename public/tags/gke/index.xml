@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Gke on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/gke/</link>
+    <link>http://localhost:1313/tags/gke/</link>
     <description>Recent content in Gke on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/gke/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/gke/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GCP Operational Patterns</title>
-      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</link>
+      <link>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
+      <guid>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
       <description>GCP-specific operational patterns for project structure, GKE, IAM, networking, and SRE discipline.</description>
     </item>
   </channel>

@@ -2,74 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Packer on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/packer/</link>
+    <link>http://localhost:1313/tags/packer/</link>
     <description>Recent content in Packer on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/packer/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/packer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Image Factory Workflow With vSphere And Packer</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</guid>
       <description>Project page for the Packer-based image factory workflow: template pipeline, versioning strategy, cross-site distribution, validation gates, and the operating model that keeps node images consistent across the fleet.</description>
     </item>
     <item>
       <title>Packer Base Image Hardening</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</guid>
       <description>Initial model for Packer base image hardening, patch cadence, template ownership, and retirement.</description>
     </item>
     <item>
       <title>Packer Image Validation Gates</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</guid>
       <description>Initial validation gates for Packer-built images, including boot, access, agents, cloud-init, storage, and baseline configuration.</description>
     </item>
     <item>
       <title>Packer Image Versioning</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</guid>
       <description>Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.</description>
     </item>
     <item>
       <title>vCenter Automation Integration Points</title>
-      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</link>
+      <link>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</guid>
+      <guid>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</guid>
       <description>Initial model for vCenter integration points with Terraform, Packer, Kubernetes nodes, CSI storage, and backup workflows.</description>
     </item>
     <item>
       <title>First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap</title>
-      <link>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
+      <link>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
+      <guid>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
       <description>A systems note on assigning clear ownership between Packer templates, Terraform vSphere clones, guest customization, cloud-init, bootstrap scripts, and CSI storage.</description>
     </item>
     <item>
       <title>Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling</title>
-      <link>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
+      <link>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
+      <guid>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
       <description>A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.</description>
     </item>
     <item>
       <title>Terraform vSphere Clone Customization Failures</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</link>
+      <link>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</guid>
       <description>Field note for diagnosing Terraform vSphere clone failures caused by VMware guest customization inside the VM.</description>
     </item>
     <item>
       <title>vSphere Guestinfo And Cloud-Init On Cloned VMs</title>
-      <link>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</link>
+      <link>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</guid>
+      <guid>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</guid>
       <description>Field note for verifying Terraform guestinfo userdata, cloud-init state, and first-boot behavior on vSphere Ubuntu clones.</description>
     </item>
   </channel>

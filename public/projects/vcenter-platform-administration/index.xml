@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>vCenter Platform Administration on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/</link>
+    <link>http://localhost:1313/projects/vcenter-platform-administration/</link>
     <description>Recent content in vCenter Platform Administration on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/projects/vcenter-platform-administration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vCenter Automation Integration Points</title>
-      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</link>
+      <link>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</guid>
+      <guid>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</guid>
       <description>Initial model for vCenter integration points with Terraform, Packer, Kubernetes nodes, CSI storage, and backup workflows.</description>
     </item>
     <item>
       <title>vCenter Platform Hygiene</title>
-      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</link>
+      <link>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</guid>
+      <guid>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</guid>
       <description>Initial operating standards for vCenter cluster, datastore, network, template, tag, and permission hygiene.</description>
     </item>
     <item>
       <title>VM Lifecycle Runbooks</title>
-      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
+      <link>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
+      <guid>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
       <description>Initial runbook model for vCenter VM lifecycle, capacity review, maintenance, and incident response.</description>
     </item>
   </channel>

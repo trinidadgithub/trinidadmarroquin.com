@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Governance on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/governance/</link>
+    <link>http://localhost:1313/tags/governance/</link>
     <description>Recent content in Governance on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/governance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/governance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud Account And Environment Organization</title>
-      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</link>
+      <link>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</guid>
+      <guid>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</guid>
       <description>Initial operating model for cloud account, project, subscription, and environment organization.</description>
     </item>
   </channel>
