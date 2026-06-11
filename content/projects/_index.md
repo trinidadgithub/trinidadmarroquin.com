@@ -89,6 +89,8 @@ description = 'Professional project areas covering platform operations, cloud pl
       <li><a href="/projects/cicd-pipeline-design/helm-terraform-validation/">Helm and Terraform validation strategy.</a></li>
       <li><a href="/projects/cicd-pipeline-design/deployment-strategy-labs/">Deployment strategy labs.</a></li>
       <li><a href="/projects/cicd-pipeline-design/concourse-infrastructure-workflows/">Concourse workflows for infrastructure and platform repositories.</a></li>
+      <li><a href="/projects/cicd-pipeline-design/concourse-windows-deployment/">Concourse CI/CD on Windows with Terraform.</a></li>
+      <li><a href="/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/">Kafka Streams pipeline managed by Terraform.</a></li>
     </ul>
     <p class="card-more"><a href="/projects/cicd-pipeline-design/">More</a></p>
   </section>

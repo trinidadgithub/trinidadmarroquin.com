@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Metrics on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/metrics/</link>
+    <link>http://localhost:1313/tags/metrics/</link>
     <description>Recent content in Metrics on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Log And Metric Naming Conventions</title>
-      <link>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</link>
+      <link>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</guid>
+      <guid>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</guid>
       <description>Initial conventions for log fields, metric names, labels, cardinality, and operational searchability.</description>
     </item>
   </channel>

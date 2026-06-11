@@ -2,144 +2,186 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Terraform on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/terraform/</link>
+    <link>http://localhost:1313/tags/terraform/</link>
     <description>Recent content in Terraform on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure AKS Operations With Terraform</title>
+      <link>http://localhost:1313/field-notes/azure-aks-terraform-operations/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/azure-aks-terraform-operations/</guid>
+      <description>Field note for provisioning Azure AKS clusters with Terraform, including networking, identity, storage backends, and cross-cloud comparison patterns.</description>
+    </item>
+    <item>
+      <title>Concourse CI/CD On Windows With Terraform</title>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
+      <description>Project notes for deploying Concourse CI/CD on Windows Docker with Terraform, TLS key management, PowerShell provisioners, and production pipeline patterns.</description>
+    </item>
+    <item>
+      <title>Concourse Key Management With Vault Bootstrap</title>
+      <link>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</guid>
+      <description>Field note for bootstrapping Concourse CI/CD keys with HashiCorp Vault using Terraform, covering TSA key architecture and runtime secret retrieval.</description>
+    </item>
     <item>
       <title>From Local IaC Labs To Production-Ready Patterns</title>
-      <link>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</link>
+      <link>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</guid>
+      <guid>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</guid>
       <description>A practical SRE view of how local Terraform, Docker, Helm, Kafka, and observability labs can become production-ready infrastructure patterns without pretending the lab is production.</description>
     </item>
     <item>
-      <title>Helm And Terraform Validation Strategy</title>
-      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</link>
+      <title>Helm And Terraform Boundary On EKS</title>
+      <link>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
+      <guid>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</guid>
+      <description>Field note for the Terraform-managed Helm release pattern on EKS, keeping infrastructure provisioning separate from application deployment configuration.</description>
+    </item>
+    <item>
+      <title>Helm And Terraform Validation Strategy</title>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
       <description>Project notes for validating Helm-rendered Kubernetes manifests and Terraform-managed Helm releases before deployment.</description>
     </item>
     <item>
-      <title>Kafka Readiness Checks In Terraform Docker Labs</title>
-      <link>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</link>
+      <title>IoT Device Container With Terraform And Certificate Mounts</title>
+      <link>http://localhost:1313/field-notes/iot-docker-terraform-certificates/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</guid>
+      <guid>http://localhost:1313/field-notes/iot-docker-terraform-certificates/</guid>
+      <description>Field note for running an AWS IoT device in a Docker container managed by Terraform, focusing on X.509 certificate injection via volume mounts.</description>
+    </item>
+    <item>
+      <title>Kafka Readiness Checks In Terraform Docker Labs</title>
+      <link>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</guid>
       <description>Field note for local Kafka labs where Terraform creates Docker infrastructure, waits for broker readiness, and then creates topics or starts stream processors.</description>
     </item>
     <item>
-      <title>Local SLI Labs With Prometheus Grafana And cAdvisor</title>
-      <link>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
+      <title>Kafka Streams Pipeline With Terraform</title>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</guid>
+      <description>Project notes for building a local Kafka Streams data pipeline managed entirely by Terraform, including broker provisioning, topic creation, and stream processor deployment.</description>
+    </item>
+    <item>
+      <title>Local SLI Labs With Prometheus Grafana And cAdvisor</title>
+      <link>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
     </item>
     <item>
       <title>Pipeline Validation Planning And Apply Stages</title>
-      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
     <item>
       <title>Secret Handling In Terraform Managed Labs</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
+      <link>http://localhost:1313/field-notes/terraform-lab-secret-handling/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-lab-secret-handling/</guid>
       <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
     </item>
     <item>
       <title>Terraform Azure Backend Bootstrap</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</link>
+      <link>http://localhost:1313/field-notes/terraform-azure-backend-bootstrap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-azure-backend-bootstrap/</guid>
       <description>Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.</description>
     </item>
     <item>
       <title>Terraform Operational Module Boundaries</title>
-      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
+      <link>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
+      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
       <description>Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.</description>
     </item>
     <item>
       <title>Terraform Plan Review Practices</title>
-      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</link>
+      <link>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
+      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
       <description>Initial Terraform plan review practices for safer infrastructure changes, state handling, and automation gates.</description>
     </item>
     <item>
       <title>vCenter Automation Integration Points</title>
-      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</link>
+      <link>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</guid>
+      <guid>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</guid>
       <description>Initial model for vCenter integration points with Terraform, Packer, Kubernetes nodes, CSI storage, and backup workflows.</description>
     </item>
     <item>
       <title>First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap</title>
-      <link>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
+      <link>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
+      <guid>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
       <description>A systems note on assigning clear ownership between Packer templates, Terraform vSphere clones, guest customization, cloud-init, bootstrap scripts, and CSI storage.</description>
     </item>
     <item>
       <title>govc Commands For vSphere VM Verification</title>
-      <link>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</link>
+      <link>http://localhost:1313/field-notes/govc-vsphere-verification/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</guid>
+      <guid>http://localhost:1313/field-notes/govc-vsphere-verification/</guid>
       <description>Field note with govc commands for finding VMs, checking NIC backing, guestinfo keys, and comparing working versus broken vSphere clones.</description>
     </item>
     <item>
       <title>Netplan Conflicts After VMware Guest Customization</title>
-      <link>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</link>
+      <link>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</guid>
+      <guid>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</guid>
       <description>Field note for diagnosing duplicate netplan ownership, missing default routes, and DNS drift on vSphere Ubuntu VMs.</description>
     </item>
     <item>
       <title>Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules</title>
-      <link>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</link>
+      <link>http://localhost:1313/projects/terraform-vsphere-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</guid>
+      <guid>http://localhost:1313/projects/terraform-vsphere-refactor/</guid>
       <description>A Terraform infrastructure project writeup about reorganizing a vSphere repo into environment roots, shared modules, templates, and archived legacy state.</description>
     </item>
     <item>
       <title>Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling</title>
-      <link>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
+      <link>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
+      <guid>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
       <description>A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.</description>
     </item>
     <item>
       <title>Terraform State Moves During A Module Refactor</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</link>
+      <link>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</guid>
       <description>Field note for moving Terraform resources into a module without forcing VM replacement.</description>
     </item>
     <item>
       <title>Terraform Variable File Hygiene</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</link>
+      <link>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</guid>
       <description>Field note for separating Terraform inputs, auto-loaded tfvars, govc environment files, and secrets in infrastructure repositories.</description>
     </item>
     <item>
       <title>Terraform vSphere Clone Customization Failures</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</link>
+      <link>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</guid>
       <description>Field note for diagnosing Terraform vSphere clone failures caused by VMware guest customization inside the VM.</description>
     </item>
     <item>
       <title>vSphere Guestinfo And Cloud-Init On Cloned VMs</title>
-      <link>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</link>
+      <link>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</guid>
+      <guid>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</guid>
       <description>Field note for verifying Terraform guestinfo userdata, cloud-init state, and first-boot behavior on vSphere Ubuntu clones.</description>
     </item>
   </channel>

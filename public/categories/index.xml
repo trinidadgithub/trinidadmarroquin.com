@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Field-Notes</title>
-      <link>https://trinidadmarroquin.com/categories/field-notes/</link>
+      <link>http://localhost:1313/categories/field-notes/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/categories/field-notes/</guid>
+      <guid>http://localhost:1313/categories/field-notes/</guid>
       <description></description>
     </item>
     <item>
       <title>Notes</title>
-      <link>https://trinidadmarroquin.com/categories/notes/</link>
+      <link>http://localhost:1313/categories/notes/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/categories/notes/</guid>
+      <guid>http://localhost:1313/categories/notes/</guid>
       <description></description>
     </item>
     <item>
       <title>Projects</title>
-      <link>https://trinidadmarroquin.com/categories/projects/</link>
+      <link>http://localhost:1313/categories/projects/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/categories/projects/</guid>
+      <guid>http://localhost:1313/categories/projects/</guid>
       <description></description>
     </item>
     <item>
       <title>DevOps Dirty Dozen</title>
-      <link>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</link>
+      <link>http://localhost:1313/categories/devops-dirty-dozen/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</guid>
+      <guid>http://localhost:1313/categories/devops-dirty-dozen/</guid>
       <description></description>
     </item>
   </channel>

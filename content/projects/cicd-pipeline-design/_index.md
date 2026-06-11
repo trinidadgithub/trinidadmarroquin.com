@@ -16,3 +16,5 @@ Discussion space for CI/CD pipeline design work.
 - [Deployment strategy labs](deployment-strategy-labs/)
 - [Credential handling, resource design, and branch-based promotion](credential-handling-promotion/)
 - [Concourse workflows for infrastructure and platform repositories](concourse-infrastructure-workflows/)
+- [Concourse CI/CD on Windows with Terraform](concourse-windows-deployment/)
+- [Kafka Streams pipeline managed by Terraform](kafka-streams-terraform-pipeline/)

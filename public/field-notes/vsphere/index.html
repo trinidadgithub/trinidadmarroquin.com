@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>vCenter Operations Field Notes | Trinidad Marroquin</title>
+<meta name="keywords" content="">
+<meta name="description" content="vCenter Operations Field Notes - Trinidad Marroquin">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="http://localhost:1313/field-notes/vsphere/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/field-notes/vsphere/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/field-notes/vsphere/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/field-notes/vsphere/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="vCenter Operations Field Notes">
+  <meta property="og:description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="vCenter Operations Field Notes">
+  <meta name="twitter:description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Field Notes",
+      "item": "http://localhost:1313/field-notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "vCenter Operations Field Notes",
+      "item": "http://localhost:1313/field-notes/vsphere/"
+    }
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<header class="page-header">
+  <h1>vCenter Operations Field Notes</h1>
+</header>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">vSphere CSI Attach And Mount Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when a Kubernetes workload has a PVC that should use vSphere CSI, but the pod is pending, stuck in init, or failing to mount the volume.
+The goal is to follow the volume from intent to pod readiness:
+StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kubelet mount -&gt; pod ready Check The Workload State Start with pods and PVCs in the affected namespace:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>govc is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
+Load Environment Use a clearly named helper file, not vars.env if it is only for govc:
+source govc.env govc about Typical values:
+export GOVC_URL=&#39;vcenter.example.com&#39; export GOVC_USERNAME=&#39;administrator@vsphere.local&#39; export GOVC_PASSWORD=&#39;...&#39; export GOVC_INSECURE=1 export GOVC_DATACENTER=&#39;VC-Austin&#39; Find A VM Path Search by VM name:
+govc find / -type m -name &#39;AUS-1-wrkr-12-uat&#39; Example result:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to govc Commands For vSphere VM Verification" href="http://localhost:1313/field-notes/govc-vsphere-verification/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
+Target State For a node with primary and iSCSI networks:
+ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
+deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Netplan Conflicts After VMware Guest Customization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>VMware guest customization can write /etc/netplan/99-netcfg-vmware.yaml. If the template already has another active netplan file, the host can end up with multiple network authorities.
+That can break routing, DNS, bootstrap scripts, Kubernetes node communication, and storage initialization.
+Symptoms Common signs:
+Error: Conflicting default route declarations for IPv4 first declared in nic0 but also in ens192 or:
+Destination Host Unreachable or DNS search drift like:
+resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/netplan sudo grep -R &#34;routes:\|gateway\|search:&#34; /etc/netplan -n If both a template file and VMware file are present, decide which one owns networking.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform State Moves During A Module Refactor
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When an existing Terraform resource is moved into a module, Terraform sees a new resource address. If state is not moved first, the plan may try to create the module resource and destroy the old root resource.
+Symptom After converting a root resource to a module call, the plan shows addresses like this:
+# module.vm_group.vsphere_virtual_machine.vm[&#34;lb1&#34;] will be created while the existing state still has:
+vsphere_virtual_machine.vm[&#34;lb1&#34;] Check Current State Run from the environment root:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform State Moves During A Module Refactor" href="http://localhost:1313/field-notes/terraform-state-move-module-refactor/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Clone Customization Failures
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Terraform can successfully ask vSphere to clone a VM and still fail during guest customization. In that case, the problem is usually inside the guest/template, not Terraform syntax.
+Symptom Terraform reports an error like:
+Virtual machine customization failed An error occurred while customizing VM ... For details reference the log file /var/log/vmware-imc/toolsDeployPkg.log in the guest OS. Terraform may leave the VM in place to help troubleshooting.
+First Checks From the VM console or SSH if available:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Clone Customization Failures" href="http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">vSphere Guestinfo And Cloud-Init On Cloned VMs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Terraform can inject cloud-init data into vSphere clones through VMware guestinfo keys. That only works if the template is built to let cloud-init run on first boot.
+Symptom Terraform creates or replaces the VM, but the expected userdata.yaml behavior does not happen. Bootstrap does not run, SSH is not configured, or /var/log/futurex-bootstrap.log is missing.
+Check Guestinfo From vSphere Use govc to inspect the VM extra config:
+source govc.env govc vm.info -e /FX-Bulverde/vm/K8-Cluster/OpsTools/sat-1-api-lb-1-qaops \ | grep &#39;guestinfo\|disk.enableUUID&#39; Look for keys like:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to vSphere Guestinfo And Cloud-Init On Cloned VMs" href="http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

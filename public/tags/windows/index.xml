@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows on Trinidad Marroquin</title>
+    <link>http://localhost:1313/tags/windows/</link>
+    <description>Recent content in Windows on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Concourse CI/CD On Windows With Terraform</title>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
+      <description>Project notes for deploying Concourse CI/CD on Windows Docker with Terraform, TLS key management, PowerShell provisioners, and production pipeline patterns.</description>
+    </item>
+  </channel>
+</rss>

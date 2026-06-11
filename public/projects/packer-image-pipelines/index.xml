@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Packer Image Pipelines on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/</link>
+    <link>http://localhost:1313/projects/packer-image-pipelines/</link>
     <description>Recent content in Packer Image Pipelines on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/projects/packer-image-pipelines/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/projects/packer-image-pipelines/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Packer Base Image Hardening</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</guid>
       <description>Initial model for Packer base image hardening, patch cadence, template ownership, and retirement.</description>
     </item>
     <item>
       <title>Packer Image Validation Gates</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</guid>
       <description>Initial validation gates for Packer-built images, including boot, access, agents, cloud-init, storage, and baseline configuration.</description>
     </item>
     <item>
       <title>Packer Image Versioning</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</guid>
       <description>Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.</description>
     </item>
   </channel>
