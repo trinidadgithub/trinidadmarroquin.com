@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ansible on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/ansible/</link>
+    <link>https://trinidadmarroquin.com/tags/ansible/</link>
     <description>Recent content in Ansible on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DNS Search Domain Hygiene Across Multi-Site Clusters</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
       <description>Operating pattern for maintaining consistent DNS search domain state across RKE2 clusters: audit, stage, runtime fix, and drift detection across three resolver layers.</description>
     </item>
     <item>
       <title>Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters</title>
-      <link>http://localhost:1313/posts/dns-search-domain-remediation/</link>
+      <link>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/dns-search-domain-remediation/</guid>
+      <guid>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</guid>
       <description>A production walkthrough of auditing, diagnosing, and remediating DNS search domain drift across five RKE2 cluster sites, including netplan staging, systemd-resolved link-level debugging, and a Subiquity YAML indentation trap.</description>
     </item>
   </channel>

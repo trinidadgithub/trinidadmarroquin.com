@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Automation on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/automation/</link>
+    <link>https://trinidadmarroquin.com/tags/automation/</link>
     <description>Recent content in Automation on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/automation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deployment Strategy Labs</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
       <description>Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.</description>
     </item>
     <item>
       <title>Image Factory Workflow With vSphere And Packer</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</guid>
       <description>Project page for the Packer-based image factory workflow: template pipeline, versioning strategy, cross-site distribution, validation gates, and the operating model that keeps node images consistent across the fleet.</description>
     </item>
     <item>
       <title>Kafka Readiness Checks In Terraform Docker Labs</title>
-      <link>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</link>
+      <link>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</guid>
       <description>Field note for local Kafka labs where Terraform creates Docker infrastructure, waits for broker readiness, and then creates topics or starts stream processors.</description>
     </item>
     <item>
       <title>Operating In A GitOps Environment: Practices That Hold Up</title>
-      <link>http://localhost:1313/posts/operating-in-gitops/</link>
+      <link>https://trinidadmarroquin.com/posts/operating-in-gitops/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/operating-in-gitops/</guid>
+      <guid>https://trinidadmarroquin.com/posts/operating-in-gitops/</guid>
       <description>Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.</description>
     </item>
     <item>
       <title>Packer Image Versioning</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</guid>
       <description>Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.</description>
     </item>
     <item>
       <title>Pipeline Credential Handling And Promotion</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
       <description>Initial practices for CI/CD credential handling, pipeline resources, environment promotion, and branch-based controls.</description>
     </item>
     <item>
       <title>Pipeline Validation Planning And Apply Stages</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
     <item>
       <title>Rollback Strategies With Sentinel Files And Package Management</title>
-      <link>http://localhost:1313/field-notes/rollback-sentinel-package-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rollback-sentinel-package-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
       <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
   </channel>

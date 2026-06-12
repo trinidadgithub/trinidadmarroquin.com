@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Helm on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/helm/</link>
+    <link>https://trinidadmarroquin.com/tags/helm/</link>
     <description>Recent content in Helm on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/helm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/helm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From Local IaC Labs To Production-Ready Patterns</title>
-      <link>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</link>
+      <link>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</guid>
       <description>A practical SRE view of how local Terraform, Docker, Helm, Kafka, and observability labs can become production-ready infrastructure patterns without pretending the lab is production.</description>
     </item>
     <item>
       <title>Helm And Terraform Boundary On EKS</title>
-      <link>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</link>
+      <link>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</guid>
       <description>Field note for the Terraform-managed Helm release pattern on EKS, keeping infrastructure provisioning separate from application deployment configuration.</description>
     </item>
     <item>
       <title>Helm And Terraform Validation Strategy</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
       <description>Project notes for validating Helm-rendered Kubernetes manifests and Terraform-managed Helm releases before deployment.</description>
     </item>
   </channel>

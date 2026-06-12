@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Platform on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/platform/</link>
+    <link>https://trinidadmarroquin.com/tags/platform/</link>
     <description>Recent content in Platform on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/platform/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/platform/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud Account And Environment Organization</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</guid>
       <description>Initial operating model for cloud account, project, subscription, and environment organization.</description>
     </item>
     <item>
       <title>Cloud Provider Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/provider-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/provider-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</guid>
       <description>Initial model for documenting cloud operational patterns by provider and platform discipline.</description>
     </item>
     <item>
       <title>GitOps For Infrastructure Teams</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
       <description>Project page for GitOps patterns applied to infrastructure operations: pipeline-controlled infrastructure, platform tenant workflows, fleet-wide change orchestration, and the operating model that makes GitOps practical for platform teams.</description>
     </item>
     <item>
       <title>GitOps Pipeline Patterns For Platform Teams</title>
-      <link>http://localhost:1313/field-notes/gitops-pipeline-patterns/</link>
+      <link>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/gitops-pipeline-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</guid>
       <description>Field note for GitOps pipeline patterns in infrastructure teams: change pipelines, fleet rollouts, tenant onboarding, and the operating model that keeps Git as the single source of truth.</description>
     </item>
     <item>
       <title>Kubernetes Platform Conventions</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</guid>
       <description>Platform conventions for Kubernetes namespaces, ingress, storage, labels, policies, and ownership patterns that reduce operational drift.</description>
     </item>
     <item>
       <title>SRE Mindset: Operational Judgment Over Tooling</title>
-      <link>http://localhost:1313/field-notes/sre-mindset/</link>
+      <link>https://trinidadmarroquin.com/field-notes/sre-mindset/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/sre-mindset/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/sre-mindset/</guid>
       <description>Field note for the SRE mindset: how operators think about reliability, error budgets, incident response, toil management, and the decisions that determine whether tooling improves or complicates operations.</description>
     </item>
     <item>
       <title>The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering</title>
-      <link>http://localhost:1313/posts/sre-dirty-dozen/</link>
+      <link>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/sre-dirty-dozen/</guid>
+      <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
       <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
     </item>
   </channel>

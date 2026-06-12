@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Devops on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/devops/</link>
+    <link>https://trinidadmarroquin.com/tags/devops/</link>
     <description>Recent content in Devops on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Operating In A GitOps Environment: Practices That Hold Up</title>
-      <link>http://localhost:1313/posts/operating-in-gitops/</link>
+      <link>https://trinidadmarroquin.com/posts/operating-in-gitops/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/operating-in-gitops/</guid>
+      <guid>https://trinidadmarroquin.com/posts/operating-in-gitops/</guid>
       <description>Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.</description>
     </item>
     <item>
       <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>
-      <link>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
       <description>Part 1 of the DevOps Dirty Dozen series: how organizational silos undermine DevOps collaboration and what teams can do about it.</description>
     </item>
   </channel>

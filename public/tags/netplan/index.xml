@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Netplan on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/netplan/</link>
+    <link>https://trinidadmarroquin.com/tags/netplan/</link>
     <description>Recent content in Netplan on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/netplan/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/netplan/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DNS Search Domain Debugging With systemd-resolved</title>
-      <link>http://localhost:1313/field-notes/dns-search-domain-debugging/</link>
+      <link>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/dns-search-domain-debugging/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</guid>
       <description>Commands for identifying which layer is injecting a DNS search domain — netplan, systemd-resolved global, or per-link — and how to fix each at runtime.</description>
     </item>
     <item>
       <title>DNS Search Domain Hygiene Across Multi-Site Clusters</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
       <description>Operating pattern for maintaining consistent DNS search domain state across RKE2 clusters: audit, stage, runtime fix, and drift detection across three resolver layers.</description>
     </item>
     <item>
       <title>Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters</title>
-      <link>http://localhost:1313/posts/dns-search-domain-remediation/</link>
+      <link>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/dns-search-domain-remediation/</guid>
+      <guid>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</guid>
       <description>A production walkthrough of auditing, diagnosing, and remediating DNS search domain drift across five RKE2 cluster sites, including netplan staging, systemd-resolved link-level debugging, and a Subiquity YAML indentation trap.</description>
     </item>
     <item>
       <title>iSCSI Bootstrap Readiness For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
+      <link>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
       <description>Field note for preparing Kubernetes nodes with iSCSI networking, discovery, sessions, and CSI-ready storage behavior.</description>
     </item>
     <item>
       <title>Netplan Conflicts After VMware Guest Customization</title>
-      <link>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</guid>
       <description>Field note for diagnosing duplicate netplan ownership, missing default routes, and DNS drift on vSphere Ubuntu VMs.</description>
     </item>
   </channel>

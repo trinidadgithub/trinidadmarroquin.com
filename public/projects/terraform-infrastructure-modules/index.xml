@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Terraform Infrastructure Modules on Trinidad Marroquin</title>
-    <link>http://localhost:1313/projects/terraform-infrastructure-modules/</link>
+    <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/</link>
     <description>Recent content in Terraform Infrastructure Modules on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/projects/terraform-infrastructure-modules/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terraform Operational Module Boundaries</title>
-      <link>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
       <description>Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.</description>
     </item>
     <item>
       <title>Terraform Plan Review Practices</title>
-      <link>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
       <description>Initial Terraform plan review practices for safer infrastructure changes, state handling, and automation gates.</description>
     </item>
   </channel>
