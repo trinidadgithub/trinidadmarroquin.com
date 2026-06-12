@@ -26,7 +26,7 @@ This image includes the kernel fix for CVE-2026-1234 and updates
 containerd to v2.0.4. The previous template (ubuntu-2204-v2026.04.15)
 is retained in vSphere and can be reinstated by reverting this commit.
 
-Pre-apply validation: netplan generate passed on phx-1-etcd-1.
+Pre-apply validation: netplan generate passed on site-a-etcd-1.
 Post-apply verification: kubelet version, node ready, and pod CIDR
 all confirmed on the canary node before fleet rollout.
 ```

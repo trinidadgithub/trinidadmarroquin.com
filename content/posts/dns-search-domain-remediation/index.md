@@ -192,12 +192,12 @@ network:
   ethernets:
     ens160:
       addresses:
-        - 10.46.224.15/21
-      gateway4: 10.46.224.1
+        - 192.0.2.15/24
+      gateway4: 192.0.2.1
       nameservers:
         addresses:
-          - 10.46.150.2
-          - 10.46.150.3
+          - 198.51.100.2
+          - 198.51.100.3
       search: []
   version: 2
 ```

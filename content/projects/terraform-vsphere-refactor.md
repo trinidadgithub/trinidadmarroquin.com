@@ -26,12 +26,12 @@ The target was not to make the repo clever. The target was to make it understand
 The refactor moved toward this structure:
 
 ```text
-futurex-terraform-vsphere/
+terraform-vsphere-platform/
   environments/
-    ams-1/prod/
-    ams-1/uat/
-    aus-1/uat/
-    sat-2/optools/
+    site-a/prod/
+    site-a/nonprod/
+    site-b/nonprod/
+    site-c/tools/
   modules/
     vsphere-vm-group/
   templates/
@@ -41,7 +41,7 @@ futurex-terraform-vsphere/
     legacy-templates/
 ```
 
-The important design choice was `environments/<site>/<env>`. That keeps production and UAT roots near each other, makes site ownership visible, and avoids long historical directory names like `Terraform-AMS-1-prod`.
+The important design choice was `environments/<site>/<env>`. That keeps production and nonproduction roots near each other, makes site ownership visible, and avoids long historical directory names like `Terraform-Site-A-prod`.
 
 ## Module Boundary
 

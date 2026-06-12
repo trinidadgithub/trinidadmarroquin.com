@@ -42,7 +42,7 @@ Node hostnames should encode site, role, and sequence number. A name like `site-
 
 A name like `ip-10-0-1-45` tells you nothing.
 
-Inconsistent naming across sites is more expensive than bad naming. If one site uses `phx-1-etcd-1` and another uses `iad-1-etcd1-rke2`, automation that parses node names will have divergent logic paths for each site.
+Inconsistent naming across sites is more expensive than bad naming. If one site uses `site-a-etcd-1` and another uses `site-b-etcd1-rke2`, automation that parses node names will have divergent logic paths for each site.
 
 ## Upgrade Sequencing
 

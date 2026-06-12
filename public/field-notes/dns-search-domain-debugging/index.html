@@ -10,7 +10,7 @@
 <meta name="description" content="Commands for identifying which layer is injecting a DNS search domain — netplan, systemd-resolved global, or per-link — and how to fix each at runtime.">
 <meta name="author" content="Trinidad Marroquin">
 <link rel="canonical" href="https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.40c9e9a23b839d241bbe1ace530d4f5f0918782c06b4eb25b1821bc15b180bac.css" integrity="sha256-QMnpojuDnSQbvhrOUw1PXwkYeCwGtOslsYIbwVsYC6w=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
@@ -90,7 +90,7 @@
   <meta property="og:site_name" content="Trinidad Marroquin">
   <meta property="og:title" content="DNS Search Domain Debugging With systemd-resolved">
   <meta property="og:description" content="Commands for identifying which layer is injecting a DNS search domain — netplan, systemd-resolved global, or per-link — and how to fix each at runtime.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="field-notes">
     <meta property="article:published_time" content="2026-06-10T00:00:00-05:00">
@@ -279,30 +279,30 @@
 </span></span><span class="line"><span class="cl">networkctl status eth0 <span class="p">|</span> grep -i domain
 </span></span></code></pre></div><h2 id="the-three-layers">The Three Layers<a hidden class="anchor" aria-hidden="true" href="#the-three-layers">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>Layer</th>
-          <th>Inspect With</th>
-          <th>Fix</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Netplan</td>
-          <td><code>grep -R &quot;search:&quot; /etc/netplan/</code></td>
-          <td>Edit yaml, <code>netplan generate</code>, <code>netplan apply</code></td>
-      </tr>
-      <tr>
-          <td>systemd-resolved (global)</td>
-          <td><code>resolvectl domain</code> (Global:)</td>
-          <td><code>resolvectl domain &quot;&quot;</code></td>
-      </tr>
-      <tr>
-          <td>systemd-resolved (per-link)</td>
-          <td><code>resolvectl domain</code> (Link N:)</td>
-          <td><code>resolvectl domain eth0 &quot;&quot;</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Layer</th>
+					<th>Inspect With</th>
+					<th>Fix</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Netplan</td>
+					<td><code>grep -R &quot;search:&quot; /etc/netplan/</code></td>
+					<td>Edit yaml, <code>netplan generate</code>, <code>netplan apply</code></td>
+			</tr>
+			<tr>
+					<td>systemd-resolved (global)</td>
+					<td><code>resolvectl domain</code> (Global:)</td>
+					<td><code>resolvectl domain &quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td>systemd-resolved (per-link)</td>
+					<td><code>resolvectl domain</code> (Link N:)</td>
+					<td><code>resolvectl domain eth0 &quot;&quot;</code></td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="runtime-fix-per-link-domain">Runtime Fix (Per-Link Domain)<a hidden class="anchor" aria-hidden="true" href="#runtime-fix-per-link-domain">#</a></h2>
 <p>Clearing a per-link search domain without restarting systemd-resolved:</p>
@@ -331,9 +331,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OUT</span><span class="o">=</span><span class="s2">&#34;dns-search-audit-</span><span class="k">$(</span>date +%Y%m%d-%H%M%S<span class="k">)</span><span class="s2">.csv&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;inventory_host,actual_hostname,resolv_conf_search,netplan_search&#39;</span> &gt; <span class="s2">&#34;</span><span class="nv">$OUT</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">ANSIBLE_NOCOLOR</span><span class="o">=</span><span class="m">1</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">ANSIBLE_STDOUT_CALLBACK</span><span class="o">=</span>default <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>ansible all -i inventory/prod.yaml -u operator -b -kK <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -m shell -a <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="nv">ANSIBLE_STDOUT_CALLBACK</span><span class="o">=</span>default <span class="se">\
+</span></span></span><span class="line"><span class="cl">ansible all -i inventory/prod.yaml -u operator -b -kK <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -m shell -a <span class="s1">&#39;
 </span></span></span><span class="line"><span class="cl"><span class="s1">ACTUAL_HOSTNAME=$(hostname -s)
 </span></span></span><span class="line"><span class="cl"><span class="s1">RESOLV_SEARCH=$(awk &#34;/^search/{\$1=\&#34;\&#34;; sub(/^ /,\&#34;\&#34;); print; exit} /^domain/{print \$2; exit}&#34; /etc/resolv.conf)
 </span></span></span><span class="line"><span class="cl"><span class="s1">[ -z &#34;$RESOLV_SEARCH&#34; ] &amp;&amp; RESOLV_SEARCH=&#34;NONE&#34;
@@ -341,10 +341,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="s1">[ -z &#34;$NETPLAN_SEARCH&#34; ] &amp;&amp; NETPLAN_SEARCH=&#34;NONE&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">printf &#34;CSV|{{ inventory_hostname }}|%s|%s|%s\n&#34; &#34;$ACTUAL_HOSTNAME&#34; &#34;$RESOLV_SEARCH&#34; &#34;$NETPLAN_SEARCH&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="p">|</span> sed -n <span class="s1">&#39;s/.*CSV|//p&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="p">|</span> awk -F<span class="s1">&#39;|&#39;</span> <span class="s1">&#39;{print $1 &#34;,&#34; $2 &#34;,&#34; $3 &#34;,&#34; $4}&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="p">|</span> sort -t, -k1,1 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>&gt;&gt; <span class="s2">&#34;</span><span class="nv">$OUT</span><span class="s2">&#34;</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">|</span> sed -n <span class="s1">&#39;s/.*CSV|//p&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="p">|</span> awk -F<span class="s1">&#39;|&#39;</span> <span class="s1">&#39;{print $1 &#34;,&#34; $2 &#34;,&#34; $3 &#34;,&#34; $4}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="p">|</span> sort -t, -k1,1 <span class="se">\
+</span></span></span><span class="line"><span class="cl">&gt;&gt; <span class="s2">&#34;</span><span class="nv">$OUT</span><span class="s2">&#34;</span>
 </span></span></code></pre></div><h2 id="drift-detection">Drift Detection<a hidden class="anchor" aria-hidden="true" href="#drift-detection">#</a></h2>
 <p>Show anything not matching desired baseline (<code>.</code> / <code>[]</code>):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk -F, <span class="s1">&#39;NR==1 || $3!=&#34;.&#34; || $4!=&#34;[]&#34;&#39;</span> <span class="s2">&#34;</span><span class="nv">$OUT</span><span class="s2">&#34;</span> <span class="p">|</span> column -s, -t

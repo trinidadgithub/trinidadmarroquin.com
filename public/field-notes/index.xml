@@ -5,10 +5,31 @@
     <link>https://trinidadmarroquin.com/field-notes/</link>
     <description>Recent content in Field Notes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Thu, 11 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/field-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Agent Guardrails For Infrastructure Writes</title>
+      <link>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
+      <description>Field note for using AI agents safely during infrastructure updates, especially when the agent has tool access but may speculate or lose context.</description>
+    </item>
+    <item>
+      <title>NetBox Bulk Import Order For Kubernetes Nodes</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</guid>
+      <description>Field note for importing Kubernetes VM node inventory into NetBox using ordered device, interface, and IP address CSV files.</description>
+    </item>
+    <item>
+      <title>NetBox Primary IP Assignment After Import</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</guid>
+      <description>Field note for setting NetBox device primary IPv4 addresses after bulk importing devices, interfaces, and IP assignments.</description>
+    </item>
     <item>
       <title>Network Saturation Evidence Checklist</title>
       <link>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</link>

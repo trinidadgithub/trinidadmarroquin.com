@@ -2,7 +2,7 @@
 <html lang="en" dir="auto" data-theme="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.146.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.163.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="Personal site for Trinidad Marroquin, an SRE and DevOps engineer focused on reliable infrastructure, platform operations, and field-tested engineering notes.">
 <meta name="author" content="Trinidad Marroquin">
 <link rel="canonical" href="https://trinidadmarroquin.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.40c9e9a23b839d241bbe1ace530d4f5f0918782c06b4eb25b1821bc15b180bac.css" integrity="sha256-QMnpojuDnSQbvhrOUw1PXwkYeCwGtOslsYIbwVsYC6w=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
@@ -93,7 +93,7 @@
   <meta property="og:site_name" content="Trinidad Marroquin">
   <meta property="og:title" content="Home">
   <meta property="og:description" content="Personal site for Trinidad Marroquin, an SRE and DevOps engineer focused on reliable infrastructure, platform operations, and field-tested engineering notes.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
@@ -239,6 +239,70 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">DNS Search Domain Hygiene Across Multi-Site Clusters
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>RKE2 clusters across multiple sites had inconsistent DNS search domain behavior. Some nodes appended internal domains to all lookups, some appended data center-specific domains, and a few were clean. In a Kubernetes cluster, uncontrolled search domain expansion causes:
+Pod DNS lookups that should resolve as-is getting unexpected suffix expansion. Inconsistent behavior across sites for the same service name. Debugging sessions that waste time on DNS before finding the real issue. Desired State Layer Target Netplan search: [] systemd-resolved No per-link or global domains Active resolver (/etc/resolv.conf) search . search . is systemd-resolved shorthand for “no search domains” and is the correct end state.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to DNS Search Domain Hygiene Across Multi-Site Clusters" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Docker Stale Binaries In Usr Local Bin
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Docker can break silently when stale binaries in /usr/local/bin shadow the package-managed versions after an upgrade. The daemon starts, docker ps works, but containers fail to run with no obvious error in the Docker CLI.
+The Pattern docker ps # works, lists containers docker run hello-world # hangs or fails silently The daemon itself is healthy. The break is in the runtime path. After a Docker or containerd upgrade, the new daemon expects a compatible runc and shim, but an old copy in /usr/local/bin gets resolved first because it appears earlier in $PATH than the packaged binary.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Docker Stale Binaries In Usr Local Bin" href="https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Backup, Restore, And Disaster Recovery
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Snapshot Manual Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt \ ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt \ ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key \ etcdctl snapshot save /backup/etcd-snapshot-$(date &#43;%Y%m%d-%H%M%S).db Automated Snapshot (RKE2) RKE2 includes etcd-snapshot as a subcommand:
+rke2 etcd-snapshot save \ --node-name &lt;node-name&gt; \ --s3 \ --s3-bucket=&lt;bucket&gt; \ --s3-region=&lt;region&gt; \ --s3-access-key=&lt;key&gt; \ --s3-secret-key=&lt;secret&gt; Automated snapshots can be configured via the RKE2 config file with etcd-snapshot-schedule-cron and etcd-snapshot-retention.
+Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot status /backup/etcd-snapshot-&lt;date&gt;.db -w table Verify the snapshot is not corrupt and check the revision and hash. A snapshot with zero revisions or a mismatched hash indicates corruption.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
     </h2>
   </header>
@@ -342,77 +406,6 @@ resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Helm And Terraform Validation Strategy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When Terraform manages Helm releases, validation needs to happen at more than one layer.
-Terraform can show that the helm_release resource is configured. Helm can render templates. Kubernetes can reject invalid manifests. Production can still fail if the workload has no useful health checks or the image tag points at the wrong build.
-Validation Layers A practical validation sequence is:
-terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt; kubectl dry-run -&gt; terraform plan Each step answers a different question:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Helm And Terraform Validation Strategy" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
-This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
-Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>IoT device containers need TLS certificates to authenticate with AWS IoT Core. The certificate path is the critical configuration — if the container cannot find its credentials, it does not connect.
-For a runnable lab, see the terraform-docker-iot directory in the IaC repository.
-Certificate Injection Pattern Mount certificates from the host using Terraform volume mounts. Do not bake certs into the image:
-resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.iot_device_image.name volumes { host_path = abspath(&#34;${path.module}/certs/root-CA.crt&#34;) container_path = &#34;/certs/root-CA.crt&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.cert.pem&#34;) container_path = &#34;/certs/iot-thing.cert.pem&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.private.key&#34;) container_path = &#34;/certs/iot-thing.private.key&#34; } } abspath(path.module) resolves the relative cert path to an absolute path relative to the Terraform module directory. This avoids path ambiguity when Terraform runs from different working directories.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka KRaft Mode In Docker Compose
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kafka without Zookeeper runs in KRaft mode using the Raft protocol for metadata consensus. This is the default in Kafka 4.x and available since Kafka 3.x. For local labs, KRaft mode removes the complexity of managing a separate Zookeeper container.
-For a runnable reference, see the docker/kafka/docker-compose.yml file in the IaC repository.
-Minimal KRaft Configuration A single-broker KRaft setup needs a few key environment variables that differ from Zookeeper-based Kafka:
-services: kafka: image: confluentinc/cp-kafka:latest environment: KAFKA_KRAFT_MODE: &#34;true&#34; KAFKA_PROCESS_ROLES: &#34;controller,broker&#34; KAFKA_NODE_ID: &#34;1&#34; KAFKA_CONTROLLER_QUORUM_VOTERS: &#34;1@localhost:9093&#34; KAFKA_LISTENERS: &#34;PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093&#34; KAFKA_ADVERTISED_LISTENERS: &#34;PLAINTEXT://localhost:9092&#34; KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: &#34;1&#34; KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: &#34;0&#34; CLUSTER_ID: &#34;MkU3OEVBNTcwNTJENDM2Qk&#34; Key Variables KAFKA_KRAFT_MODE=true — enables the Raft-based metadata mode. KAFKA_PROCESS_ROLES=controller,broker — a single node acts as both controller and broker. Production splits these roles across separate nodes. KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 — defines the controller ensemble. In a single-node lab, one voter is sufficient. CLUSTER_ID — a unique identifier generated once. If it changes, the broker treats the metadata as a new cluster. Single-Node Tuning Lab-specific settings that should not reach production:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka KRaft Mode In Docker Compose" href="https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

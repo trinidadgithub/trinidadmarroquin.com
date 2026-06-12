@@ -11,7 +11,7 @@ Terraform can inject cloud-init data into vSphere clones through VMware guestinf
 
 ## Symptom
 
-Terraform creates or replaces the VM, but the expected `userdata.yaml` behavior does not happen. Bootstrap does not run, SSH is not configured, or `/var/log/futurex-bootstrap.log` is missing.
+Terraform creates or replaces the VM, but the expected `userdata.yaml` behavior does not happen. Bootstrap does not run, SSH is not configured, or `/var/log/platform-bootstrap.log` is missing.
 
 ## Check Guestinfo From vSphere
 
@@ -19,7 +19,7 @@ Use `govc` to inspect the VM extra config:
 
 ```bash
 source govc.env
-govc vm.info -e /FX-Bulverde/vm/K8-Cluster/OpsTools/sat-1-api-lb-1-qaops \
+govc vm.info -e /DC-Site-A/vm/K8s-Cluster/OpsTools/cluster-a-api-lb-01 \
   | grep 'guestinfo\|disk.enableUUID'
 ```
 
@@ -95,7 +95,7 @@ extra_config = {
       name         = each.value.name
       ssh_username = var.ssh_username
       public_key   = var.public_key
-      fx_password  = var.fx_password
+      admin_password = var.admin_password
     })
   )
   "guestinfo.userdata.encoding" = "base64"

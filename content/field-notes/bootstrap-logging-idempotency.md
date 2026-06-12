@@ -27,7 +27,7 @@ Wrap each bootstrap step so failures are recorded but do not prevent later diagn
 #!/usr/bin/env bash
 set -uo pipefail
 
-LOG_FILE="/var/log/futurex-bootstrap.log"
+LOG_FILE="/var/log/platform-bootstrap.log"
 FAILED_STEPS=()
 
 log() {
@@ -84,11 +84,11 @@ Exit `0` when the goal is evidence collection and the host should stay reachable
 If cloud-init, a systemd unit, or a manual command can trigger the same script, add a lock:
 
 ```bash
-LOCK_FILE="/run/futurex-bootstrap.lock"
+LOCK_FILE="/run/platform-bootstrap.lock"
 exec 9>"${LOCK_FILE}"
 
 if ! flock -n 9; then
-  echo "[$(date -Is)] Another futurex-bootstrap process is already running; exiting." | tee -a "$LOG_FILE"
+  echo "[$(date -Is)] Another platform-bootstrap process is already running; exiting." | tee -a "$LOG_FILE"
   exit 0
 fi
 ```
@@ -102,14 +102,14 @@ If the bootstrap script writes its own log, keep cloud-init simple:
 ```yaml
 #cloud-config
 runcmd:
-  - [ bash, -lc, '/usr/local/bin/futurex-bootstrap' ]
+  - [ bash, -lc, '/usr/local/bin/platform-bootstrap' ]
 ```
 
 Avoid wrapping it like this unless you intentionally want a second wrapper log:
 
 ```yaml
 runcmd:
-  - [ bash, -lc, '/usr/local/bin/futurex-bootstrap 2>&1 | tee -a /var/log/futurex-bootstrap.log' ]
+  - [ bash, -lc, '/usr/local/bin/platform-bootstrap 2>&1 | tee -a /var/log/platform-bootstrap.log' ]
 ```
 
 ## Operating Rule

@@ -85,7 +85,7 @@ runcmd:
   - [ bash, -lc, 'mkdir -p /run/sshd' ]
   - [ bash, -lc, 'passwd -u ubuntu || true' ]
   - [ bash, -lc, 'systemctl enable --now ssh' ]
-  - [ bash, -lc, '/usr/local/bin/futurex-bootstrap' ]
+  - [ bash, -lc, '/usr/local/bin/platform-bootstrap' ]
 ```
 
 The point is not that every site should use exactly that YAML. The point is that cloud-init should have a clear job. In this model, its job is to trigger bootstrap and avoid breaking the template user.

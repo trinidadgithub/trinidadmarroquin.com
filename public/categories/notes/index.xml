@@ -5,10 +5,17 @@
     <link>https://trinidadmarroquin.com/categories/notes/</link>
     <description>Recent content in Notes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Thu, 11 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When AI-Assisted Infrastructure Updates Need Guardrails</title>
+      <link>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</guid>
+      <description>A practical reflection on using AI assistance for NetBox inventory work, where tool access helped but evidence, validation, and import discipline mattered more than confident answers.</description>
+    </item>
     <item>
       <title>When Network Saturation Looks Like Rancher Trouble</title>
       <link>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</link>

@@ -10,7 +10,7 @@
 <meta name="description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
 <meta name="author" content="Trinidad Marroquin">
 <link rel="canonical" href="https://trinidadmarroquin.com/tags/automation/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.40c9e9a23b839d241bbe1ace530d4f5f0918782c06b4eb25b1821bc15b180bac.css" integrity="sha256-QMnpojuDnSQbvhrOUw1PXwkYeCwGtOslsYIbwVsYC6w=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
@@ -91,7 +91,7 @@
   <meta property="og:site_name" content="Trinidad Marroquin">
   <meta property="og:title" content="Automation">
   <meta property="og:description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
@@ -196,6 +196,80 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI Agent Guardrails For Infrastructure Writes
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI agents can help with infrastructure work, but tool access does not make an answer trustworthy.
+Use guardrails when an agent is helping with NetBox, IPAM, Jira, Kubernetes, Terraform, or any other system where a wrong write creates cleanup work.
+Red Flags Slow down when the agent:
+says it can write but cannot prove the target endpoint. assumes import behavior without testing one row. retries the same broken tool call repeatedly. switches from evidence to confident explanation. mixes generated examples with real environment values. proposes a bulk change without a dry run. cannot distinguish source data from desired state. ignores duplicate names or ambiguous matches. Required Behavior For infrastructure writes, require:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to AI Agent Guardrails For Infrastructure Writes" href="https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox Bulk Import Order For Kubernetes Nodes
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>NetBox imports are safest when object relationships are created in dependency order.
+For Kubernetes VM nodes, split the import into devices, interfaces, and IP addresses instead of trying to represent everything as one operation.
+Import Order Use this order:
+1. devices.csv 2. interfaces.csv 3. ip-addresses.csv Why:
+interfaces need devices to exist first. IP addresses need interfaces to exist before assignment. primary IP selection is a device relationship and may need a later update. Device CSV Example shape:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox Bulk Import Order For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox Primary IP Assignment After Import
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Importing an IP address and assigning it to an interface does not always mean the device’s primary_ip4 field is set.
+Treat primary IP assignment as a separate verification and update step.
+Input File Use a small mapping file:
+name,primary_ip4 cluster-a-cp-01,192.0.2.10/24 cluster-a-worker-01,192.0.2.20/24 The address should match the existing NetBox IP object, including prefix length if your NetBox query requires it.
+Safe Update Logic For each row:
+query device by exact name. query IP address by exact address. require exactly one device match. require exactly one IP match. skip blank rows. skip ambiguous rows. support dry-run mode. patch only the device primary_ip4 field. Ambiguity should stop the row, not trigger guessing.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox Primary IP Assignment After Import" href="https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">When AI-Assisted Infrastructure Updates Need Guardrails
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI assistance is useful in infrastructure work when it accelerates the boring parts: parsing inventory, building CSVs, checking references, and producing repeatable commands.
+It becomes dangerous when it gets confident without evidence.
+In one NetBox/IPAM update, the task sounded simple: take Kubernetes node inventory, create the matching NetBox records, associate management IPs, and set each device’s primary IPv4 address. The work was not conceptually hard. The risk was in the details: object relationships, import order, duplicate names, existing tags, site mappings, and whether the tool was writing to the intended NetBox instance.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to When AI-Assisted Infrastructure Updates Need Guardrails" href="https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -305,44 +379,12 @@ source repository. versioned artifact. environment configuration. approval gate.
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Pipeline Credential Handling And Promotion" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Pipeline Validation Planning And Apply Stages
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Infrastructure pipelines should make change intent visible before they mutate anything.
-The stage design should separate fast feedback from approval and execution.
-Stage Model A practical infrastructure pipeline usually has:
-format -&gt; validate -&gt; security checks -&gt; plan -&gt; review -&gt; apply -&gt; verify Each stage should produce evidence that the next stage can trust.
-Validation Validation should be fast and safe:
-formatting. static syntax validation. provider initialization without touching production state when possible. unit-style checks for generated manifests. policy checks for obvious violations. Planning Plan output is the core review artifact.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Pipeline Validation Planning And Apply Stages" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Rollback Strategies With Sentinel Files And Package Management
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
-For a runnable lab, see the rollback-deployment directory in the IaC repository. It uses a sentinel file to trigger Puppet-driven dpkg rollback.
-The Sentinel File Pattern A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:
-exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt/v1/c-app.deb&#39;, onlyif =&gt; &#39;test -f /tmp/simulate_failure&#39;, } The sentinel file is a teaching proxy. In production, the sentinel would be a health check failure, a metrics threshold breach, or a monitoring alert.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://trinidadmarroquin.com/tags/automation/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

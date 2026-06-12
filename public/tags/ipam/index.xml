@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ipam on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/ipam/</link>
+    <description>Recent content in Ipam on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/ipam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NetBox Bulk Import Order For Kubernetes Nodes</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</guid>
+      <description>Field note for importing Kubernetes VM node inventory into NetBox using ordered device, interface, and IP address CSV files.</description>
+    </item>
+    <item>
+      <title>NetBox Primary IP Assignment After Import</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</guid>
+      <description>Field note for setting NetBox device primary IPv4 addresses after bulk importing devices, interfaces, and IP assignments.</description>
+    </item>
+  </channel>
+</rss>

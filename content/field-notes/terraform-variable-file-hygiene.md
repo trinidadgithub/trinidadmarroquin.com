@@ -58,7 +58,7 @@ Secrets should come from environment variables, a secret manager, or another app
 ```bash
 export TF_VAR_vsphere_user='...'
 export TF_VAR_vsphere_password='...'
-export TF_VAR_fx_password='...'
+export TF_VAR_admin_password='...'
 ```
 
 ## Rename Helper Files
@@ -74,7 +74,7 @@ That makes the purpose obvious:
 ```bash
 source govc.env
 govc about
-govc device.ls -vm /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-12-uat
+govc device.ls -vm /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-02
 ```
 
 ## Classify Existing Values

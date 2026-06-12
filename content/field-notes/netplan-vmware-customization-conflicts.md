@@ -60,15 +60,15 @@ networkctl status ens192 --no-pager
 If the default route is missing, test the expected route manually:
 
 ```bash
-sudo ip route replace default via 10.0.232.1 dev ens192
-ping -c 3 10.0.232.1
+sudo ip route replace default via 192.0.2.1 dev ens192
+ping -c 3 192.0.2.1
 ```
 
 If ARP fails, compare the vSphere port group against a working VM:
 
 ```bash
-govc device.ls -vm /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-11-uat
-govc device.ls -vm /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-12-uat
+govc device.ls -vm /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-01
+govc device.ls -vm /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-02
 ```
 
 ## Normalize To One Netplan File

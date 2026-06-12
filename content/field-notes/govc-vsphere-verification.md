@@ -25,7 +25,7 @@ export GOVC_URL='vcenter.example.com'
 export GOVC_USERNAME='administrator@vsphere.local'
 export GOVC_PASSWORD='...'
 export GOVC_INSECURE=1
-export GOVC_DATACENTER='VC-Austin'
+export GOVC_DATACENTER='DC-Site-A'
 ```
 
 ## Find A VM Path
@@ -33,13 +33,13 @@ export GOVC_DATACENTER='VC-Austin'
 Search by VM name:
 
 ```bash
-govc find / -type m -name 'AUS-1-wrkr-12-uat'
+govc find / -type m -name 'cluster-a-worker-02'
 ```
 
 Example result:
 
 ```text
-/VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-12-uat
+/DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-02
 ```
 
 Use that full path for later commands.
@@ -47,13 +47,13 @@ Use that full path for later commands.
 ## Check NIC Backing
 
 ```bash
-govc device.ls -vm /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-12-uat
+govc device.ls -vm /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-02
 ```
 
 Example useful output:
 
 ```text
-ethernet-0 VirtualVmxnet3 VLAN 232 k8s-UAT
+ethernet-0 VirtualVmxnet3 VLAN 232 k8s-nonprod
 ethernet-1 VirtualVmxnet3 iscsi test 1
 ethernet-2 VirtualVmxnet3 iscsi test 2
 ```
@@ -61,16 +61,16 @@ ethernet-2 VirtualVmxnet3 iscsi test 2
 Compare with a known-good neighbor:
 
 ```bash
-govc device.ls -vm /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-11-uat
-govc device.ls -vm /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-12-uat
+govc device.ls -vm /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-01
+govc device.ls -vm /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-02
 ```
 
-This catches a common failure: the VM has a UAT IP address but is attached to an Internal VLAN port group.
+This catches a common failure: the VM has a nonproduction IP address but is attached to the wrong port group.
 
 ## Inspect Extra Config
 
 ```bash
-govc vm.info -e /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-12-uat \
+govc vm.info -e /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-02 \
   | grep -i 'guestinfo\|ethernet\|disk.enableUUID'
 ```
 
@@ -90,7 +90,7 @@ ethernet0.pciSlotNumber
 For one-off repair while debugging:
 
 ```bash
-govc device.connect -vm /VC-Austin/vm/K8-Cluster/UAT/AUS-1-wrkr-12-uat ethernet-0
+govc device.connect -vm /DC-Site-A/vm/K8s-Cluster/NonProd/cluster-a-worker-02 ethernet-0
 ```
 
 Prefer fixing the template or Terraform config after confirming the cause.

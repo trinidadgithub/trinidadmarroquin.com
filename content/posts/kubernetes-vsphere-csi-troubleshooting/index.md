@@ -19,7 +19,7 @@ The cluster events showed multiple unrelated-looking warnings:
 
 ```text
 FailedCreate           daemonset/kube-prometheus-stack-prometheus-node-exporter
-EvictionThresholdMet   node/sat-1-mstr-1-rancher
+EvictionThresholdMet   node/cluster-a-cp-01
 FailedScheduling       pod/system-upgrade-controller-...
 ```
 
@@ -192,8 +192,8 @@ The strongest validation was that monitoring could move to another worker and ke
 After removing the temporary pin, the operator rolled the StatefulSet pods and they scheduled on another worker:
 
 ```text
-alertmanager-kube-prometheus-stack-alertmanager-0   2/2 Running   sat-1-wrkr-3-rancher
-prometheus-kube-prometheus-stack-prometheus-0       2/2 Running   sat-1-wrkr-3-rancher
+alertmanager-kube-prometheus-stack-alertmanager-0   2/2 Running   cluster-a-worker-03
+prometheus-kube-prometheus-stack-prometheus-0       2/2 Running   cluster-a-worker-03
 ```
 
 The PVCs were bound to the intended StorageClass:
@@ -208,8 +208,8 @@ And the `VolumeAttachment` objects moved with the pods:
 
 ```text
 ATTACHER                 PV                                         NODE                   ATTACHED
-csi.vsphere.vmware.com   pvc-15299db7-4fca-47c4-92f2-5fdbba02a43d   sat-1-wrkr-3-rancher   true
-csi.vsphere.vmware.com   pvc-c92e2898-b016-4a2a-a2b1-591c3b423948   sat-1-wrkr-3-rancher   true
+csi.vsphere.vmware.com   pvc-15299db7-4fca-47c4-92f2-5fdbba02a43d   cluster-a-worker-03   true
+csi.vsphere.vmware.com   pvc-c92e2898-b016-4a2a-a2b1-591c3b423948   cluster-a-worker-03   true
 ```
 
 Finally, the monitoring CRs reported healthy reconciliation:
