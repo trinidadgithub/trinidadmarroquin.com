@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Terraform Change Review Field Notes on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/field-notes/terraform/</link>
+    <link>http://localhost:1313/field-notes/terraform/</link>
     <description>Recent content in Terraform Change Review Field Notes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/field-notes/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/field-notes/terraform/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

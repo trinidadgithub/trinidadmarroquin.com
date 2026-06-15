@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Linux on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/linux/</link>
+    <link>http://localhost:1313/tags/linux/</link>
     <description>Recent content in Linux on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Thu, 11 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Network Saturation Evidence Checklist</title>
-      <link>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</link>
+      <link>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</guid>
+      <guid>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</guid>
       <description>Field note for separating real node saturation, healthy-but-noisy control-plane traffic, and external backup or replication traffic during Kubernetes network incidents.</description>
     </item>
     <item>
       <title>DNS Search Domain Debugging With systemd-resolved</title>
-      <link>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</link>
+      <link>http://localhost:1313/field-notes/dns-search-domain-debugging/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</guid>
+      <guid>http://localhost:1313/field-notes/dns-search-domain-debugging/</guid>
       <description>Commands for identifying which layer is injecting a DNS search domain — netplan, systemd-resolved global, or per-link — and how to fix each at runtime.</description>
     </item>
     <item>
       <title>Docker Stale Binaries In Usr Local Bin</title>
-      <link>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</link>
+      <link>http://localhost:1313/field-notes/docker-stale-binaries-path/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</guid>
+      <guid>http://localhost:1313/field-notes/docker-stale-binaries-path/</guid>
       <description>Field note for diagnosing Docker failures caused by stale runc and containerd-shim-runc-v2 binaries in /usr/local/bin shadowing package-managed versions.</description>
     </item>
     <item>
       <title>Bootstrap Logging, Locks, And Continue-On-Failure Behavior</title>
-      <link>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</link>
+      <link>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</guid>
+      <guid>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</guid>
       <description>Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.</description>
     </item>
     <item>
       <title>Netplan Conflicts After VMware Guest Customization</title>
-      <link>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</link>
+      <link>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</guid>
+      <guid>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</guid>
       <description>Field note for diagnosing duplicate netplan ownership, missing default routes, and DNS drift on vSphere Ubuntu VMs.</description>
     </item>
   </channel>

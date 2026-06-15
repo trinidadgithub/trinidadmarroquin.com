@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Infrastructure on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/infrastructure/</link>
+    <link>http://localhost:1313/tags/infrastructure/</link>
     <description>Recent content in Infrastructure on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Fri, 12 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agent Guardrails For Infrastructure Writes</title>
-      <link>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
+      <link>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
+      <guid>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
       <description>Field note for using AI agents safely during infrastructure updates, especially when the agent has tool access but may speculate or lose context.</description>
     </item>
     <item>
       <title>When AI-Assisted Infrastructure Updates Need Guardrails</title>
-      <link>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</link>
+      <link>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</guid>
+      <guid>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</guid>
       <description>A practical reflection on using AI assistance for NetBox inventory work, where tool access helped but evidence, validation, and import discipline mattered more than confident answers.</description>
     </item>
     <item>
       <title>Concourse Infrastructure Workflows</title>
-      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
       <description>Initial Concourse workflow patterns for infrastructure repositories, platform changes, promotion, and failure visibility.</description>
     </item>
     <item>
       <title>GitOps For Infrastructure Teams</title>
-      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
       <description>Project page for GitOps patterns applied to infrastructure operations: pipeline-controlled infrastructure, platform tenant workflows, fleet-wide change orchestration, and the operating model that makes GitOps practical for platform teams.</description>
     </item>
     <item>
       <title>GitOps Pipeline Patterns For Platform Teams</title>
-      <link>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</link>
+      <link>http://localhost:1313/field-notes/gitops-pipeline-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</guid>
+      <guid>http://localhost:1313/field-notes/gitops-pipeline-patterns/</guid>
       <description>Field note for GitOps pipeline patterns in infrastructure teams: change pipelines, fleet rollouts, tenant onboarding, and the operating model that keeps Git as the single source of truth.</description>
     </item>
     <item>
       <title>Terraform Plan Review Practices</title>
-      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</link>
+      <link>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
+      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
       <description>Initial Terraform plan review practices for safer infrastructure changes, state handling, and automation gates.</description>
     </item>
     <item>
       <title>Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules</title>
-      <link>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</link>
+      <link>http://localhost:1313/projects/terraform-vsphere-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</guid>
+      <guid>http://localhost:1313/projects/terraform-vsphere-refactor/</guid>
       <description>A Terraform infrastructure project writeup about reorganizing a vSphere repo into environment roots, shared modules, templates, and archived legacy state.</description>
     </item>
   </channel>

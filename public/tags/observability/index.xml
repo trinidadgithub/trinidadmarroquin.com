@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Observability on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/observability/</link>
+    <link>http://localhost:1313/tags/observability/</link>
     <description>Recent content in Observability on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Thu, 11 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/observability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Network Saturation Evidence Checklist</title>
-      <link>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</link>
+      <link>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</guid>
+      <guid>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</guid>
       <description>Field note for separating real node saturation, healthy-but-noisy control-plane traffic, and external backup or replication traffic during Kubernetes network incidents.</description>
     </item>
     <item>
       <title>Actionable Alerts And Dashboards</title>
-      <link>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</link>
+      <link>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
+      <guid>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
       <description>Initial guidance for actionable alerts, useful dashboards, ownership, and SRE-style signal quality.</description>
     </item>
     <item>
       <title>From Local IaC Labs To Production-Ready Patterns</title>
-      <link>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</link>
+      <link>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</guid>
+      <guid>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</guid>
       <description>A practical SRE view of how local Terraform, Docker, Helm, Kafka, and observability labs can become production-ready infrastructure patterns without pretending the lab is production.</description>
     </item>
     <item>
       <title>Local SLI Labs With Prometheus Grafana And cAdvisor</title>
-      <link>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
+      <link>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
+      <guid>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
     </item>
     <item>
       <title>Log And Metric Naming Conventions</title>
-      <link>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</link>
+      <link>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</guid>
+      <guid>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</guid>
       <description>Initial conventions for log fields, metric names, labels, cardinality, and operational searchability.</description>
     </item>
     <item>
       <title>Observability Before AI: What Every Operator Needs First</title>
-      <link>https://trinidadmarroquin.com/field-notes/observability-before-ai/</link>
+      <link>http://localhost:1313/field-notes/observability-before-ai/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/observability-before-ai/</guid>
+      <guid>http://localhost:1313/field-notes/observability-before-ai/</guid>
       <description>Field note for building observability foundations before introducing AI-assisted operations: structured metrics, actionable dashboards, coherent alert routing, and incident response patterns that make AI useful rather than noisy.</description>
     </item>
     <item>
       <title>Secret Handling In Terraform Managed Labs</title>
-      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
+      <link>http://localhost:1313/field-notes/terraform-lab-secret-handling/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
+      <guid>http://localhost:1313/field-notes/terraform-lab-secret-handling/</guid>
       <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
     </item>
     <item>
       <title>The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering</title>
-      <link>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</link>
+      <link>http://localhost:1313/posts/sre-dirty-dozen/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
+      <guid>http://localhost:1313/posts/sre-dirty-dozen/</guid>
       <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
     </item>
   </channel>

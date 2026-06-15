@@ -2,95 +2,123 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Automation on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/automation/</link>
+    <link>http://localhost:1313/tags/automation/</link>
     <description>Recent content in Automation on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Guardrails Before Terraform Creates vSphere VMs</title>
+      <link>http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/</guid>
+      <description>A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.</description>
+    </item>
+    <item>
+      <title>NetBox First Ownership For vSphere VM Provisioning</title>
+      <link>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</guid>
+      <description>Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates vSphere virtual machines.</description>
+    </item>
+    <item>
+      <title>Terraform VM Guardrail Test Matrix</title>
+      <link>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</guid>
+      <description>A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, and fail-closed provider behavior.</description>
+    </item>
+    <item>
+      <title>Terraform vSphere VM Preflight Guardrails</title>
+      <link>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</guid>
+      <description>Field note for checking Terraform-planned vSphere VM names and IPs against NetBox, vCenter, DNS, reverse DNS, and live network responses before apply.</description>
+    </item>
     <item>
       <title>AI Agent Guardrails For Infrastructure Writes</title>
-      <link>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
+      <link>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
+      <guid>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
       <description>Field note for using AI agents safely during infrastructure updates, especially when the agent has tool access but may speculate or lose context.</description>
     </item>
     <item>
       <title>NetBox Bulk Import Order For Kubernetes Nodes</title>
-      <link>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</link>
+      <link>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</guid>
+      <guid>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</guid>
       <description>Field note for importing Kubernetes VM node inventory into NetBox using ordered device, interface, and IP address CSV files.</description>
     </item>
     <item>
       <title>NetBox Primary IP Assignment After Import</title>
-      <link>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</link>
+      <link>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</guid>
+      <guid>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</guid>
       <description>Field note for setting NetBox device primary IPv4 addresses after bulk importing devices, interfaces, and IP assignments.</description>
     </item>
     <item>
       <title>When AI-Assisted Infrastructure Updates Need Guardrails</title>
-      <link>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</link>
+      <link>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</guid>
+      <guid>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</guid>
       <description>A practical reflection on using AI assistance for NetBox inventory work, where tool access helped but evidence, validation, and import discipline mattered more than confident answers.</description>
     </item>
     <item>
       <title>Deployment Strategy Labs</title>
-      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
       <description>Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.</description>
     </item>
     <item>
       <title>Image Factory Workflow With vSphere And Packer</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</guid>
       <description>Project page for the Packer-based image factory workflow: template pipeline, versioning strategy, cross-site distribution, validation gates, and the operating model that keeps node images consistent across the fleet.</description>
     </item>
     <item>
       <title>Kafka Readiness Checks In Terraform Docker Labs</title>
-      <link>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</link>
+      <link>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</guid>
+      <guid>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</guid>
       <description>Field note for local Kafka labs where Terraform creates Docker infrastructure, waits for broker readiness, and then creates topics or starts stream processors.</description>
     </item>
     <item>
       <title>Operating In A GitOps Environment: Practices That Hold Up</title>
-      <link>https://trinidadmarroquin.com/posts/operating-in-gitops/</link>
+      <link>http://localhost:1313/posts/operating-in-gitops/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/operating-in-gitops/</guid>
+      <guid>http://localhost:1313/posts/operating-in-gitops/</guid>
       <description>Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.</description>
     </item>
     <item>
       <title>Packer Image Versioning</title>
-      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</link>
+      <link>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</guid>
+      <guid>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</guid>
       <description>Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.</description>
     </item>
     <item>
       <title>Pipeline Credential Handling And Promotion</title>
-      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</link>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
       <description>Initial practices for CI/CD credential handling, pipeline resources, environment promotion, and branch-based controls.</description>
     </item>
     <item>
       <title>Pipeline Validation Planning And Apply Stages</title>
-      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
+      <link>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
+      <guid>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
     <item>
       <title>Rollback Strategies With Sentinel Files And Package Management</title>
-      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
+      <link>http://localhost:1313/field-notes/rollback-sentinel-package-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
+      <guid>http://localhost:1313/field-notes/rollback-sentinel-package-management/</guid>
       <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
   </channel>

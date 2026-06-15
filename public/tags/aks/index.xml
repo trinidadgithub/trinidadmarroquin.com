@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Aks on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/aks/</link>
+    <link>http://localhost:1313/tags/aks/</link>
     <description>Recent content in Aks on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/aks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/aks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Azure AKS Operations With Terraform</title>
-      <link>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</link>
+      <link>http://localhost:1313/field-notes/azure-aks-terraform-operations/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</guid>
+      <guid>http://localhost:1313/field-notes/azure-aks-terraform-operations/</guid>
       <description>Field note for provisioning Azure AKS clusters with Terraform, including networking, identity, storage backends, and cross-cloud comparison patterns.</description>
     </item>
   </channel>

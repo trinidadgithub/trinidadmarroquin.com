@@ -2,604 +2,619 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://trinidadmarroquin.com/tags/ai/</loc>
+    <loc>http://localhost:1313/tags/automation/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/dns/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/field-notes/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/govc/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ipam/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/netbox/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/notes/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/operations/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/sre/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/terraform/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/testing/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/validation/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vsphere/</loc>
+    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ai/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</loc>
+    <loc>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/api/</loc>
+    <loc>http://localhost:1313/tags/api/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/automation/</loc>
+    <loc>http://localhost:1313/tags/infrastructure/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/categories/</loc>
+    <loc>http://localhost:1313/tags/kubernetes/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/categories/field-notes/</loc>
+    <loc>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/infrastructure/</loc>
+    <loc>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/ipam/</loc>
+    <loc>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</loc>
     <lastmod>2026-06-12T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/kubernetes/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/netbox/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/categories/notes/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/operations/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/sre/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</loc>
-    <lastmod>2026-06-12T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/linux/</loc>
+    <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</loc>
+    <loc>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/networking/</loc>
+    <loc>http://localhost:1313/tags/networking/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/observability/</loc>
+    <loc>http://localhost:1313/tags/observability/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/rancher/</loc>
+    <loc>http://localhost:1313/tags/rancher/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</loc>
+    <loc>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/rke2/</loc>
+    <loc>http://localhost:1313/tags/rke2/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/troubleshooting/</loc>
+    <loc>http://localhost:1313/tags/troubleshooting/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</loc>
+    <loc>http://localhost:1313/posts/rancher-network-saturation-symptoms/</loc>
     <lastmod>2026-06-11T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</loc>
+    <loc>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/active-directory/</loc>
+    <loc>http://localhost:1313/tags/active-directory/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/aks/</loc>
+    <loc>http://localhost:1313/tags/aks/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/alerting/</loc>
+    <loc>http://localhost:1313/tags/alerting/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/ansible/</loc>
+    <loc>http://localhost:1313/tags/ansible/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/anti-patterns/</loc>
+    <loc>http://localhost:1313/tags/anti-patterns/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/aws/</loc>
+    <loc>http://localhost:1313/tags/aws/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/</loc>
+    <loc>http://localhost:1313/projects/cloud-based-platforms/aws-operational-patterns/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/azure/</loc>
+    <loc>http://localhost:1313/tags/azure/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</loc>
+    <loc>http://localhost:1313/field-notes/azure-aks-terraform-operations/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/backup/</loc>
+    <loc>http://localhost:1313/tags/backup/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</loc>
+    <loc>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</loc>
+    <loc>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/cicd/</loc>
+    <loc>http://localhost:1313/field-notes/cicd/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/cicd/</loc>
+    <loc>http://localhost:1313/tags/cicd/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/cloud/</loc>
+    <loc>http://localhost:1313/tags/cloud/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</loc>
+    <loc>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cloud-based-platforms/</loc>
+    <loc>http://localhost:1313/projects/cloud-based-platforms/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</loc>
+    <loc>http://localhost:1313/projects/cloud-based-platforms/networking-iam-guardrails/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/cloud/</loc>
+    <loc>http://localhost:1313/field-notes/cloud/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</loc>
+    <loc>http://localhost:1313/projects/cloud-based-platforms/provider-operational-patterns/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/concourse/</loc>
+    <loc>http://localhost:1313/tags/concourse/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/</loc>
+    <loc>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/containerd/</loc>
+    <loc>http://localhost:1313/tags/containerd/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/data-pipeline/</loc>
+    <loc>http://localhost:1313/tags/data-pipeline/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/deployment/</loc>
+    <loc>http://localhost:1313/tags/deployment/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/devops/</loc>
+    <loc>http://localhost:1313/tags/devops/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/dns/</loc>
+    <loc>http://localhost:1313/field-notes/dns-search-domain-debugging/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</loc>
+    <loc>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</loc>
+    <loc>http://localhost:1313/tags/docker/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/docker/</loc>
+    <loc>http://localhost:1313/field-notes/docker-stale-binaries-path/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</loc>
+    <loc>http://localhost:1313/tags/eks/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/eks/</loc>
+    <loc>http://localhost:1313/tags/etcd/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/etcd/</loc>
+    <loc>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</loc>
+    <loc>http://localhost:1313/field-notes/etcd-member-management/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/etcd-member-management/</loc>
+    <loc>http://localhost:1313/field-notes/feature-toggles-environment-variables/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</loc>
+    <loc>http://localhost:1313/tags/fleet/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/fleet/</loc>
+    <loc>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</loc>
+    <loc>http://localhost:1313/tags/gcp/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/gcp/</loc>
+    <loc>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</loc>
+    <loc>http://localhost:1313/tags/gitops/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/gitops/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</loc>
+    <loc>http://localhost:1313/field-notes/gitops-pipeline-patterns/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</loc>
+    <loc>http://localhost:1313/tags/gke/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/gke/</loc>
+    <loc>http://localhost:1313/tags/governance/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/governance/</loc>
+    <loc>http://localhost:1313/tags/grafana/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/grafana/</loc>
+    <loc>http://localhost:1313/tags/haproxy/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/haproxy/</loc>
+    <loc>http://localhost:1313/tags/helm/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/helm/</loc>
+    <loc>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</loc>
+    <loc>http://localhost:1313/tags/iam/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/iam/</loc>
+    <loc>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</loc>
+    <loc>http://localhost:1313/tags/images/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/images/</loc>
+    <loc>http://localhost:1313/tags/incidents/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/incidents/</loc>
+    <loc>http://localhost:1313/tags/ingress/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/ingress/</loc>
+    <loc>http://localhost:1313/tags/iot/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/iot/</loc>
+    <loc>http://localhost:1313/field-notes/iot-docker-terraform-certificates/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/</loc>
+    <loc>http://localhost:1313/tags/kafka/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/kafka/</loc>
+    <loc>http://localhost:1313/field-notes/kafka-kraft-docker-compose/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/</loc>
+    <loc>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</loc>
+    <loc>http://localhost:1313/tags/key-management/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/key-management/</loc>
+    <loc>http://localhost:1313/field-notes/kubernetes/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/kubernetes/</loc>
+    <loc>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</loc>
+    <loc>http://localhost:1313/projects/kubernetes-platform-operations/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/</loc>
+    <loc>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</loc>
+    <loc>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</loc>
+    <loc>http://localhost:1313/tags/local-dev/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/local-dev/</loc>
+    <loc>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</loc>
+    <loc>http://localhost:1313/tags/logging/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/logging/</loc>
+    <loc>http://localhost:1313/tags/longhorn/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/longhorn/</loc>
+    <loc>http://localhost:1313/field-notes/longhorn-enterprise-storage-migration/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</loc>
+    <loc>http://localhost:1313/tags/metrics/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/metrics/</loc>
+    <loc>http://localhost:1313/tags/migration/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/migration/</loc>
+    <loc>http://localhost:1313/tags/modules/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/modules/</loc>
+    <loc>http://localhost:1313/tags/monitoring/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/monitoring/</loc>
+    <loc>http://localhost:1313/posts/multi-site-rke2-lessons/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</loc>
+    <loc>http://localhost:1313/tags/netplan/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/netplan/</loc>
+    <loc>http://localhost:1313/tags/nginx/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/nginx/</loc>
+    <loc>http://localhost:1313/projects/observability-incident-response/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/observability-incident-response/</loc>
+    <loc>http://localhost:1313/field-notes/observability/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/observability/</loc>
+    <loc>http://localhost:1313/field-notes/observability-before-ai/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/observability-before-ai/</loc>
+    <loc>http://localhost:1313/posts/operating-in-gitops/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/operating-in-gitops/</loc>
+    <loc>http://localhost:1313/tags/packer/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/packer/</loc>
+    <loc>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</loc>
+    <loc>http://localhost:1313/field-notes/packer/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/packer/</loc>
+    <loc>http://localhost:1313/projects/packer-image-pipelines/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/packer-image-pipelines/</loc>
+    <loc>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</loc>
+    <loc>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</loc>
+    <loc>http://localhost:1313/tags/pipeline/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/pipeline/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</loc>
+    <loc>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</loc>
+    <loc>http://localhost:1313/tags/platform/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/platform/</loc>
+    <loc>http://localhost:1313/tags/policy/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/policy/</loc>
+    <loc>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</loc>
+    <loc>http://localhost:1313/categories/projects/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/categories/projects/</loc>
+    <loc>http://localhost:1313/tags/prometheus/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/prometheus/</loc>
+    <loc>http://localhost:1313/tags/puppet/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/puppet/</loc>
+    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/python/</loc>
+    <loc>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</loc>
+    <loc>http://localhost:1313/tags/rbac/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/rbac/</loc>
+    <loc>http://localhost:1313/tags/recovery/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/recovery/</loc>
+    <loc>http://localhost:1313/posts/dns-search-domain-remediation/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</loc>
+    <loc>http://localhost:1313/tags/review/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/review/</loc>
+    <loc>http://localhost:1313/field-notes/rollback-sentinel-package-management/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</loc>
+    <loc>http://localhost:1313/tags/runc/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/runc/</loc>
+    <loc>http://localhost:1313/field-notes/terraform-lab-secret-handling/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</loc>
+    <loc>http://localhost:1313/tags/secrets/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/secrets/</loc>
+    <loc>http://localhost:1313/projects/secrets-management-with-vault/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/secrets-management-with-vault/</loc>
+    <loc>http://localhost:1313/tags/security/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/security/</loc>
+    <loc>http://localhost:1313/field-notes/sre-mindset/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/sre-mindset/</loc>
+    <loc>http://localhost:1313/tags/state/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/state/</loc>
+    <loc>http://localhost:1313/tags/storage/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/storage/</loc>
+    <loc>http://localhost:1313/tags/systemd-resolved/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/systemd-resolved/</loc>
+    <loc>http://localhost:1313/field-notes/terraform-azure-backend-bootstrap/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/terraform/</loc>
+    <loc>http://localhost:1313/field-notes/terraform/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</loc>
+    <loc>http://localhost:1313/projects/terraform-infrastructure-modules/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/terraform/</loc>
+    <loc>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/</loc>
+    <loc>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</loc>
+    <loc>http://localhost:1313/posts/sre-dirty-dozen/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</loc>
+    <loc>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</loc>
+    <loc>http://localhost:1313/tags/upgrades/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</loc>
+    <loc>http://localhost:1313/tags/vault/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/upgrades/</loc>
+    <loc>http://localhost:1313/field-notes/secrets/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/validation/</loc>
+    <loc>http://localhost:1313/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/vault/</loc>
+    <loc>http://localhost:1313/projects/secrets-management-with-vault/policy-auth-secrets-engines/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/secrets/</loc>
+    <loc>http://localhost:1313/projects/secrets-management-with-vault/token-lease-audit-recovery/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</loc>
+    <loc>http://localhost:1313/tags/vcenter/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/</loc>
+    <loc>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/</loc>
+    <loc>http://localhost:1313/field-notes/vsphere/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/vcenter/</loc>
+    <loc>http://localhost:1313/projects/vcenter-platform-administration/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</loc>
+    <loc>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/vsphere/</loc>
+    <loc>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/vcenter-platform-administration/</loc>
+    <loc>http://localhost:1313/tags/vmware/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</loc>
+    <loc>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</loc>
+    <loc>http://localhost:1313/tags/windows/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/vmware/</loc>
-    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/vsphere/</loc>
-    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</loc>
-    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/windows/</loc>
-    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/archives/</loc>
+    <loc>http://localhost:1313/archives/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/bootstrap/</loc>
+    <loc>http://localhost:1313/tags/bootstrap/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</loc>
+    <loc>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/cloud-init/</loc>
+    <loc>http://localhost:1313/tags/cloud-init/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/</loc>
+    <loc>http://localhost:1313/field-notes/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</loc>
+    <loc>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/govc/</loc>
+    <loc>http://localhost:1313/field-notes/govc-vsphere-verification/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</loc>
+    <loc>http://localhost:1313/tags/iscsi/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/iscsi/</loc>
+    <loc>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</loc>
+    <loc>http://localhost:1313/tags/llm/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/llm/</loc>
+    <loc>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</loc>
+    <loc>http://localhost:1313/projects/terraform-vsphere-refactor/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</loc>
+    <loc>http://localhost:1313/search/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/search/</loc>
+    <loc>http://localhost:1313/tags/systems-thinking/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/systems-thinking/</loc>
+    <loc>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</loc>
+    <loc>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</loc>
+    <loc>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</loc>
+    <loc>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</loc>
+    <loc>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</loc>
+    <loc>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</loc>
     <lastmod>2026-06-09T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</loc>
-    <lastmod>2026-06-09T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/projects/</loc>
+    <loc>http://localhost:1313/projects/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/resume/</loc>
+    <loc>http://localhost:1313/resume/</loc>
     <lastmod>2026-06-08T12:36:18-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</loc>
+    <loc>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/collaboration/</loc>
+    <loc>http://localhost:1313/tags/collaboration/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</loc>
+    <loc>http://localhost:1313/categories/devops-dirty-dozen/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/posts/devops-dirty-dozen/</loc>
+    <loc>http://localhost:1313/posts/devops-dirty-dozen/</loc>
     <lastmod>2025-01-16T00:00:00-06:00</lastmod>
   </url>
 </urlset>

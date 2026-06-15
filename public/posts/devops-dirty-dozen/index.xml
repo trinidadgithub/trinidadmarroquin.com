@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>The DevOps Dirty Dozen: Unmasking the Triple D&#39;s of Anti-Patterns on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/</link>
+    <link>http://localhost:1313/posts/devops-dirty-dozen/</link>
     <description>Recent content in The DevOps Dirty Dozen: Unmasking the Triple D&#39;s of Anti-Patterns on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Thu, 16 Jan 2025 00:00:00 -0600</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/devops-dirty-dozen/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>
-      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
+      <link>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
+      <guid>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
       <description>Part 1 of the DevOps Dirty Dozen series: how organizational silos undermine DevOps collaboration and what teams can do about it.</description>
     </item>
   </channel>

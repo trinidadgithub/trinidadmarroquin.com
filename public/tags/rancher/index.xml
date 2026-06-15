@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Rancher on Trinidad Marroquin</title>
-    <link>https://trinidadmarroquin.com/tags/rancher/</link>
+    <link>http://localhost:1313/tags/rancher/</link>
     <description>Recent content in Rancher on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Thu, 11 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://trinidadmarroquin.com/tags/rancher/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/rancher/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rancher Remotedialer Network Symptoms</title>
-      <link>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</link>
+      <link>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</guid>
+      <guid>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</guid>
       <description>Field note for recognizing Rancher cluster-agent, remotedialer, ingress, and websocket symptoms during network congestion or load balancer instability.</description>
     </item>
     <item>
       <title>When Network Saturation Looks Like Rancher Trouble</title>
-      <link>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</link>
+      <link>http://localhost:1313/posts/rancher-network-saturation-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</guid>
+      <guid>http://localhost:1313/posts/rancher-network-saturation-symptoms/</guid>
       <description>An incident-style walkthrough of a Rancher traffic anomaly where control-plane symptoms pointed at remotedialer instability, but the likely trigger was backup-window network saturation.</description>
     </item>
     <item>
       <title>Kubernetes Upgrade Sequencing</title>
-      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
+      <link>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
+      <guid>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
     </item>
     <item>
       <title>Multi-Site RKE2 Operations: Lessons From The Fleet</title>
-      <link>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</link>
+      <link>http://localhost:1313/posts/multi-site-rke2-lessons/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</guid>
+      <guid>http://localhost:1313/posts/multi-site-rke2-lessons/</guid>
       <description>Operational lessons from running RKE2 clusters across multiple data centers: inventory design, node naming conventions, upgrade sequencing across sites, and the patterns that break first at scale.</description>
     </item>
     <item>
       <title>Rancher Fleet Standards</title>
-      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
+      <link>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
+      <guid>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
       <description>Operating standards for Rancher-managed Kubernetes fleets, including Active Directory authentication, break-glass access, RBAC, Fleet GitRepo organization, and cluster ownership.</description>
     </item>
   </channel>
