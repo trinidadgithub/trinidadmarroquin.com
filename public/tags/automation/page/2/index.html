@@ -199,6 +199,58 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">When AI-Assisted Infrastructure Updates Need Guardrails
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI assistance is useful in infrastructure work when it accelerates the boring parts: parsing inventory, building CSVs, checking references, and producing repeatable commands.
+It becomes dangerous when it gets confident without evidence.
+In one NetBox/IPAM update, the task sounded simple: take Kubernetes node inventory, create the matching NetBox records, associate management IPs, and set each device’s primary IPv4 address. The work was not conceptually hard. The risk was in the details: object relationships, import order, duplicate names, existing tags, site mappings, and whether the tool was writing to the intended NetBox instance.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to When AI-Assisted Infrastructure Updates Need Guardrails" href="https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Deployment Strategy Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Deployment strategy labs are useful when they make failure handling visible.
+The goal is not to prove that blue-green, canary, feature toggles, or rollback scripts are fashionable. The goal is to understand which failure mode each strategy reduces and which operational cost it adds.
+Strategy Comparison Useful lab scenarios include:
+blue-green switching for fast rollback to a known environment. canary rollout for limiting user exposure. feature toggles for disabling behavior without redeploying. rollback packages or manifests for restoring a previous version. health checks that block promotion or trigger investigation. Each strategy should be tested with a deliberate failure. If the lab only demonstrates a successful deployment, it misses the point.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Deployment Strategy Labs" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
+This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
+Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
     </h2>
   </header>

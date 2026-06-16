@@ -199,6 +199,41 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Azure AKS Operations With Terraform
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Azure Kubernetes Service follows the same managed-control-plane pattern as EKS and GKE, but the resource model, networking defaults, and identity system are different enough that provider-specific knowledge matters during provisioning.
+For a runnable lab, see the azure directory in the IaC repository.
+Resource Group Structure Everything in Azure lives in a resource group. The AKS cluster, VNet, and NSG are typically in the same group for a lab, but production should separate network infrastructure into a shared resource group owned by the platform team:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Azure AKS Operations With Terraform" href="https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Blue-Green Deployment With NGINX
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Blue-green deployment keeps two environments running. At any time, one environment serves production traffic and the other waits for the next release.
+For a runnable lab, see the blue-green-simulation directory in the IaC repository. Version 1 demonstrates a manual NGINX upstream switch. Version 2 adds weighted routing and named containers.
+The switch is the critical moment. How it happens determines whether the pattern is fast rollback or just extra complexity.
+The NGINX Upstream Switch The simplest blue-green switch is an NGINX upstream block with one active server and one standby:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Blue-Green Deployment With NGINX" href="https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Canary Deployments With HAProxy Weighted Routing
     </h2>
   </header>
@@ -329,42 +364,6 @@ Terraform and Ansible runs. Image template version bumps. Pipeline configuration
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to GitOps Pipeline Patterns For Platform Teams" href="https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
-For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
-The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
-resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>IoT device containers need TLS certificates to authenticate with AWS IoT Core. The certificate path is the critical configuration — if the container cannot find its credentials, it does not connect.
-For a runnable lab, see the terraform-docker-iot directory in the IaC repository.
-Certificate Injection Pattern Mount certificates from the host using Terraform volume mounts. Do not bake certs into the image:
-resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.iot_device_image.name volumes { host_path = abspath(&#34;${path.module}/certs/root-CA.crt&#34;) container_path = &#34;/certs/root-CA.crt&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.cert.pem&#34;) container_path = &#34;/certs/iot-thing.cert.pem&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.private.key&#34;) container_path = &#34;/certs/iot-thing.private.key&#34; } } abspath(path.module) resolves the relative cert path to an absolute path relative to the Terraform module directory. This avoids path ambiguity when Terraform runs from different working directories.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

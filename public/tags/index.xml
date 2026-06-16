@@ -7,13 +7,69 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automation</title>
       <link>https://trinidadmarroquin.com/tags/automation/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ipam</title>
+      <link>https://trinidadmarroquin.com/tags/ipam/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/ipam/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netbox</title>
+      <link>https://trinidadmarroquin.com/tags/netbox/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/netbox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations</title>
+      <link>https://trinidadmarroquin.com/tags/operations/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/operations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sre</title>
+      <link>https://trinidadmarroquin.com/tags/sre/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/sre/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://trinidadmarroquin.com/tags/terraform/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Validation</title>
+      <link>https://trinidadmarroquin.com/tags/validation/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/validation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vmware</title>
+      <link>https://trinidadmarroquin.com/tags/vmware/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/vmware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vsphere</title>
+      <link>https://trinidadmarroquin.com/tags/vsphere/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/vsphere/</guid>
       <description></description>
     </item>
     <item>
@@ -31,59 +87,10 @@
       <description></description>
     </item>
     <item>
-      <title>Ipam</title>
-      <link>https://trinidadmarroquin.com/tags/ipam/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/ipam/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Netbox</title>
-      <link>https://trinidadmarroquin.com/tags/netbox/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/netbox/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Operations</title>
-      <link>https://trinidadmarroquin.com/tags/operations/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/operations/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sre</title>
-      <link>https://trinidadmarroquin.com/tags/sre/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/sre/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Terraform</title>
-      <link>https://trinidadmarroquin.com/tags/terraform/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/terraform/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Testing</title>
       <link>https://trinidadmarroquin.com/tags/testing/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/testing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Validation</title>
-      <link>https://trinidadmarroquin.com/tags/validation/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/validation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vsphere</title>
-      <link>https://trinidadmarroquin.com/tags/vsphere/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/vsphere/</guid>
       <description></description>
     </item>
     <item>
@@ -581,13 +588,6 @@
       <link>https://trinidadmarroquin.com/tags/vcenter/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/vcenter/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vmware</title>
-      <link>https://trinidadmarroquin.com/tags/vmware/</link>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/vmware/</guid>
       <description></description>
     </item>
     <item>

@@ -239,6 +239,61 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Operating In A GitOps Environment: Practices That Hold Up
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>GitOps adoption usually starts with the tooling and the pipeline mechanics. The harder part is the operating discipline: how a team of humans uses Git to communicate intent, manage risk, and recover from mistakes without bypassing the process.
+This post covers the practices that matter most once the pipeline is running.
+Commit Messages Are Deployment Descriptions In a GitOps model, the commit message is the primary documentation for every change. It is what operators read during incident review, what the rollback decision is based on, and what appears in the deployment log.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>11 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Operating In A GitOps Environment: Practices That Hold Up" href="https://trinidadmarroquin.com/posts/operating-in-gitops/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Packer Base Image Hardening
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Base images are production dependencies. Treat them like versioned platform artifacts, not disposable installer output.
+Packer should create the repeatable baseline. Per-environment configuration should happen later through Terraform, cloud-init, configuration management, or bootstrap scripts.
+Baseline Contents Images should include:
+OS updates at build time. required agents. VMware tools or cloud guest agents. logging and monitoring prerequisites. bootstrap entrypoint. security baseline packages. cleanup of machine identity before sealing. Images should not include environment-specific secrets, static hostnames, or one-off workload configuration.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Packer Base Image Hardening" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Packer Image Validation Gates
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A Packer build that completes is not necessarily a usable image.
+Validation gates should prove that downstream provisioning can consume the image without rediscovering template defects.
+Build-Time Validation During the build, validate:
+package installation. service enablement. guest agent status. SSH or WinRM access. cleanup scripts. cloud-init or customization readiness. Post-Build Validation After the template is created, clone it in a test environment.
+Check:
+VM boots cleanly. hostname customization works. primary network config works. SSH access works through expected users. guest tools report healthy. bootstrap logs are present. storage prerequisites are installed. For Kubernetes node images, also validate container runtime, kubelet prerequisites, CSI prerequisites, and any required kernel modules or packages.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Packer Image Validation Gates" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Packer Image Versioning
     </h2>
   </header>
@@ -367,59 +422,6 @@ exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
-The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
-Common Lab Shortcuts Terraform-managed Docker labs often include:
-Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">SRE Mindset: Operational Judgment Over Tooling
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>SRE Is Not A Role, It Is A Decision Framework The tools matter less than the judgment about when to use them. SRE is the discipline of converting operational data into decisions about system reliability.
-The Essential Questions Every operational decision reduces to three questions:
-What is the acceptable failure rate? (SLO target) How much failure budget is left? (Error budget tracking) What are we doing about it? (Error budget policy) If the team cannot answer these three questions for a service, the SRE practice has not arrived yet.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
-The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
-Target Shape For Azure Blob Storage, the backend needs:
-a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -199,6 +199,60 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Provisioning a VM is only the first part of ownership.
+The more interesting operational question is what happens after the VM exists. Can Terraform continue to manage CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown without turning every follow-up change into a manual vCenter edit?
+That was the next step after adding VM/IP guardrails. The automation already knew how to prevent duplicate VM names, duplicate IPs, stale DNS collisions, active network IP reuse, and NetBox/vCenter drift before create. The next improvement was to keep the VM lifecycle managed after creation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Managing vSphere VM Lifecycle State With Terraform And NetBox" href="https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After Terraform creates or resizes a vSphere VM, verify NetBox reflects the same lifecycle state.
+This check is separate from preflight. Preflight prevents unsafe allocation before apply. Post-provision verification proves source-of-truth state matches what Terraform just changed.
+Set Lookup Values Use generic environment variables so the commands are reusable:
+export VM_NAME=&#34;cluster-a-app-01&#34; export VM_IP=&#34;192.0.2.10&#34; export VM_DNS_NAME=&#34;cluster-a-app-01.example.com&#34; export NETBOX_CLUSTER_NAME=&#34;cluster-a&#34; NetBox API credentials:
+export NETBOX_SERVER_URL=&#34;https://netbox.example.com&#34; export NETBOX_API_TOKEN=&#34;...&#34; Verify VM Metadata curl -s \ -H &#34;Authorization: Token $NETBOX_API_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.results[] | { id, name, status: .status.value, cluster: .cluster.name, vcpus, memory_mb: .memory, disk_size_mb: .disk, primary_ip4: .primary_ip4.address }&#39; Confirm:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Post-Provision VM State Verification With NetBox" href="https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Compute Resize Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.
+The goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.
+Edit Desired State Change the VM entry in the environment VM map:
+locals { vms = { &#34;app-1&#34; = { name = &#34;cluster-a-app-01&#34; ipv4_address = &#34;192.0.2.10&#34; ipv4_netmask = tostring(var.netmask) cpu = 4 ram_gb = 32 disksize = 80 attach_data_disk = true data_disk_gb = 200 } } } Avoid manual vCenter edits for values Terraform owns.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Compute Resize Checklist" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Building Guardrails Around Terraform vSphere VM Lifecycle
     </h2>
   </header>
@@ -321,60 +375,6 @@ TSA host key (tsa_host_key &#43; tsa_host_key.pub): identifies the web node to w
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Concourse Key Management With Vault Bootstrap" href="https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">From Local IaC Labs To Production-Ready Patterns
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Local infrastructure labs are valuable when they are treated honestly.
-They are not production. They are a controlled way to isolate a workflow, prove sequencing, expose assumptions, and build operational muscle memory before the real platform adds more failure modes.
-The mistake is promoting a lab by copying it directly into production. The better path is to promote the pattern, not the implementation.
-What Local Labs Are Good For Local IaC labs are especially useful for learning dependencies.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to From Local IaC Labs To Production-Ready Patterns" href="https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
-For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
-The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
-resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Helm And Terraform Validation Strategy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When Terraform manages Helm releases, validation needs to happen at more than one layer.
-Terraform can show that the helm_release resource is configured. Helm can render templates. Kubernetes can reject invalid manifests. Production can still fail if the workload has no useful health checks or the image tag points at the wrong build.
-Validation Layers A practical validation sequence is:
-terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt; kubectl dry-run -&gt; terraform plan Each step answers a different question:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Helm And Terraform Validation Strategy" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -198,6 +198,39 @@
 </header>
 <article class="post-entry tag-entry">
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Local SLI Labs With Prometheus Grafana And cAdvisor
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A local SLI lab is useful when the goal is to understand the signal path before introducing production platform complexity.
+For a live local demo, see the sli_app lab in the IaC repository. If the lab does not run as expected, open a bug fix request against that repository with the failing command, host OS, Docker version, Terraform version, and relevant logs.
+The important part is not that everything runs on one machine. The important part is that the lab has the same basic observability chain operators rely on later:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Local SLI Labs With Prometheus Grafana And cAdvisor" href="https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
+The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
+Common Lab Shortcuts Terraform-managed Docker labs often include:
+Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
     </h2>
   </header>

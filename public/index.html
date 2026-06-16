@@ -239,6 +239,60 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Provisioning a VM is only the first part of ownership.
+The more interesting operational question is what happens after the VM exists. Can Terraform continue to manage CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown without turning every follow-up change into a manual vCenter edit?
+That was the next step after adding VM/IP guardrails. The automation already knew how to prevent duplicate VM names, duplicate IPs, stale DNS collisions, active network IP reuse, and NetBox/vCenter drift before create. The next improvement was to keep the VM lifecycle managed after creation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Managing vSphere VM Lifecycle State With Terraform And NetBox" href="https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After Terraform creates or resizes a vSphere VM, verify NetBox reflects the same lifecycle state.
+This check is separate from preflight. Preflight prevents unsafe allocation before apply. Post-provision verification proves source-of-truth state matches what Terraform just changed.
+Set Lookup Values Use generic environment variables so the commands are reusable:
+export VM_NAME=&#34;cluster-a-app-01&#34; export VM_IP=&#34;192.0.2.10&#34; export VM_DNS_NAME=&#34;cluster-a-app-01.example.com&#34; export NETBOX_CLUSTER_NAME=&#34;cluster-a&#34; NetBox API credentials:
+export NETBOX_SERVER_URL=&#34;https://netbox.example.com&#34; export NETBOX_API_TOKEN=&#34;...&#34; Verify VM Metadata curl -s \ -H &#34;Authorization: Token $NETBOX_API_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.results[] | { id, name, status: .status.value, cluster: .cluster.name, vcpus, memory_mb: .memory, disk_size_mb: .disk, primary_ip4: .primary_ip4.address }&#39; Confirm:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Post-Provision VM State Verification With NetBox" href="https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Compute Resize Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.
+The goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.
+Edit Desired State Change the VM entry in the environment VM map:
+locals { vms = { &#34;app-1&#34; = { name = &#34;cluster-a-app-01&#34; ipv4_address = &#34;192.0.2.10&#34; ipv4_netmask = tostring(var.netmask) cpu = 4 ram_gb = 32 disksize = 80 attach_data_disk = true data_disk_gb = 200 } } } Avoid manual vCenter edits for values Terraform owns.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Compute Resize Checklist" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Building Guardrails Around Terraform vSphere VM Lifecycle
     </h2>
   </header>
@@ -365,59 +419,6 @@ query device by exact name. query IP address by exact address. require exactly o
 
 <span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to NetBox Primary IP Assignment After Import" href="https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">When AI-Assisted Infrastructure Updates Need Guardrails
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>AI assistance is useful in infrastructure work when it accelerates the boring parts: parsing inventory, building CSVs, checking references, and producing repeatable commands.
-It becomes dangerous when it gets confident without evidence.
-In one NetBox/IPAM update, the task sounded simple: take Kubernetes node inventory, create the matching NetBox records, associate management IPs, and set each device’s primary IPv4 address. The work was not conceptually hard. The risk was in the details: object relationships, import order, duplicate names, existing tags, site mappings, and whether the tool was writing to the intended NetBox instance.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to When AI-Assisted Infrastructure Updates Need Guardrails" href="https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Network Saturation Evidence Checklist
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When a flow collector reports a huge byte count, resist the urge to start with the loudest application log. Start by proving whether the node, interface, and time window support the story.
-This checklist is useful when Kubernetes or Rancher appears to be involved in a network spike.
-Identify The Conversation Ask for the flow detail, not only the top-talker summary:
-source IP destination IP source port destination port protocol bytes sessions start time end time Important ports in Rancher/RKE2 environments include:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Network Saturation Evidence Checklist" href="https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Rancher Remotedialer Network Symptoms
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Rancher cluster-agent errors can look like Rancher is the root cause. Sometimes Rancher is only the first component sensitive enough to report a degraded network path.
-Use this note when Rancher-managed clusters show large management-plane traffic, intermittent disconnects, or websocket errors.
-Common Symptoms In downstream cluster-agent logs:
-Failed to dial steve aggregation server Remotedialer proxy error websocket: close 1006 (abnormal closure) context deadline exceeded i/o timeout connection reset by peer In Rancher server logs:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Rancher Remotedialer Network Symptoms" href="https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -199,6 +199,42 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
+For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
+The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
+resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>IoT device containers need TLS certificates to authenticate with AWS IoT Core. The certificate path is the critical configuration — if the container cannot find its credentials, it does not connect.
+For a runnable lab, see the terraform-docker-iot directory in the IaC repository.
+Certificate Injection Pattern Mount certificates from the host using Terraform volume mounts. Do not bake certs into the image:
+resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.iot_device_image.name volumes { host_path = abspath(&#34;${path.module}/certs/root-CA.crt&#34;) container_path = &#34;/certs/root-CA.crt&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.cert.pem&#34;) container_path = &#34;/certs/iot-thing.cert.pem&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.private.key&#34;) container_path = &#34;/certs/iot-thing.private.key&#34; } } abspath(path.module) resolves the relative cert path to an absolute path relative to the Terraform module directory. This avoids path ambiguity when Terraform runs from different working directories.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kafka KRaft Mode In Docker Compose
     </h2>
   </header>
@@ -333,41 +369,6 @@ What is the acceptable failure rate? (SLO target) How much failure budget is lef
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
-The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
-Target Shape For Azure Blob Storage, the backend needs:
-a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vSphere CSI Attach And Mount Checklist
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Use this checklist when a Kubernetes workload has a PVC that should use vSphere CSI, but the pod is pending, stuck in init, or failing to mount the volume.
-The goal is to follow the volume from intent to pod readiness:
-StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kubelet mount -&gt; pod ready Check The Workload State Start with pods and PVCs in the affected namespace:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

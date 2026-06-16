@@ -199,6 +199,60 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">From Local IaC Labs To Production-Ready Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs are valuable when they are treated honestly.
+They are not production. They are a controlled way to isolate a workflow, prove sequencing, expose assumptions, and build operational muscle memory before the real platform adds more failure modes.
+The mistake is promoting a lab by copying it directly into production. The better path is to promote the pattern, not the implementation.
+What Local Labs Are Good For Local IaC labs are especially useful for learning dependencies.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to From Local IaC Labs To Production-Ready Patterns" href="https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
+For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
+The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
+resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Validation Strategy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When Terraform manages Helm releases, validation needs to happen at more than one layer.
+Terraform can show that the helm_release resource is configured. Helm can render templates. Kubernetes can reject invalid manifests. Production can still fail if the workload has no useful health checks or the image tag points at the wrong build.
+Validation Layers A practical validation sequence is:
+terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt; kubectl dry-run -&gt; terraform plan Each step answers a different question:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Validation Strategy" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
     </h2>
   </header>
@@ -319,62 +373,6 @@ a resource group. a storage account. a private blob container. a stable state ke
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Operational Module Boundaries
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform modules should represent operational concepts, not just folders around resources.
-HashiCorp guidance recommends moderation: modules are useful when they raise the abstraction level, but thin wrappers around single resources often add complexity without improving ownership.
-Boundary Principles Good module boundaries answer:
-Who owns this infrastructure after apply? What lifecycle does it follow? What inputs must vary by environment? What outputs does another layer consume? What failure modes does the module hide or expose? Avoid modules that combine unrelated ownership domains. A Kubernetes node module, network module, and storage module may interact, but they are not necessarily owned by the same team or changed on the same cadence.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Operational Module Boundaries" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Plan Review Practices
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform plan review is where infrastructure intent becomes operational risk.
-A good review does not ask only whether the syntax is valid. It asks whether the planned changes match the expected blast radius.
-Review Inputs Every plan review should include:
-changed files. selected workspace or root module. variable files used. provider versions. plan output. expected changes. rollback or recovery notes. Do not review a plan if the command that generated it is unclear.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Plan Review Practices" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Automation Integration Points
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Automation works best when vCenter exposes stable contracts.
-Terraform, Packer, Kubernetes, CSI drivers, and backup tools all depend on vCenter inventory behaving predictably.
-Terraform Contracts Terraform needs stable references for:
-datacenters. clusters and resource pools. datastores and datastore clusters. folders. port groups. templates. tags and custom attributes. If these names change casually, infrastructure code becomes fragile.
-Packer Contracts Packer needs a reliable build path:
-build network. ISO or content library access. temporary VM folder. template destination. credentials with limited build permissions. cleanup behavior for failed builds. Template promotion should include validation before downstream Terraform consumes the image.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -199,6 +199,43 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After Terraform creates or resizes a vSphere VM, verify NetBox reflects the same lifecycle state.
+This check is separate from preflight. Preflight prevents unsafe allocation before apply. Post-provision verification proves source-of-truth state matches what Terraform just changed.
+Set Lookup Values Use generic environment variables so the commands are reusable:
+export VM_NAME=&#34;cluster-a-app-01&#34; export VM_IP=&#34;192.0.2.10&#34; export VM_DNS_NAME=&#34;cluster-a-app-01.example.com&#34; export NETBOX_CLUSTER_NAME=&#34;cluster-a&#34; NetBox API credentials:
+export NETBOX_SERVER_URL=&#34;https://netbox.example.com&#34; export NETBOX_API_TOKEN=&#34;...&#34; Verify VM Metadata curl -s \ -H &#34;Authorization: Token $NETBOX_API_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.results[] | { id, name, status: .status.value, cluster: .cluster.name, vcpus, memory_mb: .memory, disk_size_mb: .disk, primary_ip4: .primary_ip4.address }&#39; Confirm:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Post-Provision VM State Verification With NetBox" href="https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Compute Resize Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.
+The goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.
+Edit Desired State Change the VM entry in the environment VM map:
+locals { vms = { &#34;app-1&#34; = { name = &#34;cluster-a-app-01&#34; ipv4_address = &#34;192.0.2.10&#34; ipv4_netmask = tostring(var.netmask) cpu = 4 ram_gb = 32 disksize = 80 attach_data_disk = true data_disk_gb = 200 } } } Avoid manual vCenter edits for values Terraform owns.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Compute Resize Checklist" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">NetBox First Ownership For vSphere VM Provisioning
     </h2>
   </header>
@@ -344,41 +381,6 @@ Failed to dial steve aggregation server Remotedialer proxy error websocket: clos
 
 <span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Rancher Remotedialer Network Symptoms" href="https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Azure AKS Operations With Terraform
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Azure Kubernetes Service follows the same managed-control-plane pattern as EKS and GKE, but the resource model, networking defaults, and identity system are different enough that provider-specific knowledge matters during provisioning.
-For a runnable lab, see the azure directory in the IaC repository.
-Resource Group Structure Everything in Azure lives in a resource group. The AKS cluster, VNet, and NSG are typically in the same group for a lab, but production should separate network infrastructure into a shared resource group owned by the platform team:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Azure AKS Operations With Terraform" href="https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Blue-Green Deployment With NGINX
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Blue-green deployment keeps two environments running. At any time, one environment serves production traffic and the other waits for the next release.
-For a runnable lab, see the blue-green-simulation directory in the IaC repository. Version 1 demonstrates a manual NGINX upstream switch. Version 2 adds weighted routing and named containers.
-The switch is the critical moment. How it happens determines whether the pattern is fast rollback or just extra complexity.
-The NGINX Upstream Switch The simplest blue-green switch is an NGINX upstream block with one active server and one standby:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Blue-Green Deployment With NGINX" href="https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -199,6 +199,60 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Provisioning a VM is only the first part of ownership.
+The more interesting operational question is what happens after the VM exists. Can Terraform continue to manage CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown without turning every follow-up change into a manual vCenter edit?
+That was the next step after adding VM/IP guardrails. The automation already knew how to prevent duplicate VM names, duplicate IPs, stale DNS collisions, active network IP reuse, and NetBox/vCenter drift before create. The next improvement was to keep the VM lifecycle managed after creation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Managing vSphere VM Lifecycle State With Terraform And NetBox" href="https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After Terraform creates or resizes a vSphere VM, verify NetBox reflects the same lifecycle state.
+This check is separate from preflight. Preflight prevents unsafe allocation before apply. Post-provision verification proves source-of-truth state matches what Terraform just changed.
+Set Lookup Values Use generic environment variables so the commands are reusable:
+export VM_NAME=&#34;cluster-a-app-01&#34; export VM_IP=&#34;192.0.2.10&#34; export VM_DNS_NAME=&#34;cluster-a-app-01.example.com&#34; export NETBOX_CLUSTER_NAME=&#34;cluster-a&#34; NetBox API credentials:
+export NETBOX_SERVER_URL=&#34;https://netbox.example.com&#34; export NETBOX_API_TOKEN=&#34;...&#34; Verify VM Metadata curl -s \ -H &#34;Authorization: Token $NETBOX_API_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.results[] | { id, name, status: .status.value, cluster: .cluster.name, vcpus, memory_mb: .memory, disk_size_mb: .disk, primary_ip4: .primary_ip4.address }&#39; Confirm:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Post-Provision VM State Verification With NetBox" href="https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Compute Resize Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.
+The goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.
+Edit Desired State Change the VM entry in the environment VM map:
+locals { vms = { &#34;app-1&#34; = { name = &#34;cluster-a-app-01&#34; ipv4_address = &#34;192.0.2.10&#34; ipv4_netmask = tostring(var.netmask) cpu = 4 ram_gb = 32 disksize = 80 attach_data_disk = true data_disk_gb = 200 } } } Avoid manual vCenter edits for values Terraform owns.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Compute Resize Checklist" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Building Guardrails Around Terraform vSphere VM Lifecycle
     </h2>
   </header>
@@ -325,58 +379,6 @@ query device by exact name. query IP address by exact address. require exactly o
 
 <span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to NetBox Primary IP Assignment After Import" href="https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">When AI-Assisted Infrastructure Updates Need Guardrails
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>AI assistance is useful in infrastructure work when it accelerates the boring parts: parsing inventory, building CSVs, checking references, and producing repeatable commands.
-It becomes dangerous when it gets confident without evidence.
-In one NetBox/IPAM update, the task sounded simple: take Kubernetes node inventory, create the matching NetBox records, associate management IPs, and set each device’s primary IPv4 address. The work was not conceptually hard. The risk was in the details: object relationships, import order, duplicate names, existing tags, site mappings, and whether the tool was writing to the intended NetBox instance.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to When AI-Assisted Infrastructure Updates Need Guardrails" href="https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Deployment Strategy Labs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Deployment strategy labs are useful when they make failure handling visible.
-The goal is not to prove that blue-green, canary, feature toggles, or rollback scripts are fashionable. The goal is to understand which failure mode each strategy reduces and which operational cost it adds.
-Strategy Comparison Useful lab scenarios include:
-blue-green switching for fast rollback to a known environment. canary rollout for limiting user exposure. feature toggles for disabling behavior without redeploying. rollback packages or manifests for restoring a previous version. health checks that block promotion or trigger investigation. Each strategy should be tested with a deliberate failure. If the lab only demonstrates a successful deployment, it misses the point.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Deployment Strategy Labs" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
-This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
-Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

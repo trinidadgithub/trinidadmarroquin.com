@@ -259,6 +259,41 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
+The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
+Target Shape For Azure Blob Storage, the backend needs:
+a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">vSphere CSI Attach And Mount Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when a Kubernetes workload has a PVC that should use vSphere CSI, but the pod is pending, stuck in init, or failing to mount the volume.
+The goal is to follow the volume from intent to pod readiness:
+StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kubelet mount -&gt; pod ready Check The Workload State Start with pods and PVCs in the affected namespace:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Bootstrap Logging, Locks, And Continue-On-Failure Behavior
     </h2>
   </header>
@@ -401,34 +436,6 @@ source govc.env govc vm.info -e /DC-Site-A/vm/K8s-Cluster/OpsTools/cluster-a-api
 
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vSphere Guestinfo And Cloud-Init On Cloned VMs" href="https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CI/CD Pipelines Field Notes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>0 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to CI/CD Pipelines Field Notes" href="https://trinidadmarroquin.com/field-notes/cicd/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Cloud Platforms Field Notes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>0 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Cloud Platforms Field Notes" href="https://trinidadmarroquin.com/field-notes/cloud/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

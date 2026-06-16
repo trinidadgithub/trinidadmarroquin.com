@@ -199,6 +199,24 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Compute Resize Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.
+The goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.
+Edit Desired State Change the VM entry in the environment VM map:
+locals { vms = { &#34;app-1&#34; = { name = &#34;cluster-a-app-01&#34; ipv4_address = &#34;192.0.2.10&#34; ipv4_netmask = tostring(var.netmask) cpu = 4 ram_gb = 32 disksize = 80 attach_data_disk = true data_disk_gb = 200 } } } Avoid manual vCenter edits for values Terraform owns.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Compute Resize Checklist" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
     </h2>
   </header>

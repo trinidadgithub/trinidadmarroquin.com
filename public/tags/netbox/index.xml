@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/netbox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing vSphere VM Lifecycle State With Terraform And NetBox</title>
+      <link>https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/</guid>
+      <description>A lifecycle runbook for managing vSphere VM CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown hygiene after initial Terraform provisioning.</description>
+    </item>
+    <item>
+      <title>Post-Provision VM State Verification With NetBox</title>
+      <link>https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/</guid>
+      <description>Field note for verifying Terraform-managed vSphere VM metadata, interface assignment, IPAM state, DNS name, and cleanup behavior in NetBox after provisioning or resizing.</description>
+    </item>
     <item>
       <title>Building Guardrails Around Terraform vSphere VM Lifecycle</title>
       <link>https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/</link>

@@ -239,6 +239,59 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">When AI-Assisted Infrastructure Updates Need Guardrails
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI assistance is useful in infrastructure work when it accelerates the boring parts: parsing inventory, building CSVs, checking references, and producing repeatable commands.
+It becomes dangerous when it gets confident without evidence.
+In one NetBox/IPAM update, the task sounded simple: take Kubernetes node inventory, create the matching NetBox records, associate management IPs, and set each device’s primary IPv4 address. The work was not conceptually hard. The risk was in the details: object relationships, import order, duplicate names, existing tags, site mappings, and whether the tool was writing to the intended NetBox instance.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to When AI-Assisted Infrastructure Updates Need Guardrails" href="https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Network Saturation Evidence Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When a flow collector reports a huge byte count, resist the urge to start with the loudest application log. Start by proving whether the node, interface, and time window support the story.
+This checklist is useful when Kubernetes or Rancher appears to be involved in a network spike.
+Identify The Conversation Ask for the flow detail, not only the top-talker summary:
+source IP destination IP source port destination port protocol bytes sessions start time end time Important ports in Rancher/RKE2 environments include:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Network Saturation Evidence Checklist" href="https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Rancher Remotedialer Network Symptoms
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rancher cluster-agent errors can look like Rancher is the root cause. Sometimes Rancher is only the first component sensitive enough to report a degraded network path.
+Use this note when Rancher-managed clusters show large management-plane traffic, intermittent disconnects, or websocket errors.
+Common Symptoms In downstream cluster-agent logs:
+Failed to dial steve aggregation server Remotedialer proxy error websocket: close 1006 (abnormal closure) context deadline exceeded i/o timeout connection reset by peer In Rancher server logs:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rancher Remotedialer Network Symptoms" href="https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">When Network Saturation Looks Like Rancher Trouble
     </h2>
   </header>
@@ -359,61 +412,6 @@ Operating Model Use separate top-level containers for production, non-production
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Cloud Account And Environment Organization" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Cloud Networking IAM And Guardrails
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Cloud guardrails should prevent common mistakes without turning the platform into a ticket queue for every change.
-The platform team should define the default network, identity, logging, and policy controls that every environment inherits.
-Networking Network design should make approved communication easy and accidental exposure difficult.
-Baseline expectations:
-private networks by default. explicit ingress and egress paths. separate production and non-production routing. documented CIDR allocation. centralized DNS ownership. no unmanaged public endpoints. IAM IAM should be group-based, role-based, and reviewable.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Cloud Networking IAM And Guardrails" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Cloud Provider Operational Patterns
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Cloud operations become easier when provider differences are documented as patterns, not rediscovered during incidents.
-The useful pattern is to separate provider-specific commands from provider-neutral operating expectations.
-Pattern Categories Document patterns by discipline:
-identity and access. network routing and exposure. compute lifecycle. storage and backup. Kubernetes integration. observability and audit logging. cost and capacity review. incident response. For each provider, keep the same structure so operators can compare behavior quickly.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Cloud Provider Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Concourse CI/CD On Windows With Terraform
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Running Concourse CI/CD on Windows Docker is uncommon enough that the setup patterns deserve their own reference. The Terraform provider, key generation, and security hardening steps differ significantly from Linux-based deployments.
-For a complete working example, see the concourse-terraform-windows directory in the IaC repository.
-Docker Transport Windows Docker uses named pipes instead of Unix sockets:
-provider &#34;docker&#34; { host = &#34;npipe:////./pipe/docker_engine&#34; } This is the first thing to verify when a Terraform Docker provider fails on Windows. The connection string is different, and not all provider features work identically on the Windows engine.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Concourse CI/CD On Windows With Terraform" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

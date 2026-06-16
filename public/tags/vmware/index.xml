@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform vSphere Compute Resize Checklist</title>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/</guid>
+      <description>Field note for safely changing vSphere VM CPU, memory, primary disk, and optional data disk sizing through Terraform after provisioning.</description>
+    </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
       <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>

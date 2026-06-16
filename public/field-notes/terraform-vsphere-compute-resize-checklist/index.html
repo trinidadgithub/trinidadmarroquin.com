@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Terraform vSphere Compute Resize Checklist | Trinidad Marroquin</title>
+<meta name="keywords" content="terraform, vsphere, vmware, automation, operations, validation">
+<meta name="description" content="Field note for safely changing vSphere VM CPU, memory, primary disk, and optional data disk sizing through Terraform after provisioning.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.40c9e9a23b839d241bbe1ace530d4f5f0918782c06b4eb25b1821bc15b180bac.css" integrity="sha256-QMnpojuDnSQbvhrOUw1PXwkYeCwGtOslsYIbwVsYC6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><style>
+.mermaid-wrapper { margin: 1.5em 0; }
+.mermaid-wrapper details.mermaid-source { margin-top: 0.5em; }
+.mermaid-wrapper details.mermaid-source summary {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.85em;
+  color: var(--secondary);
+  user-select: none;
+}
+.mermaid-wrapper details.mermaid-source summary:hover { color: var(--link); }
+.mermaid-wrapper details.mermaid-source pre {
+  margin-top: 0.5em;
+  padding: 0.75em 1em;
+  background: var(--code-bg);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid-wrapper details.mermaid-source code {
+  font-size: 0.8em;
+  white-space: pre;
+}
+</style><meta property="og:url" content="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Terraform vSphere Compute Resize Checklist">
+  <meta property="og:description" content="Field note for safely changing vSphere VM CPU, memory, primary disk, and optional data disk sizing through Terraform after provisioning.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="field-notes">
+    <meta property="article:published_time" content="2026-06-16T00:00:00-05:00">
+    <meta property="article:modified_time" content="2026-06-16T00:00:00-05:00">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="Vsphere">
+    <meta property="article:tag" content="Vmware">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Operations">
+    <meta property="article:tag" content="Validation">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terraform vSphere Compute Resize Checklist">
+  <meta name="twitter:description" content="Field note for safely changing vSphere VM CPU, memory, primary disk, and optional data disk sizing through Terraform after provisioning.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Field Notes",
+      "item": "https://trinidadmarroquin.com/field-notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Terraform vSphere Compute Resize Checklist",
+      "item": "https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Terraform vSphere Compute Resize Checklist",
+  "name": "Terraform vSphere Compute Resize Checklist",
+  "description": "Field note for safely changing vSphere VM CPU, memory, primary disk, and optional data disk sizing through Terraform after provisioning.",
+  "keywords": [
+    "terraform", "vsphere", "vmware", "automation", "operations", "validation"
+  ],
+  "articleBody": "Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.\nThe goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.\nEdit Desired State Change the VM entry in the environment VM map:\nlocals { vms = { \"app-1\" = { name = \"cluster-a-app-01\" ipv4_address = \"192.0.2.10\" ipv4_netmask = tostring(var.netmask) cpu = 4 ram_gb = 32 disksize = 80 attach_data_disk = true data_disk_gb = 200 } } } Avoid manual vCenter edits for values Terraform owns.\nGenerate A Saved Plan terraform plan -out=compute-change.tfplan Use a saved plan so the reviewed plan is the applied plan.\nInspect Action Types terraform show -json compute-change.tfplan \\ | jq -r '.resource_changes[]? | [.address, .type, (.change.actions | join(\",\"))] | @tsv' Expected for a normal resize:\nmodule.vm_group.vsphere_virtual_machine.vm[\"app-1\"] vsphere_virtual_machine update module.vm_group.netbox_virtual_machine.vm[\"app-1\"] netbox_virtual_machine update Stop if you see an unexpected replacement:\ndelete,create Stop if unrelated VMs or destroy actions appear.\nInspect vSphere Before And After Values terraform show -json compute-change.tfplan \\ | jq '.resource_changes[]? | select(.type == \"vsphere_virtual_machine\") | { address, actions: .change.actions, before: { cpu: .change.before.num_cpus, memory_mb: .change.before.memory, disks: [.change.before.disk[]? | {label, size}] }, after: { cpu: .change.after.num_cpus, memory_mb: .change.after.memory, disks: [.change.after.disk[]? | {label, size}] } }' Confirm:\nCPU is the intended value. memory is the intended value in MB. primary disk size is expected. data disk exists only when intended. disk changes are growth-only unless replacement is explicitly approved. Inspect NetBox Metadata Changes terraform show -json compute-change.tfplan \\ | jq '.resource_changes[]? | select(.type == \"netbox_virtual_machine\") | { address, actions: .change.actions, before: { vcpus: .change.before.vcpus, memory_mb: .change.before.memory_mb, disk_size_mb: .change.before.disk_size_mb }, after: { vcpus: .change.after.vcpus, memory_mb: .change.after.memory_mb, disk_size_mb: .change.after.disk_size_mb } }' Expected metadata relationship:\nmemory_mb = ram_gb * 1024 disk_size_mb = (primary_disk_gb + optional_data_disk_gb) * 1024 Apply The Reviewed Plan terraform apply compute-change.tfplan Do not regenerate the plan between review and apply unless you review the new plan too.\nConfirm Idempotency terraform plan -detailed-exitcode Expected:\nNo changes. Your infrastructure matches the configuration. Exit code expectations:\n0 = no changes 1 = error 2 = diff remains Guest Disk Follow-Up If a virtual disk grew, verify the guest sees the new size:\nlsblk df -h Common Linux follow-up patterns, depending on layout:\nsudo growpart sudo resize2fs or LVM:\nsudo pvresize sudo lvextend -r -l +100%FREE Do not assume vSphere disk growth means the guest filesystem expanded.\nOperating Rule Treat post-provision VM resizing as a lifecycle change, not a console task.\nReview the saved plan, apply the saved plan, verify NetBox metadata, and confirm idempotency.\n",
+  "wordCount" : "421",
+  "inLanguage": "en",
+  "datePublished": "2026-06-16T00:00:00-05:00",
+  "dateModified": "2026-06-16T00:00:00-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trinidadmarroquin.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://trinidadmarroquin.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/field-notes/">Field Notes</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Terraform vSphere Compute Resize Checklist
+    </h1>
+    <div class="post-description">
+      Field note for safely changing vSphere VM CPU, memory, primary disk, and optional data disk sizing through Terraform after provisioning.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.</p>
+<p>The goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.</p>
+<h2 id="edit-desired-state">Edit Desired State<a hidden class="anchor" aria-hidden="true" href="#edit-desired-state">#</a></h2>
+<p>Change the VM entry in the environment VM map:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">locals</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  vms</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    &#34;app-1&#34;</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span>             <span class="o">=</span> <span class="s2">&#34;cluster-a-app-01&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      ipv4_address</span>     <span class="o">=</span> <span class="s2">&#34;192.0.2.10&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      ipv4_netmask</span>     <span class="o">=</span> <span class="k">tostring</span><span class="p">(</span><span class="k">var</span><span class="p">.</span><span class="k">netmask</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">      cpu</span>              <span class="o">=</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">      ram_gb</span>           <span class="o">=</span> <span class="m">32</span>
+</span></span><span class="line"><span class="cl"><span class="n">      disksize</span>         <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">      attach_data_disk</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">      data_disk_gb</span>     <span class="o">=</span> <span class="m">200</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>Avoid manual vCenter edits for values Terraform owns.</p>
+<h2 id="generate-a-saved-plan">Generate A Saved Plan<a hidden class="anchor" aria-hidden="true" href="#generate-a-saved-plan">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform plan -out<span class="o">=</span>compute-change.tfplan
+</span></span></code></pre></div><p>Use a saved plan so the reviewed plan is the applied plan.</p>
+<h2 id="inspect-action-types">Inspect Action Types<a hidden class="anchor" aria-hidden="true" href="#inspect-action-types">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform show -json compute-change.tfplan <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="p">|</span> jq -r <span class="s1">&#39;.resource_changes[]? | [.address, .type, (.change.actions | join(&#34;,&#34;))] | @tsv&#39;</span>
+</span></span></code></pre></div><p>Expected for a normal resize:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">module.vm_group.vsphere_virtual_machine.vm[&#34;app-1&#34;]  vsphere_virtual_machine  update
+</span></span><span class="line"><span class="cl">module.vm_group.netbox_virtual_machine.vm[&#34;app-1&#34;]   netbox_virtual_machine   update
+</span></span></code></pre></div><p>Stop if you see an unexpected replacement:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">delete,create
+</span></span></code></pre></div><p>Stop if unrelated VMs or destroy actions appear.</p>
+<h2 id="inspect-vsphere-before-and-after-values">Inspect vSphere Before And After Values<a hidden class="anchor" aria-hidden="true" href="#inspect-vsphere-before-and-after-values">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform show -json compute-change.tfplan <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="p">|</span> jq <span class="s1">&#39;.resource_changes[]?
+</span></span></span><span class="line"><span class="cl"><span class="s1">    | select(.type == &#34;vsphere_virtual_machine&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    | {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        address,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        actions: .change.actions,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        before: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          cpu: .change.before.num_cpus,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          memory_mb: .change.before.memory,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          disks: [.change.before.disk[]? | {label, size}]
+</span></span></span><span class="line"><span class="cl"><span class="s1">        },
+</span></span></span><span class="line"><span class="cl"><span class="s1">        after: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          cpu: .change.after.num_cpus,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          memory_mb: .change.after.memory,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          disks: [.change.after.disk[]? | {label, size}]
+</span></span></span><span class="line"><span class="cl"><span class="s1">        }
+</span></span></span><span class="line"><span class="cl"><span class="s1">      }&#39;</span>
+</span></span></code></pre></div><p>Confirm:</p>
+<ul>
+<li>CPU is the intended value.</li>
+<li>memory is the intended value in MB.</li>
+<li>primary disk size is expected.</li>
+<li>data disk exists only when intended.</li>
+<li>disk changes are growth-only unless replacement is explicitly approved.</li>
+</ul>
+<h2 id="inspect-netbox-metadata-changes">Inspect NetBox Metadata Changes<a hidden class="anchor" aria-hidden="true" href="#inspect-netbox-metadata-changes">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform show -json compute-change.tfplan <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="p">|</span> jq <span class="s1">&#39;.resource_changes[]?
+</span></span></span><span class="line"><span class="cl"><span class="s1">    | select(.type == &#34;netbox_virtual_machine&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    | {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        address,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        actions: .change.actions,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        before: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          vcpus: .change.before.vcpus,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          memory_mb: .change.before.memory_mb,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          disk_size_mb: .change.before.disk_size_mb
+</span></span></span><span class="line"><span class="cl"><span class="s1">        },
+</span></span></span><span class="line"><span class="cl"><span class="s1">        after: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          vcpus: .change.after.vcpus,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          memory_mb: .change.after.memory_mb,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          disk_size_mb: .change.after.disk_size_mb
+</span></span></span><span class="line"><span class="cl"><span class="s1">        }
+</span></span></span><span class="line"><span class="cl"><span class="s1">      }&#39;</span>
+</span></span></code></pre></div><p>Expected metadata relationship:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">memory_mb = ram_gb * 1024
+</span></span><span class="line"><span class="cl">disk_size_mb = (primary_disk_gb + optional_data_disk_gb) * 1024
+</span></span></code></pre></div><h2 id="apply-the-reviewed-plan">Apply The Reviewed Plan<a hidden class="anchor" aria-hidden="true" href="#apply-the-reviewed-plan">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform apply compute-change.tfplan
+</span></span></code></pre></div><p>Do not regenerate the plan between review and apply unless you review the new plan too.</p>
+<h2 id="confirm-idempotency">Confirm Idempotency<a hidden class="anchor" aria-hidden="true" href="#confirm-idempotency">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform plan -detailed-exitcode
+</span></span></code></pre></div><p>Expected:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">No changes. Your infrastructure matches the configuration.
+</span></span></code></pre></div><p>Exit code expectations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0 = no changes
+</span></span><span class="line"><span class="cl">1 = error
+</span></span><span class="line"><span class="cl">2 = diff remains
+</span></span></code></pre></div><h2 id="guest-disk-follow-up">Guest Disk Follow-Up<a hidden class="anchor" aria-hidden="true" href="#guest-disk-follow-up">#</a></h2>
+<p>If a virtual disk grew, verify the guest sees the new size:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsblk
+</span></span><span class="line"><span class="cl">df -h
+</span></span></code></pre></div><p>Common Linux follow-up patterns, depending on layout:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo growpart &lt;disk&gt; &lt;partition&gt;
+</span></span><span class="line"><span class="cl">sudo resize2fs &lt;partition&gt;
+</span></span></code></pre></div><p>or LVM:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pvresize &lt;device&gt;
+</span></span><span class="line"><span class="cl">sudo lvextend -r -l +100%FREE &lt;logical-volume&gt;
+</span></span></code></pre></div><p>Do not assume vSphere disk growth means the guest filesystem expanded.</p>
+<h2 id="operating-rule">Operating Rule<a hidden class="anchor" aria-hidden="true" href="#operating-rule">#</a></h2>
+<p>Treat post-provision VM resizing as a lifecycle change, not a console task.</p>
+<p>Review the saved plan, apply the saved plan, verify NetBox metadata, and confirm idempotency.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://trinidadmarroquin.com/tags/terraform/">Terraform</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/vsphere/">Vsphere</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/vmware/">Vmware</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/automation/">Automation</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/operations/">Operations</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/validation/">Validation</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/">
+    <span class="title">« Prev</span>
+    <span>Post-Provision VM State Verification With NetBox</span>
+  </a>
+  <a class="next" href="https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/">
+    <span class="title">Next »</span>
+    <span>Building Guardrails Around Terraform vSphere VM Lifecycle</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a><script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

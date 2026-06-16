@@ -239,6 +239,59 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
+The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
+Common Lab Shortcuts Terraform-managed Docker labs often include:
+Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SRE Mindset: Operational Judgment Over Tooling
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SRE Is Not A Role, It Is A Decision Framework The tools matter less than the judgment about when to use them. SRE is the discipline of converting operational data into decisions about system reliability.
+The Essential Questions Every operational decision reduces to three questions:
+What is the acceptable failure rate? (SLO target) How much failure budget is left? (Error budget tracking) What are we doing about it? (Error budget policy) If the team cannot answer these three questions for a service, the SRE practice has not arrived yet.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
+The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
+Target Shape For Azure Blob Storage, the backend needs:
+a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Operational Module Boundaries
     </h2>
   </header>
@@ -361,65 +414,6 @@ root tokens are not used for normal administration. human tokens come from an au
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Vault Token Lease Audit And Recovery Practices" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Automation Integration Points
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Automation works best when vCenter exposes stable contracts.
-Terraform, Packer, Kubernetes, CSI drivers, and backup tools all depend on vCenter inventory behaving predictably.
-Terraform Contracts Terraform needs stable references for:
-datacenters. clusters and resource pools. datastores and datastore clusters. folders. port groups. templates. tags and custom attributes. If these names change casually, infrastructure code becomes fragile.
-Packer Contracts Packer needs a reliable build path:
-build network. ISO or content library access. temporary VM folder. template destination. credentials with limited build permissions. cleanup behavior for failed builds. Template promotion should include validation before downstream Terraform consumes the image.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Platform Hygiene
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>vCenter hygiene is the difference between a virtualization platform and a pile of VMs.
-The goal is to keep inventory, networks, storage, permissions, and templates understandable enough that automation can safely depend on them.
-Inventory Organization Folders, tags, and naming should expose ownership and lifecycle.
-Recommended metadata:
-environment. application or platform owner. lifecycle state. backup policy. automation owner. cost or capacity group. Use vSphere tags and custom attributes for metadata that operators need to search, report, or automate against.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Platform Hygiene" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">VM Lifecycle Runbooks
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>VM lifecycle runbooks should make common operations repeatable without hiding the risks.
-The same lifecycle pattern applies whether the VM is a Kubernetes node, platform appliance, or application server.
-Lifecycle States Track each VM through clear states:
-requested. provisioned. configured. in service. maintenance. retired. deleted. Each state should have an owner and exit criteria.
-Standard Runbooks Useful runbooks include:
-provision a VM from template. resize CPU, memory, or disk. add or change network adapters. snapshot before risky maintenance. restore from backup or snapshot. retire and delete a VM. investigate guest customization failure. Each runbook should list read-only verification commands first, then mutation steps.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to VM Lifecycle Runbooks" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

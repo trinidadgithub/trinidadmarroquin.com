@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing vSphere VM Lifecycle State With Terraform And NetBox</title>
+      <link>https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/</guid>
+      <description>A lifecycle runbook for managing vSphere VM CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown hygiene after initial Terraform provisioning.</description>
+    </item>
     <item>
       <title>Building Guardrails Around Terraform vSphere VM Lifecycle</title>
       <link>https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/</link>

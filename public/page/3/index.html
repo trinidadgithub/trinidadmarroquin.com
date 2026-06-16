@@ -239,6 +239,61 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Cloud Networking IAM And Guardrails
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cloud guardrails should prevent common mistakes without turning the platform into a ticket queue for every change.
+The platform team should define the default network, identity, logging, and policy controls that every environment inherits.
+Networking Network design should make approved communication easy and accidental exposure difficult.
+Baseline expectations:
+private networks by default. explicit ingress and egress paths. separate production and non-production routing. documented CIDR allocation. centralized DNS ownership. no unmanaged public endpoints. IAM IAM should be group-based, role-based, and reviewable.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Cloud Networking IAM And Guardrails" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Cloud Provider Operational Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cloud operations become easier when provider differences are documented as patterns, not rediscovered during incidents.
+The useful pattern is to separate provider-specific commands from provider-neutral operating expectations.
+Pattern Categories Document patterns by discipline:
+identity and access. network routing and exposure. compute lifecycle. storage and backup. Kubernetes integration. observability and audit logging. cost and capacity review. incident response. For each provider, keep the same structure so operators can compare behavior quickly.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Cloud Provider Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Concourse CI/CD On Windows With Terraform
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Running Concourse CI/CD on Windows Docker is uncommon enough that the setup patterns deserve their own reference. The Terraform provider, key generation, and security hardening steps differ significantly from Linux-based deployments.
+For a complete working example, see the concourse-terraform-windows directory in the IaC repository.
+Docker Transport Windows Docker uses named pipes instead of Unix sockets:
+provider &#34;docker&#34; { host = &#34;npipe:////./pipe/docker_engine&#34; } This is the first thing to verify when a Terraform Docker provider fails on Windows. The connection string is different, and not all provider features work identically on the Windows engine.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Concourse CI/CD On Windows With Terraform" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Concourse Infrastructure Workflows
     </h2>
   </header>
@@ -355,57 +410,6 @@ Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot stat
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
-For a runnable lab, see the feature-toggle directory in the IaC repository. It demonstrates the same toggle pattern in both C and Python.
-The Pattern Python:
-import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">From Local IaC Labs To Production-Ready Patterns
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Local infrastructure labs are valuable when they are treated honestly.
-They are not production. They are a controlled way to isolate a workflow, prove sequencing, expose assumptions, and build operational muscle memory before the real platform adds more failure modes.
-The mistake is promoting a lab by copying it directly into production. The better path is to promote the pattern, not the implementation.
-What Local Labs Are Good For Local IaC labs are especially useful for learning dependencies.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to From Local IaC Labs To Production-Ready Patterns" href="https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

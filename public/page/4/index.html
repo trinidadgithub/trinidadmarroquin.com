@@ -239,6 +239,57 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
+For a runnable lab, see the feature-toggle directory in the IaC repository. It demonstrates the same toggle pattern in both C and Python.
+The Pattern Python:
+import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">From Local IaC Labs To Production-Ready Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs are valuable when they are treated honestly.
+They are not production. They are a controlled way to isolate a workflow, prove sequencing, expose assumptions, and build operational muscle memory before the real platform adds more failure modes.
+The mistake is promoting a lab by copying it directly into production. The better path is to promote the pattern, not the implementation.
+What Local Labs Are Good For Local IaC labs are especially useful for learning dependencies.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to From Local IaC Labs To Production-Ready Patterns" href="https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">GCP Operational Patterns
     </h2>
   </header>
@@ -359,57 +410,6 @@ resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka KRaft Mode In Docker Compose
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kafka without Zookeeper runs in KRaft mode using the Raft protocol for metadata consensus. This is the default in Kafka 4.x and available since Kafka 3.x. For local labs, KRaft mode removes the complexity of managing a separate Zookeeper container.
-For a runnable reference, see the docker/kafka/docker-compose.yml file in the IaC repository.
-Minimal KRaft Configuration A single-broker KRaft setup needs a few key environment variables that differ from Zookeeper-based Kafka:
-services: kafka: image: confluentinc/cp-kafka:latest environment: KAFKA_KRAFT_MODE: &#34;true&#34; KAFKA_PROCESS_ROLES: &#34;controller,broker&#34; KAFKA_NODE_ID: &#34;1&#34; KAFKA_CONTROLLER_QUORUM_VOTERS: &#34;1@localhost:9093&#34; KAFKA_LISTENERS: &#34;PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093&#34; KAFKA_ADVERTISED_LISTENERS: &#34;PLAINTEXT://localhost:9092&#34; KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: &#34;1&#34; KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: &#34;0&#34; CLUSTER_ID: &#34;MkU3OEVBNTcwNTJENDM2Qk&#34; Key Variables KAFKA_KRAFT_MODE=true — enables the Raft-based metadata mode. KAFKA_PROCESS_ROLES=controller,broker — a single node acts as both controller and broker. Production splits these roles across separate nodes. KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 — defines the controller ensemble. In a single-node lab, one voter is sufficient. CLUSTER_ID — a unique identifier generated once. If it changes, the broker treats the metadata as a new cluster. Single-Node Tuning Lab-specific settings that should not reach production:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka KRaft Mode In Docker Compose" href="https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kafka labs are good at exposing the difference between a container being started and a broker being usable.
-Terraform can create the Docker network, broker container, application image, and topics, but it needs an explicit readiness boundary. Without that boundary, the next resource may try to create topics or start a processor before Kafka is listening.
-Readiness Boundary For a local lab, a simple port check is often enough to avoid racing the broker startup:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka Readiness Checks In Terraform Docker Labs" href="https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka Streams Pipeline With Terraform
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A local Kafka Streams pipeline managed by Terraform is useful for understanding the full data path before production dependencies are involved. Terraform handles the broker, topics, stream processor image, and container lifecycle — all through the Docker provider.
-For a complete working example, see the kafka-streams-pipeline directory in the IaC repository. The errors.txt file in the repository contains the exact build failure and resolution for the librdkafka C extension, which is the most common issue when containerizing Python Kafka applications.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka Streams Pipeline With Terraform" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -199,6 +199,60 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Provisioning a VM is only the first part of ownership.
+The more interesting operational question is what happens after the VM exists. Can Terraform continue to manage CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown without turning every follow-up change into a manual vCenter edit?
+That was the next step after adding VM/IP guardrails. The automation already knew how to prevent duplicate VM names, duplicate IPs, stale DNS collisions, active network IP reuse, and NetBox/vCenter drift before create. The next improvement was to keep the VM lifecycle managed after creation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Managing vSphere VM Lifecycle State With Terraform And NetBox" href="https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After Terraform creates or resizes a vSphere VM, verify NetBox reflects the same lifecycle state.
+This check is separate from preflight. Preflight prevents unsafe allocation before apply. Post-provision verification proves source-of-truth state matches what Terraform just changed.
+Set Lookup Values Use generic environment variables so the commands are reusable:
+export VM_NAME=&#34;cluster-a-app-01&#34; export VM_IP=&#34;192.0.2.10&#34; export VM_DNS_NAME=&#34;cluster-a-app-01.example.com&#34; export NETBOX_CLUSTER_NAME=&#34;cluster-a&#34; NetBox API credentials:
+export NETBOX_SERVER_URL=&#34;https://netbox.example.com&#34; export NETBOX_API_TOKEN=&#34;...&#34; Verify VM Metadata curl -s \ -H &#34;Authorization: Token $NETBOX_API_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.results[] | { id, name, status: .status.value, cluster: .cluster.name, vcpus, memory_mb: .memory, disk_size_mb: .disk, primary_ip4: .primary_ip4.address }&#39; Confirm:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Post-Provision VM State Verification With NetBox" href="https://trinidadmarroquin.com/field-notes/post-provision-vm-state-verification-netbox/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere Compute Resize Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this checklist when resizing Terraform-managed vSphere VMs after initial provisioning.
+The goal is to update VM state without accidentally replacing the VM, losing NetBox alignment, or skipping guest OS disk follow-up.
+Edit Desired State Change the VM entry in the environment VM map:
+locals { vms = { &#34;app-1&#34; = { name = &#34;cluster-a-app-01&#34; ipv4_address = &#34;192.0.2.10&#34; ipv4_netmask = tostring(var.netmask) cpu = 4 ram_gb = 32 disksize = 80 attach_data_disk = true data_disk_gb = 200 } } } Avoid manual vCenter edits for values Terraform owns.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere Compute Resize Checklist" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Building Guardrails Around Terraform vSphere VM Lifecycle
     </h2>
   </header>
@@ -322,62 +376,6 @@ build network. ISO or content library access. temporary VM folder. template dest
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vCenter Platform Hygiene
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>vCenter hygiene is the difference between a virtualization platform and a pile of VMs.
-The goal is to keep inventory, networks, storage, permissions, and templates understandable enough that automation can safely depend on them.
-Inventory Organization Folders, tags, and naming should expose ownership and lifecycle.
-Recommended metadata:
-environment. application or platform owner. lifecycle state. backup policy. automation owner. cost or capacity group. Use vSphere tags and custom attributes for metadata that operators need to search, report, or automate against.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vCenter Platform Hygiene" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">VM Lifecycle Runbooks
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>VM lifecycle runbooks should make common operations repeatable without hiding the risks.
-The same lifecycle pattern applies whether the VM is a Kubernetes node, platform appliance, or application server.
-Lifecycle States Track each VM through clear states:
-requested. provisioned. configured. in service. maintenance. retired. deleted. Each state should have an owner and exit criteria.
-Standard Runbooks Useful runbooks include:
-provision a VM from template. resize CPU, memory, or disk. add or change network adapters. snapshot before risky maintenance. restore from backup or snapshot. retire and delete a VM. investigate guest customization failure. Each runbook should list read-only verification commands first, then mutation steps.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to VM Lifecycle Runbooks" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vSphere CSI Attach And Mount Checklist
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Use this checklist when a Kubernetes workload has a PVC that should use vSphere CSI, but the pod is pending, stuck in init, or failing to mount the volume.
-The goal is to follow the volume from intent to pod readiness:
-StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kubelet mount -&gt; pod ready Check The Workload State Start with pods and PVCs in the affected namespace:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
