@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Troubleshooting on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/troubleshooting/</link>
+    <link>https://trinidadmarroquin.com/tags/troubleshooting/</link>
     <description>Recent content in Troubleshooting on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Thu, 11 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Network Saturation Evidence Checklist</title>
-      <link>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</guid>
       <description>Field note for separating real node saturation, healthy-but-noisy control-plane traffic, and external backup or replication traffic during Kubernetes network incidents.</description>
     </item>
     <item>
       <title>Rancher Remotedialer Network Symptoms</title>
-      <link>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</guid>
       <description>Field note for recognizing Rancher cluster-agent, remotedialer, ingress, and websocket symptoms during network congestion or load balancer instability.</description>
     </item>
     <item>
       <title>When Network Saturation Looks Like Rancher Trouble</title>
-      <link>http://localhost:1313/posts/rancher-network-saturation-symptoms/</link>
+      <link>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/rancher-network-saturation-symptoms/</guid>
+      <guid>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</guid>
       <description>An incident-style walkthrough of a Rancher traffic anomaly where control-plane symptoms pointed at remotedialer instability, but the likely trigger was backup-window network saturation.</description>
     </item>
     <item>
       <title>Docker Stale Binaries In Usr Local Bin</title>
-      <link>http://localhost:1313/field-notes/docker-stale-binaries-path/</link>
+      <link>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/docker-stale-binaries-path/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</guid>
       <description>Field note for diagnosing Docker failures caused by stale runc and containerd-shim-runc-v2 binaries in /usr/local/bin shadowing package-managed versions.</description>
     </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
-      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
       <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
     </item>
     <item>
       <title>vSphere CSI Attach And Mount Checklist</title>
-      <link>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</guid>
       <description>Field note for checking Kubernetes PVCs, StorageClasses, VolumeAttachments, worker VM disk UUID settings, and vSphere CSI mount readiness.</description>
     </item>
     <item>
       <title>Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain</title>
-      <link>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</guid>
       <description>Practical lessons for using LLMs during infrastructure troubleshooting while preserving operator judgment, validation, and evidence-based debugging.</description>
     </item>
   </channel>

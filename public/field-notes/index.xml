@@ -2,277 +2,277 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Field Notes on Trinidad Marroquin</title>
-    <link>http://localhost:1313/field-notes/</link>
+    <link>https://trinidadmarroquin.com/field-notes/</link>
     <description>Recent content in Field Notes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Mon, 15 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/field-notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/field-notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NetBox First Ownership For vSphere VM Provisioning</title>
-      <link>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</guid>
-      <description>Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates vSphere virtual machines.</description>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/</guid>
+      <description>Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates and destroys vSphere virtual machines.</description>
     </item>
     <item>
       <title>Terraform VM Guardrail Test Matrix</title>
-      <link>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</guid>
-      <description>A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, and fail-closed provider behavior.</description>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/</guid>
+      <description>A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, fail-closed provider behavior, and teardown hygiene.</description>
     </item>
     <item>
       <title>Terraform vSphere VM Preflight Guardrails</title>
-      <link>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/</guid>
       <description>Field note for checking Terraform-planned vSphere VM names and IPs against NetBox, vCenter, DNS, reverse DNS, and live network responses before apply.</description>
     </item>
     <item>
       <title>AI Agent Guardrails For Infrastructure Writes</title>
-      <link>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
+      <link>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
       <description>Field note for using AI agents safely during infrastructure updates, especially when the agent has tool access but may speculate or lose context.</description>
     </item>
     <item>
       <title>NetBox Bulk Import Order For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</guid>
       <description>Field note for importing Kubernetes VM node inventory into NetBox using ordered device, interface, and IP address CSV files.</description>
     </item>
     <item>
       <title>NetBox Primary IP Assignment After Import</title>
-      <link>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</guid>
       <description>Field note for setting NetBox device primary IPv4 addresses after bulk importing devices, interfaces, and IP assignments.</description>
     </item>
     <item>
       <title>Network Saturation Evidence Checklist</title>
-      <link>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</guid>
       <description>Field note for separating real node saturation, healthy-but-noisy control-plane traffic, and external backup or replication traffic during Kubernetes network incidents.</description>
     </item>
     <item>
       <title>Rancher Remotedialer Network Symptoms</title>
-      <link>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</guid>
       <description>Field note for recognizing Rancher cluster-agent, remotedialer, ingress, and websocket symptoms during network congestion or load balancer instability.</description>
     </item>
     <item>
       <title>Azure AKS Operations With Terraform</title>
-      <link>http://localhost:1313/field-notes/azure-aks-terraform-operations/</link>
+      <link>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/azure-aks-terraform-operations/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</guid>
       <description>Field note for provisioning Azure AKS clusters with Terraform, including networking, identity, storage backends, and cross-cloud comparison patterns.</description>
     </item>
     <item>
       <title>Blue-Green Deployment With NGINX</title>
-      <link>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</guid>
       <description>Field note for blue-green deployment mechanics using NGINX upstream switching, covering manual and weighted patterns.</description>
     </item>
     <item>
       <title>Canary Deployments With HAProxy Weighted Routing</title>
-      <link>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</link>
+      <link>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
       <description>Field note for canary deployment mechanics using HAProxy weighted backends to control blast radius during rollout.</description>
     </item>
     <item>
       <title>Concourse Key Management With Vault Bootstrap</title>
-      <link>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/</guid>
       <description>Field note for bootstrapping Concourse CI/CD keys with HashiCorp Vault using Terraform, covering TSA key architecture and runtime secret retrieval.</description>
     </item>
     <item>
       <title>DNS Search Domain Debugging With systemd-resolved</title>
-      <link>http://localhost:1313/field-notes/dns-search-domain-debugging/</link>
+      <link>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/dns-search-domain-debugging/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</guid>
       <description>Commands for identifying which layer is injecting a DNS search domain — netplan, systemd-resolved global, or per-link — and how to fix each at runtime.</description>
     </item>
     <item>
       <title>Docker Stale Binaries In Usr Local Bin</title>
-      <link>http://localhost:1313/field-notes/docker-stale-binaries-path/</link>
+      <link>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/docker-stale-binaries-path/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</guid>
       <description>Field note for diagnosing Docker failures caused by stale runc and containerd-shim-runc-v2 binaries in /usr/local/bin shadowing package-managed versions.</description>
     </item>
     <item>
       <title>etcd Backup, Restore, And Disaster Recovery</title>
-      <link>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</link>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</guid>
       <description>Field note for etcd snapshot and restore procedures in Kubernetes clusters: automated backups, restore validation, cluster rebuild from snapshot, and recovery patterns for RKE2.</description>
     </item>
     <item>
       <title>etcd Member Management And Cluster Health</title>
-      <link>http://localhost:1313/field-notes/etcd-member-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-member-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/etcd-member-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-member-management/</guid>
       <description>Field note for etcd member lifecycle: adding and removing members, quorum safety, endpoint health, alarm management, and common failure modes in RKE2 clusters.</description>
     </item>
     <item>
       <title>Feature Toggles With Environment Variables</title>
-      <link>http://localhost:1313/field-notes/feature-toggles-environment-variables/</link>
+      <link>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/feature-toggles-environment-variables/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</guid>
       <description>Field note for using environment variables as feature toggles, including cross-language patterns and the limits of the approach.</description>
     </item>
     <item>
       <title>GitOps Pipeline Patterns For Platform Teams</title>
-      <link>http://localhost:1313/field-notes/gitops-pipeline-patterns/</link>
+      <link>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/gitops-pipeline-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</guid>
       <description>Field note for GitOps pipeline patterns in infrastructure teams: change pipelines, fleet rollouts, tenant onboarding, and the operating model that keeps Git as the single source of truth.</description>
     </item>
     <item>
       <title>Helm And Terraform Boundary On EKS</title>
-      <link>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</link>
+      <link>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</guid>
       <description>Field note for the Terraform-managed Helm release pattern on EKS, keeping infrastructure provisioning separate from application deployment configuration.</description>
     </item>
     <item>
       <title>IoT Device Container With Terraform And Certificate Mounts</title>
-      <link>http://localhost:1313/field-notes/iot-docker-terraform-certificates/</link>
+      <link>https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/iot-docker-terraform-certificates/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/</guid>
       <description>Field note for running an AWS IoT device in a Docker container managed by Terraform, focusing on X.509 certificate injection via volume mounts.</description>
     </item>
     <item>
       <title>Kafka KRaft Mode In Docker Compose</title>
-      <link>http://localhost:1313/field-notes/kafka-kraft-docker-compose/</link>
+      <link>https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/kafka-kraft-docker-compose/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/</guid>
       <description>Field note for running Kafka in KRaft mode (no Zookeeper) with Docker Compose for local development and testing.</description>
     </item>
     <item>
       <title>Kafka Readiness Checks In Terraform Docker Labs</title>
-      <link>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</link>
+      <link>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</guid>
       <description>Field note for local Kafka labs where Terraform creates Docker infrastructure, waits for broker readiness, and then creates topics or starts stream processors.</description>
     </item>
     <item>
       <title>Local SLI Labs With Prometheus Grafana And cAdvisor</title>
-      <link>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
+      <link>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
     </item>
     <item>
       <title>Longhorn To Enterprise Storage Migration Patterns</title>
-      <link>http://localhost:1313/field-notes/longhorn-enterprise-storage-migration/</link>
+      <link>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/longhorn-enterprise-storage-migration/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</guid>
       <description>Field note for migrating Kubernetes storage from Longhorn to enterprise storage platforms: volume migration strategies, application downtime expectations, PVC rebinding, and validation checks before and after migration.</description>
     </item>
     <item>
       <title>Observability Before AI: What Every Operator Needs First</title>
-      <link>http://localhost:1313/field-notes/observability-before-ai/</link>
+      <link>https://trinidadmarroquin.com/field-notes/observability-before-ai/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/observability-before-ai/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/observability-before-ai/</guid>
       <description>Field note for building observability foundations before introducing AI-assisted operations: structured metrics, actionable dashboards, coherent alert routing, and incident response patterns that make AI useful rather than noisy.</description>
     </item>
     <item>
       <title>Rollback Strategies With Sentinel Files And Package Management</title>
-      <link>http://localhost:1313/field-notes/rollback-sentinel-package-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rollback-sentinel-package-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
       <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
     <item>
       <title>Secret Handling In Terraform Managed Labs</title>
-      <link>http://localhost:1313/field-notes/terraform-lab-secret-handling/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-lab-secret-handling/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
       <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
     </item>
     <item>
       <title>SRE Mindset: Operational Judgment Over Tooling</title>
-      <link>http://localhost:1313/field-notes/sre-mindset/</link>
+      <link>https://trinidadmarroquin.com/field-notes/sre-mindset/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/sre-mindset/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/sre-mindset/</guid>
       <description>Field note for the SRE mindset: how operators think about reliability, error budgets, incident response, toil management, and the decisions that determine whether tooling improves or complicates operations.</description>
     </item>
     <item>
       <title>Terraform Azure Backend Bootstrap</title>
-      <link>http://localhost:1313/field-notes/terraform-azure-backend-bootstrap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-azure-backend-bootstrap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</guid>
       <description>Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.</description>
     </item>
     <item>
       <title>vSphere CSI Attach And Mount Checklist</title>
-      <link>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</guid>
       <description>Field note for checking Kubernetes PVCs, StorageClasses, VolumeAttachments, worker VM disk UUID settings, and vSphere CSI mount readiness.</description>
     </item>
     <item>
       <title>Bootstrap Logging, Locks, And Continue-On-Failure Behavior</title>
-      <link>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</link>
+      <link>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</guid>
       <description>Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.</description>
     </item>
     <item>
       <title>govc Commands For vSphere VM Verification</title>
-      <link>http://localhost:1313/field-notes/govc-vsphere-verification/</link>
+      <link>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/govc-vsphere-verification/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</guid>
       <description>Field note with govc commands for finding VMs, checking NIC backing, guestinfo keys, and comparing working versus broken vSphere clones.</description>
     </item>
     <item>
       <title>iSCSI Bootstrap Readiness For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
+      <link>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
       <description>Field note for preparing Kubernetes nodes with iSCSI networking, discovery, sessions, and CSI-ready storage behavior.</description>
     </item>
     <item>
       <title>Netplan Conflicts After VMware Guest Customization</title>
-      <link>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</guid>
       <description>Field note for diagnosing duplicate netplan ownership, missing default routes, and DNS drift on vSphere Ubuntu VMs.</description>
     </item>
     <item>
       <title>Terraform State Moves During A Module Refactor</title>
-      <link>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</guid>
       <description>Field note for moving Terraform resources into a module without forcing VM replacement.</description>
     </item>
     <item>
       <title>Terraform Variable File Hygiene</title>
-      <link>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</guid>
       <description>Field note for separating Terraform inputs, auto-loaded tfvars, govc environment files, and secrets in infrastructure repositories.</description>
     </item>
     <item>
       <title>Terraform vSphere Clone Customization Failures</title>
-      <link>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</guid>
       <description>Field note for diagnosing Terraform vSphere clone failures caused by VMware guest customization inside the VM.</description>
     </item>
     <item>
       <title>vSphere Guestinfo And Cloud-Init On Cloned VMs</title>
-      <link>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</link>
+      <link>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</guid>
       <description>Field note for verifying Terraform guestinfo userdata, cloud-init state, and first-boot behavior on vSphere Ubuntu clones.</description>
     </item>
   </channel>

@@ -11,6 +11,8 @@ Terraform can validate its own input, but it cannot automatically prove that the
 
 Before applying a vSphere VM plan, run preflight checks against the systems that already know about names and addresses.
 
+After testing a disposable VM, verify destroy cleanup as a separate lifecycle check. Preflight protects allocation. Destroy verification protects source-of-truth hygiene.
+
 ## Generate Plan JSON
 
 Use the plan as the preflight input:
@@ -211,8 +213,48 @@ Failures:
 
 ## Operating Rule
 
+Preflight does not replace teardown verification.
+
+For disposable test VMs, finish with a destroy-plan review and post-destroy checks:
+
+```bash
+terraform plan -destroy -out=destroy.tfplan
+terraform show -json destroy.tfplan \
+  | jq -r '.resource_changes[]? | [.address, .type, (.change.actions | join(","))] | @tsv'
+terraform apply destroy.tfplan
+terraform state list
+```
+
+Then verify the external systems are clean:
+
+```bash
+curl -s \
+  -H "Authorization: Token $NETBOX_API_TOKEN" \
+  -H "Accept: application/json" \
+  "$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=cluster-a-test-01" \
+  | jq '.count'
+
+curl -s \
+  -H "Authorization: Token $NETBOX_API_TOKEN" \
+  -H "Accept: application/json" \
+  "$NETBOX_SERVER_URL/api/ipam/ip-addresses/?q=192.0.2.10" \
+  | jq '.count'
+
+govc find / -type m -name 'cluster-a-test-01'
+```
+
+Expected results:
+
+```text
+NetBox VM count: 0
+NetBox IP count: 0
+govc find: no output
+```
+
 Terraform plan answers “what will Terraform try to do?”
 
 Preflight answers “is the outside world clear enough for Terraform to do it safely?”
 
-Run both before creating vSphere VMs from automation.
+Destroy verification answers “did Terraform clean up the outside-world records it created?”
+
+Run all three before trusting vSphere VM automation end to end.

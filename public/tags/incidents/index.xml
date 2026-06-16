@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Incidents on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/incidents/</link>
+    <link>https://trinidadmarroquin.com/tags/incidents/</link>
     <description>Recent content in Incidents on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/incidents/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/incidents/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Observability Before AI: What Every Operator Needs First</title>
-      <link>http://localhost:1313/field-notes/observability-before-ai/</link>
+      <link>https://trinidadmarroquin.com/field-notes/observability-before-ai/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/observability-before-ai/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/observability-before-ai/</guid>
       <description>Field note for building observability foundations before introducing AI-assisted operations: structured metrics, actionable dashboards, coherent alert routing, and incident response patterns that make AI useful rather than noisy.</description>
     </item>
     <item>
       <title>Post-Incident Follow-Up</title>
-      <link>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</guid>
       <description>Initial post-incident follow-up model for timelines, contributing factors, corrective actions, and measurable system improvements.</description>
     </item>
     <item>
       <title>SRE Mindset: Operational Judgment Over Tooling</title>
-      <link>http://localhost:1313/field-notes/sre-mindset/</link>
+      <link>https://trinidadmarroquin.com/field-notes/sre-mindset/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/sre-mindset/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/sre-mindset/</guid>
       <description>Field note for the SRE mindset: how operators think about reliability, error budgets, incident response, toil management, and the decisions that determine whether tooling improves or complicates operations.</description>
     </item>
     <item>
       <title>The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering</title>
-      <link>http://localhost:1313/posts/sre-dirty-dozen/</link>
+      <link>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/sre-dirty-dozen/</guid>
+      <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
       <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
     </item>
   </channel>

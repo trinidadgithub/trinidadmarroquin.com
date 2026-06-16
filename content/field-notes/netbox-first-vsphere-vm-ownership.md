@@ -2,14 +2,14 @@
 title = 'NetBox First Ownership For vSphere VM Provisioning'
 date = 2026-06-15T00:00:00-05:00
 draft = false
-description = 'Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates vSphere virtual machines.'
+description = 'Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates and destroys vSphere virtual machines.'
 tags = ['netbox', 'terraform', 'vsphere', 'ipam', 'automation', 'operations']
 categories = ['field-notes']
 +++
 
 When Terraform creates vSphere VMs, NetBox should not be an after-the-fact documentation step.
 
-Use NetBox as an ownership gate before vSphere VM creation.
+Use NetBox as an ownership gate before vSphere VM creation, then verify Terraform removes the NetBox records when the managed VM is destroyed.
 
 ## Desired Order
 
@@ -27,6 +27,18 @@ The safe order is:
 The vSphere VM should depend on the NetBox primary IP relationship, not just the VM record.
 
 That proves the source-of-truth object graph exists before the hypervisor receives the create request.
+
+The destroy path should remove the same object graph:
+
+```text
+1. Remove vSphere VM
+2. Remove NetBox primary IPv4 relationship
+3. Remove NetBox IP address record
+4. Remove NetBox interface record
+5. Remove NetBox VM record
+```
+
+Exact ordering is provider-dependent, but the final state should be clean in both Terraform and NetBox.
 
 ## Terraform Pattern
 
@@ -92,6 +104,7 @@ This pattern protects against:
 - creating a VM when the NetBox VM name already exists.
 - creating a VM when the NetBox IP address already exists.
 - creating a VM without a primary IP relationship in source of truth.
+- leaving Terraform-managed NetBox records behind after destroying a disposable VM.
 
 ## What This Does Not Protect
 
@@ -163,8 +176,109 @@ The desired behavior is:
 NetBox fails -> Terraform plan fails -> vSphere VM is not created
 ```
 
+## Teardown Hygiene Test
+
+Use a disposable test VM that Terraform already created and owns.
+
+Confirm current state:
+
+```bash
+terraform state list
+```
+
+Expected resources:
+
+```text
+module.vm_group.netbox_interface.vm["test-1"]
+module.vm_group.netbox_ip_address.vm["test-1"]
+module.vm_group.netbox_primary_ip.vm["test-1"]
+module.vm_group.netbox_virtual_machine.vm["test-1"]
+module.vm_group.vsphere_virtual_machine.vm["test-1"]
+```
+
+Generate a destroy plan:
+
+```bash
+terraform plan -destroy -out=destroy.tfplan
+```
+
+Inspect planned deletes before applying:
+
+```bash
+terraform show -json destroy.tfplan \
+  | jq -r '.resource_changes[]? | [.address, .type, (.change.actions | join(","))] | @tsv'
+```
+
+Expected action shape:
+
+```text
+module.vm_group.netbox_primary_ip.vm["test-1"]       netbox_primary_ip       delete
+module.vm_group.netbox_ip_address.vm["test-1"]       netbox_ip_address       delete
+module.vm_group.netbox_interface.vm["test-1"]        netbox_interface        delete
+module.vm_group.netbox_virtual_machine.vm["test-1"]  netbox_virtual_machine  delete
+module.vm_group.vsphere_virtual_machine.vm["test-1"] vsphere_virtual_machine delete
+```
+
+Apply the destroy plan:
+
+```bash
+terraform apply destroy.tfplan
+```
+
+Verify Terraform state no longer lists the managed resources:
+
+```bash
+terraform state list
+```
+
+Verify NetBox VM cleanup:
+
+```bash
+curl -s \
+  -H "Authorization: Token $NETBOX_API_TOKEN" \
+  -H "Accept: application/json" \
+  "$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=cluster-a-test-01" \
+  | jq '.count'
+```
+
+Expected:
+
+```text
+0
+```
+
+Verify NetBox IP cleanup:
+
+```bash
+curl -s \
+  -H "Authorization: Token $NETBOX_API_TOKEN" \
+  -H "Accept: application/json" \
+  "$NETBOX_SERVER_URL/api/ipam/ip-addresses/?q=192.0.2.10" \
+  | jq '.count'
+```
+
+Expected:
+
+```text
+0
+```
+
+Verify vCenter cleanup:
+
+```bash
+govc find / -type m -name 'cluster-a-test-01'
+```
+
+Expected: no output.
+
+The successful lifecycle result is:
+
+```text
+create -> manage -> verify idempotency -> destroy -> cleanup NetBox and vSphere
+```
+
 ## Operating Rule
 
 If NetBox is the source of truth, make VM creation depend on NetBox ownership being established first.
 
-Do not let documentation happen after provisioning when the documentation system is supposed to prevent collisions.
+Do not let documentation happen after provisioning when the documentation system is supposed to prevent collisions. Do not skip teardown checks when the same documentation system needs to stay clean after destroy.

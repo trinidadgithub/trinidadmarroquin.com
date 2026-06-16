@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Netbox on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/netbox/</link>
+    <link>https://trinidadmarroquin.com/tags/netbox/</link>
     <description>Recent content in Netbox on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Mon, 15 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/netbox/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/netbox/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building Guardrails Before Terraform Creates vSphere VMs</title>
-      <link>http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/</link>
+      <title>Building Guardrails Around Terraform vSphere VM Lifecycle</title>
+      <link>https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/</guid>
-      <description>A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.</description>
+      <guid>https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/</guid>
+      <description>A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.</description>
     </item>
     <item>
       <title>NetBox First Ownership For vSphere VM Provisioning</title>
-      <link>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</guid>
-      <description>Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates vSphere virtual machines.</description>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/</guid>
+      <description>Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates and destroys vSphere virtual machines.</description>
     </item>
     <item>
       <title>Terraform VM Guardrail Test Matrix</title>
-      <link>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</guid>
-      <description>A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, and fail-closed provider behavior.</description>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/</guid>
+      <description>A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, fail-closed provider behavior, and teardown hygiene.</description>
     </item>
     <item>
       <title>Terraform vSphere VM Preflight Guardrails</title>
-      <link>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/</guid>
       <description>Field note for checking Terraform-planned vSphere VM names and IPs against NetBox, vCenter, DNS, reverse DNS, and live network responses before apply.</description>
     </item>
     <item>
       <title>NetBox Bulk Import Order For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</guid>
       <description>Field note for importing Kubernetes VM node inventory into NetBox using ordered device, interface, and IP address CSV files.</description>
     </item>
     <item>
       <title>NetBox Primary IP Assignment After Import</title>
-      <link>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</guid>
       <description>Field note for setting NetBox device primary IPv4 addresses after bulk importing devices, interfaces, and IP assignments.</description>
     </item>
     <item>
       <title>When AI-Assisted Infrastructure Updates Need Guardrails</title>
-      <link>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</link>
+      <link>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</guid>
       <description>A practical reflection on using AI assistance for NetBox inventory work, where tool access helped but evidence, validation, and import discipline mattered more than confident answers.</description>
     </item>
   </channel>

@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Deployment on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/deployment/</link>
+    <link>https://trinidadmarroquin.com/tags/deployment/</link>
     <description>Recent content in Deployment on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blue-Green Deployment With NGINX</title>
-      <link>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</guid>
       <description>Field note for blue-green deployment mechanics using NGINX upstream switching, covering manual and weighted patterns.</description>
     </item>
     <item>
       <title>Canary Deployments With HAProxy Weighted Routing</title>
-      <link>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</link>
+      <link>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
       <description>Field note for canary deployment mechanics using HAProxy weighted backends to control blast radius during rollout.</description>
     </item>
     <item>
       <title>Deployment Strategy Labs</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
       <description>Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.</description>
     </item>
     <item>
       <title>Feature Toggles With Environment Variables</title>
-      <link>http://localhost:1313/field-notes/feature-toggles-environment-variables/</link>
+      <link>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/feature-toggles-environment-variables/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</guid>
       <description>Field note for using environment variables as feature toggles, including cross-language patterns and the limits of the approach.</description>
     </item>
     <item>
       <title>Rollback Strategies With Sentinel Files And Package Management</title>
-      <link>http://localhost:1313/field-notes/rollback-sentinel-package-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rollback-sentinel-package-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
       <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
   </channel>

@@ -2,7 +2,7 @@
 title = 'Terraform VM Guardrail Test Matrix'
 date = 2026-06-15T00:00:00-05:00
 draft = false
-description = 'A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, and fail-closed provider behavior.'
+description = 'A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, fail-closed provider behavior, and teardown hygiene.'
 tags = ['terraform', 'vsphere', 'netbox', 'testing', 'validation', 'automation', 'operations']
 categories = ['field-notes']
 +++
@@ -32,6 +32,15 @@ Confirm clean post-apply state when a test intentionally creates a disposable VM
 ```bash
 terraform apply tfplan
 terraform plan -detailed-exitcode
+```
+
+Confirm teardown hygiene when the disposable VM is no longer needed:
+
+```bash
+terraform plan -destroy -out=destroy.tfplan
+terraform show -json destroy.tfplan \
+  | jq -r '.resource_changes[]? | [.address, .type, (.change.actions | join(","))] | @tsv'
+terraform apply destroy.tfplan
 ```
 
 ## 1. Clean New VM
@@ -450,7 +459,113 @@ Desired outcome:
 NetBox unreachable -> Terraform plan fails -> vSphere VM is not created
 ```
 
-## Test Cleanup
+## 14. Destroy Removes NetBox And vSphere Objects
+
+Test:
+
+```text
+Destroy a disposable Terraform-managed VM and verify Terraform removes its NetBox and vSphere records.
+```
+
+Confirm current state:
+
+```bash
+terraform state list
+```
+
+Expected state includes:
+
+```text
+module.vm_group.netbox_interface.vm["test-1"]
+module.vm_group.netbox_ip_address.vm["test-1"]
+module.vm_group.netbox_primary_ip.vm["test-1"]
+module.vm_group.netbox_virtual_machine.vm["test-1"]
+module.vm_group.vsphere_virtual_machine.vm["test-1"]
+```
+
+Generate and inspect the destroy plan:
+
+```bash
+terraform plan -destroy -out=destroy.tfplan
+terraform show -json destroy.tfplan \
+  | jq -r '.resource_changes[]? | [.address, .type, (.change.actions | join(","))] | @tsv'
+```
+
+Expected planned deletes:
+
+```text
+module.vm_group.netbox_primary_ip.vm["test-1"]       netbox_primary_ip       delete
+module.vm_group.netbox_ip_address.vm["test-1"]       netbox_ip_address       delete
+module.vm_group.netbox_interface.vm["test-1"]        netbox_interface        delete
+module.vm_group.netbox_virtual_machine.vm["test-1"]  netbox_virtual_machine  delete
+module.vm_group.vsphere_virtual_machine.vm["test-1"] vsphere_virtual_machine delete
+```
+
+Apply the destroy plan:
+
+```bash
+terraform apply destroy.tfplan
+```
+
+Verify Terraform state no longer lists the managed resources:
+
+```bash
+terraform state list
+```
+
+Verify the NetBox VM record is gone:
+
+```bash
+curl -s \
+  -H "Authorization: Token $NETBOX_API_TOKEN" \
+  -H "Accept: application/json" \
+  "$NETBOX_SERVER_URL/api/virtualization/virtual-machines/?name=cluster-a-test-01" \
+  | jq '.count'
+```
+
+Expected:
+
+```text
+0
+```
+
+Verify the NetBox IP address record is gone:
+
+```bash
+curl -s \
+  -H "Authorization: Token $NETBOX_API_TOKEN" \
+  -H "Accept: application/json" \
+  "$NETBOX_SERVER_URL/api/ipam/ip-addresses/?q=192.0.2.10" \
+  | jq '.count'
+```
+
+Expected:
+
+```text
+0
+```
+
+Verify the vSphere VM is gone:
+
+```bash
+govc find / -type m -name 'cluster-a-test-01'
+```
+
+Expected: no output.
+
+Layer responsible:
+
+```text
+Terraform destroy plus post-destroy NetBox and vCenter verification
+```
+
+Successful result:
+
+```text
+create -> manage -> verify idempotency -> destroy -> cleanup NetBox and vSphere
+```
+
+## Temporary Test Cleanup
 
 For each destructive or collision test:
 

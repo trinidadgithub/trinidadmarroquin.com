@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Backup on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/backup/</link>
+    <link>https://trinidadmarroquin.com/tags/backup/</link>
     <description>Recent content in Backup on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/backup/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/backup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>etcd Backup, Restore, And Disaster Recovery</title>
-      <link>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</link>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</guid>
       <description>Field note for etcd snapshot and restore procedures in Kubernetes clusters: automated backups, restore validation, cluster rebuild from snapshot, and recovery patterns for RKE2.</description>
     </item>
   </channel>

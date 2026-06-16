@@ -2,151 +2,151 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Kubernetes on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/kubernetes/</link>
+    <link>https://trinidadmarroquin.com/tags/kubernetes/</link>
     <description>Recent content in Kubernetes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Fri, 12 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NetBox Bulk Import Order For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</guid>
       <description>Field note for importing Kubernetes VM node inventory into NetBox using ordered device, interface, and IP address CSV files.</description>
     </item>
     <item>
       <title>Network Saturation Evidence Checklist</title>
-      <link>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</guid>
       <description>Field note for separating real node saturation, healthy-but-noisy control-plane traffic, and external backup or replication traffic during Kubernetes network incidents.</description>
     </item>
     <item>
       <title>Rancher Remotedialer Network Symptoms</title>
-      <link>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</guid>
       <description>Field note for recognizing Rancher cluster-agent, remotedialer, ingress, and websocket symptoms during network congestion or load balancer instability.</description>
     </item>
     <item>
       <title>When Network Saturation Looks Like Rancher Trouble</title>
-      <link>http://localhost:1313/posts/rancher-network-saturation-symptoms/</link>
+      <link>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/rancher-network-saturation-symptoms/</guid>
+      <guid>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</guid>
       <description>An incident-style walkthrough of a Rancher traffic anomaly where control-plane symptoms pointed at remotedialer instability, but the likely trigger was backup-window network saturation.</description>
     </item>
     <item>
       <title>DNS Search Domain Debugging With systemd-resolved</title>
-      <link>http://localhost:1313/field-notes/dns-search-domain-debugging/</link>
+      <link>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/dns-search-domain-debugging/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</guid>
       <description>Commands for identifying which layer is injecting a DNS search domain — netplan, systemd-resolved global, or per-link — and how to fix each at runtime.</description>
     </item>
     <item>
       <title>DNS Search Domain Hygiene Across Multi-Site Clusters</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
       <description>Operating pattern for maintaining consistent DNS search domain state across RKE2 clusters: audit, stage, runtime fix, and drift detection across three resolver layers.</description>
     </item>
     <item>
       <title>etcd Backup, Restore, And Disaster Recovery</title>
-      <link>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</link>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</guid>
       <description>Field note for etcd snapshot and restore procedures in Kubernetes clusters: automated backups, restore validation, cluster rebuild from snapshot, and recovery patterns for RKE2.</description>
     </item>
     <item>
       <title>etcd Member Management And Cluster Health</title>
-      <link>http://localhost:1313/field-notes/etcd-member-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-member-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/etcd-member-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-member-management/</guid>
       <description>Field note for etcd member lifecycle: adding and removing members, quorum safety, endpoint health, alarm management, and common failure modes in RKE2 clusters.</description>
     </item>
     <item>
       <title>Helm And Terraform Boundary On EKS</title>
-      <link>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</link>
+      <link>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</guid>
       <description>Field note for the Terraform-managed Helm release pattern on EKS, keeping infrastructure provisioning separate from application deployment configuration.</description>
     </item>
     <item>
       <title>Helm And Terraform Validation Strategy</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
       <description>Project notes for validating Helm-rendered Kubernetes manifests and Terraform-managed Helm releases before deployment.</description>
     </item>
     <item>
       <title>Kubernetes Platform Conventions</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</guid>
       <description>Platform conventions for Kubernetes namespaces, ingress, storage, labels, policies, and ownership patterns that reduce operational drift.</description>
     </item>
     <item>
       <title>Kubernetes Upgrade Sequencing</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
     </item>
     <item>
       <title>Longhorn To Enterprise Storage Migration Patterns</title>
-      <link>http://localhost:1313/field-notes/longhorn-enterprise-storage-migration/</link>
+      <link>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/longhorn-enterprise-storage-migration/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</guid>
       <description>Field note for migrating Kubernetes storage from Longhorn to enterprise storage platforms: volume migration strategies, application downtime expectations, PVC rebinding, and validation checks before and after migration.</description>
     </item>
     <item>
       <title>Multi-Site RKE2 Operations: Lessons From The Fleet</title>
-      <link>http://localhost:1313/posts/multi-site-rke2-lessons/</link>
+      <link>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/multi-site-rke2-lessons/</guid>
+      <guid>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</guid>
       <description>Operational lessons from running RKE2 clusters across multiple data centers: inventory design, node naming conventions, upgrade sequencing across sites, and the patterns that break first at scale.</description>
     </item>
     <item>
       <title>Rancher Fleet Standards</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
       <description>Operating standards for Rancher-managed Kubernetes fleets, including Active Directory authentication, break-glass access, RBAC, Fleet GitRepo organization, and cluster ownership.</description>
     </item>
     <item>
       <title>Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters</title>
-      <link>http://localhost:1313/posts/dns-search-domain-remediation/</link>
+      <link>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/dns-search-domain-remediation/</guid>
+      <guid>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</guid>
       <description>A production walkthrough of auditing, diagnosing, and remediating DNS search domain drift across five RKE2 cluster sites, including netplan staging, systemd-resolved link-level debugging, and a Subiquity YAML indentation trap.</description>
     </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
-      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
       <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
     </item>
     <item>
       <title>vCenter Automation Integration Points</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</guid>
       <description>Initial model for vCenter integration points with Terraform, Packer, Kubernetes nodes, CSI storage, and backup workflows.</description>
     </item>
     <item>
       <title>vSphere CSI Attach And Mount Checklist</title>
-      <link>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</guid>
       <description>Field note for checking Kubernetes PVCs, StorageClasses, VolumeAttachments, worker VM disk UUID settings, and vSphere CSI mount readiness.</description>
     </item>
     <item>
       <title>iSCSI Bootstrap Readiness For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
+      <link>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
       <description>Field note for preparing Kubernetes nodes with iSCSI networking, discovery, sessions, and CSI-ready storage behavior.</description>
     </item>
   </channel>

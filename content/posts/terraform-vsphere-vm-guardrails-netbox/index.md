@@ -1,8 +1,8 @@
 +++
-title = 'Building Guardrails Before Terraform Creates vSphere VMs'
+title = 'Building Guardrails Around Terraform vSphere VM Lifecycle'
 date = 2026-06-15T00:00:00-05:00
 draft = false
-description = 'A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.'
+description = 'A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.'
 tags = ['terraform', 'vsphere', 'netbox', 'automation', 'sre', 'operations']
 categories = ['notes']
 +++
@@ -13,7 +13,7 @@ A VM name might already exist in vCenter. An IP might already be active on the n
 
 The fix was not one control. It was a guardrail stack.
 
-The goal was clear: before Terraform creates a vSphere VM, prove that the planned VM name and IP are safe across the systems that already know about infrastructure.
+The goal was clear: before Terraform creates a vSphere VM, prove that the planned VM name and IP are safe across the systems that already know about infrastructure. After the test VM is no longer needed, prove Terraform also removes the NetBox and vSphere objects it created.
 
 ## The Boundary That Matters
 
@@ -36,6 +36,7 @@ Terraform variable validation
   -> NetBox provider resources
   -> preflight checks against NetBox, vCenter, DNS, and network liveness
   -> vSphere VM creation
+  -> destroy plan verification and cleanup checks
 ```
 
 Each layer catches a different class of mistake.
@@ -129,6 +130,33 @@ A skipped check is acceptable when it is explicit. A silently weakened check is 
 
 If vCenter checks are enabled and `govc` is not configured, the safe behavior is to fail with a clear message. Operators can rerun with `--skip-govc` when that is intentional.
 
+## Teardown Hygiene Matters Too
+
+Creation guardrails prevent clobbering existing infrastructure. Teardown guardrails prevent leaving stale source-of-truth records behind.
+
+The destroy path was tested as part of the same lifecycle. A disposable VM was created, managed, checked for idempotency, then destroyed. The expected destroy plan included both NetBox and vSphere resources:
+
+```text
+netbox_primary_ip
+netbox_ip_address
+netbox_interface
+netbox_virtual_machine
+vsphere_virtual_machine
+```
+
+After `terraform apply destroy.tfplan`, the cleanup checks verified:
+
+- Terraform state no longer listed the managed resources.
+- NetBox no longer returned the VM record.
+- NetBox no longer returned the IP address record.
+- `govc find` no longer returned the vSphere VM.
+
+That proves the full lifecycle, not just safe allocation:
+
+```text
+create -> manage -> verify idempotency -> destroy -> cleanup NetBox and vSphere
+```
+
 ## What Was Tested
 
 The guardrail stack was tested against the failure modes that matter:
@@ -146,16 +174,17 @@ The guardrail stack was tested against the failure modes that matter:
 - preflight without NetBox credentials.
 - NetBox cluster missing.
 - NetBox unreachable.
+- teardown removes Terraform-managed NetBox and vSphere objects.
 
 The important result was not that every command succeeded. The important result was that each unsafe condition failed in the correct place.
 
-Some failures belong in `terraform plan`. Some belong in preflight. Some belong in provider lookups. The operator should know which layer is responsible for each class of risk.
+Some failures belong in `terraform plan`. Some belong in preflight. Some belong in provider lookups. Teardown hygiene belongs in destroy-plan review and post-destroy verification. The operator should know which layer is responsible for each class of risk.
 
 ## The Practical Lesson
 
 Guardrails should be close to the action they protect.
 
-Terraform validation catches mistakes in Terraform input. NetBox provider resources protect source-of-truth ownership. vCenter, DNS, and nmap preflight checks catch reality outside Terraform and NetBox.
+Terraform validation catches mistakes in Terraform input. NetBox provider resources protect source-of-truth ownership. vCenter, DNS, and nmap preflight checks catch reality outside Terraform and NetBox. Destroy verification closes the loop by proving the automation cleans up the same objects it created.
 
 The strongest design was not “trust NetBox” or “trust Terraform.” It was:
 
@@ -163,7 +192,7 @@ The strongest design was not “trust NetBox” or “trust Terraform.” It was
 Trust each system only for the thing it can actually prove.
 ```
 
-Then make the VM creation step depend on those proofs.
+Then make the VM creation step depend on those proofs, and make teardown verification part of the lifecycle test.
 
 Related Field Notes:
 

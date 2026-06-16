@@ -2,123 +2,123 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Cicd on Trinidad Marroquin</title>
-    <link>http://localhost:1313/tags/cicd/</link>
+    <link>https://trinidadmarroquin.com/tags/cicd/</link>
     <description>Recent content in Cicd on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blue-Green Deployment With NGINX</title>
-      <link>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</guid>
       <description>Field note for blue-green deployment mechanics using NGINX upstream switching, covering manual and weighted patterns.</description>
     </item>
     <item>
       <title>Canary Deployments With HAProxy Weighted Routing</title>
-      <link>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</link>
+      <link>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
       <description>Field note for canary deployment mechanics using HAProxy weighted backends to control blast radius during rollout.</description>
     </item>
     <item>
       <title>Concourse CI/CD On Windows With Terraform</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
       <description>Project notes for deploying Concourse CI/CD on Windows Docker with Terraform, TLS key management, PowerShell provisioners, and production pipeline patterns.</description>
     </item>
     <item>
       <title>Concourse Infrastructure Workflows</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
       <description>Initial Concourse workflow patterns for infrastructure repositories, platform changes, promotion, and failure visibility.</description>
     </item>
     <item>
       <title>Concourse Key Management With Vault Bootstrap</title>
-      <link>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/</guid>
       <description>Field note for bootstrapping Concourse CI/CD keys with HashiCorp Vault using Terraform, covering TSA key architecture and runtime secret retrieval.</description>
     </item>
     <item>
       <title>Deployment Strategy Labs</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
       <description>Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.</description>
     </item>
     <item>
       <title>Feature Toggles With Environment Variables</title>
-      <link>http://localhost:1313/field-notes/feature-toggles-environment-variables/</link>
+      <link>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/feature-toggles-environment-variables/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</guid>
       <description>Field note for using environment variables as feature toggles, including cross-language patterns and the limits of the approach.</description>
     </item>
     <item>
       <title>GitOps For Infrastructure Teams</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
       <description>Project page for GitOps patterns applied to infrastructure operations: pipeline-controlled infrastructure, platform tenant workflows, fleet-wide change orchestration, and the operating model that makes GitOps practical for platform teams.</description>
     </item>
     <item>
       <title>GitOps Pipeline Patterns For Platform Teams</title>
-      <link>http://localhost:1313/field-notes/gitops-pipeline-patterns/</link>
+      <link>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/gitops-pipeline-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</guid>
       <description>Field note for GitOps pipeline patterns in infrastructure teams: change pipelines, fleet rollouts, tenant onboarding, and the operating model that keeps Git as the single source of truth.</description>
     </item>
     <item>
       <title>Helm And Terraform Boundary On EKS</title>
-      <link>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</link>
+      <link>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</guid>
       <description>Field note for the Terraform-managed Helm release pattern on EKS, keeping infrastructure provisioning separate from application deployment configuration.</description>
     </item>
     <item>
       <title>Helm And Terraform Validation Strategy</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
       <description>Project notes for validating Helm-rendered Kubernetes manifests and Terraform-managed Helm releases before deployment.</description>
     </item>
     <item>
       <title>Operating In A GitOps Environment: Practices That Hold Up</title>
-      <link>http://localhost:1313/posts/operating-in-gitops/</link>
+      <link>https://trinidadmarroquin.com/posts/operating-in-gitops/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/operating-in-gitops/</guid>
+      <guid>https://trinidadmarroquin.com/posts/operating-in-gitops/</guid>
       <description>Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.</description>
     </item>
     <item>
       <title>Pipeline Credential Handling And Promotion</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
       <description>Initial practices for CI/CD credential handling, pipeline resources, environment promotion, and branch-based controls.</description>
     </item>
     <item>
       <title>Pipeline Validation Planning And Apply Stages</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
     <item>
       <title>Rollback Strategies With Sentinel Files And Package Management</title>
-      <link>http://localhost:1313/field-notes/rollback-sentinel-package-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rollback-sentinel-package-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
       <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
     <item>
       <title>Secret Handling In Terraform Managed Labs</title>
-      <link>http://localhost:1313/field-notes/terraform-lab-secret-handling/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-lab-secret-handling/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
       <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
     </item>
   </channel>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Building Guardrails Before Terraform Creates vSphere VMs | Trinidad Marroquin</title>
+<title>Building Guardrails Around Terraform vSphere VM Lifecycle | Trinidad Marroquin</title>
 <meta name="keywords" content="terraform, vsphere, netbox, automation, sre, operations">
-<meta name="description" content="A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.">
+<meta name="description" content="A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.">
 <meta name="author" content="Trinidad Marroquin">
-<link rel="canonical" href="http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/">
+<link rel="canonical" href="https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.40c9e9a23b839d241bbe1ace530d4f5f0918782c06b4eb25b1821bc15b180bac.css" integrity="sha256-QMnpojuDnSQbvhrOUw1PXwkYeCwGtOslsYIbwVsYC6w=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/">
 <noscript>
     <style>
         #theme-toggle,
@@ -86,10 +86,10 @@
   font-size: 0.8em;
   white-space: pre;
 }
-</style><meta property="og:url" content="http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/">
+</style><meta property="og:url" content="https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/">
   <meta property="og:site_name" content="Trinidad Marroquin">
-  <meta property="og:title" content="Building Guardrails Before Terraform Creates vSphere VMs">
-  <meta property="og:description" content="A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.">
+  <meta property="og:title" content="Building Guardrails Around Terraform vSphere VM Lifecycle">
+  <meta property="og:description" content="A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -103,8 +103,8 @@
     <meta property="article:tag" content="Operations">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Building Guardrails Before Terraform Creates vSphere VMs">
-  <meta name="twitter:description" content="A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.">
+  <meta name="twitter:title" content="Building Guardrails Around Terraform vSphere VM Lifecycle">
+  <meta name="twitter:description" content="A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.">
 
 
 <script type="application/ld+json">
@@ -116,13 +116,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Blog",
-      "item": "http://localhost:1313/posts/"
+      "item": "https://trinidadmarroquin.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Building Guardrails Before Terraform Creates vSphere VMs",
-      "item": "http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/"
+      "name": "Building Guardrails Around Terraform vSphere VM Lifecycle",
+      "item": "https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/"
     }
   ]
 }
@@ -131,14 +131,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Building Guardrails Before Terraform Creates vSphere VMs",
-  "name": "Building Guardrails Before Terraform Creates vSphere VMs",
-  "description": "A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.",
+  "headline": "Building Guardrails Around Terraform vSphere VM Lifecycle",
+  "name": "Building Guardrails Around Terraform vSphere VM Lifecycle",
+  "description": "A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.",
   "keywords": [
     "terraform", "vsphere", "netbox", "automation", "sre", "operations"
   ],
-  "articleBody": "The dangerous failure mode was simple: Terraform could be technically correct and still create the wrong thing.\nA VM name might already exist in vCenter. An IP might already be active on the network but missing from NetBox. DNS might still resolve from an older system. NetBox might be unavailable. A plan might look routine while carrying enough ambiguity to clobber an existing workload.\nThe fix was not one control. It was a guardrail stack.\nThe goal was clear: before Terraform creates a vSphere VM, prove that the planned VM name and IP are safe across the systems that already know about infrastructure.\nThe Boundary That Matters For VM provisioning, Terraform usually owns desired state, but it is not the only source of truth.\nThe real environment also has:\nvCenter inventory. NetBox VM and IPAM records. DNS forward records. reverse DNS records. live hosts responding on the network. If Terraform only validates its own input map, it can catch duplicate values inside the plan but miss everything that already exists outside the plan.\nThat is why the guardrails were split into layers:\nTerraform variable validation -\u003e NetBox provider resources -\u003e preflight checks against NetBox, vCenter, DNS, and network liveness -\u003e vSphere VM creation Each layer catches a different class of mistake.\nTerraform Validation Catches Local Mistakes The first layer was inside the Terraform module. VM names and IPv4 addresses must be unique inside the planned VM map.\nThat catches problems like:\nvm-a -\u003e 192.0.2.10 vm-b -\u003e 192.0.2.10 or:\nkey-a -\u003e name = worker-01 key-b -\u003e name = worker-01 Those failures should happen during terraform plan, before any provider starts creating infrastructure.\nThis layer is useful, but it only knows what is in the configuration.\nNetBox First, vSphere Second The stronger pattern was to make NetBox ownership explicit before creating the vSphere VM.\nThe module planned NetBox records for:\nvirtual machine. interface. IP address. primary IPv4 relationship. Then the vSphere VM depended on the NetBox primary IP relationship.\nThat dependency is important. It makes NetBox more than documentation. It becomes a provisioning gate.\nIf NetBox already has the VM name, the NetBox VM resource fails. If NetBox already has the IP address, the NetBox IP resource fails. If NetBox is down or the cluster lookup fails, Terraform fails before vSphere creation proceeds.\nThat is the desired fail-closed behavior.\nNetBox unavailable -\u003e Terraform cannot resolve/create NetBox records -\u003e vSphere VM is not created Why Preflight Still Matters NetBox-first provisioning is not enough by itself.\nThere are real situations where NetBox is incomplete or stale:\na VM exists in vCenter but not in NetBox. an IP responds on the network but has no IPAM record. a DNS record still resolves after a system was removed. reverse DNS points to an old hostname. govc is missing configuration and the vCenter check silently becomes useless. Those are exactly the cases a preflight script should catch.\nThe preflight workflow used the Terraform plan JSON as input:\nterraform plan -out=tfplan terraform show -json tfplan \u003e tfplan.json ./scripts/preflight-vm-guardrails.sh --plan-json tfplan.json From that plan, the script can inspect the planned VM names and static IP addresses, then check external systems before apply.\nThe Checks That Paid Off The useful preflight checks were intentionally boring:\nquery NetBox for planned VM names. query NetBox for planned IP addresses. query vCenter with govc for planned VM names. resolve planned VM names with getent hosts. check reverse DNS with dig -x or getent. probe planned IPs with nmap -sn -n. fail explicitly if govc is required but not configured. The last point matters more than it looks.\nA skipped check is acceptable when it is explicit. A silently weakened check is not.\nIf vCenter checks are enabled and govc is not configured, the safe behavior is to fail with a clear message. Operators can rerun with --skip-govc when that is intentional.\nWhat Was Tested The guardrail stack was tested against the failure modes that matter:\nclean new VM. duplicate IP inside Terraform config. duplicate VM name inside Terraform config. IP already exists in NetBox. VM name already exists in NetBox. VM exists in vCenter but not NetBox. IP is active on the network but not in NetBox. reverse DNS exists. forward DNS exists for the VM name. NetBox enabled without provider credentials. preflight without NetBox credentials. NetBox cluster missing. NetBox unreachable. The important result was not that every command succeeded. The important result was that each unsafe condition failed in the correct place.\nSome failures belong in terraform plan. Some belong in preflight. Some belong in provider lookups. The operator should know which layer is responsible for each class of risk.\nThe Practical Lesson Guardrails should be close to the action they protect.\nTerraform validation catches mistakes in Terraform input. NetBox provider resources protect source-of-truth ownership. vCenter, DNS, and nmap preflight checks catch reality outside Terraform and NetBox.\nThe strongest design was not “trust NetBox” or “trust Terraform.” It was:\nTrust each system only for the thing it can actually prove. Then make the VM creation step depend on those proofs.\nRelated Field Notes:\nNetBox First Ownership For vSphere VM Provisioning Terraform vSphere VM Preflight Guardrails Terraform VM Guardrail Test Matrix ",
-  "wordCount" : "858",
+  "articleBody": "The dangerous failure mode was simple: Terraform could be technically correct and still create the wrong thing.\nA VM name might already exist in vCenter. An IP might already be active on the network but missing from NetBox. DNS might still resolve from an older system. NetBox might be unavailable. A plan might look routine while carrying enough ambiguity to clobber an existing workload.\nThe fix was not one control. It was a guardrail stack.\nThe goal was clear: before Terraform creates a vSphere VM, prove that the planned VM name and IP are safe across the systems that already know about infrastructure. After the test VM is no longer needed, prove Terraform also removes the NetBox and vSphere objects it created.\nThe Boundary That Matters For VM provisioning, Terraform usually owns desired state, but it is not the only source of truth.\nThe real environment also has:\nvCenter inventory. NetBox VM and IPAM records. DNS forward records. reverse DNS records. live hosts responding on the network. If Terraform only validates its own input map, it can catch duplicate values inside the plan but miss everything that already exists outside the plan.\nThat is why the guardrails were split into layers:\nTerraform variable validation -\u003e NetBox provider resources -\u003e preflight checks against NetBox, vCenter, DNS, and network liveness -\u003e vSphere VM creation -\u003e destroy plan verification and cleanup checks Each layer catches a different class of mistake.\nTerraform Validation Catches Local Mistakes The first layer was inside the Terraform module. VM names and IPv4 addresses must be unique inside the planned VM map.\nThat catches problems like:\nvm-a -\u003e 192.0.2.10 vm-b -\u003e 192.0.2.10 or:\nkey-a -\u003e name = worker-01 key-b -\u003e name = worker-01 Those failures should happen during terraform plan, before any provider starts creating infrastructure.\nThis layer is useful, but it only knows what is in the configuration.\nNetBox First, vSphere Second The stronger pattern was to make NetBox ownership explicit before creating the vSphere VM.\nThe module planned NetBox records for:\nvirtual machine. interface. IP address. primary IPv4 relationship. Then the vSphere VM depended on the NetBox primary IP relationship.\nThat dependency is important. It makes NetBox more than documentation. It becomes a provisioning gate.\nIf NetBox already has the VM name, the NetBox VM resource fails. If NetBox already has the IP address, the NetBox IP resource fails. If NetBox is down or the cluster lookup fails, Terraform fails before vSphere creation proceeds.\nThat is the desired fail-closed behavior.\nNetBox unavailable -\u003e Terraform cannot resolve/create NetBox records -\u003e vSphere VM is not created Why Preflight Still Matters NetBox-first provisioning is not enough by itself.\nThere are real situations where NetBox is incomplete or stale:\na VM exists in vCenter but not in NetBox. an IP responds on the network but has no IPAM record. a DNS record still resolves after a system was removed. reverse DNS points to an old hostname. govc is missing configuration and the vCenter check silently becomes useless. Those are exactly the cases a preflight script should catch.\nThe preflight workflow used the Terraform plan JSON as input:\nterraform plan -out=tfplan terraform show -json tfplan \u003e tfplan.json ./scripts/preflight-vm-guardrails.sh --plan-json tfplan.json From that plan, the script can inspect the planned VM names and static IP addresses, then check external systems before apply.\nThe Checks That Paid Off The useful preflight checks were intentionally boring:\nquery NetBox for planned VM names. query NetBox for planned IP addresses. query vCenter with govc for planned VM names. resolve planned VM names with getent hosts. check reverse DNS with dig -x or getent. probe planned IPs with nmap -sn -n. fail explicitly if govc is required but not configured. The last point matters more than it looks.\nA skipped check is acceptable when it is explicit. A silently weakened check is not.\nIf vCenter checks are enabled and govc is not configured, the safe behavior is to fail with a clear message. Operators can rerun with --skip-govc when that is intentional.\nTeardown Hygiene Matters Too Creation guardrails prevent clobbering existing infrastructure. Teardown guardrails prevent leaving stale source-of-truth records behind.\nThe destroy path was tested as part of the same lifecycle. A disposable VM was created, managed, checked for idempotency, then destroyed. The expected destroy plan included both NetBox and vSphere resources:\nnetbox_primary_ip netbox_ip_address netbox_interface netbox_virtual_machine vsphere_virtual_machine After terraform apply destroy.tfplan, the cleanup checks verified:\nTerraform state no longer listed the managed resources. NetBox no longer returned the VM record. NetBox no longer returned the IP address record. govc find no longer returned the vSphere VM. That proves the full lifecycle, not just safe allocation:\ncreate -\u003e manage -\u003e verify idempotency -\u003e destroy -\u003e cleanup NetBox and vSphere What Was Tested The guardrail stack was tested against the failure modes that matter:\nclean new VM. duplicate IP inside Terraform config. duplicate VM name inside Terraform config. IP already exists in NetBox. VM name already exists in NetBox. VM exists in vCenter but not NetBox. IP is active on the network but not in NetBox. reverse DNS exists. forward DNS exists for the VM name. NetBox enabled without provider credentials. preflight without NetBox credentials. NetBox cluster missing. NetBox unreachable. teardown removes Terraform-managed NetBox and vSphere objects. The important result was not that every command succeeded. The important result was that each unsafe condition failed in the correct place.\nSome failures belong in terraform plan. Some belong in preflight. Some belong in provider lookups. Teardown hygiene belongs in destroy-plan review and post-destroy verification. The operator should know which layer is responsible for each class of risk.\nThe Practical Lesson Guardrails should be close to the action they protect.\nTerraform validation catches mistakes in Terraform input. NetBox provider resources protect source-of-truth ownership. vCenter, DNS, and nmap preflight checks catch reality outside Terraform and NetBox. Destroy verification closes the loop by proving the automation cleans up the same objects it created.\nThe strongest design was not “trust NetBox” or “trust Terraform.” It was:\nTrust each system only for the thing it can actually prove. Then make the VM creation step depend on those proofs, and make teardown verification part of the lifecycle test.\nRelated Field Notes:\nNetBox First Ownership For vSphere VM Provisioning Terraform vSphere VM Preflight Guardrails Terraform VM Guardrail Test Matrix ",
+  "wordCount" : "1041",
   "inLanguage": "en",
   "datePublished": "2026-06-15T00:00:00-05:00",
   "dateModified": "2026-06-15T00:00:00-05:00",
@@ -148,14 +148,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/"
+    "@id": "https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/"
   },
   "publisher": {
     "@type": "Person",
     "name": "Trinidad Marroquin",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "https://trinidadmarroquin.com/favicon.ico"
     }
   }
 }
@@ -165,7 +165,7 @@
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
             <div class="logo-switches">
                 <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -191,42 +191,42 @@
         </div>
         <ul id="menu" class="menu">
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://trinidadmarroquin.com/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects/" title="Projects">
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
                     <span>Projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/field-notes/" title="Field Notes">
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
                     <span>Field Notes</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/posts/" title="Blog">
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
                     <span>Blog</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Topics">
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
                     <span>Topics</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Articles">
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
                     <span>Articles</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/resume/" title="Resume">
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
                     <span>Resume</span>
                 </a>
             </li>
@@ -250,10 +250,10 @@
     </svg>
 </nav>
     <h1 class="post-title entry-hint-parent">
-      Building Guardrails Before Terraform Creates vSphere VMs
+      Building Guardrails Around Terraform vSphere VM Lifecycle
     </h1>
     <div class="post-description">
-      A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.
+      A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.
     </div>
     <div class="post-meta">
 
@@ -264,7 +264,7 @@
   <div class="post-content md-content"><p>The dangerous failure mode was simple: Terraform could be technically correct and still create the wrong thing.</p>
 <p>A VM name might already exist in vCenter. An IP might already be active on the network but missing from NetBox. DNS might still resolve from an older system. NetBox might be unavailable. A plan might look routine while carrying enough ambiguity to clobber an existing workload.</p>
 <p>The fix was not one control. It was a guardrail stack.</p>
-<p>The goal was clear: before Terraform creates a vSphere VM, prove that the planned VM name and IP are safe across the systems that already know about infrastructure.</p>
+<p>The goal was clear: before Terraform creates a vSphere VM, prove that the planned VM name and IP are safe across the systems that already know about infrastructure. After the test VM is no longer needed, prove Terraform also removes the NetBox and vSphere objects it created.</p>
 <h2 id="the-boundary-that-matters">The Boundary That Matters<a hidden class="anchor" aria-hidden="true" href="#the-boundary-that-matters">#</a></h2>
 <p>For VM provisioning, Terraform usually owns desired state, but it is not the only source of truth.</p>
 <p>The real environment also has:</p>
@@ -281,6 +281,7 @@
 </span></span><span class="line"><span class="cl">  -&gt; NetBox provider resources
 </span></span><span class="line"><span class="cl">  -&gt; preflight checks against NetBox, vCenter, DNS, and network liveness
 </span></span><span class="line"><span class="cl">  -&gt; vSphere VM creation
+</span></span><span class="line"><span class="cl">  -&gt; destroy plan verification and cleanup checks
 </span></span></code></pre></div><p>Each layer catches a different class of mistake.</p>
 <h2 id="terraform-validation-catches-local-mistakes">Terraform Validation Catches Local Mistakes<a hidden class="anchor" aria-hidden="true" href="#terraform-validation-catches-local-mistakes">#</a></h2>
 <p>The first layer was inside the Terraform module. VM names and IPv4 addresses must be unique inside the planned VM map.</p>
@@ -338,7 +339,24 @@
 <p>The last point matters more than it looks.</p>
 <p>A skipped check is acceptable when it is explicit. A silently weakened check is not.</p>
 <p>If vCenter checks are enabled and <code>govc</code> is not configured, the safe behavior is to fail with a clear message. Operators can rerun with <code>--skip-govc</code> when that is intentional.</p>
-<h2 id="what-was-tested">What Was Tested<a hidden class="anchor" aria-hidden="true" href="#what-was-tested">#</a></h2>
+<h2 id="teardown-hygiene-matters-too">Teardown Hygiene Matters Too<a hidden class="anchor" aria-hidden="true" href="#teardown-hygiene-matters-too">#</a></h2>
+<p>Creation guardrails prevent clobbering existing infrastructure. Teardown guardrails prevent leaving stale source-of-truth records behind.</p>
+<p>The destroy path was tested as part of the same lifecycle. A disposable VM was created, managed, checked for idempotency, then destroyed. The expected destroy plan included both NetBox and vSphere resources:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">netbox_primary_ip
+</span></span><span class="line"><span class="cl">netbox_ip_address
+</span></span><span class="line"><span class="cl">netbox_interface
+</span></span><span class="line"><span class="cl">netbox_virtual_machine
+</span></span><span class="line"><span class="cl">vsphere_virtual_machine
+</span></span></code></pre></div><p>After <code>terraform apply destroy.tfplan</code>, the cleanup checks verified:</p>
+<ul>
+<li>Terraform state no longer listed the managed resources.</li>
+<li>NetBox no longer returned the VM record.</li>
+<li>NetBox no longer returned the IP address record.</li>
+<li><code>govc find</code> no longer returned the vSphere VM.</li>
+</ul>
+<p>That proves the full lifecycle, not just safe allocation:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">create -&gt; manage -&gt; verify idempotency -&gt; destroy -&gt; cleanup NetBox and vSphere
+</span></span></code></pre></div><h2 id="what-was-tested">What Was Tested<a hidden class="anchor" aria-hidden="true" href="#what-was-tested">#</a></h2>
 <p>The guardrail stack was tested against the failure modes that matter:</p>
 <ul>
 <li>clean new VM.</li>
@@ -354,15 +372,16 @@
 <li>preflight without NetBox credentials.</li>
 <li>NetBox cluster missing.</li>
 <li>NetBox unreachable.</li>
+<li>teardown removes Terraform-managed NetBox and vSphere objects.</li>
 </ul>
 <p>The important result was not that every command succeeded. The important result was that each unsafe condition failed in the correct place.</p>
-<p>Some failures belong in <code>terraform plan</code>. Some belong in preflight. Some belong in provider lookups. The operator should know which layer is responsible for each class of risk.</p>
+<p>Some failures belong in <code>terraform plan</code>. Some belong in preflight. Some belong in provider lookups. Teardown hygiene belongs in destroy-plan review and post-destroy verification. The operator should know which layer is responsible for each class of risk.</p>
 <h2 id="the-practical-lesson">The Practical Lesson<a hidden class="anchor" aria-hidden="true" href="#the-practical-lesson">#</a></h2>
 <p>Guardrails should be close to the action they protect.</p>
-<p>Terraform validation catches mistakes in Terraform input. NetBox provider resources protect source-of-truth ownership. vCenter, DNS, and nmap preflight checks catch reality outside Terraform and NetBox.</p>
+<p>Terraform validation catches mistakes in Terraform input. NetBox provider resources protect source-of-truth ownership. vCenter, DNS, and nmap preflight checks catch reality outside Terraform and NetBox. Destroy verification closes the loop by proving the automation cleans up the same objects it created.</p>
 <p>The strongest design was not “trust NetBox” or “trust Terraform.” It was:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Trust each system only for the thing it can actually prove.
-</span></span></code></pre></div><p>Then make the VM creation step depend on those proofs.</p>
+</span></span></code></pre></div><p>Then make the VM creation step depend on those proofs, and make teardown verification part of the lifecycle test.</p>
 <p>Related Field Notes:</p>
 <ul>
 <li><a href="/field-notes/netbox-first-vsphere-vm-ownership/">NetBox First Ownership For vSphere VM Provisioning</a></li>
@@ -375,15 +394,15 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/terraform/">Terraform</a></li>
-      <li><a href="http://localhost:1313/tags/vsphere/">Vsphere</a></li>
-      <li><a href="http://localhost:1313/tags/netbox/">Netbox</a></li>
-      <li><a href="http://localhost:1313/tags/automation/">Automation</a></li>
-      <li><a href="http://localhost:1313/tags/sre/">Sre</a></li>
-      <li><a href="http://localhost:1313/tags/operations/">Operations</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/terraform/">Terraform</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/vsphere/">Vsphere</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/netbox/">Netbox</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/automation/">Automation</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/sre/">Sre</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/operations/">Operations</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/">
+  <a class="next" href="https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/">
     <span class="title">Next »</span>
     <span>NetBox First Ownership For vSphere VM Provisioning</span>
   </a>

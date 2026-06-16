@@ -2,242 +2,242 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Projects on Trinidad Marroquin</title>
-    <link>http://localhost:1313/categories/projects/</link>
+    <link>https://trinidadmarroquin.com/categories/projects/</link>
     <description>Recent content in Projects on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Actionable Alerts And Dashboards</title>
-      <link>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
       <description>Initial guidance for actionable alerts, useful dashboards, ownership, and SRE-style signal quality.</description>
     </item>
     <item>
       <title>AWS Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/aws-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/aws-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/</guid>
       <description>AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.</description>
     </item>
     <item>
       <title>Cloud Account And Environment Organization</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</guid>
       <description>Initial operating model for cloud account, project, subscription, and environment organization.</description>
     </item>
     <item>
       <title>Cloud Networking IAM And Guardrails</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/networking-iam-guardrails/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/networking-iam-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</guid>
       <description>Initial guardrails for cloud networking, IAM, logging, and platform controls.</description>
     </item>
     <item>
       <title>Cloud Provider Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/provider-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/provider-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</guid>
       <description>Initial model for documenting cloud operational patterns by provider and platform discipline.</description>
     </item>
     <item>
       <title>Concourse CI/CD On Windows With Terraform</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
       <description>Project notes for deploying Concourse CI/CD on Windows Docker with Terraform, TLS key management, PowerShell provisioners, and production pipeline patterns.</description>
     </item>
     <item>
       <title>Concourse Infrastructure Workflows</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
       <description>Initial Concourse workflow patterns for infrastructure repositories, platform changes, promotion, and failure visibility.</description>
     </item>
     <item>
       <title>Deployment Strategy Labs</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
       <description>Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.</description>
     </item>
     <item>
       <title>DNS Search Domain Hygiene Across Multi-Site Clusters</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
       <description>Operating pattern for maintaining consistent DNS search domain state across RKE2 clusters: audit, stage, runtime fix, and drift detection across three resolver layers.</description>
     </item>
     <item>
       <title>GCP Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
       <description>GCP-specific operational patterns for project structure, GKE, IAM, networking, and SRE discipline.</description>
     </item>
     <item>
       <title>GitOps For Infrastructure Teams</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
       <description>Project page for GitOps patterns applied to infrastructure operations: pipeline-controlled infrastructure, platform tenant workflows, fleet-wide change orchestration, and the operating model that makes GitOps practical for platform teams.</description>
     </item>
     <item>
       <title>Helm And Terraform Validation Strategy</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
       <description>Project notes for validating Helm-rendered Kubernetes manifests and Terraform-managed Helm releases before deployment.</description>
     </item>
     <item>
       <title>Image Factory Workflow With vSphere And Packer</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</guid>
       <description>Project page for the Packer-based image factory workflow: template pipeline, versioning strategy, cross-site distribution, validation gates, and the operating model that keeps node images consistent across the fleet.</description>
     </item>
     <item>
       <title>Kafka Streams Pipeline With Terraform</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</guid>
       <description>Project notes for building a local Kafka Streams data pipeline managed entirely by Terraform, including broker provisioning, topic creation, and stream processor deployment.</description>
     </item>
     <item>
       <title>Kubernetes Platform Conventions</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</guid>
       <description>Platform conventions for Kubernetes namespaces, ingress, storage, labels, policies, and ownership patterns that reduce operational drift.</description>
     </item>
     <item>
       <title>Kubernetes Upgrade Sequencing</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
     </item>
     <item>
       <title>Log And Metric Naming Conventions</title>
-      <link>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</guid>
       <description>Initial conventions for log fields, metric names, labels, cardinality, and operational searchability.</description>
     </item>
     <item>
       <title>Packer Base Image Hardening</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</guid>
       <description>Initial model for Packer base image hardening, patch cadence, template ownership, and retirement.</description>
     </item>
     <item>
       <title>Packer Image Validation Gates</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</guid>
       <description>Initial validation gates for Packer-built images, including boot, access, agents, cloud-init, storage, and baseline configuration.</description>
     </item>
     <item>
       <title>Packer Image Versioning</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</guid>
       <description>Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.</description>
     </item>
     <item>
       <title>Pipeline Credential Handling And Promotion</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
       <description>Initial practices for CI/CD credential handling, pipeline resources, environment promotion, and branch-based controls.</description>
     </item>
     <item>
       <title>Pipeline Validation Planning And Apply Stages</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
     <item>
       <title>Post-Incident Follow-Up</title>
-      <link>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</guid>
       <description>Initial post-incident follow-up model for timelines, contributing factors, corrective actions, and measurable system improvements.</description>
     </item>
     <item>
       <title>Rancher Fleet Standards</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
       <description>Operating standards for Rancher-managed Kubernetes fleets, including Active Directory authentication, break-glass access, RBAC, Fleet GitRepo organization, and cluster ownership.</description>
     </item>
     <item>
       <title>Terraform Operational Module Boundaries</title>
-      <link>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
       <description>Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.</description>
     </item>
     <item>
       <title>Terraform Plan Review Practices</title>
-      <link>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
       <description>Initial Terraform plan review practices for safer infrastructure changes, state handling, and automation gates.</description>
     </item>
     <item>
       <title>Vault Deployment And Unseal Runbooks</title>
-      <link>http://localhost:1313/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</link>
+      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</guid>
+      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</guid>
       <description>Initial operating model for Vault deployment, initialization, seal and unseal expectations, and recovery runbooks.</description>
     </item>
     <item>
       <title>Vault Policy Auth And Secrets Engines</title>
-      <link>http://localhost:1313/projects/secrets-management-with-vault/policy-auth-secrets-engines/</link>
+      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/secrets-management-with-vault/policy-auth-secrets-engines/</guid>
+      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/</guid>
       <description>Initial standards for Vault policy design, authentication methods, identity mapping, and secrets engine organization.</description>
     </item>
     <item>
       <title>Vault Token Lease Audit And Recovery Practices</title>
-      <link>http://localhost:1313/projects/secrets-management-with-vault/token-lease-audit-recovery/</link>
+      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/secrets-management-with-vault/token-lease-audit-recovery/</guid>
+      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/</guid>
       <description>Initial operating practices for Vault tokens, leases, audit logs, backup, revocation, and recovery.</description>
     </item>
     <item>
       <title>vCenter Automation Integration Points</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</guid>
       <description>Initial model for vCenter integration points with Terraform, Packer, Kubernetes nodes, CSI storage, and backup workflows.</description>
     </item>
     <item>
       <title>vCenter Platform Hygiene</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</guid>
       <description>Initial operating standards for vCenter cluster, datastore, network, template, tag, and permission hygiene.</description>
     </item>
     <item>
       <title>VM Lifecycle Runbooks</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
       <description>Initial runbook model for vCenter VM lifecycle, capacity review, maintenance, and incident response.</description>
     </item>
     <item>
       <title>Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules</title>
-      <link>http://localhost:1313/projects/terraform-vsphere-refactor/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-vsphere-refactor/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</guid>
       <description>A Terraform infrastructure project writeup about reorganizing a vSphere repo into environment roots, shared modules, templates, and archived legacy state.</description>
     </item>
   </channel>

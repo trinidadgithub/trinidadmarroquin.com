@@ -2,613 +2,613 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Home on Trinidad Marroquin</title>
-    <link>http://localhost:1313/</link>
+    <link>https://trinidadmarroquin.com/</link>
     <description>Recent content in Home on Trinidad Marroquin</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Mon, 15 Jun 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://trinidadmarroquin.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building Guardrails Before Terraform Creates vSphere VMs</title>
-      <link>http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/</link>
+      <title>Building Guardrails Around Terraform vSphere VM Lifecycle</title>
+      <link>https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/terraform-vsphere-vm-guardrails-netbox/</guid>
-      <description>A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, and network liveness tests to avoid VM and IP collisions before vSphere creates anything.</description>
+      <guid>https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/</guid>
+      <description>A practical walkthrough of using Terraform validation, NetBox ownership, vCenter checks, DNS checks, network liveness tests, and teardown verification around the vSphere VM lifecycle.</description>
     </item>
     <item>
       <title>NetBox First Ownership For vSphere VM Provisioning</title>
-      <link>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-first-vsphere-vm-ownership/</guid>
-      <description>Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates vSphere virtual machines.</description>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/</guid>
+      <description>Field note for making NetBox VM and IPAM records a fail-closed provisioning gate before Terraform creates and destroys vSphere virtual machines.</description>
     </item>
     <item>
       <title>Terraform VM Guardrail Test Matrix</title>
-      <link>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vm-guardrail-test-matrix/</guid>
-      <description>A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, and fail-closed provider behavior.</description>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/</guid>
+      <description>A reusable test matrix for validating Terraform VM guardrails across duplicate input, NetBox ownership, vCenter inventory, DNS, active IP detection, fail-closed provider behavior, and teardown hygiene.</description>
     </item>
     <item>
       <title>Terraform vSphere VM Preflight Guardrails</title>
-      <link>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vsphere-vm-preflight-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/</guid>
       <description>Field note for checking Terraform-planned vSphere VM names and IPs against NetBox, vCenter, DNS, reverse DNS, and live network responses before apply.</description>
     </item>
     <item>
       <title>AI Agent Guardrails For Infrastructure Writes</title>
-      <link>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
+      <link>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/ai-agent-guardrails-for-infrastructure-writes/</guid>
       <description>Field note for using AI agents safely during infrastructure updates, especially when the agent has tool access but may speculate or lose context.</description>
     </item>
     <item>
       <title>NetBox Bulk Import Order For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-kubernetes-node-bulk-import/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/</guid>
       <description>Field note for importing Kubernetes VM node inventory into NetBox using ordered device, interface, and IP address CSV files.</description>
     </item>
     <item>
       <title>NetBox Primary IP Assignment After Import</title>
-      <link>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netbox-primary-ip-after-import/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/</guid>
       <description>Field note for setting NetBox device primary IPv4 addresses after bulk importing devices, interfaces, and IP assignments.</description>
     </item>
     <item>
       <title>When AI-Assisted Infrastructure Updates Need Guardrails</title>
-      <link>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</link>
+      <link>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/ai-assisted-netbox-inventory-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/</guid>
       <description>A practical reflection on using AI assistance for NetBox inventory work, where tool access helped but evidence, validation, and import discipline mattered more than confident answers.</description>
     </item>
     <item>
       <title>Network Saturation Evidence Checklist</title>
-      <link>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/network-saturation-evidence-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/</guid>
       <description>Field note for separating real node saturation, healthy-but-noisy control-plane traffic, and external backup or replication traffic during Kubernetes network incidents.</description>
     </item>
     <item>
       <title>Rancher Remotedialer Network Symptoms</title>
-      <link>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rancher-remotedialer-network-symptoms/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</guid>
       <description>Field note for recognizing Rancher cluster-agent, remotedialer, ingress, and websocket symptoms during network congestion or load balancer instability.</description>
     </item>
     <item>
       <title>When Network Saturation Looks Like Rancher Trouble</title>
-      <link>http://localhost:1313/posts/rancher-network-saturation-symptoms/</link>
+      <link>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/rancher-network-saturation-symptoms/</guid>
+      <guid>https://trinidadmarroquin.com/posts/rancher-network-saturation-symptoms/</guid>
       <description>An incident-style walkthrough of a Rancher traffic anomaly where control-plane symptoms pointed at remotedialer instability, but the likely trigger was backup-window network saturation.</description>
     </item>
     <item>
       <title>Actionable Alerts And Dashboards</title>
-      <link>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/actionable-alerts-dashboards/</guid>
       <description>Initial guidance for actionable alerts, useful dashboards, ownership, and SRE-style signal quality.</description>
     </item>
     <item>
       <title>AWS Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/aws-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/aws-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/aws-operational-patterns/</guid>
       <description>AWS-specific operational patterns for EKS, networking, IAM, IoT, and workstation tooling.</description>
     </item>
     <item>
       <title>Azure AKS Operations With Terraform</title>
-      <link>http://localhost:1313/field-notes/azure-aks-terraform-operations/</link>
+      <link>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/azure-aks-terraform-operations/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/</guid>
       <description>Field note for provisioning Azure AKS clusters with Terraform, including networking, identity, storage backends, and cross-cloud comparison patterns.</description>
     </item>
     <item>
       <title>Blue-Green Deployment With NGINX</title>
-      <link>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/blue-green-deployment-nginx-swap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/</guid>
       <description>Field note for blue-green deployment mechanics using NGINX upstream switching, covering manual and weighted patterns.</description>
     </item>
     <item>
       <title>Canary Deployments With HAProxy Weighted Routing</title>
-      <link>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</link>
+      <link>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/</guid>
       <description>Field note for canary deployment mechanics using HAProxy weighted backends to control blast radius during rollout.</description>
     </item>
     <item>
       <title>Cloud Account And Environment Organization</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/account-environment-organization/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/</guid>
       <description>Initial operating model for cloud account, project, subscription, and environment organization.</description>
     </item>
     <item>
       <title>Cloud Networking IAM And Guardrails</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/networking-iam-guardrails/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/networking-iam-guardrails/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/</guid>
       <description>Initial guardrails for cloud networking, IAM, logging, and platform controls.</description>
     </item>
     <item>
       <title>Cloud Provider Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/provider-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/provider-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/</guid>
       <description>Initial model for documenting cloud operational patterns by provider and platform discipline.</description>
     </item>
     <item>
       <title>Concourse CI/CD On Windows With Terraform</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/</guid>
       <description>Project notes for deploying Concourse CI/CD on Windows Docker with Terraform, TLS key management, PowerShell provisioners, and production pipeline patterns.</description>
     </item>
     <item>
       <title>Concourse Infrastructure Workflows</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-infrastructure-workflows/</guid>
       <description>Initial Concourse workflow patterns for infrastructure repositories, platform changes, promotion, and failure visibility.</description>
     </item>
     <item>
       <title>Concourse Key Management With Vault Bootstrap</title>
-      <link>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/concourse-vault-key-bootstrap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/</guid>
       <description>Field note for bootstrapping Concourse CI/CD keys with HashiCorp Vault using Terraform, covering TSA key architecture and runtime secret retrieval.</description>
     </item>
     <item>
       <title>Deployment Strategy Labs</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/</guid>
       <description>Project notes for using deployment labs to compare blue-green, canary, feature toggle, rollback, and health-check strategies.</description>
     </item>
     <item>
       <title>DNS Search Domain Debugging With systemd-resolved</title>
-      <link>http://localhost:1313/field-notes/dns-search-domain-debugging/</link>
+      <link>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/dns-search-domain-debugging/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/</guid>
       <description>Commands for identifying which layer is injecting a DNS search domain — netplan, systemd-resolved global, or per-link — and how to fix each at runtime.</description>
     </item>
     <item>
       <title>DNS Search Domain Hygiene Across Multi-Site Clusters</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/</guid>
       <description>Operating pattern for maintaining consistent DNS search domain state across RKE2 clusters: audit, stage, runtime fix, and drift detection across three resolver layers.</description>
     </item>
     <item>
       <title>Docker Stale Binaries In Usr Local Bin</title>
-      <link>http://localhost:1313/field-notes/docker-stale-binaries-path/</link>
+      <link>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/docker-stale-binaries-path/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/</guid>
       <description>Field note for diagnosing Docker failures caused by stale runc and containerd-shim-runc-v2 binaries in /usr/local/bin shadowing package-managed versions.</description>
     </item>
     <item>
       <title>etcd Backup, Restore, And Disaster Recovery</title>
-      <link>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</link>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/etcd-backup-disaster-recovery/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/</guid>
       <description>Field note for etcd snapshot and restore procedures in Kubernetes clusters: automated backups, restore validation, cluster rebuild from snapshot, and recovery patterns for RKE2.</description>
     </item>
     <item>
       <title>etcd Member Management And Cluster Health</title>
-      <link>http://localhost:1313/field-notes/etcd-member-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/etcd-member-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/etcd-member-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/etcd-member-management/</guid>
       <description>Field note for etcd member lifecycle: adding and removing members, quorum safety, endpoint health, alarm management, and common failure modes in RKE2 clusters.</description>
     </item>
     <item>
       <title>Feature Toggles With Environment Variables</title>
-      <link>http://localhost:1313/field-notes/feature-toggles-environment-variables/</link>
+      <link>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/feature-toggles-environment-variables/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/</guid>
       <description>Field note for using environment variables as feature toggles, including cross-language patterns and the limits of the approach.</description>
     </item>
     <item>
       <title>From Local IaC Labs To Production-Ready Patterns</title>
-      <link>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</link>
+      <link>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/local-iac-labs-to-production-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/posts/local-iac-labs-to-production-patterns/</guid>
       <description>A practical SRE view of how local Terraform, Docker, Helm, Kafka, and observability labs can become production-ready infrastructure patterns without pretending the lab is production.</description>
     </item>
     <item>
       <title>GCP Operational Patterns</title>
-      <link>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</link>
+      <link>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cloud-based-platforms/gcp-operational-patterns/</guid>
       <description>GCP-specific operational patterns for project structure, GKE, IAM, networking, and SRE discipline.</description>
     </item>
     <item>
       <title>GitOps For Infrastructure Teams</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/gitops-infrastructure-teams/</guid>
       <description>Project page for GitOps patterns applied to infrastructure operations: pipeline-controlled infrastructure, platform tenant workflows, fleet-wide change orchestration, and the operating model that makes GitOps practical for platform teams.</description>
     </item>
     <item>
       <title>GitOps Pipeline Patterns For Platform Teams</title>
-      <link>http://localhost:1313/field-notes/gitops-pipeline-patterns/</link>
+      <link>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/gitops-pipeline-patterns/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/</guid>
       <description>Field note for GitOps pipeline patterns in infrastructure teams: change pipelines, fleet rollouts, tenant onboarding, and the operating model that keeps Git as the single source of truth.</description>
     </item>
     <item>
       <title>Helm And Terraform Boundary On EKS</title>
-      <link>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</link>
+      <link>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/helm-terraform-eks-deployment/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/</guid>
       <description>Field note for the Terraform-managed Helm release pattern on EKS, keeping infrastructure provisioning separate from application deployment configuration.</description>
     </item>
     <item>
       <title>Helm And Terraform Validation Strategy</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/</guid>
       <description>Project notes for validating Helm-rendered Kubernetes manifests and Terraform-managed Helm releases before deployment.</description>
     </item>
     <item>
       <title>Image Factory Workflow With vSphere And Packer</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-factory-workflow/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/</guid>
       <description>Project page for the Packer-based image factory workflow: template pipeline, versioning strategy, cross-site distribution, validation gates, and the operating model that keeps node images consistent across the fleet.</description>
     </item>
     <item>
       <title>IoT Device Container With Terraform And Certificate Mounts</title>
-      <link>http://localhost:1313/field-notes/iot-docker-terraform-certificates/</link>
+      <link>https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/iot-docker-terraform-certificates/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/</guid>
       <description>Field note for running an AWS IoT device in a Docker container managed by Terraform, focusing on X.509 certificate injection via volume mounts.</description>
     </item>
     <item>
       <title>Kafka KRaft Mode In Docker Compose</title>
-      <link>http://localhost:1313/field-notes/kafka-kraft-docker-compose/</link>
+      <link>https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/kafka-kraft-docker-compose/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/</guid>
       <description>Field note for running Kafka in KRaft mode (no Zookeeper) with Docker Compose for local development and testing.</description>
     </item>
     <item>
       <title>Kafka Readiness Checks In Terraform Docker Labs</title>
-      <link>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</link>
+      <link>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/kafka-readiness-terraform-docker-labs/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/</guid>
       <description>Field note for local Kafka labs where Terraform creates Docker infrastructure, waits for broker readiness, and then creates topics or starts stream processors.</description>
     </item>
     <item>
       <title>Kafka Streams Pipeline With Terraform</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/kafka-streams-terraform-pipeline/</guid>
       <description>Project notes for building a local Kafka Streams data pipeline managed entirely by Terraform, including broker provisioning, topic creation, and stream processor deployment.</description>
     </item>
     <item>
       <title>Kubernetes Platform Conventions</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/platform-conventions/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/platform-conventions/</guid>
       <description>Platform conventions for Kubernetes namespaces, ingress, storage, labels, policies, and ownership patterns that reduce operational drift.</description>
     </item>
     <item>
       <title>Kubernetes Upgrade Sequencing</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/upgrade-sequencing/</guid>
       <description>Upgrade sequencing model for Rancher-managed Kubernetes clusters, including readiness checks, maintenance windows, node drains, PodDisruptionBudgets, rollback planning, and post-upgrade validation.</description>
     </item>
     <item>
       <title>Local SLI Labs With Prometheus Grafana And cAdvisor</title>
-      <link>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
+      <link>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/</guid>
       <description>Field note for using a local Docker and Terraform lab to validate service-level indicators with Prometheus, Grafana, and cAdvisor.</description>
     </item>
     <item>
       <title>Log And Metric Naming Conventions</title>
-      <link>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/log-metric-naming/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/</guid>
       <description>Initial conventions for log fields, metric names, labels, cardinality, and operational searchability.</description>
     </item>
     <item>
       <title>Longhorn To Enterprise Storage Migration Patterns</title>
-      <link>http://localhost:1313/field-notes/longhorn-enterprise-storage-migration/</link>
+      <link>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/longhorn-enterprise-storage-migration/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/</guid>
       <description>Field note for migrating Kubernetes storage from Longhorn to enterprise storage platforms: volume migration strategies, application downtime expectations, PVC rebinding, and validation checks before and after migration.</description>
     </item>
     <item>
       <title>Multi-Site RKE2 Operations: Lessons From The Fleet</title>
-      <link>http://localhost:1313/posts/multi-site-rke2-lessons/</link>
+      <link>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/multi-site-rke2-lessons/</guid>
+      <guid>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</guid>
       <description>Operational lessons from running RKE2 clusters across multiple data centers: inventory design, node naming conventions, upgrade sequencing across sites, and the patterns that break first at scale.</description>
     </item>
     <item>
       <title>Observability Before AI: What Every Operator Needs First</title>
-      <link>http://localhost:1313/field-notes/observability-before-ai/</link>
+      <link>https://trinidadmarroquin.com/field-notes/observability-before-ai/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/observability-before-ai/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/observability-before-ai/</guid>
       <description>Field note for building observability foundations before introducing AI-assisted operations: structured metrics, actionable dashboards, coherent alert routing, and incident response patterns that make AI useful rather than noisy.</description>
     </item>
     <item>
       <title>Operating In A GitOps Environment: Practices That Hold Up</title>
-      <link>http://localhost:1313/posts/operating-in-gitops/</link>
+      <link>https://trinidadmarroquin.com/posts/operating-in-gitops/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/operating-in-gitops/</guid>
+      <guid>https://trinidadmarroquin.com/posts/operating-in-gitops/</guid>
       <description>Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.</description>
     </item>
     <item>
       <title>Packer Base Image Hardening</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/base-image-hardening/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/</guid>
       <description>Initial model for Packer base image hardening, patch cadence, template ownership, and retirement.</description>
     </item>
     <item>
       <title>Packer Image Validation Gates</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-validation-gates/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-validation-gates/</guid>
       <description>Initial validation gates for Packer-built images, including boot, access, agents, cloud-init, storage, and baseline configuration.</description>
     </item>
     <item>
       <title>Packer Image Versioning</title>
-      <link>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</link>
+      <link>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/packer-image-pipelines/image-versioning/</guid>
+      <guid>https://trinidadmarroquin.com/projects/packer-image-pipelines/image-versioning/</guid>
       <description>Initial image versioning model for Packer-built VM templates with rollback, auditability, and change history.</description>
     </item>
     <item>
       <title>Pipeline Credential Handling And Promotion</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/credential-handling-promotion/</guid>
       <description>Initial practices for CI/CD credential handling, pipeline resources, environment promotion, and branch-based controls.</description>
     </item>
     <item>
       <title>Pipeline Validation Planning And Apply Stages</title>
-      <link>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
+      <link>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
+      <guid>https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/</guid>
       <description>Initial CI/CD stage model for validation, planning, approval, apply, and post-deploy verification.</description>
     </item>
     <item>
       <title>Post-Incident Follow-Up</title>
-      <link>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</link>
+      <link>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/observability-incident-response/post-incident-follow-up/</guid>
+      <guid>https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/</guid>
       <description>Initial post-incident follow-up model for timelines, contributing factors, corrective actions, and measurable system improvements.</description>
     </item>
     <item>
       <title>Rancher Fleet Standards</title>
-      <link>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
+      <link>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
+      <guid>https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/</guid>
       <description>Operating standards for Rancher-managed Kubernetes fleets, including Active Directory authentication, break-glass access, RBAC, Fleet GitRepo organization, and cluster ownership.</description>
     </item>
     <item>
       <title>Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters</title>
-      <link>http://localhost:1313/posts/dns-search-domain-remediation/</link>
+      <link>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/dns-search-domain-remediation/</guid>
+      <guid>https://trinidadmarroquin.com/posts/dns-search-domain-remediation/</guid>
       <description>A production walkthrough of auditing, diagnosing, and remediating DNS search domain drift across five RKE2 cluster sites, including netplan staging, systemd-resolved link-level debugging, and a Subiquity YAML indentation trap.</description>
     </item>
     <item>
       <title>Rollback Strategies With Sentinel Files And Package Management</title>
-      <link>http://localhost:1313/field-notes/rollback-sentinel-package-management/</link>
+      <link>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/rollback-sentinel-package-management/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
       <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
     <item>
       <title>Secret Handling In Terraform Managed Labs</title>
-      <link>http://localhost:1313/field-notes/terraform-lab-secret-handling/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-lab-secret-handling/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/</guid>
       <description>Field note for separating acceptable local lab shortcuts from production secret handling when Terraform manages Docker, Grafana, Concourse, or Vault-backed examples.</description>
     </item>
     <item>
       <title>SRE Mindset: Operational Judgment Over Tooling</title>
-      <link>http://localhost:1313/field-notes/sre-mindset/</link>
+      <link>https://trinidadmarroquin.com/field-notes/sre-mindset/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/sre-mindset/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/sre-mindset/</guid>
       <description>Field note for the SRE mindset: how operators think about reliability, error budgets, incident response, toil management, and the decisions that determine whether tooling improves or complicates operations.</description>
     </item>
     <item>
       <title>Terraform Azure Backend Bootstrap</title>
-      <link>http://localhost:1313/field-notes/terraform-azure-backend-bootstrap/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-azure-backend-bootstrap/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</guid>
       <description>Field note for bootstrapping an Azure Storage backend for Terraform state without confusing the first apply with the later remote backend migration.</description>
     </item>
     <item>
       <title>Terraform Operational Module Boundaries</title>
-      <link>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/</guid>
       <description>Initial guidance for Terraform module boundaries that match operational ownership and avoid unnecessary abstraction.</description>
     </item>
     <item>
       <title>Terraform Plan Review Practices</title>
-      <link>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/plan-review-practices/</guid>
       <description>Initial Terraform plan review practices for safer infrastructure changes, state handling, and automation gates.</description>
     </item>
     <item>
       <title>The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering</title>
-      <link>http://localhost:1313/posts/sre-dirty-dozen/</link>
+      <link>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/sre-dirty-dozen/</guid>
+      <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
       <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
     </item>
     <item>
       <title>Troubleshooting Kubernetes Storage Migration To vSphere CSI</title>
-      <link>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/</guid>
       <description>A practical incident walkthrough for Kubernetes monitoring PVC failures, stale CSI storage, vSphere CSI attach and mount validation, and the disk.EnableUUID requirement.</description>
     </item>
     <item>
       <title>Vault Deployment And Unseal Runbooks</title>
-      <link>http://localhost:1313/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</link>
+      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</guid>
+      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/</guid>
       <description>Initial operating model for Vault deployment, initialization, seal and unseal expectations, and recovery runbooks.</description>
     </item>
     <item>
       <title>Vault Policy Auth And Secrets Engines</title>
-      <link>http://localhost:1313/projects/secrets-management-with-vault/policy-auth-secrets-engines/</link>
+      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/secrets-management-with-vault/policy-auth-secrets-engines/</guid>
+      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/</guid>
       <description>Initial standards for Vault policy design, authentication methods, identity mapping, and secrets engine organization.</description>
     </item>
     <item>
       <title>Vault Token Lease Audit And Recovery Practices</title>
-      <link>http://localhost:1313/projects/secrets-management-with-vault/token-lease-audit-recovery/</link>
+      <link>https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/secrets-management-with-vault/token-lease-audit-recovery/</guid>
+      <guid>https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/</guid>
       <description>Initial operating practices for Vault tokens, leases, audit logs, backup, revocation, and recovery.</description>
     </item>
     <item>
       <title>vCenter Automation Integration Points</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/automation-integration-points/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/</guid>
       <description>Initial model for vCenter integration points with Terraform, Packer, Kubernetes nodes, CSI storage, and backup workflows.</description>
     </item>
     <item>
       <title>vCenter Platform Hygiene</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/platform-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/platform-hygiene/</guid>
       <description>Initial operating standards for vCenter cluster, datastore, network, template, tag, and permission hygiene.</description>
     </item>
     <item>
       <title>VM Lifecycle Runbooks</title>
-      <link>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
+      <link>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
+      <guid>https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/</guid>
       <description>Initial runbook model for vCenter VM lifecycle, capacity review, maintenance, and incident response.</description>
     </item>
     <item>
       <title>vSphere CSI Attach And Mount Checklist</title>
-      <link>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</link>
+      <link>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/vsphere-csi-attach-mount-checklist/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/</guid>
       <description>Field note for checking Kubernetes PVCs, StorageClasses, VolumeAttachments, worker VM disk UUID settings, and vSphere CSI mount readiness.</description>
     </item>
     <item>
       <title>Bootstrap Logging, Locks, And Continue-On-Failure Behavior</title>
-      <link>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</link>
+      <link>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/bootstrap-logging-idempotency/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/</guid>
       <description>Field note for making first-boot bootstrap scripts easier to debug by logging each stage, preventing concurrent runs, and summarizing failures.</description>
     </item>
     <item>
       <title>First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap</title>
-      <link>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
+      <link>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
+      <guid>https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/</guid>
       <description>A systems note on assigning clear ownership between Packer templates, Terraform vSphere clones, guest customization, cloud-init, bootstrap scripts, and CSI storage.</description>
     </item>
     <item>
       <title>govc Commands For vSphere VM Verification</title>
-      <link>http://localhost:1313/field-notes/govc-vsphere-verification/</link>
+      <link>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/govc-vsphere-verification/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/</guid>
       <description>Field note with govc commands for finding VMs, checking NIC backing, guestinfo keys, and comparing working versus broken vSphere clones.</description>
     </item>
     <item>
       <title>iSCSI Bootstrap Readiness For Kubernetes Nodes</title>
-      <link>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
+      <link>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/</guid>
       <description>Field note for preparing Kubernetes nodes with iSCSI networking, discovery, sessions, and CSI-ready storage behavior.</description>
     </item>
     <item>
       <title>Netplan Conflicts After VMware Guest Customization</title>
-      <link>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</link>
+      <link>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/netplan-vmware-customization-conflicts/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/</guid>
       <description>Field note for diagnosing duplicate netplan ownership, missing default routes, and DNS drift on vSphere Ubuntu VMs.</description>
     </item>
     <item>
       <title>Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules</title>
-      <link>http://localhost:1313/projects/terraform-vsphere-refactor/</link>
+      <link>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/projects/terraform-vsphere-refactor/</guid>
+      <guid>https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/</guid>
       <description>A Terraform infrastructure project writeup about reorganizing a vSphere repo into environment roots, shared modules, templates, and archived legacy state.</description>
     </item>
     <item>
       <title>Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling</title>
-      <link>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
+      <link>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
+      <guid>https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/</guid>
       <description>A practical SRE note on how refactoring a vSphere Terraform repo exposed coupling between Terraform, Packer, cloud-init, vSphere customization, netplan, bootstrap scripts, and iSCSI.</description>
     </item>
     <item>
       <title>Terraform State Moves During A Module Refactor</title>
-      <link>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-state-move-module-refactor/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/</guid>
       <description>Field note for moving Terraform resources into a module without forcing VM replacement.</description>
     </item>
     <item>
       <title>Terraform Variable File Hygiene</title>
-      <link>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-variable-file-hygiene/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/</guid>
       <description>Field note for separating Terraform inputs, auto-loaded tfvars, govc environment files, and secrets in infrastructure repositories.</description>
     </item>
     <item>
       <title>Terraform vSphere Clone Customization Failures</title>
-      <link>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</link>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/terraform-vsphere-clone-customization-failures/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/</guid>
       <description>Field note for diagnosing Terraform vSphere clone failures caused by VMware guest customization inside the VM.</description>
     </item>
     <item>
       <title>Using LLMs During Infrastructure Troubleshooting Without Turning Off Your Brain</title>
-      <link>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</link>
+      <link>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/llm-assisted-infrastructure-troubleshooting/</guid>
+      <guid>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</guid>
       <description>Practical lessons for using LLMs during infrastructure troubleshooting while preserving operator judgment, validation, and evidence-based debugging.</description>
     </item>
     <item>
       <title>vSphere Guestinfo And Cloud-Init On Cloned VMs</title>
-      <link>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</link>
+      <link>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/field-notes/vsphere-cloud-init-guestinfo/</guid>
+      <guid>https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/</guid>
       <description>Field note for verifying Terraform guestinfo userdata, cloud-init state, and first-boot behavior on vSphere Ubuntu clones.</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://trinidadmarroquin.com/about/</link>
       <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://trinidadmarroquin.com/about/</guid>
       <description>About Trinidad Marroquin, an SRE and DevOps engineer focused on reliable infrastructure and practical automation.</description>
     </item>
     <item>
       <title>Resume</title>
-      <link>http://localhost:1313/resume/</link>
+      <link>https://trinidadmarroquin.com/resume/</link>
       <pubDate>Mon, 08 Jun 2026 12:36:18 -0500</pubDate>
-      <guid>http://localhost:1313/resume/</guid>
+      <guid>https://trinidadmarroquin.com/resume/</guid>
       <description>Resume summary for Trinidad Marroquin, SRE and DevOps engineer.</description>
     </item>
     <item>
       <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>
-      <link>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>http://localhost:1313/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</guid>
       <description>Part 1 of the DevOps Dirty Dozen series: how organizational silos undermine DevOps collaboration and what teams can do about it.</description>
     </item>
   </channel>
