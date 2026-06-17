@@ -199,6 +199,40 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Classifying vSphere Drift After Terraform Import
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After existing vSphere VMs are imported into Terraform state, expect drift.
+The question is not whether drift exists. The question is whether applying that drift is safe.
+Generate The Audit Plan terraform plan -out=audit.tfplan terraform show -json audit.tfplan \ | jq -r &#39;.resource_changes[]? | [.address, .type, (.change.actions | join(&#34;,&#34;))] | @tsv&#39; Start with action types:
+no-op update create delete delete,create For imported production-like nodes, any delete, create, or delete,create action needs explicit review before apply.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Classifying vSphere Drift After Terraform Import" href="https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Drift Audit Report: Bringing Existing Kubernetes VMs Under Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This work was not a greenfield deployment.
+The cluster already existed. The VMs already existed in vSphere. NetBox already had inventory, but some of it was modeled as DCIM devices rather than virtualization virtual machines. Terraform had a reusable module that could manage VM lifecycle state, NetBox VM records, interfaces, IP addresses, and primary IPv4 relationships. The problem was getting from “existing infrastructure” to “managed state” without accidentally changing the running cluster.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Drift Audit Report: Bringing Existing Kubernetes VMs Under Terraform And NetBox" href="https://trinidadmarroquin.com/posts/netbox-terraform-drift-audit-existing-kubernetes-vms/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">NetBox Bulk Import Order For Kubernetes Nodes
     </h2>
   </header>
@@ -330,42 +364,6 @@ Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot stat
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
-For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
-The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
-resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Helm And Terraform Validation Strategy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When Terraform manages Helm releases, validation needs to happen at more than one layer.
-Terraform can show that the helm_release resource is configured. Helm can render templates. Kubernetes can reject invalid manifests. Production can still fail if the workload has no useful health checks or the image tag points at the wrong build.
-Validation Layers A practical validation sequence is:
-terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt; kubectl dry-run -&gt; terraform plan Each step answers a different question:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Helm And Terraform Validation Strategy" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

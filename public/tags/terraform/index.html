@@ -199,6 +199,76 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Classifying vSphere Drift After Terraform Import
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After existing vSphere VMs are imported into Terraform state, expect drift.
+The question is not whether drift exists. The question is whether applying that drift is safe.
+Generate The Audit Plan terraform plan -out=audit.tfplan terraform show -json audit.tfplan \ | jq -r &#39;.resource_changes[]? | [.address, .type, (.change.actions | join(&#34;,&#34;))] | @tsv&#39; Start with action types:
+no-op update create delete delete,create For imported production-like nodes, any delete, create, or delete,create action needs explicit review before apply.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Classifying vSphere Drift After Terraform Import" href="https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Drift Audit Report: Bringing Existing Kubernetes VMs Under Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This work was not a greenfield deployment.
+The cluster already existed. The VMs already existed in vSphere. NetBox already had inventory, but some of it was modeled as DCIM devices rather than virtualization virtual machines. Terraform had a reusable module that could manage VM lifecycle state, NetBox VM records, interfaces, IP addresses, and primary IPv4 relationships. The problem was getting from “existing infrastructure” to “managed state” without accidentally changing the running cluster.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Drift Audit Report: Bringing Existing Kubernetes VMs Under Terraform And NetBox" href="https://trinidadmarroquin.com/posts/netbox-terraform-drift-audit-existing-kubernetes-vms/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox DCIM To Virtualization VM Migration
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>NetBox has more than one way to represent infrastructure.
+A VMware VM imported as a DCIM device may look usable in the UI, but it is not the same object model as a NetBox virtualization virtual machine. Terraform provider resources for NetBox virtualization expect the virtualization model.
+Symptom A known VM does not show up through the virtualization endpoint:
+curl -s \ -H &#34;Authorization: Token $NETBOX_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.count&#39; Expected if it is modeled as a virtualization VM:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox DCIM To Virtualization VM Migration" href="https://trinidadmarroquin.com/field-notes/netbox-dcim-to-virtualization-vm-migration/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Import Workflow For Existing vSphere VMs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this workflow when existing vSphere VMs need to be brought under Terraform state for audit and future lifecycle management.
+The first goal is not to change the VMs. The first goal is to make Terraform aware of them and classify drift.
+Safety Boundary Set the operating rule before importing:
+Import state and audit only. Do not apply full vSphere changes to existing cluster nodes. This avoids turning a state migration into an accidental infrastructure mutation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Import Workflow For Existing vSphere VMs" href="https://trinidadmarroquin.com/field-notes/terraform-import-existing-vsphere-vms/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
     </h2>
   </header>
@@ -303,78 +373,6 @@ terraform init terraform plan -out=tfplan terraform show -json tfplan &gt; tfpla
 
 <span title='2026-06-15 00:00:00 -0500 CDT'>June 15, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform VM Guardrail Test Matrix" href="https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform vSphere VM Preflight Guardrails
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform can validate its own input, but it cannot automatically prove that the outside world is clear.
-Before applying a vSphere VM plan, run preflight checks against the systems that already know about names and addresses.
-After testing a disposable VM, verify destroy cleanup as a separate lifecycle check. Preflight protects allocation. Destroy verification protects source-of-truth hygiene.
-Generate Plan JSON Use the plan as the preflight input:
-terraform plan -out=tfplan terraform show -json tfplan &gt; tfplan.json Then run the guardrail script:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-15 00:00:00 -0500 CDT'>June 15, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform vSphere VM Preflight Guardrails" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Azure AKS Operations With Terraform
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Azure Kubernetes Service follows the same managed-control-plane pattern as EKS and GKE, but the resource model, networking defaults, and identity system are different enough that provider-specific knowledge matters during provisioning.
-For a runnable lab, see the azure directory in the IaC repository.
-Resource Group Structure Everything in Azure lives in a resource group. The AKS cluster, VNet, and NSG are typically in the same group for a lab, but production should separate network infrastructure into a shared resource group owned by the platform team:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Azure AKS Operations With Terraform" href="https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Concourse CI/CD On Windows With Terraform
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Running Concourse CI/CD on Windows Docker is uncommon enough that the setup patterns deserve their own reference. The Terraform provider, key generation, and security hardening steps differ significantly from Linux-based deployments.
-For a complete working example, see the concourse-terraform-windows directory in the IaC repository.
-Docker Transport Windows Docker uses named pipes instead of Unix sockets:
-provider &#34;docker&#34; { host = &#34;npipe:////./pipe/docker_engine&#34; } This is the first thing to verify when a Terraform Docker provider fails on Windows. The connection string is different, and not all provider features work identically on the Windows engine.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Concourse CI/CD On Windows With Terraform" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/concourse-windows-deployment/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Concourse Key Management With Vault Bootstrap
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Concourse requires a set of RSA keys for TSA (Transport Security Authority) authentication between web and worker nodes. Managing these keys is a bootstrapping problem: Concourse needs keys to start, but the keys should live in a secrets store.
-For a runnable lab, see the concourse-terraform-unix directory in the IaC repository.
-TSA Key Architecture Concourse uses four key pairs:
-TSA host key (tsa_host_key &#43; tsa_host_key.pub): identifies the web node to workers. Worker key (worker_key &#43; worker_key.pub): identifies workers to the web node. Authorized worker keys (authorized_worker_keys): the public keys of permitted workers. Session signing key (session_signing_key): signs session tokens for the ATC API. The web node holds the TSA host key and authorized worker keys. Workers connect using their worker key. If any key pair mismatches, the worker cannot authenticate and stays disconnected.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Concourse Key Management With Vault Bootstrap" href="https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

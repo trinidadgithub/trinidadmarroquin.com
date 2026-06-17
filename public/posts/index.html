@@ -230,6 +230,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Drift Audit Report: Bringing Existing Kubernetes VMs Under Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This work was not a greenfield deployment.
+The cluster already existed. The VMs already existed in vSphere. NetBox already had inventory, but some of it was modeled as DCIM devices rather than virtualization virtual machines. Terraform had a reusable module that could manage VM lifecycle state, NetBox VM records, interfaces, IP addresses, and primary IPv4 relationships. The problem was getting from “existing infrastructure” to “managed state” without accidentally changing the running cluster.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Drift Audit Report: Bringing Existing Kubernetes VMs Under Terraform And NetBox" href="https://trinidadmarroquin.com/posts/netbox-terraform-drift-audit-existing-kubernetes-vms/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
     </h2>
   </header>
@@ -379,23 +395,6 @@ This post covers the audit, the diagnostics, the remediation script, and the edg
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to The SRE Dirty Dozen: Common Anti-Patterns In Site Reliability Engineering" href="https://trinidadmarroquin.com/posts/sre-dirty-dozen/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Storage incidents in Kubernetes are rarely just storage incidents.
-In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
-The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

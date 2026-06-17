@@ -199,6 +199,62 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox Primary IP Assignment After Import
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Importing an IP address and assigning it to an interface does not always mean the device’s primary_ip4 field is set.
+Treat primary IP assignment as a separate verification and update step.
+Input File Use a small mapping file:
+name,primary_ip4 cluster-a-cp-01,192.0.2.10/24 cluster-a-worker-01,192.0.2.20/24 The address should match the existing NetBox IP object, including prefix length if your NetBox query requires it.
+Safe Update Logic For each row:
+query device by exact name. query IP address by exact address. require exactly one device match. require exactly one IP match. skip blank rows. skip ambiguous rows. support dry-run mode. patch only the device primary_ip4 field. Ambiguity should stop the row, not trigger guessing.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox Primary IP Assignment After Import" href="https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Network Saturation Evidence Checklist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When a flow collector reports a huge byte count, resist the urge to start with the loudest application log. Start by proving whether the node, interface, and time window support the story.
+This checklist is useful when Kubernetes or Rancher appears to be involved in a network spike.
+Identify The Conversation Ask for the flow detail, not only the top-talker summary:
+source IP destination IP source port destination port protocol bytes sessions start time end time Important ports in Rancher/RKE2 environments include:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Network Saturation Evidence Checklist" href="https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Rancher Remotedialer Network Symptoms
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rancher cluster-agent errors can look like Rancher is the root cause. Sometimes Rancher is only the first component sensitive enough to report a degraded network path.
+Use this note when Rancher-managed clusters show large management-plane traffic, intermittent disconnects, or websocket errors.
+Common Symptoms In downstream cluster-agent logs:
+Failed to dial steve aggregation server Remotedialer proxy error websocket: close 1006 (abnormal closure) context deadline exceeded i/o timeout connection reset by peer In Rancher server logs:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rancher Remotedialer Network Symptoms" href="https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Azure AKS Operations With Terraform
     </h2>
   </header>
@@ -314,56 +370,6 @@ Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot stat
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
-For a runnable lab, see the feature-toggle directory in the IaC repository. It demonstrates the same toggle pattern in both C and Python.
-The Pattern Python:
-import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">GitOps Pipeline Patterns For Platform Teams
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Make Git The Only Entry Point If a change can be made without opening a pull request, it will eventually be made without a pull request. The rule is simple: no PR, no change.
-This applies to:
-Terraform and Ansible runs. Image template version bumps. Pipeline configuration changes. DNS and load balancer records. Monitoring and alerting rules. Pipeline Shapes Change Pipeline PR → lint → validate → plan → plan review → apply non-prod → apply prod → verify Plan output must be retained as an artifact. Apply stages must be serialized per state backend.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to GitOps Pipeline Patterns For Platform Teams" href="https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

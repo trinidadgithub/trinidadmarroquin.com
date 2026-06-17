@@ -239,6 +239,77 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
+For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
+The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
+resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Validation Strategy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When Terraform manages Helm releases, validation needs to happen at more than one layer.
+Terraform can show that the helm_release resource is configured. Helm can render templates. Kubernetes can reject invalid manifests. Production can still fail if the workload has no useful health checks or the image tag points at the wrong build.
+Validation Layers A practical validation sequence is:
+terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt; kubectl dry-run -&gt; terraform plan Each step answers a different question:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Validation Strategy" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Image Factory Workflow With vSphere And Packer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The image factory produces the node template that every cluster in every site boots from. If the factory is manual or inconsistent, every cluster inherits drift from its template.
+This page collects the pipeline shape, versioning strategy, validation gates, and operating model for a Packer-based image factory with vSphere.
+Pipeline Shape graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Show Mermaid source graph LR TRIGGER[Git Tag / Schedule] --&gt; BUILD[Packer Build] BUILD --&gt; VALIDATE[Boot &#43; Validate] VALIDATE --&gt; HARDEN[Apply Baselines] HARDEN --&gt; TEMPLATE[Convert To Template] TEMPLATE --&gt; TEST[Test Instance] TEST --&gt; PROMOTE[Promote Template] PROMOTE --&gt; CLEANUP[Cleanup Temp Resources] Template Versioning Date-based versioning works for node templates because consumers (cluster autoscaler, Terraform modules) select images by a version string, not by semantic compatibility:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Image Factory Workflow With vSphere And Packer" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/image-factory-workflow/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>IoT device containers need TLS certificates to authenticate with AWS IoT Core. The certificate path is the critical configuration — if the container cannot find its credentials, it does not connect.
+For a runnable lab, see the terraform-docker-iot directory in the IaC repository.
+Certificate Injection Pattern Mount certificates from the host using Terraform volume mounts. Do not bake certs into the image:
+resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.iot_device_image.name volumes { host_path = abspath(&#34;${path.module}/certs/root-CA.crt&#34;) container_path = &#34;/certs/root-CA.crt&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.cert.pem&#34;) container_path = &#34;/certs/iot-thing.cert.pem&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.private.key&#34;) container_path = &#34;/certs/iot-thing.private.key&#34; } } abspath(path.module) resolves the relative cert path to an absolute path relative to the Terraform module directory. This avoids path ambiguity when Terraform runs from different working directories.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kafka KRaft Mode In Docker Compose
     </h2>
   </header>
@@ -340,75 +411,6 @@ The important part is not that everything runs on one machine. The important par
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Local SLI Labs With Prometheus Grafana And cAdvisor" href="https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Log And Metric Naming Conventions
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Telemetry is only useful if operators can find and compare it during pressure.
-Naming conventions reduce the translation tax between teams, dashboards, alerts, and incident notes.
-Log Fields Useful common fields:
-timestamp level service environment cluster namespace pod trace_id request_id user_safe_error_code Do not put secrets or personal data in logs. Redaction should be a platform expectation, not an afterthought.
-Metric Names Metric names should describe the measured thing and unit.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Log And Metric Naming Conventions" href="https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Longhorn To Enterprise Storage Migration Patterns
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Migration Strategies Attach-And-Clone (Lowest Downtime) For platforms that support concurrent attachment:
-1. Deploy new StorageClass targeting enterprise storage. 2. Create a clone of the existing PVC on the new StorageClass. 3. Attach the clone to a verification pod and validate data integrity. 4. Scale down the workload, detach old PVC, attach new PVC. 5. Scale up the workload. Downtime is limited to the time between scale-down and attach. Data integrity is verified before the cutover.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Longhorn To Enterprise Storage Migration Patterns" href="https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Multi-Site RKE2 Operations: Lessons From The Fleet
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Running RKE2 across multiple data centers reveals problems that single-cluster operations never expose. The differences between sites — hardware generations, network latency, storage backend versions, DNS configurations, operating system versions — become the primary operational concern.
-This post captures the lessons that held up across sites.
-Inventory Design Predicts Operational Pain The inventory is the single source of truth for what runs where. If the inventory is incomplete or inconsistent, every automation step requires manual verification.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Multi-Site RKE2 Operations: Lessons From The Fleet" href="https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Observability Before AI: What Every Operator Needs First
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>AI-assisted operations tools are entering the market rapidly. Their value depends entirely on the quality of the observability data they consume. If the data is noisy, incomplete, or unstructured, AI tools amplify the noise instead of reducing it.
-This field note covers the foundations every operator should have in place before adding AI to the observability stack.
-Required Foundations Structured Metrics Metrics must have consistent labels across services. The same label (service, environment, region) should mean the same thing in every metric. If one service uses env and another uses environment, any tool consuming both will produce unreliable correlations.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Observability Before AI: What Every Operator Needs First" href="https://trinidadmarroquin.com/field-notes/observability-before-ai/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

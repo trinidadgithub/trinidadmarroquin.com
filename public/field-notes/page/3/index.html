@@ -259,6 +259,56 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
+For a runnable lab, see the feature-toggle directory in the IaC repository. It demonstrates the same toggle pattern in both C and Python.
+The Pattern Python:
+import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GitOps Pipeline Patterns For Platform Teams
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Make Git The Only Entry Point If a change can be made without opening a pull request, it will eventually be made without a pull request. The rule is simple: no PR, no change.
+This applies to:
+Terraform and Ansible runs. Image template version bumps. Pipeline configuration changes. DNS and load balancer records. Monitoring and alerting rules. Pipeline Shapes Change Pipeline PR → lint → validate → plan → plan review → apply non-prod → apply prod → verify Plan output must be retained as an artifact. Apply stages must be serialized per state backend.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to GitOps Pipeline Patterns For Platform Teams" href="https://trinidadmarroquin.com/field-notes/gitops-pipeline-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
     </h2>
   </header>
@@ -376,59 +426,6 @@ Required Foundations Structured Metrics Metrics must have consistent labels acro
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Observability Before AI: What Every Operator Needs First" href="https://trinidadmarroquin.com/field-notes/observability-before-ai/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Rollback Strategies With Sentinel Files And Package Management
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
-For a runnable lab, see the rollback-deployment directory in the IaC repository. It uses a sentinel file to trigger Puppet-driven dpkg rollback.
-The Sentinel File Pattern A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:
-exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt/v1/c-app.deb&#39;, onlyif =&gt; &#39;test -f /tmp/simulate_failure&#39;, } The sentinel file is a teaching proxy. In production, the sentinel would be a health check failure, a metrics threshold breach, or a monitoring alert.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
-The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
-Common Lab Shortcuts Terraform-managed Docker labs often include:
-Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">SRE Mindset: Operational Judgment Over Tooling
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>SRE Is Not A Role, It Is A Decision Framework The tools matter less than the judgment about when to use them. SRE is the discipline of converting operational data into decisions about system reliability.
-The Essential Questions Every operational decision reduces to three questions:
-What is the acceptable failure rate? (SLO target) How much failure budget is left? (Error budget tracking) What are we doing about it? (Error budget policy) If the team cannot answer these three questions for a service, the SRE practice has not arrived yet.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -199,6 +199,59 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Rollback Strategies With Sentinel Files And Package Management
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
+For a runnable lab, see the rollback-deployment directory in the IaC repository. It uses a sentinel file to trigger Puppet-driven dpkg rollback.
+The Sentinel File Pattern A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:
+exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt/v1/c-app.deb&#39;, onlyif =&gt; &#39;test -f /tmp/simulate_failure&#39;, } The sentinel file is a teaching proxy. In production, the sentinel would be a health check failure, a metrics threshold breach, or a monitoring alert.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
+The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
+Common Lab Shortcuts Terraform-managed Docker labs often include:
+Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SRE Mindset: Operational Judgment Over Tooling
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SRE Is Not A Role, It Is A Decision Framework The tools matter less than the judgment about when to use them. SRE is the discipline of converting operational data into decisions about system reliability.
+The Essential Questions Every operational decision reduces to three questions:
+What is the acceptable failure rate? (SLO target) How much failure budget is left? (Error budget tracking) What are we doing about it? (Error budget policy) If the team cannot answer these three questions for a service, the SRE practice has not arrived yet.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
     </h2>
   </header>
@@ -323,64 +376,12 @@ vsphere_virtual_machine.vm[&#34;lb1&#34;] Check Current State Run from the envir
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform State Moves During A Module Refactor" href="https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Variable File Hygiene
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform repositories often accumulate terraform.tfvars, *.auto.tfvars, shell env files, examples, and helper scripts. That works until nobody remembers which file is authoritative.
-Problem A single environment directory may contain:
-terraform.tfvars vars.auto.tfvars vars.env terraform.tfvars.example vars.auto.tfvars.example vars.env.example That creates three problems:
-Terraform may load values from multiple files. shell helper files look like Terraform configuration. secrets may drift into files that should be committed safely. How Terraform Loads Values Terraform automatically loads:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Variable File Hygiene" href="https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform vSphere Clone Customization Failures
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform can successfully ask vSphere to clone a VM and still fail during guest customization. In that case, the problem is usually inside the guest/template, not Terraform syntax.
-Symptom Terraform reports an error like:
-Virtual machine customization failed An error occurred while customizing VM ... For details reference the log file /var/log/vmware-imc/toolsDeployPkg.log in the guest OS. Terraform may leave the VM in place to help troubleshooting.
-First Checks From the VM console or SSH if available:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform vSphere Clone Customization Failures" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vSphere Guestinfo And Cloud-Init On Cloned VMs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform can inject cloud-init data into vSphere clones through VMware guestinfo keys. That only works if the template is built to let cloud-init run on first boot.
-Symptom Terraform creates or replaces the VM, but the expected userdata.yaml behavior does not happen. Bootstrap does not run, SSH is not configured, or /var/log/platform-bootstrap.log is missing.
-Check Guestinfo From vSphere Use govc to inspect the VM extra config:
-source govc.env govc vm.info -e /DC-Site-A/vm/K8s-Cluster/OpsTools/cluster-a-api-lb-01 \ | grep &#39;guestinfo\|disk.enableUUID&#39; Look for keys like:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vSphere Guestinfo And Cloud-Init On Cloned VMs" href="https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://trinidadmarroquin.com/categories/field-notes/page/3/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://trinidadmarroquin.com/categories/field-notes/page/5/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

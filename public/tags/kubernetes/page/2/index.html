@@ -199,6 +199,42 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
+For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
+The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
+resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Validation Strategy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When Terraform manages Helm releases, validation needs to happen at more than one layer.
+Terraform can show that the helm_release resource is configured. Helm can render templates. Kubernetes can reject invalid manifests. Production can still fail if the workload has no useful health checks or the image tag points at the wrong build.
+Validation Layers A practical validation sequence is:
+terraform fmt -&gt; terraform validate -&gt; helm lint -&gt; helm template -&gt; kubectl dry-run -&gt; terraform plan Each step answers a different question:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Validation Strategy" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/helm-terraform-validation/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kubernetes Platform Conventions
     </h2>
   </header>
@@ -337,45 +373,12 @@ build network. ISO or content library access. temporary VM folder. template dest
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vSphere CSI Attach And Mount Checklist
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Use this checklist when a Kubernetes workload has a PVC that should use vSphere CSI, but the pod is pending, stuck in init, or failing to mount the volume.
-The goal is to follow the volume from intent to pod readiness:
-StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kubelet mount -&gt; pod ready Check The Workload State Start with pods and PVCs in the affected namespace:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
-Target State For a node with primary and iSCSI networks:
-ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
-deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://trinidadmarroquin.com/tags/kubernetes/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://trinidadmarroquin.com/tags/kubernetes/page/3/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

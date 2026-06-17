@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Audit on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/audit/</link>
+    <description>Recent content in Audit on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/audit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Classifying vSphere Drift After Terraform Import</title>
+      <link>https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/</guid>
+      <description>Field note for reading Terraform audit plans after importing existing vSphere VMs and deciding whether to reconcile drift or replace legacy nodes.</description>
+    </item>
+    <item>
+      <title>Drift Audit Report: Bringing Existing Kubernetes VMs Under Terraform And NetBox</title>
+      <link>https://trinidadmarroquin.com/posts/netbox-terraform-drift-audit-existing-kubernetes-vms/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/netbox-terraform-drift-audit-existing-kubernetes-vms/</guid>
+      <description>A drift audit report for converting VM inventory from NetBox DCIM devices to virtualization objects, importing existing vSphere and NetBox resources into Terraform state, and deciding not to apply unsafe legacy VM drift.</description>
+    </item>
+    <item>
+      <title>NetBox DCIM To Virtualization VM Migration</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-dcim-to-virtualization-vm-migration/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-dcim-to-virtualization-vm-migration/</guid>
+      <description>Field note for recognizing when VMware VMs were modeled as NetBox DCIM devices and migrating them toward virtualization VM objects for Terraform ownership.</description>
+    </item>
+    <item>
+      <title>Terraform Import Workflow For Existing vSphere VMs</title>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-import-existing-vsphere-vms/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-import-existing-vsphere-vms/</guid>
+      <description>Field note for importing existing vSphere and NetBox VM resources into Terraform state so a site can be audited before any apply.</description>
+    </item>
+  </channel>
+</rss>

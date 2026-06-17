@@ -198,6 +198,23 @@
 </header>
 <article class="post-entry tag-entry">
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Classifying vSphere Drift After Terraform Import
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After existing vSphere VMs are imported into Terraform state, expect drift.
+The question is not whether drift exists. The question is whether applying that drift is safe.
+Generate The Audit Plan terraform plan -out=audit.tfplan terraform show -json audit.tfplan \ | jq -r &#39;.resource_changes[]? | [.address, .type, (.change.actions | join(&#34;,&#34;))] | @tsv&#39; Start with action types:
+no-op update create delete delete,create For imported production-like nodes, any delete, create, or delete,create action needs explicit review before apply.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Classifying vSphere Drift After Terraform Import" href="https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
     <h2 class="entry-hint-parent">NetBox Bulk Import Order For Kubernetes Nodes
     </h2>
   </header>
@@ -340,23 +357,12 @@ StorageClass -&gt; PVC -&gt; PV -&gt; VolumeAttachment -&gt; worker VM -&gt; kub
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vSphere CSI Attach And Mount Checklist" href="https://trinidadmarroquin.com/field-notes/vsphere-csi-attach-mount-checklist/"></a>
 </article>
-<article class="post-entry tag-entry">
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
-Target State For a node with primary and iSCSI networks:
-ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
-deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://trinidadmarroquin.com/field-notes/kubernetes/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

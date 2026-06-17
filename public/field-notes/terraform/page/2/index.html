@@ -198,6 +198,56 @@
 </header>
 <article class="post-entry tag-entry">
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
+For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
+The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
+resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>IoT device containers need TLS certificates to authenticate with AWS IoT Core. The certificate path is the critical configuration — if the container cannot find its credentials, it does not connect.
+For a runnable lab, see the terraform-docker-iot directory in the IaC repository.
+Certificate Injection Pattern Mount certificates from the host using Terraform volume mounts. Do not bake certs into the image:
+resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.iot_device_image.name volumes { host_path = abspath(&#34;${path.module}/certs/root-CA.crt&#34;) container_path = &#34;/certs/root-CA.crt&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.cert.pem&#34;) container_path = &#34;/certs/iot-thing.cert.pem&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.private.key&#34;) container_path = &#34;/certs/iot-thing.private.key&#34; } } abspath(path.module) resolves the relative cert path to an absolute path relative to the Terraform module directory. This avoids path ambiguity when Terraform runs from different working directories.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Kafka labs are good at exposing the difference between a container being started and a broker being usable.
+Terraform can create the Docker network, broker container, application image, and topics, but it needs an explicit readiness boundary. Without that boundary, the next resource may try to create topics or start a processor before Kafka is listening.
+Readiness Boundary For a local lab, a simple port check is often enough to avoid racing the broker startup:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Kafka Readiness Checks In Terraform Docker Labs" href="https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Local SLI Labs With Prometheus Grafana And cAdvisor
     </h2>
   </header>
@@ -317,44 +367,12 @@ Terraform may load values from multiple files. shell helper files look like Terr
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform Variable File Hygiene" href="https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/"></a>
 </article>
-<article class="post-entry tag-entry">
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform vSphere Clone Customization Failures
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform can successfully ask vSphere to clone a VM and still fail during guest customization. In that case, the problem is usually inside the guest/template, not Terraform syntax.
-Symptom Terraform reports an error like:
-Virtual machine customization failed An error occurred while customizing VM ... For details reference the log file /var/log/vmware-imc/toolsDeployPkg.log in the guest OS. Terraform may leave the VM in place to help troubleshooting.
-First Checks From the VM console or SSH if available:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform vSphere Clone Customization Failures" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-clone-customization-failures/"></a>
-</article>
-<article class="post-entry tag-entry">
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vSphere Guestinfo And Cloud-Init On Cloned VMs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform can inject cloud-init data into vSphere clones through VMware guestinfo keys. That only works if the template is built to let cloud-init run on first boot.
-Symptom Terraform creates or replaces the VM, but the expected userdata.yaml behavior does not happen. Bootstrap does not run, SSH is not configured, or /var/log/platform-bootstrap.log is missing.
-Check Guestinfo From vSphere Use govc to inspect the VM extra config:
-source govc.env govc vm.info -e /DC-Site-A/vm/K8s-Cluster/OpsTools/cluster-a-api-lb-01 \ | grep &#39;guestinfo\|disk.enableUUID&#39; Look for keys like:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to vSphere Guestinfo And Cloud-Init On Cloned VMs" href="https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://trinidadmarroquin.com/field-notes/terraform/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://trinidadmarroquin.com/field-notes/terraform/page/3/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

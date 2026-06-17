@@ -239,6 +239,76 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Azure AKS Operations With Terraform
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Azure Kubernetes Service follows the same managed-control-plane pattern as EKS and GKE, but the resource model, networking defaults, and identity system are different enough that provider-specific knowledge matters during provisioning.
+For a runnable lab, see the azure directory in the IaC repository.
+Resource Group Structure Everything in Azure lives in a resource group. The AKS cluster, VNet, and NSG are typically in the same group for a lab, but production should separate network infrastructure into a shared resource group owned by the platform team:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Azure AKS Operations With Terraform" href="https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Blue-Green Deployment With NGINX
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Blue-green deployment keeps two environments running. At any time, one environment serves production traffic and the other waits for the next release.
+For a runnable lab, see the blue-green-simulation directory in the IaC repository. Version 1 demonstrates a manual NGINX upstream switch. Version 2 adds weighted routing and named containers.
+The switch is the critical moment. How it happens determines whether the pattern is fast rollback or just extra complexity.
+The NGINX Upstream Switch The simplest blue-green switch is an NGINX upstream block with one active server and one standby:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Blue-Green Deployment With NGINX" href="https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Canary Deployments With HAProxy Weighted Routing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A canary deployment sends a small fraction of traffic to a new version while the stable version handles the rest. If the canary fails, only the test fraction is affected.
+For a runnable lab, see the canary-deployment directory in the IaC repository. It uses HAProxy weighted routing with raw C API servers.
+HAProxy makes this pattern visible and controllable through weighted backend servers.
+Weight Ratio backend servers balance leastconn server v1 api_v1:8080 weight 10 check server v2 api_v2:8080 weight 1 check With weights 10 and 1, approximately 9% of requests reach v2. The weight proportion directly controls the blast radius:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Canary Deployments With HAProxy Weighted Routing" href="https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Cloud Account And Environment Organization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cloud platform organization is an operational control, not just a billing structure.
+The account or project boundary should make it obvious who owns the workload, what environment it belongs to, which policies apply, and how blast radius is contained.
+Operating Model Use separate top-level containers for production, non-production, shared services, security, and sandbox work. The exact cloud terms differ across AWS accounts, Azure subscriptions, and Google Cloud projects, but the principle is the same: production should not share an administrative or network boundary with experiments.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Cloud Account And Environment Organization" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Cloud Networking IAM And Guardrails
     </h2>
   </header>
@@ -346,70 +416,6 @@ blue-green switching for fast rollback to a known environment. canary rollout fo
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Deployment Strategy Labs" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/deployment-strategy-labs/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">DNS Search Domain Debugging With systemd-resolved
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Check Which Layer Is Injecting The Search Domain # 1. Is /etc/resolv.conf managed by systemd-resolved? ls -l /etc/resolv.conf # Expected: /etc/resolv.conf -&gt; /run/systemd/resolve/stub-resolv.conf # 2. Show all search domains (global and per-link) resolvectl domain # Look for &#34;Link &lt;N&gt; (&lt;iface&gt;): &lt;domain&gt;&#34; — not just Global section # 3. What does the active resolver actually show? grep &#39;^search&#39; /etc/resolv.conf || echo &#34;no search line&#34; # 4. Which interface is injecting the domain? resolvectl domain | grep -B1 &#39;\.&#39; # 5. Is DHCP the source? networkctl status eth0 | grep -i domain The Three Layers Layer Inspect With Fix Netplan grep -R &#34;search:&#34; /etc/netplan/ Edit yaml, netplan generate, netplan apply systemd-resolved (global) resolvectl domain (Global:) resolvectl domain &#34;&#34; systemd-resolved (per-link) resolvectl domain (Link N:) resolvectl domain eth0 &#34;&#34; Runtime Fix (Per-Link Domain) Clearing a per-link search domain without restarting systemd-resolved:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to DNS Search Domain Debugging With systemd-resolved" href="https://trinidadmarroquin.com/field-notes/dns-search-domain-debugging/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">DNS Search Domain Hygiene Across Multi-Site Clusters
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>RKE2 clusters across multiple sites had inconsistent DNS search domain behavior. Some nodes appended internal domains to all lookups, some appended data center-specific domains, and a few were clean. In a Kubernetes cluster, uncontrolled search domain expansion causes:
-Pod DNS lookups that should resolve as-is getting unexpected suffix expansion. Inconsistent behavior across sites for the same service name. Debugging sessions that waste time on DNS before finding the real issue. Desired State Layer Target Netplan search: [] systemd-resolved No per-link or global domains Active resolver (/etc/resolv.conf) search . search . is systemd-resolved shorthand for “no search domains” and is the correct end state.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to DNS Search Domain Hygiene Across Multi-Site Clusters" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/dns-search-domain-hygiene/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Docker Stale Binaries In Usr Local Bin
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Docker can break silently when stale binaries in /usr/local/bin shadow the package-managed versions after an upgrade. The daemon starts, docker ps works, but containers fail to run with no obvious error in the Docker CLI.
-The Pattern docker ps # works, lists containers docker run hello-world # hangs or fails silently The daemon itself is healthy. The break is in the runtime path. After a Docker or containerd upgrade, the new daemon expects a compatible runc and shim, but an old copy in /usr/local/bin gets resolved first because it appears earlier in $PATH than the packaged binary.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Docker Stale Binaries In Usr Local Bin" href="https://trinidadmarroquin.com/field-notes/docker-stale-binaries-path/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">etcd Backup, Restore, And Disaster Recovery
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Snapshot Manual Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt \ ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt \ ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key \ etcdctl snapshot save /backup/etcd-snapshot-$(date &#43;%Y%m%d-%H%M%S).db Automated Snapshot (RKE2) RKE2 includes etcd-snapshot as a subcommand:
-rke2 etcd-snapshot save \ --node-name &lt;node-name&gt; \ --s3 \ --s3-bucket=&lt;bucket&gt; \ --s3-region=&lt;region&gt; \ --s3-access-key=&lt;key&gt; \ --s3-secret-key=&lt;secret&gt; Automated snapshots can be configured via the RKE2 config file with etcd-snapshot-schedule-cron and etcd-snapshot-retention.
-Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot status /backup/etcd-snapshot-&lt;date&gt;.db -w table Verify the snapshot is not corrupt and check the revision and hash. A snapshot with zero revisions or a mismatched hash indicates corruption.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

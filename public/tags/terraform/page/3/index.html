@@ -199,6 +199,79 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Local SLI Labs With Prometheus Grafana And cAdvisor
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A local SLI lab is useful when the goal is to understand the signal path before introducing production platform complexity.
+For a live local demo, see the sli_app lab in the IaC repository. If the lab does not run as expected, open a bug fix request against that repository with the failing command, host OS, Docker version, Terraform version, and relevant logs.
+The important part is not that everything runs on one machine. The important part is that the lab has the same basic observability chain operators rely on later:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Local SLI Labs With Prometheus Grafana And cAdvisor" href="https://trinidadmarroquin.com/field-notes/local-sli-labs-prometheus-grafana-cadvisor/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Pipeline Validation Planning And Apply Stages
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Infrastructure pipelines should make change intent visible before they mutate anything.
+The stage design should separate fast feedback from approval and execution.
+Stage Model A practical infrastructure pipeline usually has:
+format -&gt; validate -&gt; security checks -&gt; plan -&gt; review -&gt; apply -&gt; verify Each stage should produce evidence that the next stage can trust.
+Validation Validation should be fast and safe:
+formatting. static syntax validation. provider initialization without touching production state when possible. unit-style checks for generated manifests. policy checks for obvious violations. Planning Plan output is the core review artifact.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Pipeline Validation Planning And Apply Stages" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Secret Handling In Terraform Managed Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Local infrastructure labs often start with hardcoded passwords, localhost endpoints, and convenience tokens. That is normal for learning, but dangerous when the lab pattern becomes a production pattern without review.
+The useful distinction is not “lab bad, production good.” The useful distinction is knowing which shortcuts are temporary and what must change before the pattern is reused.
+Common Lab Shortcuts Terraform-managed Docker labs often include:
+Grafana admin credentials in container environment variables. Concourse local users such as admin:admin. Vault dev server tokens in shell environment files. database passwords pulled into Terraform state. generated private keys written to local files. privileged containers for CI workers or system exporters. localhost endpoints that assume a single operator workstation. Each shortcut may be acceptable in a disposable lab. None should cross into shared infrastructure by accident.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Secret Handling In Terraform Managed Labs" href="https://trinidadmarroquin.com/field-notes/terraform-lab-secret-handling/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Remote state has a chicken-and-egg problem: Terraform needs somewhere to store state, but the storage account and container may also be managed by Terraform.
+The clean approach is to treat backend bootstrapping as a short, explicit phase. Create the state storage resources first, migrate state intentionally, then use the remote backend for the rest of the infrastructure.
+Target Shape For Azure Blob Storage, the backend needs:
+a resource group. a storage account. a private blob container. a stable state key per root module or environment. Example backend shape:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Azure Backend Bootstrap" href="https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Operational Module Boundaries
     </h2>
   </header>
@@ -306,75 +379,6 @@ resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/
 
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>This project started as a repository cleanup and turned into a clearer operating model for vSphere infrastructure.
-The original Terraform repo had grown into a collection of copied root modules. Each site and environment had its own directory with a familiar set of files: main.tf, variables.tf, output.tf, terraform.tfvars, vars.auto.tfvars, vars.env, local state files, and copied templates. That worked while the repo was small, but it made every change harder to review.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules" href="https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Terraform refactor can look like a file organization problem until the first plan, clone, and bootstrap run.
-The repo I was working on had the usual signs of age: copied environment roots, local state files, duplicated templates, inconsistent variable files, and old one-off directories that were still sitting beside active infrastructure. The obvious fix was to move toward a cleaner layout:
-environments/&lt;site&gt;/&lt;env&gt;/ modules/vsphere-vm-group/ templates/ archive/ That was the right direction. It was also only the beginning.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Refactor Notes: When Repo Cleanup Exposes Infrastructure Coupling" href="https://trinidadmarroquin.com/posts/terraform-refactor-hidden-infrastructure-coupling/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform State Moves During A Module Refactor
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When an existing Terraform resource is moved into a module, Terraform sees a new resource address. If state is not moved first, the plan may try to create the module resource and destroy the old root resource.
-Symptom After converting a root resource to a module call, the plan shows addresses like this:
-# module.vm_group.vsphere_virtual_machine.vm[&#34;lb1&#34;] will be created while the existing state still has:
-vsphere_virtual_machine.vm[&#34;lb1&#34;] Check Current State Run from the environment root:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform State Moves During A Module Refactor" href="https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Terraform Variable File Hygiene
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Terraform repositories often accumulate terraform.tfvars, *.auto.tfvars, shell env files, examples, and helper scripts. That works until nobody remembers which file is authoritative.
-Problem A single environment directory may contain:
-terraform.tfvars vars.auto.tfvars vars.env terraform.tfvars.example vars.auto.tfvars.example vars.env.example That creates three problems:
-Terraform may load values from multiple files. shell helper files look like Terraform configuration. secrets may drift into files that should be committed safely. How Terraform Loads Values Terraform automatically loads:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Terraform Variable File Hygiene" href="https://trinidadmarroquin.com/field-notes/terraform-variable-file-hygiene/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

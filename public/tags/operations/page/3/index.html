@@ -199,6 +199,79 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Post-Incident Follow-Up
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Post-incident follow-up should improve the system, not just produce a document.
+The useful output is a small set of changes that reduce recurrence, shorten detection, or make recovery safer.
+Timeline Build a factual timeline:
+first signal. detection time. acknowledgement time. mitigation actions. recovery time. customer or user impact. follow-up decisions. Avoid filling gaps with guesses. Mark unknowns explicitly.
+Analysis Separate:
+trigger. contributing factors. detection gap. mitigation gap. recovery gap. durable fix. Do not stop at the first human mistake. Ask what system condition made that mistake possible or likely.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Post-Incident Follow-Up" href="https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SRE Mindset: Operational Judgment Over Tooling
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SRE Is Not A Role, It Is A Decision Framework The tools matter less than the judgment about when to use them. SRE is the discipline of converting operational data into decisions about system reliability.
+The Essential Questions Every operational decision reduces to three questions:
+What is the acceptable failure rate? (SLO target) How much failure budget is left? (Error budget tracking) What are we doing about it? (Error budget policy) If the team cannot answer these three questions for a service, the SRE practice has not arrived yet.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to SRE Mindset: Operational Judgment Over Tooling" href="https://trinidadmarroquin.com/field-notes/sre-mindset/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Operational Module Boundaries
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Terraform modules should represent operational concepts, not just folders around resources.
+HashiCorp guidance recommends moderation: modules are useful when they raise the abstraction level, but thin wrappers around single resources often add complexity without improving ownership.
+Boundary Principles Good module boundaries answer:
+Who owns this infrastructure after apply? What lifecycle does it follow? What inputs must vary by environment? What outputs does another layer consume? What failure modes does the module hide or expose? Avoid modules that combine unrelated ownership domains. A Kubernetes node module, network module, and storage module may interact, but they are not necessarily owned by the same team or changed on the same cadence.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Operational Module Boundaries" href="https://trinidadmarroquin.com/projects/terraform-infrastructure-modules/operational-module-boundaries/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Vault Deployment And Unseal Runbooks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vault deployment work should be treated as security infrastructure, not just another stateful service.
+The runbooks need to cover normal operation and the uncomfortable moments: initialization, sealing, unsealing, leader changes, backup, and recovery.
+Deployment Baseline Document:
+storage backend. HA topology. TLS certificates. seal mechanism. audit devices. auth methods. backup and restore path. monitoring and alerting expectations. Vault should not run in production without audit logging and a tested recovery path.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Vault Deployment And Unseal Runbooks" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">VM Lifecycle Runbooks
     </h2>
   </header>

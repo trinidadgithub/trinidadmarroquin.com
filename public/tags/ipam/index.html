@@ -199,6 +199,24 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox DCIM To Virtualization VM Migration
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>NetBox has more than one way to represent infrastructure.
+A VMware VM imported as a DCIM device may look usable in the UI, but it is not the same object model as a NetBox virtualization virtual machine. Terraform provider resources for NetBox virtualization expect the virtualization model.
+Symptom A known VM does not show up through the virtualization endpoint:
+curl -s \ -H &#34;Authorization: Token $NETBOX_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.count&#39; Expected if it is modeled as a virtualization VM:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox DCIM To Virtualization VM Migration" href="https://trinidadmarroquin.com/field-notes/netbox-dcim-to-virtualization-vm-migration/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
     </h2>
   </header>

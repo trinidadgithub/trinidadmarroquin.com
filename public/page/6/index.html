@@ -239,6 +239,75 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Log And Metric Naming Conventions
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Telemetry is only useful if operators can find and compare it during pressure.
+Naming conventions reduce the translation tax between teams, dashboards, alerts, and incident notes.
+Log Fields Useful common fields:
+timestamp level service environment cluster namespace pod trace_id request_id user_safe_error_code Do not put secrets or personal data in logs. Redaction should be a platform expectation, not an afterthought.
+Metric Names Metric names should describe the measured thing and unit.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Log And Metric Naming Conventions" href="https://trinidadmarroquin.com/projects/observability-incident-response/log-metric-naming/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Longhorn To Enterprise Storage Migration Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Migration Strategies Attach-And-Clone (Lowest Downtime) For platforms that support concurrent attachment:
+1. Deploy new StorageClass targeting enterprise storage. 2. Create a clone of the existing PVC on the new StorageClass. 3. Attach the clone to a verification pod and validate data integrity. 4. Scale down the workload, detach old PVC, attach new PVC. 5. Scale up the workload. Downtime is limited to the time between scale-down and attach. Data integrity is verified before the cutover.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Longhorn To Enterprise Storage Migration Patterns" href="https://trinidadmarroquin.com/field-notes/longhorn-enterprise-storage-migration/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Multi-Site RKE2 Operations: Lessons From The Fleet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Running RKE2 across multiple data centers reveals problems that single-cluster operations never expose. The differences between sites — hardware generations, network latency, storage backend versions, DNS configurations, operating system versions — become the primary operational concern.
+This post captures the lessons that held up across sites.
+Inventory Design Predicts Operational Pain The inventory is the single source of truth for what runs where. If the inventory is incomplete or inconsistent, every automation step requires manual verification.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Multi-Site RKE2 Operations: Lessons From The Fleet" href="https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Observability Before AI: What Every Operator Needs First
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI-assisted operations tools are entering the market rapidly. Their value depends entirely on the quality of the observability data they consume. If the data is noisy, incomplete, or unstructured, AI tools amplify the noise instead of reducing it.
+This field note covers the foundations every operator should have in place before adding AI to the observability stack.
+Required Foundations Structured Metrics Metrics must have consistent labels across services. The same label (service, environment, region) should mean the same thing in every metric. If one service uses env and another uses environment, any tool consuming both will produce unreliable correlations.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Observability Before AI: What Every Operator Needs First" href="https://trinidadmarroquin.com/field-notes/observability-before-ai/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Operating In A GitOps Environment: Practices That Hold Up
     </h2>
   </header>
@@ -350,78 +419,6 @@ formatting. static syntax validation. provider initialization without touching p
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Pipeline Validation Planning And Apply Stages" href="https://trinidadmarroquin.com/projects/cicd-pipeline-design/validation-planning-apply-stages/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Post-Incident Follow-Up
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Post-incident follow-up should improve the system, not just produce a document.
-The useful output is a small set of changes that reduce recurrence, shorten detection, or make recovery safer.
-Timeline Build a factual timeline:
-first signal. detection time. acknowledgement time. mitigation actions. recovery time. customer or user impact. follow-up decisions. Avoid filling gaps with guesses. Mark unknowns explicitly.
-Analysis Separate:
-trigger. contributing factors. detection gap. mitigation gap. recovery gap. durable fix. Do not stop at the first human mistake. Ask what system condition made that mistake possible or likely.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Post-Incident Follow-Up" href="https://trinidadmarroquin.com/projects/observability-incident-response/post-incident-follow-up/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Rancher Fleet Standards
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Rancher is useful because it gives operators a single control plane for many Kubernetes clusters. That centralization is also the risk: if access, workspace boundaries, cluster ownership, and GitOps conventions are loose, the management plane becomes another source of drift.
-The operating standard should make the boring parts explicit.
-Access Model Rancher should authenticate normal users through Active Directory. Roles should be assigned to AD groups, not individual users, wherever possible.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Rancher Fleet Standards" href="https://trinidadmarroquin.com/projects/kubernetes-platform-operations/rancher-fleet-standards/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>RKE2 clusters across five sites had DNS search domains leaking into Kubernetes name resolution. Hostnames that should have resolved as-is were getting suffix expansion, and the behavior was inconsistent across data centers.
-The fix required understanding which layer was injecting the search domain — and it was not always the same layer.
-This post covers the audit, the diagnostics, the remediation script, and the edge cases that made it interesting.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Removing DNS Search Domain Drift Across Multi-Site RKE2 Clusters" href="https://trinidadmarroquin.com/posts/dns-search-domain-remediation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Rollback Strategies With Sentinel Files And Package Management
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Rollback is a deployment strategy that gets rehearsed less often than it should. A rollback plan that has never been tested is not a rollback plan.
-For a runnable lab, see the rollback-deployment directory in the IaC repository. It uses a sentinel file to trigger Puppet-driven dpkg rollback.
-The Sentinel File Pattern A sentinel file marks a failure condition. When it exists, automation triggers a rollback. In a Puppet-based lab:
-exec { &#39;rollback-to-v1&#39;: command =&gt; &#39;dpkg --force-depends -i /opt/v1/c-app.deb&#39;, onlyif =&gt; &#39;test -f /tmp/simulate_failure&#39;, } The sentinel file is a teaching proxy. In production, the sentinel would be a health check failure, a metrics threshold breach, or a monitoring alert.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Rollback Strategies With Sentinel Files And Package Management" href="https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

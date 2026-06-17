@@ -239,6 +239,80 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Troubleshooting Kubernetes Storage Migration To vSphere CSI
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Storage incidents in Kubernetes are rarely just storage incidents.
+In one troubleshooting session, a monitoring namespace looked broken in several different ways at once. Alertmanager was stuck pending. Prometheus was stuck in init. Node exporter pods were being rejected by Pod Security. The system upgrade controller had a long tail of evicted pods. Several control-plane nodes were under disk pressure.
+The useful move was not to fix the first scary event. It was to separate the failures by ownership boundary: scheduler, storage class, CSI driver, VM configuration, and GitOps drift.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Troubleshooting Kubernetes Storage Migration To vSphere CSI" href="https://trinidadmarroquin.com/posts/kubernetes-vsphere-csi-troubleshooting/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Vault Deployment And Unseal Runbooks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vault deployment work should be treated as security infrastructure, not just another stateful service.
+The runbooks need to cover normal operation and the uncomfortable moments: initialization, sealing, unsealing, leader changes, backup, and recovery.
+Deployment Baseline Document:
+storage backend. HA topology. TLS certificates. seal mechanism. audit devices. auth methods. backup and restore path. monitoring and alerting expectations. Vault should not run in production without audit logging and a tested recovery path.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Vault Deployment And Unseal Runbooks" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/deployment-and-unseal-runbooks/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Vault Policy Auth And Secrets Engines
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vault policies are path-based and deny by default. That makes policy design powerful, but it also makes messy path design painful.
+Start by organizing secrets engines and paths around ownership and consumption patterns.
+Policy Design Policies should be small, named clearly, and mapped to roles or groups.
+Good policy names describe intent:
+team-a-kv-read platform-transit-admin ci-prod-db-read Avoid broad wildcard policies unless the path is already tightly scoped.
+Auth Methods Use auth methods that match the consumer:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Vault Policy Auth And Secrets Engines" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/policy-auth-secrets-engines/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Vault Token Lease Audit And Recovery Practices
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vault operations are mostly about lifecycle control: who received a secret, how long it is valid, when it renews, and how quickly it can be revoked.
+Tokens and leases are not implementation details. They are the operational handles for incident response.
+Token Practices Use short-lived and renewable tokens where possible. Avoid long-lived service tokens unless there is a documented reason.
+Token expectations:
+root tokens are not used for normal administration. human tokens come from an auth method. automation tokens are scoped and rotated. orphan and periodic tokens are reviewed carefully. token accessors are treated as sensitive operational data. Lease Practices Dynamic secrets have leases. Consumers must renew or replace them before expiry.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Vault Token Lease Audit And Recovery Practices" href="https://trinidadmarroquin.com/projects/secrets-management-with-vault/token-lease-audit-recovery/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">vCenter Automation Integration Points
     </h2>
   </header>
@@ -344,79 +418,6 @@ In one troubleshooting session, a Terraform refactor exposed a chain of hidden c
 
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap" href="https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>govc is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
-Load Environment Use a clearly named helper file, not vars.env if it is only for govc:
-source govc.env govc about Typical values:
-export GOVC_URL=&#39;vcenter.example.com&#39; export GOVC_USERNAME=&#39;administrator@vsphere.local&#39; export GOVC_PASSWORD=&#39;...&#39; export GOVC_INSECURE=1 export GOVC_DATACENTER=&#39;DC-Site-A&#39; Find A VM Path Search by VM name:
-govc find / -type m -name &#39;cluster-a-worker-02&#39; Example result:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to govc Commands For vSphere VM Verification" href="https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
-Target State For a node with primary and iSCSI networks:
-ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
-deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Netplan Conflicts After VMware Guest Customization
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>VMware guest customization can write /etc/netplan/99-netcfg-vmware.yaml. If the template already has another active netplan file, the host can end up with multiple network authorities.
-That can break routing, DNS, bootstrap scripts, Kubernetes node communication, and storage initialization.
-Symptoms Common signs:
-Error: Conflicting default route declarations for IPv4 first declared in nic0 but also in ens192 or:
-Destination Host Unreachable or DNS search drift like:
-resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/netplan sudo grep -R &#34;routes:\|gateway\|search:&#34; /etc/netplan -n If both a template file and VMware file are present, decide which one owns networking.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>This project started as a repository cleanup and turned into a clearer operating model for vSphere infrastructure.
-The original Terraform repo had grown into a collection of copied root modules. Each site and environment had its own directory with a familiar set of files: main.tf, variables.tf, output.tf, terraform.tfvars, vars.auto.tfvars, vars.env, local state files, and copied templates. That worked while the repo was small, but it made every change harder to review.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Refactoring A vSphere Terraform Repo Into Environment Roots And Shared Modules" href="https://trinidadmarroquin.com/projects/terraform-vsphere-refactor/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

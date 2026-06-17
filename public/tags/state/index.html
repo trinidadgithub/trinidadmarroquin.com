@@ -199,6 +199,24 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Import Workflow For Existing vSphere VMs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this workflow when existing vSphere VMs need to be brought under Terraform state for audit and future lifecycle management.
+The first goal is not to change the VMs. The first goal is to make Terraform aware of them and classify drift.
+Safety Boundary Set the operating rule before importing:
+Import state and audit only. Do not apply full vSphere changes to existing cluster nodes. This avoids turning a state migration into an accidental infrastructure mutation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Import Workflow For Existing vSphere VMs" href="https://trinidadmarroquin.com/field-notes/terraform-import-existing-vsphere-vms/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Azure Backend Bootstrap
     </h2>
   </header>

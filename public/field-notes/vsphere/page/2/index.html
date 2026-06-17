@@ -198,6 +198,59 @@
 </header>
 <article class="post-entry tag-entry">
   <header class="entry-header">
+    <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A Kubernetes node can be storage-ready before any new disk appears in lsblk. With CSI-backed storage, the disk appears only after the array maps a LUN to the node.
+Target State For a node with primary and iSCSI networks:
+ens192 -&gt; service network, default route, DNS iscsi01 -&gt; 169.253.0.x/24 iscsi02 -&gt; 169.253.1.x/24 The node should have:
+deterministic netplan. reachable storage portals. open-iscsi installed and enabled. an initiator name. successful target discovery. persistent iSCSI node startup. Verify Network First ip -br addr ip route ping -c 3 169.253.0.11 ping -c 3 169.253.1.11 If portal pings fail, stop and fix networking before touching iSCSI.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to iSCSI Bootstrap Readiness For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/iscsi-bootstrap-kubernetes-nodes/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Netplan Conflicts After VMware Guest Customization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>VMware guest customization can write /etc/netplan/99-netcfg-vmware.yaml. If the template already has another active netplan file, the host can end up with multiple network authorities.
+That can break routing, DNS, bootstrap scripts, Kubernetes node communication, and storage initialization.
+Symptoms Common signs:
+Error: Conflicting default route declarations for IPv4 first declared in nic0 but also in ens192 or:
+Destination Host Unreachable or DNS search drift like:
+resolv_conf_search = . netplan_search = [] Inspect Netplan Ownership ls -l /etc/netplan sudo grep -R &#34;routes:\|gateway\|search:&#34; /etc/netplan -n If both a template file and VMware file are present, decide which one owns networking.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Netplan Conflicts After VMware Guest Customization" href="https://trinidadmarroquin.com/field-notes/netplan-vmware-customization-conflicts/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform State Moves During A Module Refactor
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When an existing Terraform resource is moved into a module, Terraform sees a new resource address. If state is not moved first, the plan may try to create the module resource and destroy the old root resource.
+Symptom After converting a root resource to a module call, the plan shows addresses like this:
+# module.vm_group.vsphere_virtual_machine.vm[&#34;lb1&#34;] will be created while the existing state still has:
+vsphere_virtual_machine.vm[&#34;lb1&#34;] Check Current State Run from the environment root:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform State Moves During A Module Refactor" href="https://trinidadmarroquin.com/field-notes/terraform-state-move-module-refactor/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform vSphere Clone Customization Failures
     </h2>
   </header>

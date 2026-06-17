@@ -198,6 +198,57 @@
 </header>
 <article class="post-entry tag-entry">
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Classifying vSphere Drift After Terraform Import
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After existing vSphere VMs are imported into Terraform state, expect drift.
+The question is not whether drift exists. The question is whether applying that drift is safe.
+Generate The Audit Plan terraform plan -out=audit.tfplan terraform show -json audit.tfplan \ | jq -r &#39;.resource_changes[]? | [.address, .type, (.change.actions | join(&#34;,&#34;))] | @tsv&#39; Start with action types:
+no-op update create delete delete,create For imported production-like nodes, any delete, create, or delete,create action needs explicit review before apply.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Classifying vSphere Drift After Terraform Import" href="https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox DCIM To Virtualization VM Migration
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>NetBox has more than one way to represent infrastructure.
+A VMware VM imported as a DCIM device may look usable in the UI, but it is not the same object model as a NetBox virtualization virtual machine. Terraform provider resources for NetBox virtualization expect the virtualization model.
+Symptom A known VM does not show up through the virtualization endpoint:
+curl -s \ -H &#34;Authorization: Token $NETBOX_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.count&#39; Expected if it is modeled as a virtualization VM:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox DCIM To Virtualization VM Migration" href="https://trinidadmarroquin.com/field-notes/netbox-dcim-to-virtualization-vm-migration/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Import Workflow For Existing vSphere VMs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this workflow when existing vSphere VMs need to be brought under Terraform state for audit and future lifecycle management.
+The first goal is not to change the VMs. The first goal is to make Terraform aware of them and classify drift.
+Safety Boundary Set the operating rule before importing:
+Import state and audit only. Do not apply full vSphere changes to existing cluster nodes. This avoids turning a state migration into an accidental infrastructure mutation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Import Workflow For Existing vSphere VMs" href="https://trinidadmarroquin.com/field-notes/terraform-import-existing-vsphere-vms/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
     </h2>
   </header>
@@ -316,56 +367,6 @@ TSA host key (tsa_host_key &#43; tsa_host_key.pub): identifies the web node to w
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Concourse Key Management With Vault Bootstrap" href="https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/"></a>
-</article>
-<article class="post-entry tag-entry">
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Helm And Terraform Boundary On EKS
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The boundary between Terraform and Helm is a common source of confusion. Terraform provisions infrastructure. Helm deploys applications. Terraform’s helm_release resource bridges them, but the chart templates stay in the application repository.
-For a runnable lab, see the helm-terraform-js-app directory in the IaC repository.
-The Pattern Terraform manages the Helm release with set blocks that inject environment-specific values:
-resource &#34;helm_release&#34; &#34;my_app&#34; { name = &#34;my-app&#34; chart = &#34;${path.module}/../helm/myapp&#34; namespace = kubernetes_namespace.my_app.metadata[0].name set { name = &#34;image.repository&#34; value = var.docker_image_repository } set { name = &#34;image.tag&#34; value = var.docker_image_tag } set { name = &#34;replicaCount&#34; value = var.replica_count } } The Helm chart stays portable. Environment-specific values live in Terraform variables.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Helm And Terraform Boundary On EKS" href="https://trinidadmarroquin.com/field-notes/helm-terraform-eks-deployment/"></a>
-</article>
-<article class="post-entry tag-entry">
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>IoT device containers need TLS certificates to authenticate with AWS IoT Core. The certificate path is the critical configuration — if the container cannot find its credentials, it does not connect.
-For a runnable lab, see the terraform-docker-iot directory in the IaC repository.
-Certificate Injection Pattern Mount certificates from the host using Terraform volume mounts. Do not bake certs into the image:
-resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.iot_device_image.name volumes { host_path = abspath(&#34;${path.module}/certs/root-CA.crt&#34;) container_path = &#34;/certs/root-CA.crt&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.cert.pem&#34;) container_path = &#34;/certs/iot-thing.cert.pem&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.private.key&#34;) container_path = &#34;/certs/iot-thing.private.key&#34; } } abspath(path.module) resolves the relative cert path to an absolute path relative to the Terraform module directory. This avoids path ambiguity when Terraform runs from different working directories.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
-</article>
-<article class="post-entry tag-entry">
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kafka labs are good at exposing the difference between a container being started and a broker being usable.
-Terraform can create the Docker network, broker container, application image, and topics, but it needs an explicit readiness boundary. Without that boundary, the next resource may try to create topics or start a processor before Kafka is listening.
-Readiness Boundary For a local lab, a simple port check is often enough to avoid racing the broker startup:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka Readiness Checks In Terraform Docker Labs" href="https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

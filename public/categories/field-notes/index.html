@@ -199,6 +199,60 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Classifying vSphere Drift After Terraform Import
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After existing vSphere VMs are imported into Terraform state, expect drift.
+The question is not whether drift exists. The question is whether applying that drift is safe.
+Generate The Audit Plan terraform plan -out=audit.tfplan terraform show -json audit.tfplan \ | jq -r &#39;.resource_changes[]? | [.address, .type, (.change.actions | join(&#34;,&#34;))] | @tsv&#39; Start with action types:
+no-op update create delete delete,create For imported production-like nodes, any delete, create, or delete,create action needs explicit review before apply.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Classifying vSphere Drift After Terraform Import" href="https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox DCIM To Virtualization VM Migration
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>NetBox has more than one way to represent infrastructure.
+A VMware VM imported as a DCIM device may look usable in the UI, but it is not the same object model as a NetBox virtualization virtual machine. Terraform provider resources for NetBox virtualization expect the virtualization model.
+Symptom A known VM does not show up through the virtualization endpoint:
+curl -s \ -H &#34;Authorization: Token $NETBOX_TOKEN&#34; \ -H &#34;Accept: application/json&#34; \ &#34;$NETBOX_URL/api/virtualization/virtual-machines/?name=$VM_NAME&#34; \ | jq &#39;.count&#39; Expected if it is modeled as a virtualization VM:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox DCIM To Virtualization VM Migration" href="https://trinidadmarroquin.com/field-notes/netbox-dcim-to-virtualization-vm-migration/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform Import Workflow For Existing vSphere VMs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this workflow when existing vSphere VMs need to be brought under Terraform state for audit and future lifecycle management.
+The first goal is not to change the VMs. The first goal is to make Terraform aware of them and classify drift.
+Safety Boundary Set the operating rule before importing:
+Import state and audit only. Do not apply full vSphere changes to existing cluster nodes. This avoids turning a state migration into an accidental infrastructure mutation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform Import Workflow For Existing vSphere VMs" href="https://trinidadmarroquin.com/field-notes/terraform-import-existing-vsphere-vms/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
     </h2>
   </header>
@@ -325,62 +379,6 @@ interfaces need devices to exist first. IP addresses need interfaces to exist be
 
 <span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to NetBox Bulk Import Order For Kubernetes Nodes" href="https://trinidadmarroquin.com/field-notes/netbox-kubernetes-node-bulk-import/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">NetBox Primary IP Assignment After Import
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Importing an IP address and assigning it to an interface does not always mean the device’s primary_ip4 field is set.
-Treat primary IP assignment as a separate verification and update step.
-Input File Use a small mapping file:
-name,primary_ip4 cluster-a-cp-01,192.0.2.10/24 cluster-a-worker-01,192.0.2.20/24 The address should match the existing NetBox IP object, including prefix length if your NetBox query requires it.
-Safe Update Logic For each row:
-query device by exact name. query IP address by exact address. require exactly one device match. require exactly one IP match. skip blank rows. skip ambiguous rows. support dry-run mode. patch only the device primary_ip4 field. Ambiguity should stop the row, not trigger guessing.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to NetBox Primary IP Assignment After Import" href="https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Network Saturation Evidence Checklist
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When a flow collector reports a huge byte count, resist the urge to start with the loudest application log. Start by proving whether the node, interface, and time window support the story.
-This checklist is useful when Kubernetes or Rancher appears to be involved in a network spike.
-Identify The Conversation Ask for the flow detail, not only the top-talker summary:
-source IP destination IP source port destination port protocol bytes sessions start time end time Important ports in Rancher/RKE2 environments include:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Network Saturation Evidence Checklist" href="https://trinidadmarroquin.com/field-notes/network-saturation-evidence-checklist/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Rancher Remotedialer Network Symptoms
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Rancher cluster-agent errors can look like Rancher is the root cause. Sometimes Rancher is only the first component sensitive enough to report a degraded network path.
-Use this note when Rancher-managed clusters show large management-plane traffic, intermittent disconnects, or websocket errors.
-Common Symptoms In downstream cluster-agent logs:
-Failed to dial steve aggregation server Remotedialer proxy error websocket: close 1006 (abnormal closure) context deadline exceeded i/o timeout connection reset by peer In Rancher server logs:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-11 00:00:00 -0500 CDT'>June 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Rancher Remotedialer Network Symptoms" href="https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
