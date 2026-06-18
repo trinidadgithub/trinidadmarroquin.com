@@ -5,10 +5,17 @@
     <link>https://trinidadmarroquin.com/categories/devops-dirty-dozen/</link>
     <description>Recent content in DevOps Dirty Dozen on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Thu, 16 Jan 2025 00:00:00 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2025 00:00:00 -0600</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/categories/devops-dirty-dozen/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drowning in Choices: The DevOps Tool Overload Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/</guid>
+      <description>Part 2 of the DevOps Dirty Dozen series: how tool overload creates cognitive load, integration debt, and analysis paralysis — and what teams can do about it.</description>
+    </item>
     <item>
       <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>
       <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/breaking-barriers-devops-silos/</link>

@@ -5,7 +5,7 @@
     <link>https://trinidadmarroquin.com/tags/sre/</link>
     <description>Recent content in Sre on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
     <lastBuildDate>Tue, 16 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/sre/index.xml" rel="self" type="application/rss+xml" />
@@ -134,6 +134,13 @@
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/posts/llm-assisted-infrastructure-troubleshooting/</guid>
       <description>Practical lessons for using LLMs during infrastructure troubleshooting while preserving operator judgment, validation, and evidence-based debugging.</description>
+    </item>
+    <item>
+      <title>Drowning in Choices: The DevOps Tool Overload Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/</guid>
+      <description>Part 2 of the DevOps Dirty Dozen series: how tool overload creates cognitive load, integration debt, and analysis paralysis — and what teams can do about it.</description>
     </item>
     <item>
       <title>Breaking Barriers: The DevOps Silos Anti-Pattern</title>

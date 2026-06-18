@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Platform-Engineering | Trinidad Marroquin</title>
+<meta name="keywords" content="">
+<meta name="description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="https://trinidadmarroquin.com/tags/platform-engineering/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://trinidadmarroquin.com/tags/platform-engineering/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/tags/platform-engineering/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><style>
+.mermaid-wrapper { margin: 1.5em 0; }
+.mermaid-wrapper details.mermaid-source { margin-top: 0.5em; }
+.mermaid-wrapper details.mermaid-source summary {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.85em;
+  color: var(--secondary);
+  user-select: none;
+}
+.mermaid-wrapper details.mermaid-source summary:hover { color: var(--link); }
+.mermaid-wrapper details.mermaid-source pre {
+  margin-top: 0.5em;
+  padding: 0.75em 1em;
+  background: var(--code-bg);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid-wrapper details.mermaid-source code {
+  font-size: 0.8em;
+  white-space: pre;
+}
+</style><meta property="og:url" content="https://trinidadmarroquin.com/tags/platform-engineering/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Platform-Engineering">
+  <meta property="og:description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Platform-Engineering">
+  <meta name="twitter:description" content="Trinidad Marroquin is an SRE and DevOps engineer focused on Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, observability, CI/CD, and reliable infrastructure.">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://trinidadmarroquin.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/tags/">Tags</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+  <h1>
+    Platform-Engineering
+    <a href="/tags/platform-engineering/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Drowning in Choices: The DevOps Tool Overload Anti-Pattern
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Part 2 of the DevOps Dirty Dozen Series: Non multa, sed multum — not many, but much.
+Insight: An excess of tools fragments focus. Depth and coherence matter more than choice.
+DevOps was supposed to simplify delivery. Instead, it has delivered a paradox: the more tools we adopt, the less we seem to accomplish. Teams spend more time evaluating, configuring, and integrating tools than shipping value. The promise of “best in class” per category has produced stacks that no single person fully understands.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2025-01-20 00:00:00 -0600 CST'>January 20, 2025</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Drowning in Choices: The DevOps Tool Overload Anti-Pattern" href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a><script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
