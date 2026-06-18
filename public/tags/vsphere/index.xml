@@ -5,10 +5,24 @@
     <link>https://trinidadmarroquin.com/tags/vsphere/</link>
     <description>Recent content in Vsphere on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/vsphere/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Operating A NetBox Virtualization Migration Without Losing Control</title>
+      <link>https://trinidadmarroquin.com/posts/netbox-virtualization-migration-operational-pattern/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/netbox-virtualization-migration-operational-pattern/</guid>
+      <description>A practical operating pattern for migrating NetBox VM inventory from DCIM devices to virtualization VMs while keeping Terraform state, tags, IPs, and audit boundaries under control.</description>
+    </item>
+    <item>
+      <title>Replacement Node Workflow After Terraform Import Drift</title>
+      <link>https://trinidadmarroquin.com/field-notes/replacement-node-workflow-after-terraform-import-drift/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/replacement-node-workflow-after-terraform-import-drift/</guid>
+      <description>Field note for deciding to replace Kubernetes nodes instead of applying risky vSphere drift after importing legacy VMs into Terraform state.</description>
+    </item>
     <item>
       <title>Classifying vSphere Drift After Terraform Import</title>
       <link>https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/</link>

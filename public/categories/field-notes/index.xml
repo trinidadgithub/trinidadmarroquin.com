@@ -5,10 +5,31 @@
     <link>https://trinidadmarroquin.com/categories/field-notes/</link>
     <description>Recent content in Field-Notes on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/categories/field-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NetBox Cluster Tag Scope Audit</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-cluster-tag-scope-audit/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-cluster-tag-scope-audit/</guid>
+      <description>Field note for auditing NetBox cluster tags so they can be assigned to virtualization VMs after DCIM-to-VM inventory migration.</description>
+    </item>
+    <item>
+      <title>NetBox DCIM Device To VM Migration Dry Run Pattern</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-dcim-device-to-vm-migration-dry-run-pattern/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-dcim-device-to-vm-migration-dry-run-pattern/</guid>
+      <description>Field note for running an idempotent NetBox DCIM-device to virtualization-VM migration with dry-run evidence, scoped applies, and tag synchronization.</description>
+    </item>
+    <item>
+      <title>Replacement Node Workflow After Terraform Import Drift</title>
+      <link>https://trinidadmarroquin.com/field-notes/replacement-node-workflow-after-terraform-import-drift/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/replacement-node-workflow-after-terraform-import-drift/</guid>
+      <description>Field note for deciding to replace Kubernetes nodes instead of applying risky vSphere drift after importing legacy VMs into Terraform state.</description>
+    </item>
     <item>
       <title>Classifying vSphere Drift After Terraform Import</title>
       <link>https://trinidadmarroquin.com/field-notes/classifying-vsphere-drift-after-terraform-import/</link>

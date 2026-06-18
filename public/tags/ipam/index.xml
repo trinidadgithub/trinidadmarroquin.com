@@ -5,10 +5,17 @@
     <link>https://trinidadmarroquin.com/tags/ipam/</link>
     <description>Recent content in Ipam on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/ipam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NetBox Cluster Tag Scope Audit</title>
+      <link>https://trinidadmarroquin.com/field-notes/netbox-cluster-tag-scope-audit/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/netbox-cluster-tag-scope-audit/</guid>
+      <description>Field note for auditing NetBox cluster tags so they can be assigned to virtualization VMs after DCIM-to-VM inventory migration.</description>
+    </item>
     <item>
       <title>NetBox DCIM To Virtualization VM Migration</title>
       <link>https://trinidadmarroquin.com/field-notes/netbox-dcim-to-virtualization-vm-migration/</link>

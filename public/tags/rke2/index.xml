@@ -5,10 +5,17 @@
     <link>https://trinidadmarroquin.com/tags/rke2/</link>
     <description>Recent content in Rke2 on Trinidad Marroquin</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Thu, 11 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/rke2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Replacement Node Workflow After Terraform Import Drift</title>
+      <link>https://trinidadmarroquin.com/field-notes/replacement-node-workflow-after-terraform-import-drift/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/replacement-node-workflow-after-terraform-import-drift/</guid>
+      <description>Field note for deciding to replace Kubernetes nodes instead of applying risky vSphere drift after importing legacy VMs into Terraform state.</description>
+    </item>
     <item>
       <title>Rancher Remotedialer Network Symptoms</title>
       <link>https://trinidadmarroquin.com/field-notes/rancher-remotedialer-network-symptoms/</link>
