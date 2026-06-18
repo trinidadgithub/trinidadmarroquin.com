@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Automation built on a shaky foundation</title>
+  <desc id="desc">A house with a cracked foundation labeled 'flawed process' being topped by an automation layer.</desc>
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <g stroke="#334155" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M200 420 600 260 1000 420Z"/>
+    <path d="M240 420 240 500"/>
+    <path d="M960 420 960 500"/>
+    <rect x="240" y="420" width="720" height="30"/>
+    <rect x="310" y="295" width="80" height="60" rx="6"/>
+    <rect x="560" y="295" width="80" height="60" rx="6"/>
+    <rect x="810" y="295" width="80" height="60" rx="6"/>
+  </g>
+  <path d="M200 450c0-30 0-60 40-80" stroke="#f97316" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M1000 450c0-30 0-60-40-80" stroke="#f97316" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M280 480c0-30 20-50 60-50" stroke="#f97316" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M920 480c0-30-20-50-60-50" stroke="#f97316" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <g fill="#f43f5e" font-family="Arial, sans-serif" font-size="26" text-anchor="middle">
+    <text x="190" y="420">Cracks</text>
+    <text x="190" y="450">in process</text>
+    <text x="1010" y="430">Unknown</text>
+    <text x="1010" y="460">dependencies</text>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">
+    <text x="350" y="335">CI</text>
+    <text x="600" y="335">CD</text>
+    <text x="850" y="335">Test</text>
+  </g>
+  <g fill="#0f172a" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" font-weight="700">
+    <text x="350" y="375">pipeline</text>
+    <text x="600" y="375">pipeline</text>
+    <text x="850" y="375">suite</text>
+  </g>
+  <text x="600" y="565" fill="#f97316" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">Automating a flawed process amplifies the flaws.</text>
+</svg>

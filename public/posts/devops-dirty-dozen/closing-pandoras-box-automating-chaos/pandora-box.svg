@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Pandora's box of automation chaos</title>
+  <desc id="desc">A cracked box releasing chaotic energy and fragmented parts representing poorly planned automation.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="400" y="200" width="400" height="350" rx="16" fill="#92400e" stroke="#f97316" stroke-width="8"/>
+  <rect x="400" y="200" width="400" height="80" rx="16" fill="#78350f"/>
+  <path d="M450 130c0-30 70-50 150-50s150 20 150 50" fill="#78350f" stroke="#f97316" stroke-width="6"/>
+  <rect x="430" y="115" width="30" height="85" rx="6" fill="#78350f"/>
+  <rect x="740" y="115" width="30" height="85" rx="6" fill="#78350f"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M320 280c-40 20-80 50-100 100" stroke="#f43f5e" stroke-width="8"/>
+    <path d="M880 280c40 20 80 50 100 100" stroke="#f43f5e" stroke-width="8"/>
+    <path d="M350 450c-60 30-100 80-110 130" stroke="#a855f7" stroke-width="8"/>
+    <path d="M850 450c60 30 100 80 110 130" stroke="#a855f7" stroke-width="8"/>
+  </g>
+  <g fill="#f43f5e" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">
+    <text x="260" y="270">Broken</text>
+    <text x="260" y="300">pipelines</text>
+    <text x="940" y="270">Flaky</text>
+    <text x="940" y="300">tests</text>
+    <text x="290" y="470">Config</text>
+    <text x="290" y="500">drift</text>
+    <text x="910" y="470">Alert</text>
+    <text x="910" y="500">fatigue</text>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-weight="700">
+    <text x="600" y="255">Automation</text>
+  </g>
+  <text x="600" y="610" fill="#94a3b8" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" font-style="italic">"Festina lente" — Make haste slowly</text>
+</svg>

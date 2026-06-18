@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern | Trinidad Marroquin</title>
+<meta name="keywords" content="devops, sre, automation, process, systems-thinking">
+<meta name="description" content="Part 3 of the DevOps Dirty Dozen series: how automating flawed processes amplifies dysfunction — and why process clarity must come before automation.">
+<meta name="author" content="Trinidad Marroquin">
+<link rel="canonical" href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.dc77bedb018db10a457356584f1ad34d782e1c70c114ecbc5ef70f074434e103.css" integrity="sha256-3He&#43;2wGNsQpFc1ZYTxrTTXguHHDBFOy8XvcPB0Q04QM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://trinidadmarroquin.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://trinidadmarroquin.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://trinidadmarroquin.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://trinidadmarroquin.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://trinidadmarroquin.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><style>
+.mermaid-wrapper { margin: 1.5em 0; }
+.mermaid-wrapper details.mermaid-source { margin-top: 0.5em; }
+.mermaid-wrapper details.mermaid-source summary {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.85em;
+  color: var(--secondary);
+  user-select: none;
+}
+.mermaid-wrapper details.mermaid-source summary:hover { color: var(--link); }
+.mermaid-wrapper details.mermaid-source pre {
+  margin-top: 0.5em;
+  padding: 0.75em 1em;
+  background: var(--code-bg);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid-wrapper details.mermaid-source code {
+  font-size: 0.8em;
+  white-space: pre;
+}
+</style><meta property="og:url" content="https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/">
+  <meta property="og:site_name" content="Trinidad Marroquin">
+  <meta property="og:title" content="Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern">
+  <meta property="og:description" content="Part 3 of the DevOps Dirty Dozen series: how automating flawed processes amplifies dysfunction — and why process clarity must come before automation.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-27T00:00:00-06:00">
+    <meta property="article:modified_time" content="2025-01-27T00:00:00-06:00">
+    <meta property="article:tag" content="Devops">
+    <meta property="article:tag" content="Sre">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Process">
+    <meta property="article:tag" content="Systems-Thinking">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern">
+  <meta name="twitter:description" content="Part 3 of the DevOps Dirty Dozen series: how automating flawed processes amplifies dysfunction — and why process clarity must come before automation.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog",
+      "item": "https://trinidadmarroquin.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "The DevOps Dirty Dozen: Unmasking the Triple D's of Anti-Patterns",
+      "item": "https://trinidadmarroquin.com/posts/devops-dirty-dozen/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Closing Pandora's Box: The DevOps Automating Chaos Anti-Pattern",
+      "item": "https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Closing Pandora's Box: The DevOps Automating Chaos Anti-Pattern",
+  "name": "Closing Pandora\u0027s Box: The DevOps Automating Chaos Anti-Pattern",
+  "description": "Part 3 of the DevOps Dirty Dozen series: how automating flawed processes amplifies dysfunction — and why process clarity must come before automation.",
+  "keywords": [
+    "devops", "sre", "automation", "process", "systems-thinking"
+  ],
+  "articleBody": "Part 3 of the DevOps Dirty Dozen Series: Festina lente — make haste slowly.\nInsight: Encourages careful planning before rushing into automation.\nDevOps was supposed to guarantee seamless automation, but too often, it can bring forth disarray and disorder. Automation meant to usher in stable pipelines and repeatable processes can wreak havoc on deployments and undermine the very principles DevOps was built upon. Why does chaos seem to persist? What makes it so destructive? And how can we bring to bear essential tools to deliver on DevOps’ promise of stable and repeatable deployments?\nOriginally published on LinkedIn.\nAutomation is powerful. Automating the wrong thing makes the problem worse, faster.\nThe Anatomy Of Automation Chaos Automation’s potential is immense, but its misuse opens a Pandora’s Box of unintended consequences. Poorly planned automation is like building on a shaky foundation — it magnifies inefficiencies, accelerates failure, and creates complexities that are difficult to unwind. This anti-pattern, often born from haste, reflects the classic mistake of addressing symptoms rather than root causes.\nKey drivers of automating chaos include:\nBand-Aid Solutions: Teams under pressure often rush to automate problematic workflows instead of redesigning them. While this may provide a short-term win, it locks in inefficiencies and perpetuates dysfunction. Lack of Process Clarity: Automation efforts that skip the crucial step of mapping out workflows risk embedding errors into the system, making them more difficult to identify and resolve later. Overconfidence in Tools: A shiny new automation tool can tempt teams to implement it prematurely, leading to poorly planned integrations. Tool Overload: Too many automation tools, implemented without a cohesive strategy, create overlapping processes and obscure accountability. Siloed Decisions: Automation strategies designed without cross-team input often ignore downstream impacts, creating bottlenecks and misalignment. Automating a flawed process amplifies the flaws. Fix the process first, then automate.\nThe Cost Of Automating Chaos The aftermath of automating chaos involves significant time and resources dedicated to troubleshooting, repairing, and reworking automated processes. This reactive approach means teams spend more time fixing what is broken rather than pushing forward on new features or improvements.\nWhen automation goes awry, the fallout can be significant:\nFaster Failures: Automation amplifies the speed of flawed processes, turning small inefficiencies into large-scale problems. Erosion of Confidence: When automation leads to disruptions rather than improvements, trust in DevOps practices and leadership diminishes. Increased Technical Debt: Quick fixes add layers of complexity, creating a brittle system that becomes harder to maintain over time. Lost Time and Resources: Efforts to fix poorly automated workflows divert attention from innovation and value-driven work. Speed is not the goal. Correctness at speed is.\nWhy Chaos Happens In The First Place In the fast-paced tech industry, there is often intense pressure to release products or updates swiftly. This urgency can lead teams to adopt automation solutions hastily, without thorough planning or consideration of long-term impacts.\nPressure to Deliver Quickly: Teams often rush into automation under tight deadlines, prioritizing speed over strategy. Leadership Blind Spots: Leaders may view automation as a universal fix, without understanding the underlying process issues. Inadequate Training: Teams may lack the expertise to evaluate processes critically before automating them. Tool Mismanagement: Adopting tools without clear ownership or alignment leads to fragmented automation efforts. Resistance to Change: Teams may automate outdated processes because redesigning them feels too disruptive. Breaking Down Chaos Before any automation tool is implemented, a comprehensive analysis of current workflows is necessary. This involves mapping out each step and understanding who is responsible for what, with the end goal of identifying bottlenecks or redundancies. Teams should use process mining techniques or workflow analysis to gather data on how tasks are currently performed. This step is crucial to ensure that automation targets the right areas for improvement and does not merely automate chaos. It is about asking, “Is this process even worth automating?” or “Can we streamline this before automation?”\nTo avoid automating chaos, teams must focus on discipline and collaboration:\nUnderstand Before Automating: Conduct thorough assessments of workflows to identify inefficiencies and unnecessary steps before introducing automation. Start Small and Scale Thoughtfully: Begin with automating a small, well-understood process and monitor its impact before expanding. Prioritize Cross-Team Collaboration: Ensure all relevant stakeholders are involved in automation decisions to prevent siloed thinking and unintended consequences. Invest in Observability: Implement monitoring and logging tools that provide insight into automated processes, helping to identify and address issues early. Treat automation as an experiment: understand the problem, test the solution, and refine based on evidence.\nApplying The Scientific Method The initial step is about setting the foundation for why automation is even being considered. Teams should ask critical questions like, “What specific problem are we trying to solve with this automation?” or “Is the process we are looking at actually a bottleneck, or does it just feel inefficient due to lack of understanding?” These questions help focus efforts and ensure that automation addresses real, not perceived, issues.\nThe scientific method can serve as a guide for effective automation:\nAsk Questions: What problem are we solving? Is this process worth automating? Gather Data: Analyze workflows and identify inefficiencies before automating. Form Hypotheses: Define the expected outcomes of automation. Test and Observe: Pilot automation on a small scale and evaluate its effectiveness. Iterate: Refine workflows and automation based on feedback and outcomes. Carl Sagan’s Baloney Detection Kit Before automating any process, it is crucial to challenge the fundamental assumptions about why automation is needed. Is the process actually inefficient, or does it only seem so because of lack of understanding or training? Is there a possibility that the current process is fundamentally flawed and needs redesign rather than automation? This step involves critically examining the status quo, questioning whether automation is the right response or if it is just a band-aid for deeper issues.\nAs Carl Sagan’s Baloney Detection Kit suggests, critical thinking is essential:\nQuestion Assumptions: Is this process worth automating, or is it fundamentally flawed? Seek Evidence: What data supports the decision to automate? Are the benefits measurable? Test Before Scaling: Are there simpler solutions that achieve the same result? Can automation be introduced incrementally? Process clarity first. Automation second. Reliability always.\nMoving Forward Together Automation in the context of DevOps holds transformative potential, promising to streamline operations, reduce human error, and drive innovation. However, to harness this potential without descending into chaos, a structured and thoughtful approach is imperative:\nUnderstand the Problem: Before any automation tool is implemented, it is crucial to have a deep understanding of the problem space. Is it due to poor process design, lack of training, or an over-reliance on manual processes where automation could genuinely improve matters? Build Stable Processes: Automation should not be the first step in process improvement. Instead, it should come after processes have been refined and stabilized. Map out workflows, eliminate unnecessary steps, and ensure the process is as lean as possible before automating it. Foster Collaboration: Automation decisions should not be made in isolation. Involvement from various teams — development, operations, quality assurance, security, and business stakeholders — ensures that automated solutions are holistic and consider the entire system’s health. Continuous Improvement: Automation should be part of a continuous improvement cycle. Post-implementation, teams should regularly revisit automated processes to tweak, optimize, or reconsider automation if the benefits are not as expected. This disciplined approach can help organizations avoid the pitfalls of automating chaos, leading to stable, repeatable, and efficient workflows that embody the true spirit of DevOps.\nWhat is your experience with automation gone awry? Have you witnessed the consequences of automating chaos, or found strategies to prevent it? Let us share insights and solutions as we continue breaking down the DevOps Dirty Dozen.\nReferences The DevOps Handbook by Gene Kim, Patrick Debois, John Willis, and Jez Humble Continuous Delivery by Jez Humble and David Farley The Three Ways: Principles Underpinning DevOps DevOps Institute Arrested DevOps Podcast ",
+  "wordCount" : "1307",
+  "inLanguage": "en",
+  "datePublished": "2025-01-27T00:00:00-06:00",
+  "dateModified": "2025-01-27T00:00:00-06:00",
+  "author":{
+    "@type": "Person",
+    "name": "Trinidad Marroquin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Trinidad Marroquin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trinidadmarroquin.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://trinidadmarroquin.com/" accesskey="h" title="Trinidad Marroquin (Alt + H)">Trinidad Marroquin</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://trinidadmarroquin.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/field-notes/" title="Field Notes">
+                    <span>Field Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/tags/" title="Topics">
+                    <span>Topics</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/archives/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://trinidadmarroquin.com/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Blog</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/devops-dirty-dozen/">The DevOps Dirty Dozen: Unmasking the Triple D&#39;s of Anti-Patterns</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern
+    </h1>
+    <div class="post-description">
+      Part 3 of the DevOps Dirty Dozen series: how automating flawed processes amplifies dysfunction — and why process clarity must come before automation.
+    </div>
+    <div class="post-meta">
+
+<span title='2025-01-27 00:00:00 -0600 CST'>January 27, 2025</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Part 3 of the DevOps Dirty Dozen Series: <em>Festina lente</em> — make haste slowly.</p>
+<p><strong>Insight:</strong> Encourages careful planning before rushing into automation.</p>
+<p>DevOps was supposed to guarantee seamless automation, but too often, it can bring forth disarray and disorder. Automation meant to usher in stable pipelines and repeatable processes can wreak havoc on deployments and undermine the very principles DevOps was built upon. Why does chaos seem to persist? What makes it so destructive? And how can we bring to bear essential tools to deliver on DevOps&rsquo; promise of stable and repeatable deployments?</p>
+<p>Originally published on <a href="https://www.linkedin.com/pulse/closing-pandoras-box-devops-automating-chaos-trinidad-marroquin-6bjcc/">LinkedIn</a>.</p>
+<figure>
+    <img loading="lazy" src="pandora-box.svg"
+         alt="A cracked box releasing chaotic energy representing poorly planned automation"/> <figcaption>
+            <p>Automation is powerful. Automating the wrong thing makes the problem worse, faster.</p>
+        </figcaption>
+</figure>
+
+<h2 id="the-anatomy-of-automation-chaos">The Anatomy Of Automation Chaos<a hidden class="anchor" aria-hidden="true" href="#the-anatomy-of-automation-chaos">#</a></h2>
+<p>Automation&rsquo;s potential is immense, but its misuse opens a Pandora&rsquo;s Box of unintended consequences. Poorly planned automation is like building on a shaky foundation — it magnifies inefficiencies, accelerates failure, and creates complexities that are difficult to unwind. This anti-pattern, often born from haste, reflects the classic mistake of addressing symptoms rather than root causes.</p>
+<p>Key drivers of automating chaos include:</p>
+<ul>
+<li><strong>Band-Aid Solutions:</strong> Teams under pressure often rush to automate problematic workflows instead of redesigning them. While this may provide a short-term win, it locks in inefficiencies and perpetuates dysfunction.</li>
+<li><strong>Lack of Process Clarity:</strong> Automation efforts that skip the crucial step of mapping out workflows risk embedding errors into the system, making them more difficult to identify and resolve later.</li>
+<li><strong>Overconfidence in Tools:</strong> A shiny new automation tool can tempt teams to implement it prematurely, leading to poorly planned integrations.</li>
+<li><strong>Tool Overload:</strong> Too many automation tools, implemented without a cohesive strategy, create overlapping processes and obscure accountability.</li>
+<li><strong>Siloed Decisions:</strong> Automation strategies designed without cross-team input often ignore downstream impacts, creating bottlenecks and misalignment.</li>
+</ul>
+<figure>
+    <img loading="lazy" src="shaky-foundation.svg"
+         alt="A house with a cracked foundation topped by an automation layer"/> <figcaption>
+            <p>Automating a flawed process amplifies the flaws. Fix the process first, then automate.</p>
+        </figcaption>
+</figure>
+
+<h2 id="the-cost-of-automating-chaos">The Cost Of Automating Chaos<a hidden class="anchor" aria-hidden="true" href="#the-cost-of-automating-chaos">#</a></h2>
+<p>The aftermath of automating chaos involves significant time and resources dedicated to troubleshooting, repairing, and reworking automated processes. This reactive approach means teams spend more time fixing what is broken rather than pushing forward on new features or improvements.</p>
+<p>When automation goes awry, the fallout can be significant:</p>
+<ol>
+<li><strong>Faster Failures:</strong> Automation amplifies the speed of flawed processes, turning small inefficiencies into large-scale problems.</li>
+<li><strong>Erosion of Confidence:</strong> When automation leads to disruptions rather than improvements, trust in DevOps practices and leadership diminishes.</li>
+<li><strong>Increased Technical Debt:</strong> Quick fixes add layers of complexity, creating a brittle system that becomes harder to maintain over time.</li>
+<li><strong>Lost Time and Resources:</strong> Efforts to fix poorly automated workflows divert attention from innovation and value-driven work.</li>
+</ol>
+<figure>
+    <img loading="lazy" src="cascade-failure.svg"
+         alt="A domino-like cascade showing automated failure propagation"/> <figcaption>
+            <p>Speed is not the goal. Correctness at speed is.</p>
+        </figcaption>
+</figure>
+
+<h2 id="why-chaos-happens-in-the-first-place">Why Chaos Happens In The First Place<a hidden class="anchor" aria-hidden="true" href="#why-chaos-happens-in-the-first-place">#</a></h2>
+<p>In the fast-paced tech industry, there is often intense pressure to release products or updates swiftly. This urgency can lead teams to adopt automation solutions hastily, without thorough planning or consideration of long-term impacts.</p>
+<ul>
+<li><strong>Pressure to Deliver Quickly:</strong> Teams often rush into automation under tight deadlines, prioritizing speed over strategy.</li>
+<li><strong>Leadership Blind Spots:</strong> Leaders may view automation as a universal fix, without understanding the underlying process issues.</li>
+<li><strong>Inadequate Training:</strong> Teams may lack the expertise to evaluate processes critically before automating them.</li>
+<li><strong>Tool Mismanagement:</strong> Adopting tools without clear ownership or alignment leads to fragmented automation efforts.</li>
+<li><strong>Resistance to Change:</strong> Teams may automate outdated processes because redesigning them feels too disruptive.</li>
+</ul>
+<h2 id="breaking-down-chaos">Breaking Down Chaos<a hidden class="anchor" aria-hidden="true" href="#breaking-down-chaos">#</a></h2>
+<p>Before any automation tool is implemented, a comprehensive analysis of current workflows is necessary. This involves mapping out each step and understanding who is responsible for what, with the end goal of identifying bottlenecks or redundancies. Teams should use process mining techniques or workflow analysis to gather data on how tasks are currently performed. This step is crucial to ensure that automation targets the right areas for improvement and does not merely automate chaos. It is about asking, &ldquo;Is this process even worth automating?&rdquo; or &ldquo;Can we streamline this before automation?&rdquo;</p>
+<p>To avoid automating chaos, teams must focus on discipline and collaboration:</p>
+<ol>
+<li><strong>Understand Before Automating:</strong> Conduct thorough assessments of workflows to identify inefficiencies and unnecessary steps before introducing automation.</li>
+<li><strong>Start Small and Scale Thoughtfully:</strong> Begin with automating a small, well-understood process and monitor its impact before expanding.</li>
+<li><strong>Prioritize Cross-Team Collaboration:</strong> Ensure all relevant stakeholders are involved in automation decisions to prevent siloed thinking and unintended consequences.</li>
+<li><strong>Invest in Observability:</strong> Implement monitoring and logging tools that provide insight into automated processes, helping to identify and address issues early.</li>
+</ol>
+<figure>
+    <img loading="lazy" src="scientific-automation.svg"
+         alt="A circular flow from ask to gather to hypothesize to test to iterate"/> <figcaption>
+            <p>Treat automation as an experiment: understand the problem, test the solution, and refine based on evidence.</p>
+        </figcaption>
+</figure>
+
+<h2 id="applying-the-scientific-method">Applying The Scientific Method<a hidden class="anchor" aria-hidden="true" href="#applying-the-scientific-method">#</a></h2>
+<p>The initial step is about setting the foundation for why automation is even being considered. Teams should ask critical questions like, &ldquo;What specific problem are we trying to solve with this automation?&rdquo; or &ldquo;Is the process we are looking at actually a bottleneck, or does it just feel inefficient due to lack of understanding?&rdquo; These questions help focus efforts and ensure that automation addresses real, not perceived, issues.</p>
+<p>The scientific method can serve as a guide for effective automation:</p>
+<ol>
+<li><strong>Ask Questions:</strong> What problem are we solving? Is this process worth automating?</li>
+<li><strong>Gather Data:</strong> Analyze workflows and identify inefficiencies before automating.</li>
+<li><strong>Form Hypotheses:</strong> Define the expected outcomes of automation.</li>
+<li><strong>Test and Observe:</strong> Pilot automation on a small scale and evaluate its effectiveness.</li>
+<li><strong>Iterate:</strong> Refine workflows and automation based on feedback and outcomes.</li>
+</ol>
+<h2 id="carl-sagans-baloney-detection-kit">Carl Sagan&rsquo;s Baloney Detection Kit<a hidden class="anchor" aria-hidden="true" href="#carl-sagans-baloney-detection-kit">#</a></h2>
+<p>Before automating any process, it is crucial to challenge the fundamental assumptions about why automation is needed. Is the process actually inefficient, or does it only seem so because of lack of understanding or training? Is there a possibility that the current process is fundamentally flawed and needs redesign rather than automation? This step involves critically examining the status quo, questioning whether automation is the right response or if it is just a band-aid for deeper issues.</p>
+<p>As Carl Sagan&rsquo;s Baloney Detection Kit suggests, critical thinking is essential:</p>
+<ul>
+<li><strong>Question Assumptions:</strong> Is this process worth automating, or is it fundamentally flawed?</li>
+<li><strong>Seek Evidence:</strong> What data supports the decision to automate? Are the benefits measurable?</li>
+<li><strong>Test Before Scaling:</strong> Are there simpler solutions that achieve the same result? Can automation be introduced incrementally?</li>
+</ul>
+<figure>
+    <img loading="lazy" src="automation-realized.svg"
+         alt="A clean three-stage pipeline from understand to automate to maintain"/> <figcaption>
+            <p>Process clarity first. Automation second. Reliability always.</p>
+        </figcaption>
+</figure>
+
+<h2 id="moving-forward-together">Moving Forward Together<a hidden class="anchor" aria-hidden="true" href="#moving-forward-together">#</a></h2>
+<p>Automation in the context of DevOps holds transformative potential, promising to streamline operations, reduce human error, and drive innovation. However, to harness this potential without descending into chaos, a structured and thoughtful approach is imperative:</p>
+<ul>
+<li><strong>Understand the Problem:</strong> Before any automation tool is implemented, it is crucial to have a deep understanding of the problem space. Is it due to poor process design, lack of training, or an over-reliance on manual processes where automation could genuinely improve matters?</li>
+<li><strong>Build Stable Processes:</strong> Automation should not be the first step in process improvement. Instead, it should come after processes have been refined and stabilized. Map out workflows, eliminate unnecessary steps, and ensure the process is as lean as possible before automating it.</li>
+<li><strong>Foster Collaboration:</strong> Automation decisions should not be made in isolation. Involvement from various teams — development, operations, quality assurance, security, and business stakeholders — ensures that automated solutions are holistic and consider the entire system&rsquo;s health.</li>
+<li><strong>Continuous Improvement:</strong> Automation should be part of a continuous improvement cycle. Post-implementation, teams should regularly revisit automated processes to tweak, optimize, or reconsider automation if the benefits are not as expected.</li>
+</ul>
+<p>This disciplined approach can help organizations avoid the pitfalls of automating chaos, leading to stable, repeatable, and efficient workflows that embody the true spirit of DevOps.</p>
+<p>What is your experience with automation gone awry? Have you witnessed the consequences of automating chaos, or found strategies to prevent it? Let us share insights and solutions as we continue breaking down the DevOps Dirty Dozen.</p>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ul>
+<li><em>The DevOps Handbook</em> by Gene Kim, Patrick Debois, John Willis, and Jez Humble</li>
+<li><em>Continuous Delivery</em> by Jez Humble and David Farley</li>
+<li><a href="https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/">The Three Ways: Principles Underpinning DevOps</a></li>
+<li><a href="https://www.devopsinstitute.com/">DevOps Institute</a></li>
+<li><a href="https://www.arresteddevops.com/">Arrested DevOps Podcast</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://trinidadmarroquin.com/tags/devops/">Devops</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/sre/">Sre</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/automation/">Automation</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/process/">Process</a></li>
+      <li><a href="https://trinidadmarroquin.com/tags/systems-thinking/">Systems-Thinking</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://trinidadmarroquin.com/field-notes/vsphere-cloud-init-guestinfo/">
+    <span class="title">« Prev</span>
+    <span>vSphere Guestinfo And Cloud-Init On Cloned VMs</span>
+  </a>
+  <a class="next" href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/">
+    <span class="title">Next »</span>
+    <span>Drowning in Choices: The DevOps Tool Overload Anti-Pattern</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Trinidad Marroquin</span> · 
+        <a href="https://github.com/tmarroquin">GitHub</a> · <a href="https://www.linkedin.com/in/trinidadmarroquin/">LinkedIn</a> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a><script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

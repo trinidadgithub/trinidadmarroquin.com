@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Mon, 20 Jan 2025 00:00:00 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 -0600</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/categories/devops-dirty-dozen/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/</guid>
+      <description>Part 3 of the DevOps Dirty Dozen series: how automating flawed processes amplifies dysfunction — and why process clarity must come before automation.</description>
+    </item>
     <item>
       <title>Drowning in Choices: The DevOps Tool Overload Anti-Pattern</title>
       <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/</link>

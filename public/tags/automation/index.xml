@@ -142,5 +142,12 @@
       <guid>https://trinidadmarroquin.com/field-notes/rollback-sentinel-package-management/</guid>
       <description>Field note for automated rollback patterns using sentinel files for failure detection and dpkg package management for version reversal.</description>
     </item>
+    <item>
+      <title>Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/</guid>
+      <description>Part 3 of the DevOps Dirty Dozen series: how automating flawed processes amplifies dysfunction — and why process clarity must come before automation.</description>
+    </item>
   </channel>
 </rss>

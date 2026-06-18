@@ -13,5 +13,6 @@ The focus is practical: how teams create friction, how systems drift into unheal
 
 1. [Breaking Barriers: The DevOps Silos Anti-Pattern](/posts/devops-dirty-dozen/breaking-barriers-devops-silos/)
 2. [Drowning in Choices: The DevOps Tool Overload Anti-Pattern](/posts/devops-dirty-dozen/drowning-in-choices-tool-overload/)
+3. [Closing Pandora's Box: The DevOps Automating Chaos Anti-Pattern](/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/)
 
 More posts will be added as the series is migrated from LinkedIn.

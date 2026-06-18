@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Automation done right</title>
+  <desc id="desc">A clean pipeline from process understanding to automation to reliable delivery.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="#1e293b" stroke="#334155" stroke-width="4">
+    <rect x="120" y="240" width="230" height="170" rx="16"/>
+    <rect x="480" y="240" width="230" height="170" rx="16"/>
+    <rect x="850" y="240" width="230" height="170" rx="16"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="235" y="290" font-size="26" font-weight="700">1. Understand</text>
+    <text x="235" y="320" font-size="20">Map the workflow</text>
+    <text x="235" y="348" font-size="20">Find bottlenecks</text>
+    <text x="235" y="376" font-size="20">Fix the process</text>
+    <text x="595" y="290" font-size="26" font-weight="700">2. Automate</text>
+    <text x="595" y="320" font-size="20">Start small</text>
+    <text x="595" y="348" font-size="20">Observe impact</text>
+    <text x="595" y="376" font-size="20">Add guardrails</text>
+    <text x="965" y="290" font-size="26" font-weight="700">3. Maintain</text>
+    <text x="965" y="320" font-size="20">Monitor health</text>
+    <text x="965" y="348" font-size="20">Tune thresholds</text>
+    <text x="965" y="376" font-size="20">Retire what drifts</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M350 325 480 325"/>
+    <path d="M710 325 850 325"/>
+  </g>
+  <g fill="#22c55e" font-family="Arial, sans-serif" font-size="32" text-anchor="middle">
+    <text x="415" y="320">→</text>
+    <text x="780" y="320">→</text>
+  </g>
+  <text x="600" y="530" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Process clarity first. Automation second. Reliability always.</text>
+</svg>
