@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 -0600</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/posts/devops-dirty-dozen/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transforming Blame Culture: The DevOps Silent Productivity Killer Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</guid>
+      <description>Part 4 of the DevOps Dirty Dozen series: how blame culture erodes trust, stalls innovation, and what it takes to build psychological safety instead.</description>
+    </item>
     <item>
       <title>Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern</title>
       <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/</link>

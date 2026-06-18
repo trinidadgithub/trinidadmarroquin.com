@@ -17,6 +17,13 @@
       <description>Opinionated practices for infrastructure teams working in a GitOps model: commit messages, semver for infrastructure, CI-triggered CD tradeoffs, and deployment automation patterns that survive production use.</description>
     </item>
     <item>
+      <title>Transforming Blame Culture: The DevOps Silent Productivity Killer Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</guid>
+      <description>Part 4 of the DevOps Dirty Dozen series: how blame culture erodes trust, stalls innovation, and what it takes to build psychological safety instead.</description>
+    </item>
+    <item>
       <title>Closing Pandora&#39;s Box: The DevOps Automating Chaos Anti-Pattern</title>
       <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/</link>
       <pubDate>Mon, 27 Jan 2025 00:00:00 -0600</pubDate>

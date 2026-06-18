@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blame-Culture on Trinidad Marroquin</title>
+    <link>https://trinidadmarroquin.com/tags/blame-culture/</link>
+    <description>Recent content in Blame-Culture on Trinidad Marroquin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Trinidad Marroquin</copyright>
+    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 -0600</lastBuildDate>
+    <atom:link href="https://trinidadmarroquin.com/tags/blame-culture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transforming Blame Culture: The DevOps Silent Productivity Killer Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</guid>
+      <description>Part 4 of the DevOps Dirty Dozen series: how blame culture erodes trust, stalls innovation, and what it takes to build psychological safety instead.</description>
+    </item>
+  </channel>
+</rss>

@@ -37,5 +37,12 @@
       <guid>https://trinidadmarroquin.com/posts/sre-dirty-dozen/</guid>
       <description>Twelve common anti-patterns in SRE practice: alert fatigue disguised as paging, dashboards without decisions, SLI collection without SLO targets, incident reviews without action items, and other traps that SRE teams fall into.</description>
     </item>
+    <item>
+      <title>Transforming Blame Culture: The DevOps Silent Productivity Killer Anti-Pattern</title>
+      <link>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 -0600</pubDate>
+      <guid>https://trinidadmarroquin.com/posts/devops-dirty-dozen/transforming-blame-culture/</guid>
+      <description>Part 4 of the DevOps Dirty Dozen series: how blame culture erodes trust, stalls innovation, and what it takes to build psychological safety instead.</description>
+    </item>
   </channel>
 </rss>
