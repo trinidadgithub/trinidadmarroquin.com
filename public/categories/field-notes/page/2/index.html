@@ -199,6 +199,24 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">NetBox First Ownership For vSphere VM Provisioning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>When Terraform creates vSphere VMs, NetBox should not be an after-the-fact documentation step.
+Use NetBox as an ownership gate before vSphere VM creation, then verify Terraform removes the NetBox records when the managed VM is destroyed.
+Desired Order The safe order is:
+1. Resolve required NetBox objects 2. Create NetBox VM record 3. Create NetBox interface record 4. Create NetBox IP address record 5. Set NetBox primary IPv4 6. Create vSphere VM The vSphere VM should depend on the NetBox primary IP relationship, not just the VM record.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-15 00:00:00 -0500 CDT'>June 15, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to NetBox First Ownership For vSphere VM Provisioning" href="https://trinidadmarroquin.com/field-notes/netbox-first-vsphere-vm-ownership/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform VM Guardrail Test Matrix
     </h2>
   </header>
@@ -361,24 +379,6 @@ The NGINX Upstream Switch The simplest blue-green switch is an NGINX upstream bl
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Blue-Green Deployment With NGINX" href="https://trinidadmarroquin.com/field-notes/blue-green-deployment-nginx-swap/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Canary Deployments With HAProxy Weighted Routing
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>A canary deployment sends a small fraction of traffic to a new version while the stable version handles the rest. If the canary fails, only the test fraction is affected.
-For a runnable lab, see the canary-deployment directory in the IaC repository. It uses HAProxy weighted routing with raw C API servers.
-HAProxy makes this pattern visible and controllable through weighted backend servers.
-Weight Ratio backend servers balance leastconn server v1 api_v1:8080 weight 10 check server v2 api_v2:8080 weight 1 check With weights 10 and 1, approximately 9% of requests reach v2. The weight proportion directly controls the blast radius:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Canary Deployments With HAProxy Weighted Routing" href="https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -199,6 +199,24 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">IoT Device Container With Terraform And Certificate Mounts
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>IoT device containers need TLS certificates to authenticate with AWS IoT Core. The certificate path is the critical configuration — if the container cannot find its credentials, it does not connect.
+For a runnable lab, see the terraform-docker-iot directory in the IaC repository.
+Certificate Injection Pattern Mount certificates from the host using Terraform volume mounts. Do not bake certs into the image:
+resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.iot_device_image.name volumes { host_path = abspath(&#34;${path.module}/certs/root-CA.crt&#34;) container_path = &#34;/certs/root-CA.crt&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.cert.pem&#34;) container_path = &#34;/certs/iot-thing.cert.pem&#34; } volumes { host_path = abspath(&#34;${path.module}/certs/iot-thing.private.key&#34;) container_path = &#34;/certs/iot-thing.private.key&#34; } } abspath(path.module) resolves the relative cert path to an absolute path relative to the Terraform module directory. This avoids path ambiguity when Terraform runs from different working directories.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
     </h2>
   </header>
@@ -357,22 +375,6 @@ build network. ISO or content library access. temporary VM folder. template dest
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to vCenter Automation Integration Points" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/automation-integration-points/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The hardest part of automating VM provisioning is not always creating the VM. It is deciding which layer owns first boot.
-In one troubleshooting session, a Terraform refactor exposed a chain of hidden coupling between Packer, Terraform, vSphere customization, cloud-init, bootstrap scripts, netplan, SSH, and iSCSI. Each tool was doing something useful. The problem was that several of them were trying to own the same parts of the machine lifecycle.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap" href="https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -239,6 +239,23 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">When AI-Assisted Infrastructure Updates Need Guardrails
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI assistance is useful in infrastructure work when it accelerates the boring parts: parsing inventory, building CSVs, checking references, and producing repeatable commands.
+It becomes dangerous when it gets confident without evidence.
+In one NetBox/IPAM update, the task sounded simple: take Kubernetes node inventory, create the matching NetBox records, associate management IPs, and set each device’s primary IPv4 address. The work was not conceptually hard. The risk was in the details: object relationships, import order, duplicate names, existing tags, site mappings, and whether the tool was writing to the intended NetBox instance.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to When AI-Assisted Infrastructure Updates Need Guardrails" href="https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Network Saturation Evidence Checklist
     </h2>
   </header>
@@ -395,25 +412,6 @@ Operating Model Use separate top-level containers for production, non-production
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Cloud Account And Environment Organization" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/account-environment-organization/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Cloud Networking IAM And Guardrails
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Cloud guardrails should prevent common mistakes without turning the platform into a ticket queue for every change.
-The platform team should define the default network, identity, logging, and policy controls that every environment inherits.
-Networking Network design should make approved communication easy and accidental exposure difficult.
-Baseline expectations:
-private networks by default. explicit ingress and egress paths. separate production and non-production routing. documented CIDR allocation. centralized DNS ownership. no unmanaged public endpoints. IAM IAM should be group-based, role-based, and reviewable.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Cloud Networking IAM And Guardrails" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

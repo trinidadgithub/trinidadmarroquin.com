@@ -120,3 +120,5 @@ Pick one owner:
 - Cloud-init userdata runs bootstrap and avoids competing with network ownership.
 
 The failure pattern is usually not one bad command. It is multiple systems trying to own the same network configuration.
+
+If VMware customization owns DNS, make sure Terraform separates the VM identity domain from resolver search suffixes. See [Terraform vSphere DNS Search Suffix Ownership](/field-notes/terraform-vsphere-dns-search-suffix-ownership/).

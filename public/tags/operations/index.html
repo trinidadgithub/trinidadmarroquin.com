@@ -216,6 +216,26 @@ ansible &#34;$GROUP&#34; ... \ | sed -n &#39;s/.*CSV|//p&#39; \ | awk -F&#39;|&#
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere DNS Search Suffix Ownership
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A VM can have the correct FQDN intent and still receive the wrong resolver search suffix.
+The trap is treating these as the same setting:
+vm_domain -&gt; identity/FQDN domain dns_search -&gt; resolver search suffix list They are related, but they are not the same control.
+Symptom An environment sets DNS search suffixes to empty:
+dns_search = &#34;[]&#34; But new vSphere VMs still boot with a resolver search domain such as:
+search corp.example.com The node audit shows drift even though the Terraform input looked correct:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-19 00:00:00 -0500 CDT'>June 19, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere DNS Search Suffix Ownership" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-dns-search-suffix-ownership/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">NetBox Cluster Tag Scope Audit
     </h2>
   </header>
@@ -354,23 +374,6 @@ Import state and audit only. Do not apply full vSphere changes to existing clust
 
 <span title='2026-06-17 00:00:00 -0500 CDT'>June 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform Import Workflow For Existing vSphere VMs" href="https://trinidadmarroquin.com/field-notes/terraform-import-existing-vsphere-vms/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Provisioning a VM is only the first part of ownership.
-The more interesting operational question is what happens after the VM exists. Can Terraform continue to manage CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown without turning every follow-up change into a manual vCenter edit?
-That was the next step after adding VM/IP guardrails. The automation already knew how to prevent duplicate VM names, duplicate IPs, stale DNS collisions, active network IP reuse, and NetBox/vCenter drift before create. The next improvement was to keep the VM lifecycle managed after creation.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Managing vSphere VM Lifecycle State With Terraform And NetBox" href="https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

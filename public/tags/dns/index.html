@@ -216,6 +216,26 @@ ansible &#34;$GROUP&#34; ... \ | sed -n &#39;s/.*CSV|//p&#39; \ | awk -F&#39;|&#
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere DNS Search Suffix Ownership
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A VM can have the correct FQDN intent and still receive the wrong resolver search suffix.
+The trap is treating these as the same setting:
+vm_domain -&gt; identity/FQDN domain dns_search -&gt; resolver search suffix list They are related, but they are not the same control.
+Symptom An environment sets DNS search suffixes to empty:
+dns_search = &#34;[]&#34; But new vSphere VMs still boot with a resolver search domain such as:
+search corp.example.com The node audit shows drift even though the Terraform input looked correct:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-19 00:00:00 -0500 CDT'>June 19, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere DNS Search Suffix Ownership" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-dns-search-suffix-ownership/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform vSphere VM Preflight Guardrails
     </h2>
   </header>

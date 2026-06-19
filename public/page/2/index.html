@@ -239,6 +239,23 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Managing vSphere VM Lifecycle State With Terraform And NetBox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Provisioning a VM is only the first part of ownership.
+The more interesting operational question is what happens after the VM exists. Can Terraform continue to manage CPU, memory, disk sizing, NetBox metadata, idempotency, and teardown without turning every follow-up change into a manual vCenter edit?
+That was the next step after adding VM/IP guardrails. The automation already knew how to prevent duplicate VM names, duplicate IPs, stale DNS collisions, active network IP reuse, and NetBox/vCenter drift before create. The next improvement was to keep the VM lifecycle managed after creation.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Managing vSphere VM Lifecycle State With Terraform And NetBox" href="https://trinidadmarroquin.com/posts/managing-vsphere-vm-lifecycle-state-terraform-netbox/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Post-Provision VM State Verification With NetBox
     </h2>
   </header>
@@ -402,23 +419,6 @@ query device by exact name. query IP address by exact address. require exactly o
 
 <span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to NetBox Primary IP Assignment After Import" href="https://trinidadmarroquin.com/field-notes/netbox-primary-ip-after-import/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">When AI-Assisted Infrastructure Updates Need Guardrails
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>AI assistance is useful in infrastructure work when it accelerates the boring parts: parsing inventory, building CSVs, checking references, and producing repeatable commands.
-It becomes dangerous when it gets confident without evidence.
-In one NetBox/IPAM update, the task sounded simple: take Kubernetes node inventory, create the matching NetBox records, associate management IPs, and set each device’s primary IPv4 address. The work was not conceptually hard. The risk was in the details: object relationships, import order, duplicate names, existing tags, site mappings, and whether the tool was writing to the intended NetBox instance.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-12 00:00:00 -0500 CDT'>June 12, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to When AI-Assisted Infrastructure Updates Need Guardrails" href="https://trinidadmarroquin.com/posts/ai-assisted-netbox-inventory-guardrails/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

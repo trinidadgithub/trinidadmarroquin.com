@@ -239,6 +239,25 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Cloud Networking IAM And Guardrails
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cloud guardrails should prevent common mistakes without turning the platform into a ticket queue for every change.
+The platform team should define the default network, identity, logging, and policy controls that every environment inherits.
+Networking Network design should make approved communication easy and accidental exposure difficult.
+Baseline expectations:
+private networks by default. explicit ingress and egress paths. separate production and non-production routing. documented CIDR allocation. centralized DNS ownership. no unmanaged public endpoints. IAM IAM should be group-based, role-based, and reviewable.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Cloud Networking IAM And Guardrails" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/networking-iam-guardrails/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Cloud Provider Operational Patterns
     </h2>
   </header>
@@ -391,21 +410,6 @@ Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot stat
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to etcd Backup, Restore, And Disaster Recovery" href="https://trinidadmarroquin.com/field-notes/etcd-backup-disaster-recovery/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Check Cluster Health # Endpoint health (all members) etcdctl endpoint health -w table --cluster # Endpoint status with version and DB size etcdctl endpoint status -w table --cluster # Member list etcdctl member list -w table # Leader and term etcdctl endpoint status --cluster -w table | awk &#39;{print $1, $4, $5}&#39; Member Lifecycle Add A New Member # On an existing member, add the new peer etcdctl member add &lt;node-name&gt; --peer-urls=https://&lt;new-peer-ip&gt;:2380 # On the new node, start etcd with the initial cluster state set to &#34;existing&#34; # Then verify etcdctl member list -w table etcdctl endpoint health -w table --cluster Remove A Member etcdctl member remove &lt;member-id&gt; After removal, verify quorum and health. The removed member’s data directory can be cleaned up.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -24,6 +24,13 @@
       <description></description>
     </item>
     <item>
+      <title>Cloud-Init</title>
+      <link>https://trinidadmarroquin.com/tags/cloud-init/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/cloud-init/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Dns</title>
       <link>https://trinidadmarroquin.com/tags/dns/</link>
       <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
@@ -49,6 +56,20 @@
       <link>https://trinidadmarroquin.com/tags/systemd-resolved/</link>
       <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/systemd-resolved/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://trinidadmarroquin.com/tags/terraform/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vsphere</title>
+      <link>https://trinidadmarroquin.com/tags/vsphere/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/vsphere/</guid>
       <description></description>
     </item>
     <item>
@@ -98,20 +119,6 @@
       <link>https://trinidadmarroquin.com/tags/rke2/</link>
       <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/rke2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Terraform</title>
-      <link>https://trinidadmarroquin.com/tags/terraform/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/terraform/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vsphere</title>
-      <link>https://trinidadmarroquin.com/tags/vsphere/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/vsphere/</guid>
       <description></description>
     </item>
     <item>
@@ -616,13 +623,6 @@
       <link>https://trinidadmarroquin.com/tags/bootstrap/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/bootstrap/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cloud-Init</title>
-      <link>https://trinidadmarroquin.com/tags/cloud-init/</link>
-      <pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/cloud-init/</guid>
       <description></description>
     </item>
     <item>

@@ -259,6 +259,24 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Canary Deployments With HAProxy Weighted Routing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A canary deployment sends a small fraction of traffic to a new version while the stable version handles the rest. If the canary fails, only the test fraction is affected.
+For a runnable lab, see the canary-deployment directory in the IaC repository. It uses HAProxy weighted routing with raw C API servers.
+HAProxy makes this pattern visible and controllable through weighted backend servers.
+Weight Ratio backend servers balance leastconn server v1 api_v1:8080 weight 10 check server v2 api_v2:8080 weight 1 check With weights 10 and 1, approximately 9% of requests reach v2. The weight proportion directly controls the blast radius:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Canary Deployments With HAProxy Weighted Routing" href="https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Concourse Key Management With Vault Bootstrap
     </h2>
   </header>
@@ -407,24 +425,6 @@ resource &#34;docker_container&#34; &#34;iot_device&#34; { image = docker_image.
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to IoT Device Container With Terraform And Certificate Mounts" href="https://trinidadmarroquin.com/field-notes/iot-docker-terraform-certificates/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka KRaft Mode In Docker Compose
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kafka without Zookeeper runs in KRaft mode using the Raft protocol for metadata consensus. This is the default in Kafka 4.x and available since Kafka 3.x. For local labs, KRaft mode removes the complexity of managing a separate Zookeeper container.
-For a runnable reference, see the docker/kafka/docker-compose.yml file in the IaC repository.
-Minimal KRaft Configuration A single-broker KRaft setup needs a few key environment variables that differ from Zookeeper-based Kafka:
-services: kafka: image: confluentinc/cp-kafka:latest environment: KAFKA_KRAFT_MODE: &#34;true&#34; KAFKA_PROCESS_ROLES: &#34;controller,broker&#34; KAFKA_NODE_ID: &#34;1&#34; KAFKA_CONTROLLER_QUORUM_VOTERS: &#34;1@localhost:9093&#34; KAFKA_LISTENERS: &#34;PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093&#34; KAFKA_ADVERTISED_LISTENERS: &#34;PLAINTEXT://localhost:9092&#34; KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: &#34;1&#34; KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: &#34;0&#34; CLUSTER_ID: &#34;MkU3OEVBNTcwNTJENDM2Qk&#34; Key Variables KAFKA_KRAFT_MODE=true — enables the Raft-based metadata mode. KAFKA_PROCESS_ROLES=controller,broker — a single node acts as both controller and broker. Production splits these roles across separate nodes. KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 — defines the controller ensemble. In a single-node lab, one voter is sufficient. CLUSTER_ID — a unique identifier generated once. If it changes, the broker treats the metadata as a new cluster. Single-Node Tuning Lab-specific settings that should not reach production:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka KRaft Mode In Docker Compose" href="https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

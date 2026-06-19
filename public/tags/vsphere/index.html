@@ -199,6 +199,26 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere DNS Search Suffix Ownership
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A VM can have the correct FQDN intent and still receive the wrong resolver search suffix.
+The trap is treating these as the same setting:
+vm_domain -&gt; identity/FQDN domain dns_search -&gt; resolver search suffix list They are related, but they are not the same control.
+Symptom An environment sets DNS search suffixes to empty:
+dns_search = &#34;[]&#34; But new vSphere VMs still boot with a resolver search domain such as:
+search corp.example.com The node audit shows drift even though the Terraform input looked correct:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-19 00:00:00 -0500 CDT'>June 19, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere DNS Search Suffix Ownership" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-dns-search-suffix-ownership/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Operating A NetBox Virtualization Migration Without Losing Control
     </h2>
   </header>
@@ -355,23 +375,6 @@ locals { vms = { &#34;app-1&#34; = { name = &#34;cluster-a-app-01&#34; ipv4_addr
 
 <span title='2026-06-16 00:00:00 -0500 CDT'>June 16, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform vSphere Compute Resize Checklist" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-compute-resize-checklist/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Building Guardrails Around Terraform vSphere VM Lifecycle
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The dangerous failure mode was simple: Terraform could be technically correct and still create the wrong thing.
-A VM name might already exist in vCenter. An IP might already be active on the network but missing from NetBox. DNS might still resolve from an older system. NetBox might be unavailable. A plan might look routine while carrying enough ambiguity to clobber an existing workload.
-The fix was not one control. It was a guardrail stack.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-15 00:00:00 -0500 CDT'>June 15, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Building Guardrails Around Terraform vSphere VM Lifecycle" href="https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

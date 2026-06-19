@@ -107,3 +107,5 @@ extra_config = {
 Do not test first-boot cloud-init behavior by enabling cloud-init on an already-customized clone unless the VM is disposable. Cloud-init may re-run identity, user, or network steps and break access.
 
 Fix the template, replace the test VM, and verify from logs.
+
+If both vSphere customization and guestinfo network config can set DNS search suffixes, keep them driven by one module input. See [Terraform vSphere DNS Search Suffix Ownership](/field-notes/terraform-vsphere-dns-search-suffix-ownership/).

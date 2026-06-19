@@ -17,6 +17,13 @@
       <description>Field note for making Ansible-based DNS search-domain audits report unreachable hosts, sudo failures, and CSV row-count mismatches instead of silently dropping nodes.</description>
     </item>
     <item>
+      <title>Terraform vSphere DNS Search Suffix Ownership</title>
+      <link>https://trinidadmarroquin.com/field-notes/terraform-vsphere-dns-search-suffix-ownership/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/field-notes/terraform-vsphere-dns-search-suffix-ownership/</guid>
+      <description>Field note for separating VM identity domain from DNS search suffixes in Terraform vSphere modules and proving which setting reaches guest customization.</description>
+    </item>
+    <item>
       <title>NetBox Cluster Tag Scope Audit</title>
       <link>https://trinidadmarroquin.com/field-notes/netbox-cluster-tag-scope-audit/</link>
       <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>

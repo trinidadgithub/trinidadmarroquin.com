@@ -199,6 +199,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The hardest part of automating VM provisioning is not always creating the VM. It is deciding which layer owns first boot.
+In one troubleshooting session, a Terraform refactor exposed a chain of hidden coupling between Packer, Terraform, vSphere customization, cloud-init, bootstrap scripts, netplan, SSH, and iSCSI. Each tool was doing something useful. The problem was that several of them were trying to own the same parts of the machine lifecycle.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to First-Boot Ownership Between Packer, Terraform, vSphere, Cloud-Init, And Bootstrap" href="https://trinidadmarroquin.com/posts/first-boot-ownership-packer-terraform-cloud-init/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
     </h2>
   </header>

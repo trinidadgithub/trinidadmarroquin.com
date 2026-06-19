@@ -108,6 +108,8 @@ Do not rely on the CSV alone. If the pipeline only keeps `CSV|...` rows, failed 
 
 See [DNS Search Domain Audit Failure Visibility](/field-notes/dns-search-domain-audit-failure-visibility/) for the safer audit pattern.
 
+If Terraform and vSphere are creating the VM, also verify that DNS search suffixes are not being derived from the VM identity domain. See [Terraform vSphere DNS Search Suffix Ownership](/field-notes/terraform-vsphere-dns-search-suffix-ownership/).
+
 ## Drift Detection
 
 Show anything not matching desired baseline (`.` / `[]`):

@@ -198,6 +198,25 @@
 </header>
 <article class="post-entry tag-entry">
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform vSphere DNS Search Suffix Ownership
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A VM can have the correct FQDN intent and still receive the wrong resolver search suffix.
+The trap is treating these as the same setting:
+vm_domain -&gt; identity/FQDN domain dns_search -&gt; resolver search suffix list They are related, but they are not the same control.
+Symptom An environment sets DNS search suffixes to empty:
+dns_search = &#34;[]&#34; But new vSphere VMs still boot with a resolver search domain such as:
+search corp.example.com The node audit shows drift even though the Terraform input looked correct:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-19 00:00:00 -0500 CDT'>June 19, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform vSphere DNS Search Suffix Ownership" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-dns-search-suffix-ownership/"></a>
+</article>
+<article class="post-entry tag-entry">
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Replacement Node Workflow After Terraform Import Drift
     </h2>
   </header>
@@ -351,22 +370,6 @@ terraform plan -out=tfplan terraform show -json tfplan &gt; tfplan.json Then run
 
 <span title='2026-06-15 00:00:00 -0500 CDT'>June 15, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Terraform vSphere VM Preflight Guardrails" href="https://trinidadmarroquin.com/field-notes/terraform-vsphere-vm-preflight-guardrails/"></a>
-</article>
-<article class="post-entry tag-entry">
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Azure AKS Operations With Terraform
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Azure Kubernetes Service follows the same managed-control-plane pattern as EKS and GKE, but the resource model, networking defaults, and identity system are different enough that provider-specific knowledge matters during provisioning.
-For a runnable lab, see the azure directory in the IaC repository.
-Resource Group Structure Everything in Azure lives in a resource group. The AKS cluster, VNet, and NSG are typically in the same group for a lab, but production should separate network infrastructure into a shared resource group owned by the platform team:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Azure AKS Operations With Terraform" href="https://trinidadmarroquin.com/field-notes/azure-aks-terraform-operations/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

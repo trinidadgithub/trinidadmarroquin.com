@@ -88,3 +88,4 @@ Header-only output = clean.
 
 - [DNS Search Domain Debugging With systemd-resolved](/field-notes/dns-search-domain-debugging/) — field note with commands and troubleshooting flow.
 - [DNS Search Domain Audit Failure Visibility](/field-notes/dns-search-domain-audit-failure-visibility/) — field note for making audit scripts expose unreachable hosts and row-count mismatches.
+- [Terraform vSphere DNS Search Suffix Ownership](/field-notes/terraform-vsphere-dns-search-suffix-ownership/) — field note for separating VM identity domain from resolver search suffixes in Terraform modules.
