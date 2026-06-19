@@ -239,6 +239,24 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
+For a runnable lab, see the feature-toggle directory in the IaC repository. It demonstrates the same toggle pattern in both C and Python.
+The Pattern Python:
+import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">From Local IaC Labs To Production-Ready Patterns
     </h2>
   </header>
@@ -395,23 +413,6 @@ services: kafka: image: confluentinc/cp-kafka:latest environment: KAFKA_KRAFT_MO
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Kafka KRaft Mode In Docker Compose" href="https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kafka labs are good at exposing the difference between a container being started and a broker being usable.
-Terraform can create the Docker network, broker container, application image, and topics, but it needs an explicit readiness boundary. Without that boundary, the next resource may try to create topics or start a processor before Kafka is listening.
-Readiness Boundary For a local lab, a simple port check is often enough to avoid racing the broker startup:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka Readiness Checks In Terraform Docker Labs" href="https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

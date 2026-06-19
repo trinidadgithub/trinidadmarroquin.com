@@ -33,6 +33,8 @@ Run against all nodes to produce a CSV of current state:
 ./scripts/fix-dns-search.sh --audit-only <site> <env> <inventory>
 ```
 
+The audit must also prove coverage. Compare the targeted Ansible host count with the CSV data row count, and print raw Ansible failures when a host does not return a row. Otherwise SSH or sudo failures can disappear behind a `sed` filter that only keeps successful `CSV|...` markers.
+
 Example output:
 
 | `resolv_conf_search` | `netplan_search` | Meaning |
@@ -80,7 +82,9 @@ Header-only output = clean.
 - **Subiquity YAML indentation**: Ubuntu installer sometimes writes `search:` at wrong indentation. Add a YAML normalization step to any netplan automation.
 - **`set -o pipefail` in Ansible**: `/bin/sh` on Ubuntu does not support it. Use `set -eu` inside shell tasks.
 - **stale `/etc/resolv.conf`** after netplan fix: If the file is a symlink to `stub-resolv.conf`, do not edit it directly. The change comes from systemd-resolved, not the file.
+- **short audit CSV**: If the host list has 13 nodes but the CSV has 6 rows, the audit is incomplete. Capture raw Ansible output, print unreachable/failed hosts, and warn on host-count versus row-count mismatch before reading drift results.
 
 ## Related
 
 - [DNS Search Domain Debugging With systemd-resolved](/field-notes/dns-search-domain-debugging/) — field note with commands and troubleshooting flow.
+- [DNS Search Domain Audit Failure Visibility](/field-notes/dns-search-domain-audit-failure-visibility/) — field note for making audit scripts expose unreachable hosts and row-count mismatches.

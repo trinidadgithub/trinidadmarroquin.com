@@ -239,6 +239,24 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Cloud Provider Operational Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cloud operations become easier when provider differences are documented as patterns, not rediscovered during incidents.
+The useful pattern is to separate provider-specific commands from provider-neutral operating expectations.
+Pattern Categories Document patterns by discipline:
+identity and access. network routing and exposure. compute lifecycle. storage and backup. Kubernetes integration. observability and audit logging. cost and capacity review. incident response. For each provider, keep the same structure so operators can compare behavior quickly.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Cloud Provider Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Concourse CI/CD On Windows With Terraform
     </h2>
   </header>
@@ -388,24 +406,6 @@ Verify Snapshot ETCDCTL_ENDPOINTS=https://127.0.0.1:2379 \ etcdctl snapshot stat
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to etcd Member Management And Cluster Health" href="https://trinidadmarroquin.com/field-notes/etcd-member-management/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Feature Toggles With Environment Variables
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Environment variable toggles are the simplest form of feature flag. No SDK, no external service, no runtime dependency. The application reads an env var at startup and enables or disables behavior accordingly.
-For a runnable lab, see the feature-toggle directory in the IaC repository. It demonstrates the same toggle pattern in both C and Python.
-The Pattern Python:
-import os feature_enabled = os.getenv(&#34;FEATURE_ENABLED&#34;, &#34;false&#34;).lower() == &#34;true&#34; if feature_enabled: # new behavior else: # old behavior C:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Feature Toggles With Environment Variables" href="https://trinidadmarroquin.com/field-notes/feature-toggles-environment-variables/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

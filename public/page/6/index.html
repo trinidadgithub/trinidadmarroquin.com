@@ -239,6 +239,23 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Kafka labs are good at exposing the difference between a container being started and a broker being usable.
+Terraform can create the Docker network, broker container, application image, and topics, but it needs an explicit readiness boundary. Without that boundary, the next resource may try to create topics or start a processor before Kafka is listening.
+Readiness Boundary For a local lab, a simple port check is often enough to avoid racing the broker startup:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Kafka Readiness Checks In Terraform Docker Labs" href="https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kafka Streams Pipeline With Terraform
     </h2>
   </header>
@@ -391,24 +408,6 @@ Commit Messages Are Deployment Descriptions In a GitOps model, the commit messag
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>11 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Operating In A GitOps Environment: Practices That Hold Up" href="https://trinidadmarroquin.com/posts/operating-in-gitops/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Packer Base Image Hardening
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Base images are production dependencies. Treat them like versioned platform artifacts, not disposable installer output.
-Packer should create the repeatable baseline. Per-environment configuration should happen later through Terraform, cloud-init, configuration management, or bootstrap scripts.
-Baseline Contents Images should include:
-OS updates at build time. required agents. VMware tools or cloud guest agents. logging and monitoring prerequisites. bootstrap entrypoint. security baseline packages. cleanup of machine identity before sealing. Images should not include environment-specific secrets, static hostnames, or one-off workload configuration.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Packer Base Image Hardening" href="https://trinidadmarroquin.com/projects/packer-image-pipelines/base-image-hardening/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -259,6 +259,25 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>govc is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
+Load Environment Use a clearly named helper file, not vars.env if it is only for govc:
+source govc.env govc about Typical values:
+export GOVC_URL=&#39;vcenter.example.com&#39; export GOVC_USERNAME=&#39;administrator@vsphere.local&#39; export GOVC_PASSWORD=&#39;...&#39; export GOVC_INSECURE=1 export GOVC_DATACENTER=&#39;DC-Site-A&#39; Find A VM Path Search by VM name:
+govc find / -type m -name &#39;cluster-a-worker-02&#39; Example result:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to govc Commands For vSphere VM Verification" href="https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">iSCSI Bootstrap Readiness For Kubernetes Nodes
     </h2>
   </header>
@@ -407,20 +426,6 @@ source govc.env govc vm.info -e /DC-Site-A/vm/K8s-Cluster/OpsTools/cluster-a-api
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>0 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Kubernetes And Rancher Field Notes" href="https://trinidadmarroquin.com/field-notes/kubernetes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Observability And Incidents Field Notes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>0 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Observability And Incidents Field Notes" href="https://trinidadmarroquin.com/field-notes/observability/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

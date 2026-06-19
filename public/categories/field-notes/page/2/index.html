@@ -199,6 +199,25 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Terraform VM Guardrail Test Matrix
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Use this matrix to prove VM provisioning guardrails before trusting automation with real vSphere creates.
+The point is not to make every test pass green. The point is to prove each unsafe condition fails at the correct layer.
+Baseline Commands Generate a plan and plan JSON:
+terraform init terraform plan -out=tfplan terraform show -json tfplan &gt; tfplan.json Run preflight:
+./scripts/preflight-vm-guardrails.sh --plan-json tfplan.json Confirm clean post-apply state when a test intentionally creates a disposable VM:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-15 00:00:00 -0500 CDT'>June 15, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Terraform VM Guardrail Test Matrix" href="https://trinidadmarroquin.com/field-notes/terraform-vm-guardrail-test-matrix/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform vSphere VM Preflight Guardrails
     </h2>
   </header>
@@ -360,24 +379,6 @@ Weight Ratio backend servers balance leastconn server v1 api_v1:8080 weight 10 c
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Canary Deployments With HAProxy Weighted Routing" href="https://trinidadmarroquin.com/field-notes/canary-deployment-haproxy-weighted-routing/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Concourse Key Management With Vault Bootstrap
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Concourse requires a set of RSA keys for TSA (Transport Security Authority) authentication between web and worker nodes. Managing these keys is a bootstrapping problem: Concourse needs keys to start, but the keys should live in a secrets store.
-For a runnable lab, see the concourse-terraform-unix directory in the IaC repository.
-TSA Key Architecture Concourse uses four key pairs:
-TSA host key (tsa_host_key &#43; tsa_host_key.pub): identifies the web node to workers. Worker key (worker_key &#43; worker_key.pub): identifies workers to the web node. Authorized worker keys (authorized_worker_keys): the public keys of permitted workers. Session signing key (session_signing_key): signs session tokens for the ATC API. The web node holds the TSA host key and authorized worker keys. Workers connect using their worker key. If any key pair mismatches, the worker cannot authenticate and stays disconnected.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Concourse Key Management With Vault Bootstrap" href="https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

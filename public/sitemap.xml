@@ -2,19 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://trinidadmarroquin.com/tags/ansible/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
     <loc>https://trinidadmarroquin.com/tags/audit/</loc>
-    <lastmod>2026-06-18T00:00:00-05:00</lastmod>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/categories/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/dns/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/field-notes/dns-search-domain-audit-failure-visibility/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/categories/field-notes/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/netplan/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/operations/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/systemd-resolved/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://trinidadmarroquin.com/tags/</loc>
+    <lastmod>2026-06-19T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/automation/</loc>
     <lastmod>2026-06-18T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/categories/</loc>
-    <lastmod>2026-06-18T00:00:00-05:00</lastmod>
-  </url><url>
     <loc>https://trinidadmarroquin.com/tags/drift/</loc>
-    <lastmod>2026-06-18T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/categories/field-notes/</loc>
     <lastmod>2026-06-18T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/ipam/</loc>
@@ -41,16 +62,10 @@
     <loc>https://trinidadmarroquin.com/posts/netbox-virtualization-migration-operational-pattern/</loc>
     <lastmod>2026-06-18T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/operations/</loc>
-    <lastmod>2026-06-18T00:00:00-05:00</lastmod>
-  </url><url>
     <loc>https://trinidadmarroquin.com/field-notes/replacement-node-workflow-after-terraform-import-drift/</loc>
     <lastmod>2026-06-18T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/rke2/</loc>
-    <lastmod>2026-06-18T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/</loc>
     <lastmod>2026-06-18T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/terraform/</loc>
@@ -93,9 +108,6 @@
     <lastmod>2026-06-16T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/posts/terraform-vsphere-vm-guardrails-netbox/</loc>
-    <lastmod>2026-06-15T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/dns/</loc>
     <lastmod>2026-06-15T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/govc/</loc>
@@ -168,9 +180,6 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/alerting/</loc>
-    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/ansible/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/anti-patterns/</loc>
@@ -398,9 +407,6 @@
     <loc>https://trinidadmarroquin.com/posts/multi-site-rke2-lessons/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
-    <loc>https://trinidadmarroquin.com/tags/netplan/</loc>
-    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
-  </url><url>
     <loc>https://trinidadmarroquin.com/tags/nginx/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
@@ -501,9 +507,6 @@
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/tags/storage/</loc>
-    <lastmod>2026-06-10T00:00:00-05:00</lastmod>
-  </url><url>
-    <loc>https://trinidadmarroquin.com/tags/systemd-resolved/</loc>
     <lastmod>2026-06-10T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://trinidadmarroquin.com/field-notes/terraform-azure-backend-bootstrap/</loc>

@@ -199,6 +199,24 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Concourse Key Management With Vault Bootstrap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Concourse requires a set of RSA keys for TSA (Transport Security Authority) authentication between web and worker nodes. Managing these keys is a bootstrapping problem: Concourse needs keys to start, but the keys should live in a secrets store.
+For a runnable lab, see the concourse-terraform-unix directory in the IaC repository.
+TSA Key Architecture Concourse uses four key pairs:
+TSA host key (tsa_host_key &#43; tsa_host_key.pub): identifies the web node to workers. Worker key (worker_key &#43; worker_key.pub): identifies workers to the web node. Authorized worker keys (authorized_worker_keys): the public keys of permitted workers. Session signing key (session_signing_key): signs session tokens for the ATC API. The web node holds the TSA host key and authorized worker keys. Workers connect using their worker key. If any key pair mismatches, the worker cannot authenticate and stays disconnected.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Concourse Key Management With Vault Bootstrap" href="https://trinidadmarroquin.com/field-notes/concourse-vault-key-bootstrap/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">DNS Search Domain Debugging With systemd-resolved
     </h2>
   </header>
@@ -347,23 +365,6 @@ services: kafka: image: confluentinc/cp-kafka:latest environment: KAFKA_KRAFT_MO
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Kafka KRaft Mode In Docker Compose" href="https://trinidadmarroquin.com/field-notes/kafka-kraft-docker-compose/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kafka labs are good at exposing the difference between a container being started and a broker being usable.
-Terraform can create the Docker network, broker container, application image, and topics, but it needs an explicit readiness boundary. Without that boundary, the next resource may try to create topics or start a processor before Kafka is listening.
-Readiness Boundary For a local lab, a simple port check is often enough to avoid racing the broker startup:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka Readiness Checks In Terraform Docker Labs" href="https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

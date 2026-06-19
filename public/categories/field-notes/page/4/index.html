@@ -199,6 +199,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Kafka Readiness Checks In Terraform Docker Labs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Kafka labs are good at exposing the difference between a container being started and a broker being usable.
+Terraform can create the Docker network, broker container, application image, and topics, but it needs an explicit readiness boundary. Without that boundary, the next resource may try to create topics or start a processor before Kafka is listening.
+Readiness Boundary For a local lab, a simple port check is often enough to avoid racing the broker startup:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Kafka Readiness Checks In Terraform Docker Labs" href="https://trinidadmarroquin.com/field-notes/kafka-readiness-terraform-docker-labs/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Local SLI Labs With Prometheus Grafana And cAdvisor
     </h2>
   </header>
@@ -350,25 +367,6 @@ Symptoms Bootstrap log stops after the first or second script. Later configurati
 
 <span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to Bootstrap Logging, Locks, And Continue-On-Failure Behavior" href="https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">govc Commands For vSphere VM Verification
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>govc is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
-Load Environment Use a clearly named helper file, not vars.env if it is only for govc:
-source govc.env govc about Typical values:
-export GOVC_URL=&#39;vcenter.example.com&#39; export GOVC_USERNAME=&#39;administrator@vsphere.local&#39; export GOVC_PASSWORD=&#39;...&#39; export GOVC_INSECURE=1 export GOVC_DATACENTER=&#39;DC-Site-A&#39; Find A VM Path Search by VM name:
-govc find / -type m -name &#39;cluster-a-worker-02&#39; Example result:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to govc Commands For vSphere VM Verification" href="https://trinidadmarroquin.com/field-notes/govc-vsphere-verification/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

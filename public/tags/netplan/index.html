@@ -199,6 +199,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">DNS Search Domain Audit Failure Visibility
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A DNS audit can select the right hosts and still produce a misleading report.
+The failure mode is usually a pipeline like this:
+ansible &#34;$GROUP&#34; ... \ | sed -n &#39;s/.*CSV|//p&#39; \ | awk -F&#39;|&#39; &#39;{print $1 &#34;,&#34; $2 &#34;,&#34; $3 &#34;,&#34; $4}&#39; \ &gt;&gt; &#34;$OUT&#34; That captures successful CSV|... markers, but it hides everything else. If half the hosts fail SSH or sudo, the CSV simply has fewer rows. The audit looks clean only because failed hosts disappeared.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-19 00:00:00 -0500 CDT'>June 19, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to DNS Search Domain Audit Failure Visibility" href="https://trinidadmarroquin.com/field-notes/dns-search-domain-audit-failure-visibility/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">DNS Search Domain Debugging With systemd-resolved
     </h2>
   </header>

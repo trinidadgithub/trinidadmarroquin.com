@@ -199,6 +199,24 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Cloud Provider Operational Patterns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cloud operations become easier when provider differences are documented as patterns, not rediscovered during incidents.
+The useful pattern is to separate provider-specific commands from provider-neutral operating expectations.
+Pattern Categories Document patterns by discipline:
+identity and access. network routing and exposure. compute lifecycle. storage and backup. Kubernetes integration. observability and audit logging. cost and capacity review. incident response. For each provider, keep the same structure so operators can compare behavior quickly.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Cloud Provider Operational Patterns" href="https://trinidadmarroquin.com/projects/cloud-based-platforms/provider-operational-patterns/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">etcd Member Management And Cluster Health
     </h2>
   </header>
@@ -354,23 +372,6 @@ provision a VM from template. resize CPU, memory, or disk. add or change network
 
 <span title='2026-06-10 00:00:00 -0500 CDT'>June 10, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
   <a class="entry-link" aria-label="post link to VM Lifecycle Runbooks" href="https://trinidadmarroquin.com/projects/vcenter-platform-administration/vm-lifecycle-runbooks/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Bootstrap Logging, Locks, And Continue-On-Failure Behavior
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>First-boot bootstrap scripts should be easy to debug after the VM is already running. For operational bootstrap, fail-fast is not always the best default.
-If a bootstrap framework configures hostname, SSH, disks, iSCSI, and node labels, stopping at the first failure may hide useful evidence from later checks. A better pattern is to run each stage, log the result, continue, and summarize failures at the end.
-Symptoms Bootstrap log stops after the first or second script. Later configuration steps never run. cloud-init-output.log shows only partial output. Re-running the bootstrap manually succeeds, but first boot did not. Log lines appear duplicated or interleaved. Use A Stage Runner Wrap each bootstrap step so failures are recorded but do not prevent later diagnostics:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
-  <a class="entry-link" aria-label="post link to Bootstrap Logging, Locks, And Continue-On-Failure Behavior" href="https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

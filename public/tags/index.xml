@@ -7,13 +7,48 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Trinidad Marroquin</copyright>
-    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://trinidadmarroquin.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible</title>
+      <link>https://trinidadmarroquin.com/tags/ansible/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/ansible/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Audit</title>
       <link>https://trinidadmarroquin.com/tags/audit/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/audit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dns</title>
+      <link>https://trinidadmarroquin.com/tags/dns/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netplan</title>
+      <link>https://trinidadmarroquin.com/tags/netplan/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/netplan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations</title>
+      <link>https://trinidadmarroquin.com/tags/operations/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/operations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Systemd-Resolved</title>
+      <link>https://trinidadmarroquin.com/tags/systemd-resolved/</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>https://trinidadmarroquin.com/tags/systemd-resolved/</guid>
       <description></description>
     </item>
     <item>
@@ -56,13 +91,6 @@
       <link>https://trinidadmarroquin.com/tags/netbox/</link>
       <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/netbox/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Operations</title>
-      <link>https://trinidadmarroquin.com/tags/operations/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/operations/</guid>
       <description></description>
     </item>
     <item>
@@ -112,13 +140,6 @@
       <link>https://trinidadmarroquin.com/tags/vmware/</link>
       <pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/vmware/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dns</title>
-      <link>https://trinidadmarroquin.com/tags/dns/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/dns/</guid>
       <description></description>
     </item>
     <item>
@@ -210,13 +231,6 @@
       <link>https://trinidadmarroquin.com/tags/alerting/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/alerting/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ansible</title>
-      <link>https://trinidadmarroquin.com/tags/ansible/</link>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/ansible/</guid>
       <description></description>
     </item>
     <item>
@@ -465,13 +479,6 @@
       <description></description>
     </item>
     <item>
-      <title>Netplan</title>
-      <link>https://trinidadmarroquin.com/tags/netplan/</link>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/netplan/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Nginx</title>
       <link>https://trinidadmarroquin.com/tags/nginx/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
@@ -574,13 +581,6 @@
       <link>https://trinidadmarroquin.com/tags/storage/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
       <guid>https://trinidadmarroquin.com/tags/storage/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Systemd-Resolved</title>
-      <link>https://trinidadmarroquin.com/tags/systemd-resolved/</link>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate>
-      <guid>https://trinidadmarroquin.com/tags/systemd-resolved/</guid>
       <description></description>
     </item>
     <item>

@@ -199,6 +199,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Bootstrap Logging, Locks, And Continue-On-Failure Behavior
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>First-boot bootstrap scripts should be easy to debug after the VM is already running. For operational bootstrap, fail-fast is not always the best default.
+If a bootstrap framework configures hostname, SSH, disks, iSCSI, and node labels, stopping at the first failure may hide useful evidence from later checks. A better pattern is to run each stage, log the result, continue, and summarize failures at the end.
+Symptoms Bootstrap log stops after the first or second script. Later configuration steps never run. cloud-init-output.log shows only partial output. Re-running the bootstrap manually succeeds, but first boot did not. Log lines appear duplicated or interleaved. Use A Stage Runner Wrap each bootstrap step so failures are recorded but do not prevent later diagnostics:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-09 00:00:00 -0500 CDT'>June 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Trinidad Marroquin</span></footer>
+  <a class="entry-link" aria-label="post link to Bootstrap Logging, Locks, And Continue-On-Failure Behavior" href="https://trinidadmarroquin.com/field-notes/bootstrap-logging-idempotency/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Terraform Variable File Hygiene
     </h2>
   </header>

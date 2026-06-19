@@ -104,6 +104,10 @@ printf "CSV|{{ inventory_hostname }}|%s|%s|%s\n" "$ACTUAL_HOSTNAME" "$RESOLV_SEA
 >> "$OUT"
 ```
 
+Do not rely on the CSV alone. If the pipeline only keeps `CSV|...` rows, failed or unreachable hosts are filtered out. Capture raw Ansible output, print non-CSV warnings/failures, and compare targeted host count to CSV data rows.
+
+See [DNS Search Domain Audit Failure Visibility](/field-notes/dns-search-domain-audit-failure-visibility/) for the safer audit pattern.
+
 ## Drift Detection
 
 Show anything not matching desired baseline (`.` / `[]`):
