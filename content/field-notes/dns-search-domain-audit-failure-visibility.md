@@ -165,3 +165,5 @@ drift output is reviewed after row-count validation
 ```
 
 If the row count is short, fix SSH/bootstrap/sudo access first. Do not treat the DNS state as clean just because missing hosts did not write CSV rows.
+
+Related: [DNS Search Remediation With Per-Cluster Ansible Inventory](/field-notes/dns-search-remediation-per-cluster-inventory/) covers per-cluster inventory arguments, local credential overrides for Vault-backed Ansible vars, and final-audit handling after remediation.
