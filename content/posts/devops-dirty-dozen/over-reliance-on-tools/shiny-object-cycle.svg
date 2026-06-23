@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Shiny object cycle</title>
+  <desc id="desc">A cycle from problem to tool search to tool adoption to disappointment and back to problem.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <circle cx="600" cy="340" r="200" fill="none" stroke="#f97316" stroke-width="6"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#f8fafc">
+    <text x="600" y="100" font-size="24" font-weight="700">The Cycle</text>
+  </g>
+  <rect x="550" y="178" width="100" height="60" rx="8" fill="#0f172a" opacity="0.7"/>
+  <g fill="#f43f5e" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="200" font-size="22" font-weight="700">Problem</text>
+    <text x="600" y="225" font-size="16" fill="#94a3b8">Something feels wrong</text>
+  </g>
+  <rect x="748" y="318" width="124" height="60" rx="8" fill="#0f172a" opacity="0.7"/>
+  <g fill="#f97316" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="810" y="340" font-size="22" font-weight="700">Search</text>
+    <text x="810" y="365" font-size="16" fill="#94a3b8">Find a tool</text>
+  </g>
+  <rect x="550" y="468" width="100" height="60" rx="8" fill="#0f172a" opacity="0.7"/>
+  <g fill="#a855f7" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="490" font-size="22" font-weight="700">Adopt</text>
+    <text x="600" y="515" font-size="16" fill="#94a3b8">Deploy the tool</text>
+  </g>
+  <rect x="318" y="318" width="144" height="60" rx="8" fill="#0f172a" opacity="0.7"/>
+  <g fill="#fca5a5" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="390" y="340" font-size="22" font-weight="700">Disappointment</text>
+    <text x="390" y="365" font-size="16" fill="#94a3b8">Nothing improved</text>
+  </g>
+  <g fill="none" stroke="#f97316" stroke-width="4">
+    <path d="M660 195 Q810 195 820 310" stroke="#f97316"/>
+    <polygon points="818,310 810,300 826,300" fill="#f97316" stroke="none"/>
+    <path d="M830 380 Q820 470 715 500" stroke="#a855f7"/>
+    <polygon points="715,500 722,492 708,492" fill="#a855f7" stroke="none"/>
+    <path d="M520 500 Q460 495 390 390" stroke="#fca5a5"/>
+    <polygon points="389,390 396,398 382,398" fill="#fca5a5" stroke="none"/>
+    <path d="M370 310 Q380 200 550 185" stroke="#f43f5e"/>
+    <polygon points="550,185 540,180 540,190" fill="#f43f5e" stroke="none"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">The search for the perfect tool is a symptom, not a strategy.</text>
+</svg>

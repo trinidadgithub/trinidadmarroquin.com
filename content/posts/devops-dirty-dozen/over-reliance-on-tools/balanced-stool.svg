@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Balanced stool</title>
+  <desc id="desc">A three-legged stool labeled culture, process, and tools — all legs touching the ground.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="400" y="180" width="400" height="30" rx="10" fill="#78350f" stroke="#f97316" stroke-width="4"/>
+  <rect x="410" y="155" width="380" height="30" rx="10" fill="#78350f" stroke="#f97316" stroke-width="4"/>
+  <g fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round">
+    <line x1="460" y1="210" x2="400" y2="520"/>
+    <line x1="600" y1="210" x2="600" y2="520"/>
+    <line x1="740" y1="210" x2="800" y2="520"/>
+  </g>
+  <rect x="375" y="512" width="50" height="15" rx="6" fill="#92400e"/>
+  <rect x="575" y="512" width="50" height="15" rx="6" fill="#92400e"/>
+  <rect x="775" y="512" width="50" height="15" rx="6" fill="#92400e"/>
+  <rect x="360" y="472" width="80" height="28" rx="6" fill="#0f172a" opacity="0.8"/>
+  <rect x="560" y="472" width="80" height="28" rx="6" fill="#0f172a" opacity="0.8"/>
+  <rect x="760" y="472" width="80" height="28" rx="6" fill="#0f172a" opacity="0.8"/>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" text-anchor="middle" font-size="22" font-weight="700">
+    <text x="400" y="492">Culture</text>
+    <text x="600" y="492">Process</text>
+    <text x="800" y="492">Tools</text>
+  </g>
+  <text x="600" y="170" fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">DevOps</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Tools, culture, and process support the weight together.</text>
+</svg>
