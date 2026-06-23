@@ -7,6 +7,8 @@ tags = ['kubernetes', 'velero', 'backup', 'recovery', 'storage']
 categories = ['field-notes']
 +++
 
+Velero has two parts: the **CLI** is installed on a management machine (your jumpbox or workstation) and issues commands to the cluster via `kubectl`; the **server** and **node-agent** run as pods inside the Kubernetes cluster and carry out the actual backup and restore work. All `velero backup`, `restore`, and `schedule` commands below assume the CLI is installed on a machine with `kubectl` access to the target cluster.
+
 ## Prerequisites
 
 Velero backs up Kubernetes resources and, with the restic/kopia integration, persistent volume data. The backup target must be an S3-compatible object store.
