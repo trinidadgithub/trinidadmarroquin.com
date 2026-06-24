@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Closed feedback loop</title>
+  <desc id="desc">A circular flow from observe to decide to act to verify, labeled as a closed feedback loop.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <circle cx="600" cy="340" r="200" fill="none" stroke="#f97316" stroke-width="6"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="520" y="115" width="160" height="50" rx="8" fill="#0f172a" opacity="0.8"/>
+    <text x="600" y="147" font-size="24" fill="#3b82f6" font-weight="700">Observe</text>
+    <rect x="760" y="310" width="160" height="50" rx="8" fill="#0f172a" opacity="0.8"/>
+    <text x="840" y="342" font-size="24" fill="#f97316" font-weight="700">Decide</text>
+    <rect x="520" y="510" width="160" height="50" rx="8" fill="#0f172a" opacity="0.8"/>
+    <text x="600" y="542" font-size="24" fill="#a855f7" font-weight="700">Act</text>
+    <rect x="280" y="310" width="160" height="50" rx="8" fill="#0f172a" opacity="0.8"/>
+    <text x="360" y="342" font-size="24" fill="#22c55e" font-weight="700">Verify</text>
+  </g>
+  <g fill="none" stroke="#f97316" stroke-width="4">
+    <path d="M680 165 Q820 180 830 300"/>
+    <polygon points="830,300 822,290 838,290" fill="#f97316" stroke="none"/>
+    <path d="M855 380 Q840 480 720 520"/>
+    <polygon points="720,520 730,514 730,526" fill="#a855f7" stroke="none"/>
+    <path d="M520 530 Q380 520 375 400"/>
+    <polygon points="375,400 383,408 370,410" fill="#22c55e" stroke="none"/>
+    <path d="M340 290 Q360 180 490 160"/>
+    <polygon points="490,160 480,156 480,166" fill="#3b82f6" stroke="none"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">A closed feedback loop turns data into improvement.</text>
+</svg>

@@ -16,5 +16,6 @@ The focus is practical: how teams create friction, how systems drift into unheal
 3. [Closing Pandora's Box: The DevOps Automating Chaos Anti-Pattern](/posts/devops-dirty-dozen/closing-pandoras-box-automating-chaos/)
 4. [Transforming Blame Culture: The DevOps Silent Productivity Killer Anti-Pattern](/posts/devops-dirty-dozen/transforming-blame-culture/)
 5. [Tools Are Not Enough: The DevOps Over-Reliance on Tools Anti-Pattern](/posts/devops-dirty-dozen/over-reliance-on-tools/)
+6. [The Signal You Ignored: The DevOps Ignoring Feedback Loops Anti-Pattern](/posts/devops-dirty-dozen/ignoring-feedback-loops/)
 
 More posts will be added as the series is migrated from LinkedIn.

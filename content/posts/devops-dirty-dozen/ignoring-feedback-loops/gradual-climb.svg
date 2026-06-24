@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Gradual climb</title>
+  <desc id="desc">A line chart showing a slow upward trend over weeks with a sudden spike at the end labeled incident.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="none" stroke-linecap="round">
+    <polyline points="100,520 200,515 300,510 400,505 500,495 600,485 700,470 800,450 900,420 1000,380 1050,300 1060,100" stroke="#f97316" stroke-width="5"/>
+  </g>
+  <circle cx="1060" cy="100" r="10" fill="#f43f5e"/>
+  <g fill="#f8fafc" font-family="Arial, sans-serif">
+    <text x="1060" y="80" font-size="20" text-anchor="middle" fill="#f43f5e" font-weight="700">Incident</text>
+  </g>
+  <g fill="#94a3b8" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">
+    <text x="150" y="560">Week 1</text>
+    <text x="400" y="560">Week 4</text>
+    <text x="650" y="560">Week 8</text>
+    <text x="900" y="560">Week 11</text>
+    <text x="1060" y="560">Week 12</text>
+  </g>
+  <rect x="200" y="508" width="800" height="30" rx="6" fill="#f97316" opacity="0.08"/>
+  <text x="600" y="527" fill="#f97316" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" opacity="0.6">Anomaly window — 10 weeks of visible drift</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">The disaster did not happen in an instant. It was measured in weeks of ignored data.</text>
+</svg>

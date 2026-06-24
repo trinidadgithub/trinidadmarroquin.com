@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Noise vs signal</title>
+  <desc id="desc">A person at a desk with hundreds of floating alert boxes, only one of which is red.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g opacity="0.2">
+    <rect x="80" y="80" width="120" height="60" rx="8" fill="#475569"/>
+    <rect x="240" y="50" width="140" height="50" rx="8" fill="#475569"/>
+    <rect x="430" y="90" width="110" height="60" rx="8" fill="#475569"/>
+    <rect x="580" y="40" width="130" height="50" rx="8" fill="#475569"/>
+    <rect x="750" y="70" width="120" height="60" rx="8" fill="#475569"/>
+    <rect x="920" y="50" width="130" height="50" rx="8" fill="#475569"/>
+    <rect x="150" y="160" width="160" height="50" rx="8" fill="#475569"/>
+    <rect x="360" y="140" width="130" height="60" rx="8" fill="#475569"/>
+    <rect x="550" y="170" width="140" height="50" rx="8" fill="#475569"/>
+    <rect x="740" y="150" width="120" height="60" rx="8" fill="#475569"/>
+    <rect x="920" y="160" width="150" height="50" rx="8" fill="#475569"/>
+    <rect x="100" y="240" width="140" height="60" rx="8" fill="#475569"/>
+    <rect x="300" y="250" width="120" height="50" rx="8" fill="#475569"/>
+    <rect x="470" y="230" width="150" height="60" rx="8" fill="#475569"/>
+    <rect x="680" y="250" width="130" height="50" rx="8" fill="#475569"/>
+    <rect x="860" y="240" width="120" height="60" rx="8" fill="#475569"/>
+    <rect x="200" y="330" width="130" height="50" rx="8" fill="#475569"/>
+    <rect x="400" y="340" width="140" height="60" rx="8" fill="#475569"/>
+    <rect x="620" y="330" width="120" height="50" rx="8" fill="#475569"/>
+    <rect x="800" y="340" width="140" height="60" rx="8" fill="#475569"/>
+  </g>
+  <rect x="430" y="90" width="110" height="60" rx="8" fill="#f43f5e" opacity="0.9" stroke="#f43f5e" stroke-width="3"/>
+  <text x="485" y="128" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="700">REAL ALERT</text>
+  <g>
+    <rect x="480" y="390" width="240" height="140" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="3"/>
+    <circle cx="530" cy="430" r="20" fill="#334155"/>
+    <circle cx="530" cy="460" r="20" fill="#334155"/>
+    <circle cx="530" cy="490" r="20" fill="#334155"/>
+    <rect x="570" y="416" width="90" height="10" rx="4" fill="#475569"/>
+    <rect x="570" y="442" width="110" height="10" rx="4" fill="#475569"/>
+    <rect x="570" y="470" width="70" height="10" rx="4" fill="#475569"/>
+  </g>
+  <text x="600" y="510" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Desk</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">When everything is urgent, nothing is.</text>
+</svg>

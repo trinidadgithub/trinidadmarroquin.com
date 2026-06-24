@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Eroding trust</title>
+  <desc id="desc">A faucet labeled user feedback dripping into a bucket with a crack at the bottom.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="none" stroke="#f97316" stroke-width="6" stroke-linecap="round">
+    <path d="M300 120 L300 180 L500 180 L500 120"/>
+    <path d="M300 180 Q300 260 300 320"/>
+    <path d="M500 180 Q500 260 500 320"/>
+    <path d="M300 320 L500 320"/>
+    <line x1="400" y1="320" x2="400" y2="360"/>
+  </g>
+  <text x="400" y="170" fill="#f8fafc" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" font-weight="700">User Feedback</text>
+  <circle cx="400" cy="380" r="4" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="400" cy="410" r="4" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="400" cy="440" r="4" fill="#3b82f6" opacity="0.4"/>
+  <rect x="320" y="460" width="200" height="180" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="4"/>
+  <rect x="320" y="460" width="200" height="30" rx="12" fill="#78350f"/>
+  <text x="420" y="482" fill="#fca5a5" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Bucket</text>
+  <path d="M430 580 L520 620 L560 620 L470 580Z" fill="#1e293b" stroke="#f43f5e" stroke-width="3"/>
+  <path d="M440 610 L500 610" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#fca5a5" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" opacity="0.7">
+    <text x="550" y="590">Ignored</text>
+    <text x="550" y="612">feedback</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Every ignored signal is a crack in the organizational learning system.</text>
+</svg>
