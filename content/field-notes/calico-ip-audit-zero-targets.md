@@ -123,6 +123,27 @@ site-a-ops-rke2  node-b   192.0.2.11   198.51.100.10   MISMATCH
 
 That keeps machine-readable target files small while giving operators confidence that the audit actually checked nodes.
 
+One practical implementation is a `--show-all` flag that writes an additional report while preserving the existing mismatch-only outputs:
+
+```text
+calico-ip-audit/site-a/mismatches.tsv
+calico-ip-audit/site-a/targets.tsv
+calico-ip-audit/site-a/targets-prod.tsv
+calico-ip-audit/site-a/all-nodes.tsv
+```
+
+Useful counters:
+
+```text
+checked nodes
+matching nodes
+missing annotations
+unreachable contexts
+mismatch targets
+```
+
+Add a small fixture test with fake `kubectl` output so the audit keeps producing both target files and all-node status files after future edits.
+
 ## Operating Rule
 
 For mismatch-only audits, `zero targets` is not enough evidence by itself.
