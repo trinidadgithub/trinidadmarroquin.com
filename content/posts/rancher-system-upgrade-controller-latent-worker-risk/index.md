@@ -40,6 +40,9 @@ The effective logic was:
 worker node selected by agent-plan
 worker version != desired version
 controller creates or retries upgrade job
+job attempts to stop rke2-agent or rke2-server
+shutdown does not complete before timeout
+controller retries the job
 job cordons and drains selected worker
 ```
 
@@ -48,10 +51,13 @@ That was latent risk while there was enough worker capacity.
 It became an outage when worker capacity collapsed:
 
 - one worker had been unreachable for a long time.
-- another worker became `NotReady`.
-- the upgrade job cordoned and drained the remaining healthy worker.
+- another worker hit certificate expiration and became `NotReady`.
+- the upgrade controller moved to the last available worker.
+- the upgrade job cordoned and attempted to drain that remaining healthy worker.
 
 At that point, management workloads that needed schedulable workers lost placement. Rancher and Argo CD HTTP access disappeared at the same time.
+
+The failed upgrade attempts were not clean one-shot failures. The job could get stuck while shutting down the RKE2 process, hit the upgrade timeout, then start over and try the shutdown again. That retry loop kept the Plan active and made worker selection dangerous once the cluster lost spare worker capacity.
 
 ## The First Fix Was Not Durable
 
@@ -148,6 +154,8 @@ Before allowing an automated worker upgrade Plan to run:
 
 - require at least N healthy schedulable workers after one worker is cordoned.
 - block or pause upgrades when any worker has been NotReady longer than a threshold.
+- block or pause worker upgrades when node certificates are near expiration or kubelet/RKE2 readiness is unstable.
+- alert when an upgrade job repeatedly times out while stopping `rke2-agent` or `rke2-server`.
 - alert on `agent-plan` jobs retrying for days or weeks.
 - document whether the Plan is GitOps-owned and where the durable pause lives.
 - verify Rancher and Argo CD workloads have enough placement redundancy.
@@ -163,7 +171,8 @@ The outage came from the gap between desired state and operational readiness:
 workers still needed upgrade
 controller kept reconciling
 GitOps kept restoring the Plan
-worker capacity dropped
+worker 2 became NotReady after certificate expiration
+worker capacity dropped to one usable worker
 the remaining worker was cordoned and drained
 management workloads lost placement
 ```

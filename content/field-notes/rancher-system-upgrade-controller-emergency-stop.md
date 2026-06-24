@@ -23,6 +23,8 @@ Look for jobs like:
 apply-agent-plan-on-worker-1-...
 ```
 
+Repeated jobs can mean the upgrade job is timing out while trying to stop `rke2-agent` or `rke2-server`. In that case the controller may start over and attempt the shutdown again, keeping the selected worker in the disruption path.
+
 Check worker schedulability:
 
 ```bash
@@ -135,6 +137,15 @@ agent-plan: still selects workers
 
 That means the controller is not randomly starting. It is continuously reconciling unfinished desired state.
 
+Also check whether the controller moved to a different worker because another worker became NotReady:
+
+```bash
+kubectl get nodes -o wide
+kubectl describe node worker-2
+```
+
+If a worker entered NotReady due to certificate expiration, kubelet/RKE2 agent failure, or an unreachable node condition, the upgrade controller may select the last remaining schedulable worker. That is the dangerous point for management workloads.
+
 ## Durable Fix
 
 The emergency stop is not the durable fix.
@@ -143,6 +154,8 @@ After management access is restored:
 
 - update the Git source that renders the Plan.
 - add a real pause flag or disable automated sync for the specific upgrade app.
+- fix NotReady workers before allowing the worker Plan to resume.
+- check certificate expiration and RKE2 agent health on every worker.
 - restore controller replicas only when worker capacity is healthy.
 - make sure at least one worker can be drained without losing management workloads.
 - remove emergency live patches after Git reflects the desired state.
