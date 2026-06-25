@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Rescue loop</title>
+  <desc id="desc">A circular loop from incident to hero rescue to praise to no systemic fix and back to incident.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <circle cx="600" cy="330" r="210" fill="none" stroke="#f97316" stroke-width="6"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle" font-size="22" font-weight="700">
+    <rect x="515" y="95" width="170" height="48" rx="8" fill="#0f172a" opacity="0.85"/>
+    <text x="600" y="126" fill="#f43f5e">Incident</text>
+    <rect x="785" y="300" width="170" height="48" rx="8" fill="#0f172a" opacity="0.85"/>
+    <text x="870" y="331" fill="#f97316">Hero Rescue</text>
+    <rect x="515" y="520" width="170" height="48" rx="8" fill="#0f172a" opacity="0.85"/>
+    <text x="600" y="551" fill="#a855f7">Praise</text>
+    <rect x="245" y="300" width="170" height="48" rx="8" fill="#0f172a" opacity="0.85"/>
+    <text x="330" y="331" fill="#94a3b8">No Fix</text>
+  </g>
+  <g fill="none" stroke="#f97316" stroke-width="4">
+    <path d="M690 120 Q830 150 850 290"/>
+    <path d="M870 360 Q830 500 700 530"/>
+    <path d="M500 540 Q360 500 340 360"/>
+    <path d="M330 290 Q365 150 500 120"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Hero culture is a loop: rescue, praise, forget, repeat.</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Team capability</title>
+  <desc id="desc">A group of engineers lifting the same platform together instead of one person holding it alone.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="300" y="210" width="600" height="110" rx="18" fill="#78350f" stroke="#f97316" stroke-width="6"/>
+  <text x="600" y="275" fill="#f8fafc" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" font-weight="700">Platform</text>
+  <g stroke="#f8fafc" stroke-width="8" stroke-linecap="round" fill="none">
+    <circle cx="360" cy="400" r="28" fill="#1e293b"/>
+    <path d="M360 430 L360 520 M360 455 L310 415 M360 455 L410 415"/>
+    <circle cx="520" cy="400" r="28" fill="#1e293b"/>
+    <path d="M520 430 L520 520 M520 455 L470 415 M520 455 L570 415"/>
+    <circle cx="680" cy="400" r="28" fill="#1e293b"/>
+    <path d="M680 430 L680 520 M680 455 L630 415 M680 455 L730 415"/>
+    <circle cx="840" cy="400" r="28" fill="#1e293b"/>
+    <path d="M840 430 L840 520 M840 455 L790 415 M840 455 L890 415"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">The goal is not fewer experts. The goal is more shared capability.</text>
+</svg>

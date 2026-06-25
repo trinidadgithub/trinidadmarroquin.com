@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Burnout pager</title>
+  <desc id="desc">A pager glowing red beside an empty coffee cup and a dim laptop.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="250" y="250" width="700" height="260" rx="22" fill="#1e293b" stroke="#334155" stroke-width="5"/>
+  <rect x="340" y="290" width="300" height="150" rx="10" fill="#020617" stroke="#475569" stroke-width="4"/>
+  <text x="490" y="370" fill="#475569" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">2:17 AM</text>
+  <rect x="710" y="315" width="160" height="110" rx="14" fill="#78350f" stroke="#f97316" stroke-width="5"/>
+  <circle cx="840" cy="340" r="12" fill="#f43f5e"/>
+  <text x="790" y="385" fill="#f8fafc" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" font-weight="700">PAGER</text>
+  <path d="M805 340 C860 300 910 315 940 350" stroke="#f43f5e" stroke-width="5" fill="none" opacity="0.5"/>
+  <path d="M720 500 C730 455 820 455 830 500" stroke="#94a3b8" stroke-width="4" fill="none"/>
+  <rect x="710" y="500" width="130" height="25" rx="12" fill="#334155"/>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Repeated heroics become exhaustion with a pager attached.</text>
+</svg>

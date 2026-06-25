@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Shared map</title>
+  <desc id="desc">A network map copied from one engineer's notebook onto a shared team wall.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="140" y="180" width="260" height="300" rx="14" fill="#1e293b" stroke="#475569" stroke-width="5"/>
+  <text x="270" y="225" fill="#94a3b8" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">Private Notes</text>
+  <g stroke="#f97316" stroke-width="4" fill="none">
+    <circle cx="220" cy="300" r="22"/>
+    <circle cx="320" cy="360" r="22"/>
+    <circle cx="250" cy="420" r="22"/>
+    <path d="M240 310 L300 350 M305 375 L265 410"/>
+  </g>
+  <path d="M430 330 L565 330" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="565,330 545,315 545,345" fill="#f97316"/>
+  <rect x="620" y="120" width="420" height="420" rx="16" fill="#1e293b" stroke="#f97316" stroke-width="6"/>
+  <text x="830" y="170" fill="#f8fafc" font-family="Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="700">Shared Runbook</text>
+  <g stroke="#f97316" stroke-width="5" fill="none">
+    <circle cx="760" cy="270" r="28"/>
+    <circle cx="900" cy="330" r="28"/>
+    <circle cx="790" cy="430" r="28"/>
+    <circle cx="930" cy="450" r="28"/>
+    <path d="M785 282 L875 318 M880 348 L812 412 M818 432 L902 448"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Knowledge is safe when it moves from private memory into shared practice.</text>
+</svg>

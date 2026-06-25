@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Knowledge bottleneck</title>
+  <desc id="desc">Many operational paths narrowing through one engineer before reaching production.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="none" stroke="#475569" stroke-width="8" stroke-linecap="round" opacity="0.65">
+    <path d="M110 160 C300 160 360 300 530 320"/>
+    <path d="M110 260 C300 250 370 310 530 320"/>
+    <path d="M110 360 C300 360 370 330 530 320"/>
+    <path d="M110 460 C300 460 360 340 530 320"/>
+  </g>
+  <circle cx="600" cy="320" r="55" fill="#1e293b" stroke="#f97316" stroke-width="6"/>
+  <text x="600" y="328" fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="700">Hero</text>
+  <g fill="none" stroke="#f97316" stroke-width="10" stroke-linecap="round">
+    <path d="M655 320 C780 315 870 270 1040 220"/>
+    <path d="M655 320 C790 335 875 390 1040 450"/>
+  </g>
+  <rect x="1020" y="190" width="100" height="60" rx="10" fill="#78350f" stroke="#f97316" stroke-width="4"/>
+  <rect x="1020" y="420" width="100" height="60" rx="10" fill="#78350f" stroke="#f97316" stroke-width="4"/>
+  <text x="1070" y="226" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Prod</text>
+  <text x="1070" y="456" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Ops</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">When all paths pass through one person, that person is the bottleneck.</text>
+</svg>
