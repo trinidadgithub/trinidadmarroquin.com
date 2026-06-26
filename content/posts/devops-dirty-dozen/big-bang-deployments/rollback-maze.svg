@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Rollback maze</title>
+  <desc id="desc">A rollback path tangled through database, application, and infrastructure changes.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="none" stroke="#475569" stroke-width="12" stroke-linecap="round">
+    <path d="M160 180 H470 V300 H300 V430 H530 V520"/>
+    <path d="M1040 190 H760 V330 H930 V450 H700 V520"/>
+    <path d="M250 560 H950"/>
+  </g>
+  <g fill="#1e293b" stroke="#f97316" stroke-width="4">
+    <rect x="120" y="145" width="120" height="70" rx="10"/>
+    <rect x="485" y="485" width="140" height="70" rx="10"/>
+    <rect x="640" y="485" width="140" height="70" rx="10"/>
+    <rect x="950" y="155" width="120" height="70" rx="10"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">
+    <text x="180" y="190">Start</text>
+    <text x="555" y="528">DB</text>
+    <text x="710" y="528">App</text>
+    <text x="1010" y="200">Rollback?</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Rollback is easy only when the change was designed to be reversible.</text>
+</svg>

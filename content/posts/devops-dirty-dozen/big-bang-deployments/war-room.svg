@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Deployment war room</title>
+  <desc id="desc">A crowded deployment bridge call with many teams watching a single release timeline.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="250" y="120" width="700" height="330" rx="18" fill="#1e293b" stroke="#f97316" stroke-width="5"/>
+  <text x="600" y="165" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-weight="700">Release Bridge</text>
+  <line x1="330" y1="250" x2="870" y2="250" stroke="#f97316" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="420" cy="250" r="16" fill="#22c55e"/>
+  <circle cx="555" cy="250" r="16" fill="#22c55e"/>
+  <circle cx="690" cy="250" r="16" fill="#f43f5e"/>
+  <circle cx="820" cy="250" r="16" fill="#475569"/>
+  <g fill="#334155" stroke="#94a3b8" stroke-width="3">
+    <circle cx="360" cy="520" r="28"/>
+    <circle cx="460" cy="520" r="28"/>
+    <circle cx="560" cy="520" r="28"/>
+    <circle cx="660" cy="520" r="28"/>
+    <circle cx="760" cy="520" r="28"/>
+    <circle cx="860" cy="520" r="28"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">When the deployment needs a war room, the change is too large.</text>
+</svg>

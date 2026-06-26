@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Canary path</title>
+  <desc id="desc">A narrow canary path branching safely before a wider production road.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <path d="M120 520 C350 430 470 350 600 300 C730 250 880 220 1080 160" stroke="#475569" stroke-width="60" fill="none" stroke-linecap="round"/>
+  <path d="M120 520 C350 430 470 350 600 300 C730 250 880 220 1080 160" stroke="#94a3b8" stroke-width="6" fill="none" stroke-dasharray="18 18"/>
+  <path d="M420 380 C470 300 520 240 620 190" stroke="#f97316" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <circle cx="620" cy="190" r="35" fill="#78350f" stroke="#f97316" stroke-width="5"/>
+  <text x="620" y="198" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="700">Canary</text>
+  <rect x="900" y="120" width="140" height="70" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="4"/>
+  <text x="970" y="163" fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Production</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">A canary is a controlled question asked of production.</text>
+</svg>

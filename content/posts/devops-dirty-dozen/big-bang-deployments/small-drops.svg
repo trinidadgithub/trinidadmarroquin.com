@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Small drops</title>
+  <desc id="desc">Small drops gradually shaping a stone labeled production.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="#3b82f6" opacity="0.85">
+    <path d="M420 105 C400 145 380 175 380 210 C380 240 400 260 420 260 C440 260 460 240 460 210 C460 175 440 145 420 105Z"/>
+    <path d="M600 75 C580 115 560 145 560 180 C560 210 580 230 600 230 C620 230 640 210 640 180 C640 145 620 115 600 75Z"/>
+    <path d="M780 120 C760 160 740 190 740 225 C740 255 760 275 780 275 C800 275 820 255 820 225 C820 190 800 160 780 120Z"/>
+  </g>
+  <ellipse cx="600" cy="455" rx="320" ry="105" fill="#334155" stroke="#94a3b8" stroke-width="4"/>
+  <text x="600" y="465" fill="#f8fafc" font-family="Arial, sans-serif" font-size="34" text-anchor="middle" font-weight="700">Production</text>
+  <path d="M520 360 C560 385 640 385 680 360" stroke="#f97316" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Small changes create learning opportunities and fewer surprises.</text>
+</svg>

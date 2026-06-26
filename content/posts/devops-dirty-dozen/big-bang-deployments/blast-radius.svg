@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Big deployment blast radius</title>
+  <desc id="desc">A large deployment explosion spreading across several services.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <circle cx="600" cy="300" r="80" fill="#f43f5e" opacity="0.25"/>
+  <circle cx="600" cy="300" r="160" fill="#f97316" opacity="0.14"/>
+  <circle cx="600" cy="300" r="250" fill="#f97316" opacity="0.08"/>
+  <g fill="#1e293b" stroke="#f97316" stroke-width="4">
+    <rect x="180" y="180" width="130" height="75" rx="10"/>
+    <rect x="850" y="170" width="130" height="75" rx="10"/>
+    <rect x="190" y="420" width="130" height="75" rx="10"/>
+    <rect x="850" y="430" width="130" height="75" rx="10"/>
+    <rect x="535" y="255" width="130" height="90" rx="14" fill="#78350f"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">
+    <text x="245" y="225">API</text>
+    <text x="915" y="215">DB</text>
+    <text x="255" y="465">Ingress</text>
+    <text x="915" y="475">Queue</text>
+    <text x="600" y="307" font-weight="700">Release</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">The larger the release, the larger the uncertainty cloud around failure.</text>
+</svg>
