@@ -157,7 +157,7 @@ sudo journalctl -u rke2-agent --since '1 hour ago'
 sudo crictl ps
 ```
 
-Common causes include kubelet/RKE2 agent failure, expired node certificates, host networking drift, disk pressure, or a node that is reachable by Kubernetes API metadata but not reachable by SSH.
+Common causes include kubelet/RKE2 agent failure, expired node certificates, host networking drift, disk pressure, compute pressure, or a node that is reachable by Kubernetes API metadata but not reachable by SSH. In one incident, workloads consumed the available CPU and memory on a node until `rke2-agent` and kubelet had too little capacity left to report and recover normally.
 
 Do not rerun broad remediation repeatedly until the NotReady node is understood. Repeated retries can hide which changes already succeeded.
 
