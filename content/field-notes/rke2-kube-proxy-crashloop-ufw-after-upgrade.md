@@ -31,11 +31,11 @@ sudo /var/lib/rancher/rke2/bin/kubectl \
 Example pattern:
 
 ```text
-kube-proxy-fra-2-etcd-1-rke2   0/1   CrashLoopBackOff
-kube-proxy-fra-2-etcd-2-rke2   0/1   CrashLoopBackOff
-kube-proxy-fra-2-etcd-3-rke2   1/1   Running
-kube-proxy-fra-2-wrkr-2-rke2   0/1   CrashLoopBackOff
-kube-proxy-fra-2-wrkr-4-rke2   0/1   CrashLoopBackOff
+kube-proxy-cluster-a-etcd-1   0/1   CrashLoopBackOff
+kube-proxy-cluster-a-etcd-2   0/1   CrashLoopBackOff
+kube-proxy-cluster-a-etcd-3   1/1   Running
+kube-proxy-cluster-a-worker-2   0/1   CrashLoopBackOff
+kube-proxy-cluster-a-worker-4   0/1   CrashLoopBackOff
 ```
 
 That mixed state matters. If every kube-proxy pod fails, suspect a cluster-wide configuration issue. If only some nodes fail, suspect node-specific drift: host firewall state, kernel modules, sysctls, iptables backend, conntrack pressure, or node image differences.
