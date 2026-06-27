@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Balanced metrics</title>
+  <desc id="desc">A balanced scale weighing speed, safety, quality, and learning.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <line x1="600" y1="150" x2="600" y2="500" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+  <line x1="360" y1="260" x2="840" y2="260" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+  <path d="M380 260 L300 420 H460 Z" fill="#1e293b" stroke="#94a3b8" stroke-width="4"/>
+  <path d="M820 260 L740 420 H900 Z" fill="#1e293b" stroke="#94a3b8" stroke-width="4"/>
+  <text x="380" y="375" fill="#f8fafc" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="700">Speed</text>
+  <text x="820" y="375" fill="#f8fafc" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="700">Safety</text>
+  <text x="600" y="535" fill="#94a3b8" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Quality + Learning</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Good metrics balance speed with safety and activity with outcome.</text>
+</svg>

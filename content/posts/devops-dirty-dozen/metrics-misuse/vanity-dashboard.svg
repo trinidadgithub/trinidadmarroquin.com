@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Vanity dashboard</title>
+  <desc id="desc">A dashboard full of green vanity metrics while a red incident light flashes unnoticed.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="170" y="120" width="860" height="390" rx="18" fill="#1e293b" stroke="#334155" stroke-width="5"/>
+  <g fill="#22c55e" opacity="0.85">
+    <rect x="230" y="190" width="180" height="90" rx="10"/>
+    <rect x="510" y="190" width="180" height="90" rx="10"/>
+    <rect x="790" y="190" width="180" height="90" rx="10"/>
+    <rect x="230" y="340" width="180" height="90" rx="10"/>
+    <rect x="510" y="340" width="180" height="90" rx="10"/>
+  </g>
+  <g fill="#0f172a" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">
+    <text x="320" y="240">Commits</text>
+    <text x="600" y="240">Tickets</text>
+    <text x="880" y="240">Velocity</text>
+    <text x="320" y="390">Builds</text>
+    <text x="600" y="390">Dashboards</text>
+  </g>
+  <circle cx="880" cy="385" r="52" fill="#f43f5e" opacity="0.9"/>
+  <text x="880" y="394" fill="#f8fafc" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="700">P0</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">A dashboard can be green and still be lying to you.</text>
+</svg>

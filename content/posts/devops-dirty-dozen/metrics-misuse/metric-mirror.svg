@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Metric mirror</title>
+  <desc id="desc">A team looking into a mirror labeled metrics and seeing a distorted reflection.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="680" y="130" width="300" height="360" rx="22" fill="#1e293b" stroke="#f97316" stroke-width="6"/>
+  <text x="830" y="180" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-weight="700">Metrics</text>
+  <path d="M760 310 C810 250 870 360 920 290" stroke="#f43f5e" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M760 385 C830 340 875 430 920 375" stroke="#f43f5e" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <g fill="#94a3b8" opacity="0.85">
+    <circle cx="260" cy="330" r="35"/>
+    <rect x="225" y="370" width="70" height="120" rx="22"/>
+    <circle cx="390" cy="330" r="35"/>
+    <rect x="355" y="370" width="70" height="120" rx="22"/>
+    <circle cx="520" cy="330" r="35"/>
+    <rect x="485" y="370" width="70" height="120" rx="22"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">A metric should reflect reality, not flatter the organization.</text>
+</svg>
