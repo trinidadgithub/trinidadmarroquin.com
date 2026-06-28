@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Safe bridge</title>
+  <desc id="desc">A bridge from current state to future state with small checkpoints and rollback points.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <path d="M160 420 C330 260 520 245 680 300 C820 350 930 300 1040 210" stroke="#475569" stroke-width="44" fill="none" stroke-linecap="round"/>
+  <path d="M160 420 C330 260 520 245 680 300 C820 350 930 300 1040 210" stroke="#f97316" stroke-width="7" fill="none" stroke-dasharray="18 18"/>
+  <g fill="#22c55e" stroke="#f8fafc" stroke-width="3">
+    <circle cx="330" cy="305" r="24"/>
+    <circle cx="540" cy="270" r="24"/>
+    <circle cx="750" cy="325" r="24"/>
+    <circle cx="930" cy="285" r="24"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">
+    <text x="330" y="310">1</text>
+    <text x="540" y="275">2</text>
+    <text x="750" y="330">3</text>
+    <text x="930" y="290">4</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">The safest change has checkpoints, evidence, and a way back.</text>
+</svg>

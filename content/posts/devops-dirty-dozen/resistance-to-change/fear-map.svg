@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Fear map</title>
+  <desc id="desc">A map from current state to future state with fear, unclear ownership, and unknown rollback marked as hazards.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="120" y="250" width="170" height="90" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="4"/>
+  <rect x="910" y="250" width="170" height="90" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="4"/>
+  <text x="205" y="303" fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Current</text>
+  <text x="995" y="303" fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Future</text>
+  <path d="M300 295 C430 170 540 420 650 290 C740 190 800 260 900 295" stroke="#f97316" stroke-width="7" fill="none" stroke-dasharray="14 10"/>
+  <g fill="#78350f" stroke="#f43f5e" stroke-width="4">
+    <polygon points="450,220 485,285 415,285"/>
+    <polygon points="610,360 645,425 575,425"/>
+    <polygon points="760,215 795,280 725,280"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">
+    <text x="450" y="310">Fear</text>
+    <text x="610" y="450">No Owner</text>
+    <text x="760" y="305">Rollback?</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">People rarely resist the destination. They resist the unsafe path.</text>
+</svg>

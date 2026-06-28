@@ -20,5 +20,6 @@ The focus is practical: how teams create friction, how systems drift into unheal
 7. [No More Heroes: The DevOps Hero Culture Anti-Pattern](/posts/devops-dirty-dozen/hero-culture/)
 8. [Small Changes, Safer Systems: The DevOps Big Bang Deployments Anti-Pattern](/posts/devops-dirty-dozen/big-bang-deployments/)
 9. [Measuring The Wrong Things: The DevOps Metrics Misuse Anti-Pattern](/posts/devops-dirty-dozen/metrics-misuse/)
+10. [The Drag Of Yesterday: The DevOps Resistance To Change Anti-Pattern](/posts/devops-dirty-dozen/resistance-to-change/)
 
 More posts will be added as the series is migrated from LinkedIn.

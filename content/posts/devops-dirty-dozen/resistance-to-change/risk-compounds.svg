@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Risk compounds</title>
+  <desc id="desc">Small risks stacking into a leaning tower labeled deferred change.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="#1e293b" stroke="#f97316" stroke-width="4">
+    <rect x="480" y="470" width="260" height="55" rx="8" transform="rotate(1 610 497)"/>
+    <rect x="465" y="410" width="260" height="55" rx="8" transform="rotate(-3 595 437)"/>
+    <rect x="495" y="350" width="260" height="55" rx="8" transform="rotate(4 625 377)"/>
+    <rect x="470" y="290" width="260" height="55" rx="8" transform="rotate(-5 600 317)"/>
+    <rect x="505" y="230" width="260" height="55" rx="8" transform="rotate(6 635 257)"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">
+    <text x="610" y="505">Unsupported</text>
+    <text x="595" y="445">Manual Steps</text>
+    <text x="625" y="385">No Owner</text>
+    <text x="600" y="325">Old Tooling</text>
+    <text x="635" y="265">Deferred</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Deferred change does not disappear. It compounds.</text>
+</svg>
