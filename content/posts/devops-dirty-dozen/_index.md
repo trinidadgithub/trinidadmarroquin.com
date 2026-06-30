@@ -21,5 +21,6 @@ The focus is practical: how teams create friction, how systems drift into unheal
 8. [Small Changes, Safer Systems: The DevOps Big Bang Deployments Anti-Pattern](/posts/devops-dirty-dozen/big-bang-deployments/)
 9. [Measuring The Wrong Things: The DevOps Metrics Misuse Anti-Pattern](/posts/devops-dirty-dozen/metrics-misuse/)
 10. [The Drag Of Yesterday: The DevOps Resistance To Change Anti-Pattern](/posts/devops-dirty-dozen/resistance-to-change/)
+11. [Always Vigilant: The DevOps Set It And Forget It Anti-Pattern](/posts/devops-dirty-dozen/set-it-and-forget-it/)
 
 More posts will be added as the series is migrated from LinkedIn.

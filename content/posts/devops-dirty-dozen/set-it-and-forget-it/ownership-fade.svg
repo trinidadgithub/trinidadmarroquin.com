@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Ownership fade</title>
+  <desc id="desc">Ownership labels fading from several operational components.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="#1e293b" stroke="#f97316" stroke-width="5">
+    <rect x="180" y="190" width="190" height="120" rx="14"/>
+    <rect x="505" y="190" width="190" height="120" rx="14" opacity="0.75"/>
+    <rect x="830" y="190" width="190" height="120" rx="14" opacity="0.45"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" font-weight="700">
+    <text x="275" y="240">Backup</text>
+    <text x="600" y="240">Alert</text>
+    <text x="925" y="240">Runbook</text>
+  </g>
+  <g fill="#94a3b8" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">
+    <text x="275" y="285">Owner: Platform</text>
+    <text x="600" y="285" opacity="0.55">Owner: ?</text>
+    <text x="925" y="285" opacity="0.25">Owner: faded</text>
+  </g>
+  <path d="M230 420 H970" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">When ownership fades, maintenance becomes optional by accident.</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Review cadence</title>
+  <desc id="desc">A calendar with recurring review checkpoints for backups, alerts, credentials, and runbooks.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="260" y="110" width="680" height="430" rx="18" fill="#1e293b" stroke="#f97316" stroke-width="6"/>
+  <rect x="260" y="110" width="680" height="70" rx="18" fill="#78350f"/>
+  <text x="600" y="155" fill="#f8fafc" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" font-weight="700">Quarterly Review</text>
+  <g fill="#334155" stroke="#94a3b8" stroke-width="3">
+    <rect x="330" y="230" width="120" height="80" rx="10"/>
+    <rect x="540" y="230" width="120" height="80" rx="10"/>
+    <rect x="750" y="230" width="120" height="80" rx="10"/>
+    <rect x="330" y="380" width="120" height="80" rx="10"/>
+    <rect x="540" y="380" width="120" height="80" rx="10"/>
+    <rect x="750" y="380" width="120" height="80" rx="10"/>
+  </g>
+  <g fill="#22c55e" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="700">
+    <text x="390" y="278">Backups</text>
+    <text x="600" y="278">Alerts</text>
+    <text x="810" y="278">Creds</text>
+    <text x="390" y="428">Runbooks</text>
+    <text x="600" y="428">Dashboards</text>
+    <text x="810" y="428">Policies</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Vigilance becomes sustainable when it is scheduled.</text>
+</svg>
