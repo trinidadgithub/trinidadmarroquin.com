@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Buzzword debt</title>
+  <desc id="desc">A stack of buzzword banners piling up into operational debt.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="#1e293b" stroke="#f97316" stroke-width="4">
+    <rect x="360" y="430" width="480" height="60" rx="8"/>
+    <rect x="390" y="360" width="430" height="60" rx="8"/>
+    <rect x="420" y="290" width="380" height="60" rx="8"/>
+    <rect x="450" y="220" width="330" height="60" rx="8"/>
+    <rect x="480" y="150" width="280" height="60" rx="8"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="700">
+    <text x="600" y="468">Maturity Model</text>
+    <text x="605" y="398">Transformation</text>
+    <text x="610" y="328">Automation</text>
+    <text x="615" y="258">Platform</text>
+    <text x="620" y="188">DevOps</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Buzzwords become debt when they hide unfinished work.</text>
+</svg>
