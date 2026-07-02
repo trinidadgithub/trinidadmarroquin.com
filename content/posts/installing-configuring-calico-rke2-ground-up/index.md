@@ -145,6 +145,94 @@ kubectl get pods -n calico-system -o wide
 kubectl get pods -n tigera-operator -o wide
 ```
 
+## Operate Autodetection Through The Tigera Operator
+
+In a Tigera operator-managed cluster, node IP autodetection is not a node-by-node setting to hand-edit first. The durable fix belongs in the `Installation` resource:
+
+```text
+spec.calicoNetwork.nodeAddressAutodetectionV4
+```
+
+When Calico selects the wrong interface or subnet, patch the operator source of truth so every `calico-node` pod receives the same intended policy.
+
+Example patch:
+
+```bash
+kubectl --context cluster-a-prod patch installation.operator.tigera.io default \
+  --type=merge \
+  -p '{
+    "spec": {
+      "calicoNetwork": {
+        "nodeAddressAutodetectionV4": {
+          "firstFound": false,
+          "cidrs": ["192.0.2.0/24"]
+        }
+      }
+    }
+  }'
+```
+
+Then wait for the operator-managed DaemonSet to roll:
+
+```bash
+kubectl --context cluster-a-prod -n tigera-operator get pods -o wide
+
+kubectl --context cluster-a-prod -n calico-system rollout status \
+  ds/calico-node \
+  --timeout=10m
+```
+
+Confirm the operator accepted the patch:
+
+```bash
+kubectl --context cluster-a-prod get installation.operator.tigera.io default -o json \
+  | jq -r '.spec.calicoNetwork.nodeAddressAutodetectionV4'
+```
+
+Expected shape:
+
+```json
+{
+  "firstFound": false,
+  "cidrs": [
+    "192.0.2.0/24"
+  ]
+}
+```
+
+Also inspect what the rendered `calico-node` pod receives:
+
+```bash
+kubectl --context cluster-a-prod -n calico-system get ds calico-node -o json \
+  | jq -r '.spec.template.spec.containers[]
+      | select(.name == "calico-node")
+      | .env[]?
+      | select(.name == "IP_AUTODETECTION_METHOD" or .name == "IP" or .name == "FELIX_IPAUTODETECTIONMETHOD")
+      | "\(.name)=\(.value)"'
+```
+
+Finally, verify at least one node annotation against its Kubernetes `InternalIP`:
+
+```bash
+kubectl --context cluster-a-prod get node worker-1 -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}{"\t"}{.metadata.annotations.projectcalico\.org/IPv4Address}{"\n"}'
+```
+
+The host portion should match:
+
+```text
+192.0.2.10    192.0.2.10/24
+```
+
+The safe remediation order is:
+
+1. audit mismatched nodes.
+2. patch the Tigera `Installation` resource.
+3. wait for `calico-node` rollout.
+4. validate node annotations.
+5. only then use node-level remediation for stale nodes that did not refresh.
+
+Node-level remediation usually means cordoning the affected node, optionally draining workers, deleting the `calico-node` pod on that node, waiting for the node to become `Ready`, and confirming `projectcalico.org/IPv4Address` now matches `InternalIP`. If the annotation still does not match, leave the node cordoned and investigate the operator config instead of repeatedly deleting pods.
+
 ## Verify Node Address Selection
 
 The first serious verification is whether Calico chose the same node IP that Kubernetes reports as `InternalIP`.
