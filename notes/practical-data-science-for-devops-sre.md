@@ -154,7 +154,7 @@ Keep the content grounded, practical, and suitable for publishing as a field not
 
 ## First Recommended Article
 
-Start with **Using Percentiles Instead Of Averages In Reliability Reviews** or **Alert Fatigue Analysis With Basic Counts And Rates**.
+Start with **Using Percentiles Instead Of Averages In Reliability Reviews**. Use **Alert Fatigue Analysis With Basic Counts And Rates** as the likely second article.
 
 Reasoning:
 
@@ -163,6 +163,11 @@ Reasoning:
 - Both connect directly to observability, incidents, and operational decisions.
 - Both can include small example tables and simple calculations.
 - Both provide a strong bridge between data science fundamentals and reliability engineering.
+
+Status:
+
+- **Using Percentiles Instead Of Averages In Reliability Reviews** has been drafted as the first post in `content/posts/practical-data-science-for-devops/`.
+- The article uses the SLI lab as the hands-on validation environment.
 
 ## Notes For Later
 
