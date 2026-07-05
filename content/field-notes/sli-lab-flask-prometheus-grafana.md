@@ -328,18 +328,13 @@ Key improvements:
 - Added trend and baseline comparison examples.
 - Removed unrelated GitHub branch-protection and C-programming notes.
 
-## Next Steps
+## Where To Take This Next
 
-Good follow-up work for this lab:
+This lab is intentionally small, but it creates enough signal to support more realistic reliability conversations. The next useful layer would be to turn the observed SLIs into a simple SLO, such as `99% successful eligible requests over 30 days`, and then calculate how quickly different failure rates consume that error budget.
 
-1. Add alerting rules for high error rate and high p95 latency.
-2. Define a sample SLO, such as `99% successful eligible requests over 30 days`.
-3. Add an error budget calculation.
-4. Export Prometheus data and perform a small Python notebook analysis.
-5. Compare average latency against p95 and p99 latency to show why averages mislead.
-6. Extend this into a first article for a practical data science for DevOps/SRE track.
+Alerting can also be added once the SLO is clear. A high 5xx rate or sustained p95 latency spike is more meaningful when it is tied to a user-facing objective instead of an arbitrary threshold.
 
-The most useful next field note would be **Using Percentiles Instead Of Averages In Reliability Reviews**, because this lab already creates the data needed to demonstrate the point.
+The same data can support a follow-up field note on percentiles. Comparing average latency with p95 and p99 latency is a practical way to show why averages often hide the user experience that reliability reviews are supposed to protect.
 
 ## References
 
