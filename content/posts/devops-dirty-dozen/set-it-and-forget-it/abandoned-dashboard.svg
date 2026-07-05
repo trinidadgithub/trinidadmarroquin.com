@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Abandoned dashboard</title>
+  <desc id="desc">A glowing dashboard covered in dust while a warning light blinks in the corner.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="220" y="130" width="760" height="360" rx="18" fill="#1e293b" stroke="#475569" stroke-width="6"/>
+  <g opacity="0.55" fill="none" stroke="#94a3b8" stroke-width="4">
+    <polyline points="290,390 380,330 470,360 560,250 650,290 740,210 880,250"/>
+    <rect x="290" y="190" width="180" height="70" rx="8"/>
+    <rect x="520" y="190" width="180" height="70" rx="8"/>
+    <rect x="750" y="190" width="180" height="70" rx="8"/>
+  </g>
+  <circle cx="905" cy="385" r="40" fill="#f43f5e" opacity="0.9"/>
+  <text x="905" y="394" fill="#f8fafc" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="700">!</text>
+  <g stroke="#94a3b8" stroke-width="3" opacity="0.35">
+    <line x1="260" y1="160" x2="420" y2="220"/>
+    <line x1="330" y1="120" x2="520" y2="250"/>
+    <line x1="790" y1="130" x2="940" y2="300"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">A dashboard nobody reviews is decoration with a refresh interval.</text>
+</svg>

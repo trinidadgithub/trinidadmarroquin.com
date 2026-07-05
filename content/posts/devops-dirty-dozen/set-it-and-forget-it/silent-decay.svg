@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Silent decay</title>
+  <desc id="desc">A clean system diagram fading and cracking over time.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="#1e293b" stroke="#f97316" stroke-width="4">
+    <rect x="210" y="210" width="150" height="90" rx="12"/>
+    <rect x="525" y="210" width="150" height="90" rx="12" opacity="0.7"/>
+    <rect x="840" y="210" width="150" height="90" rx="12" opacity="0.45"/>
+    <rect x="525" y="390" width="150" height="90" rx="12" opacity="0.35"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="5" fill="none" opacity="0.5">
+    <line x1="360" y1="255" x2="525" y2="255"/>
+    <line x1="675" y1="255" x2="840" y2="255"/>
+    <line x1="600" y1="300" x2="600" y2="390"/>
+  </g>
+  <g stroke="#f43f5e" stroke-width="4" fill="none">
+    <path d="M870 220 L910 250 L880 280 L930 300"/>
+    <path d="M560 400 L590 430 L570 465"/>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Operational decay is quiet until it becomes urgent.</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Evidence over slogans</title>
+  <desc id="desc">A magnifying glass inspecting a DevOps slogan and revealing evidence underneath.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="250" y="180" width="460" height="170" rx="16" fill="#1e293b" stroke="#f97316" stroke-width="5"/>
+  <text x="480" y="280" fill="#f8fafc" font-family="Arial, sans-serif" font-size="40" text-anchor="middle" font-weight="700">DevOps</text>
+  <circle cx="710" cy="300" r="120" fill="none" stroke="#f8fafc" stroke-width="8"/>
+  <line x1="795" y1="385" x2="940" y2="530" stroke="#f8fafc" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#22c55e" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="700">
+    <text x="710" y="270">Lead Time</text>
+    <text x="710" y="305">MTTR</text>
+    <text x="710" y="340">Failure Rate</text>
+  </g>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">The question is not whether we say DevOps. What changed?</text>
+</svg>

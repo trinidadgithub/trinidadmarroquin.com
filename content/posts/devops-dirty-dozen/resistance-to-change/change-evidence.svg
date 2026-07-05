@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Change evidence</title>
+  <desc id="desc">A decision board comparing evidence for staying still versus changing safely.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="180" y="120" width="840" height="410" rx="18" fill="#1e293b" stroke="#f97316" stroke-width="5"/>
+  <line x1="600" y1="170" x2="600" y2="500" stroke="#475569" stroke-width="4"/>
+  <text x="390" y="170" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-weight="700">Stay Still</text>
+  <text x="810" y="170" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-weight="700">Change Safely</text>
+  <g fill="#94a3b8" font-family="Arial, sans-serif" font-size="20">
+    <text x="250" y="245">Known failure modes</text>
+    <text x="250" y="305">No migration effort</text>
+    <text x="250" y="365">Familiar process</text>
+    <text x="670" y="245">Lower toil</text>
+    <text x="670" y="305">Better controls</text>
+    <text x="670" y="365">Rollback plan</text>
+  </g>
+  <circle cx="510" cy="405" r="18" fill="#f43f5e"/>
+  <circle cx="930" cy="405" r="18" fill="#22c55e"/>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">The debate should be evidence versus assumption.</text>
+</svg>

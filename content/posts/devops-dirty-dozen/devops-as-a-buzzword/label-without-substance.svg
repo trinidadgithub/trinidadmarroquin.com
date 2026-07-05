@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Label without substance</title>
+  <desc id="desc">A large DevOps label stuck onto an old broken process machine.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="240" y="210" width="720" height="260" rx="22" fill="#1e293b" stroke="#475569" stroke-width="6"/>
+  <g stroke="#475569" stroke-width="8" fill="none" opacity="0.8">
+    <circle cx="380" cy="340" r="55"/>
+    <circle cx="600" cy="340" r="55"/>
+    <circle cx="820" cy="340" r="55"/>
+    <path d="M430 340 H545 M655 340 H765"/>
+  </g>
+  <path d="M360 295 L405 385" stroke="#f43f5e" stroke-width="6"/>
+  <path d="M790 300 L850 380" stroke="#f43f5e" stroke-width="6"/>
+  <rect x="410" y="130" width="380" height="95" rx="12" fill="#78350f" stroke="#f97316" stroke-width="5"/>
+  <text x="600" y="190" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" text-anchor="middle" font-weight="700">DevOps</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">A new label does not transform an old system.</text>
+</svg>

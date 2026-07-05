@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Legacy anchor</title>
+  <desc id="desc">A delivery pipeline chained to a heavy anchor labeled legacy process.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <g fill="#1e293b" stroke="#f97316" stroke-width="5">
+    <rect x="170" y="180" width="160" height="90" rx="12"/>
+    <rect x="430" y="180" width="160" height="90" rx="12"/>
+    <rect x="690" y="180" width="160" height="90" rx="12"/>
+  </g>
+  <g stroke="#f97316" stroke-width="6" stroke-linecap="round">
+    <line x1="330" y1="225" x2="430" y2="225"/>
+    <line x1="590" y1="225" x2="690" y2="225"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">
+    <text x="250" y="233">Build</text>
+    <text x="510" y="233">Test</text>
+    <text x="770" y="233">Deploy</text>
+  </g>
+  <path d="M840 225 C930 260 950 350 890 420" stroke="#94a3b8" stroke-width="8" fill="none" stroke-dasharray="14 10"/>
+  <path d="M900 420 C900 500 780 500 780 420 C780 360 840 340 840 280" fill="none" stroke="#475569" stroke-width="18" stroke-linecap="round"/>
+  <text x="840" y="455" fill="#fca5a5" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="700">Legacy</text>
+  <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Stability is not the same as immobility. Some anchors look like process.</text>
+</svg>
