@@ -93,6 +93,21 @@ Preferred framing:
    - Incident date, service, symptoms, severity, trigger, resolution, recurrence
    - CSV-first analysis before tooling
 
+## SLI Lab Bridge
+
+The field note **Building A Small SLI Lab With Flask, Prometheus, And Grafana** creates a practical dataset for the first few articles in this track. It should be treated as a reusable lab, not just a one-off observability example.
+
+Useful extensions from that lab:
+
+- Define a sample SLO, such as `99% successful eligible requests over 30 days`, using the request-success SLI.
+- Add a simple error budget calculation to show how different 5xx rates consume reliability budget over time.
+- Add alerting rules for high 5xx error rate and sustained p95 latency once the SLO is clear.
+- Export Prometheus data and analyze it with a small CSV or Python notebook workflow.
+- Compare average latency against p95 and p99 latency to show how averages hide tail behavior.
+- Use the generated histogram data as source material for **Using Percentiles Instead Of Averages In Reliability Reviews**.
+
+The most natural follow-up is the percentiles field note because the lab already produces the data needed to compare average latency, typical latency, and tail latency without inventing a separate example.
+
 ## Reusable Prompt For Future Work
 
 Use this prompt to restart the content track:
