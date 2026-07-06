@@ -11,7 +11,8 @@ The goal of this blog is to document how systems are built, changed, operated, a
 
 ## Series
 
-- [The DevOps Dirty Dozen: Unmasking the Triple D's of Anti-Patterns](/posts/devops-dirty-dozen/)
+- [The DevOps Dirty Dozen: Unmasking the Triple D's of Anti-Patterns](/posts/devops-dirty-dozen/) — a twelve-part series on DevOps anti-patterns, systems thinking, and practical improvement habits.
+- [Practical Data Science For DevOps And SRE](/posts/practical-data-science-for-devops/) — a hands-on series on using simple, explainable analysis methods for reliability reviews, alerts, incidents, metrics, and operational decisions.
 
 ## Common Topics
 

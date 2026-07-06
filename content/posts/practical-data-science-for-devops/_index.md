@@ -24,4 +24,4 @@ The goal is not prediction hype, black-box machine learning, or academic statist
 7. Correlating Deployments With Incident Windows
 8. Building A Lightweight Reliability Dataset From Tickets And Logs
 
-Each post should stay close to real DevOps and SRE work: metrics, alerts, incidents, deployments, tickets, logs, postmortems, dashboards, and the operational judgment required to interpret them.
+Each post in this series leverages Data Science and stays close to real DevOps and SRE work: metrics, alerts, incidents, deployments, tickets, logs, postmortems, dashboards, and the operational judgment required to interpret them.
