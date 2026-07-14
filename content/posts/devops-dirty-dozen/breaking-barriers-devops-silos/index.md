@@ -108,4 +108,4 @@ What is your experience with DevOps silos? How has your team overcome them? Let 
 - [Issues with silos in architecture and engineering firms](https://www.csemag.com/articles/issues-with-silos-in-architecture-and-engineering-firms/)
 - [The Three Ways: The Principles Underpinning DevOps](https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/)
 - [Team Topologies key concepts](https://teamtopologies.com/key-concepts)
-- [DevOps culture: Westrum organizational culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)

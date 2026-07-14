@@ -148,4 +148,4 @@ What number does your organization celebrate that might be hiding the real probl
 - [Google SRE Workbook — Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 - [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law)
 - [DORA Research Program](https://dora.dev/)
-- [Westrum Organizational Culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)

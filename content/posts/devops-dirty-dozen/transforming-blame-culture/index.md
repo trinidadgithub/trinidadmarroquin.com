@@ -114,5 +114,5 @@ Have you encountered blame culture in your organization? How did it affect your 
 - [Psychology Today: Do You Work in a Blame Culture?](https://www.psychologytoday.com/)
 - [ACM Agile: Blame Culture](https://www.acm.org/)
 - [The DevOps Handbook](https://itrevolution.com/devops-handbook/) by Gene Kim, Patrick Debois, John Willis, and Jez Humble
-- [Westrum Organizational Culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)
 - [Etsy's Debriefing Facilitation Guide](https://extfiles.etsy.com/DebriefingFacilitationGuide.pdf)

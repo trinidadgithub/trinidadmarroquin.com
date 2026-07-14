@@ -156,7 +156,7 @@ What signals is your organization ignoring right now? What metric has been trend
 - [The DevOps Handbook](https://itrevolution.com/devops-handbook/) by Gene Kim, Patrick Debois, John Willis, and Jez Humble
 - [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
 - [Google SRE Workbook — Monitoring Distributed Systems](https://sre.google/workbook/monitoring/)
-- [Westrum Organizational Culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)
 - [The Three Ways: Principles Underpinning DevOps](https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/)
 - [Honeycomb: Observability 101](https://www.honeycomb.io/observability)
 - [Etsy's Debriefing Facilitation Guide](https://extfiles.etsy.com/DebriefingFacilitationGuide.pdf)

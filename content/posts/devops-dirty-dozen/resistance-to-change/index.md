@@ -146,5 +146,5 @@ What process, tool, or architecture is your team defending because it is safe â€
 - [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/product/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
 - [Team Topologies](https://teamtopologies.com/) by Matthew Skelton and Manuel Pais
 - [Google SRE Workbook â€” Non-Abstract Large System Design](https://sre.google/workbook/non-abstract-design/)
-- [Westrum Organizational Culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)
 - [Martin Fowler: Strangler Fig Application](https://martinfowler.com/bliki/StranglerFigApplication.html)

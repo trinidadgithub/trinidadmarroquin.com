@@ -163,5 +163,5 @@ If your organization says it is doing DevOps, ask what became safer, faster, cle
 - [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/product/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
 - [The Three Ways: Principles Underpinning DevOps](https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/)
 - [Team Topologies](https://teamtopologies.com/) by Matthew Skelton and Manuel Pais
-- [Westrum Organizational Culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)
 - [Google SRE Book — Introduction](https://sre.google/sre-book/introduction/)

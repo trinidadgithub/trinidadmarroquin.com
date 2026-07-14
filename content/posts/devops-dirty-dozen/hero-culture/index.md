@@ -150,5 +150,5 @@ Who does your organization always call when things go wrong? What would happen i
 - [Google SRE Book — Being On-Call](https://sre.google/sre-book/being-on-call/)
 - [Google SRE Workbook — Postmortem Culture](https://sre.google/workbook/postmortem-culture/)
 - [Team Topologies](https://teamtopologies.com/) by Matthew Skelton and Manuel Pais
-- [Westrum Organizational Culture](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)
 - [The Bus Factor](https://en.wikipedia.org/wiki/Bus_factor)

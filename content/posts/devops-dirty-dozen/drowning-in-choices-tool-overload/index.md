@@ -101,5 +101,5 @@ What is your experience with tool overload? Which tool in your stack would you r
 - [Team Topologies: Cognitive Load And Team-First Thinking](https://teamtopologies.com/key-concepts)
 - [Platform engineering: Gartner's definition and market guide](https://www.gartner.com/en/documents/5378172)
 - [Barry Schwartz, The Paradox of Choice](https://www.ted.com/talks/barry_schwartz_the_paradox_of_choice)
-- [Westrum organizational culture in DevOps](https://cloud.google.com/architecture/devops/devops-culture-westrum-organizational-culture)
+- [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)
 - [Chesterton's Fence: A Principle Of Thinking](https://fs.blog/chestersons-fence/)
