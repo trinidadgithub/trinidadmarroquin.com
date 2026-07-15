@@ -11,7 +11,7 @@ Kubernetes upgrades should be treated as controlled production changes, not pack
 
 The hard part is rarely clicking upgrade. The hard part is sequencing the change so operators know what can fail, what is safe to continue, and when to stop.
 
-Related incident pattern: [When A Latent Rancher Worker Upgrade Becomes An Outage](/posts/rancher-system-upgrade-controller-latent-worker-risk/) shows how an unfinished worker `system-upgrade-controller` Plan can become disruptive when worker capacity collapses and GitOps keeps restoring the Plan.
+Related incident pattern: [When A Latent Rancher Worker Upgrade Becomes An Outage](/posts/rancher-system-upgrade-controller-latent-worker-risk/) shows how an unfinished worker `system-upgrade-controller` Plan can become disruptive when worker capacity collapses and GitOps keeps restoring the Plan. For management-cluster upgrade preparation, see [Rancher Management Cluster Upgrades Need More Than A Version Target](/posts/rancher-management-cluster-upgrade-preflight/).
 
 ## Upgrade Principles
 
