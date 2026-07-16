@@ -200,6 +200,8 @@ Before calling a Concourse-backed template build service production-ready, verif
 
 The ingress side is its own checklist. See [Concourse Ingress DNS And TLS Cutover](/field-notes/concourse-ingress-dns-tls-cutover/) for the browser-facing DNS, TLS secret, and `externalUrl` work.
 
+For bootstrap-specific diagnosis, see [Packer Bootstrap Placement Versus Runtime Execution](/field-notes/packer-bootstrap-placement-vs-runtime-execution/). That note separates Packer file placement, SSH provisioner reachability, and Terraform/cloud-init runtime execution.
+
 ## Operating Rule
 
 Do not treat a successful template build as proof that the platform is ready.

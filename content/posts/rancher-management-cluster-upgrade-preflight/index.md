@@ -318,6 +318,7 @@ Upgrade readiness means the management cluster is stable, worker capacity exists
 
 Related:
 
+- [Rancher RKE2 Minor Hops When UI Metadata And GitOps Plans Disagree](/posts/rancher-rke2-minor-hop-gitops-suc/)
 - [When A Latent Rancher Worker Upgrade Becomes An Outage](/posts/rancher-system-upgrade-controller-latent-worker-risk/)
 - [Emergency Stop For Rancher System Upgrade Controller](/field-notes/rancher-system-upgrade-controller-emergency-stop/)
 - [Kubernetes Upgrade Sequencing](/projects/kubernetes-platform-operations/upgrade-sequencing/)

@@ -42,6 +42,21 @@ Packer should own:
 
 Packer should not own per-clone identity. It should not leave a template thinking it has already completed the first boot of a real machine.
 
+A practical pattern is to install only a static bootstrap entrypoint and unit into the image:
+
+```text
+/usr/local/bin/platform-bootstrap
+/etc/systemd/system/platform-bootstrap.service
+/var/lib/platform-bootstrap/
+/var/log/platform-bootstrap.log
+```
+
+The entrypoint should be idempotent, expose `--version` and `--check`, log to a stable file, write machine-readable status, and create a completion marker only after success. It should not contain site values, passwords, tokens, server URLs, DNS settings, SSH keys, or cluster join config.
+
+That keeps Packer responsible for placing the mechanism, while Terraform and cloud-init decide when to run it and what runtime values to provide.
+
+Also separate Packer build success from bootstrap placement success. If a Packer build creates a VM but never reaches SSH, none of the file or shell provisioners ran. An empty `/opt`, missing `/usr/local/bin/platform-bootstrap`, or absent service unit usually means the build stopped at communicator reachability, not that cloud-init or Terraform failed later.
+
 ## Terraform Owns VM Intent
 
 Terraform should describe the VM and the vSphere resources around it: folder, resource pool, datastore, network, CPU, memory, disks, template, and customization settings.
