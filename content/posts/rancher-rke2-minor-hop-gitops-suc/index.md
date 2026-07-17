@@ -242,3 +242,5 @@ Call the minor hop complete only when these are true:
 - the next minor target is planned, not guessed from the newest UI option.
 
 The operating rule is simple: Rancher can drive the upgrade, but GitOps and node runtime state still need reconciliation. The upgrade is not done when the UI says the version changed. It is done when every owner of that version agrees.
+
+Related: [Rancher RKE2 Upgrade Pods Mutate The Host Filesystem](/field-notes/rancher-rke2-upgrade-pods-host-filesystem/) explains the node-local host filesystem update pattern behind Rancher-managed upgrade Jobs.
