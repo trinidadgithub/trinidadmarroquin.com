@@ -7,7 +7,7 @@ tags = ['kubernetes', 'rancher', 'upgrades', 'operations']
 categories = ['projects']
 +++
 
-Kubernetes upgrades should be treated as controlled production changes, not package updates.
+Kubernetes upgrades should be treated as controlled production changes, not package updates. The same applies to node operating-system patching when automatic updates can restart services, touch device handling, or trigger storage churn. See [Ubuntu Unattended Upgrades Are Kubernetes Node Changes](/posts/ubuntu-unattended-upgrades-kubernetes-node-risk/) for the node patching failure pattern.
 
 The hard part is rarely clicking upgrade. The hard part is sequencing the change so operators know what can fail, what is safe to continue, and when to stop.
 
