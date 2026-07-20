@@ -75,6 +75,72 @@ sudo apt-get remove --purge -y unattended-upgrades
 sudo rm -f /etc/apt/apt.conf.d/50unattended-upgrades
 ```
 
+## Inject The Intent In Packer
+
+The durable place to express this policy is the node image, not only the remediation playbook. If Packer builds the Ubuntu template used for Kubernetes nodes, add a provisioner that makes the template's intent explicit: automatic apt activity is off before any clone ever joins a cluster.
+
+Place this after the base package installation stage and before final template cleanup. That lets the build install required packages first, then freeze the update policy into the image baseline.
+
+```hcl
+build {
+  sources = ["source.vsphere-iso.ubuntu"]
+
+  provisioner "shell" {
+    inline = [
+      "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 2; done",
+      "sudo apt-get update",
+      "sudo DEBIAN_FRONTEND=noninteractive apt-get install -y open-vm-tools openssh-server lvm2 xfsprogs",
+    ]
+  }
+
+  provisioner "shell" {
+    inline = [
+      "set -eu",
+      "echo 'Disabling unattended apt activity for Kubernetes node template...'",
+      "sudo systemctl stop unattended-upgrades.service apt-daily.service apt-daily-upgrade.service 2>/dev/null || true",
+      "sudo systemctl disable unattended-upgrades.service apt-daily.service apt-daily-upgrade.service 2>/dev/null || true",
+      "sudo systemctl stop apt-daily.timer apt-daily-upgrade.timer 2>/dev/null || true",
+      "sudo systemctl disable apt-daily.timer apt-daily-upgrade.timer 2>/dev/null || true",
+      "sudo systemctl mask apt-daily.timer apt-daily-upgrade.timer 2>/dev/null || true",
+      "sudo tee /etc/apt/apt.conf.d/20auto-upgrades >/dev/null <<'EOF'\nAPT::Periodic::Update-Package-Lists \"0\";\nAPT::Periodic::Download-Upgradeable-Packages \"0\";\nAPT::Periodic::AutocleanInterval \"0\";\nAPT::Periodic::Unattended-Upgrade \"0\";\nEOF",
+      "sudo apt-get remove --purge -y unattended-upgrades || true",
+      "sudo rm -f /etc/apt/apt.conf.d/50unattended-upgrades",
+      "systemctl is-enabled apt-daily.timer apt-daily-upgrade.timer 2>/dev/null || true",
+      "test ! -e /etc/apt/apt.conf.d/50unattended-upgrades"
+    ]
+  }
+
+  provisioner "shell" {
+    inline = [
+      "sudo apt-get autoremove -y",
+      "sudo apt-get clean",
+      "sudo rm -rf /var/lib/apt/lists/*"
+    ]
+  }
+}
+```
+
+If the organization prefers keeping the package installed but inert, omit the `apt-get remove --purge` line and keep the config plus masked timers. The important part is that the image declares the operational boundary: Kubernetes node patching is owned by maintenance automation, not by background apt timers.
+
+For a more modular Packer layout, keep the policy in a dedicated script and call it from the template:
+
+```hcl
+provisioner "file" {
+  source      = "scripts/disable-unattended-upgrades.sh"
+  destination = "/tmp/disable-unattended-upgrades.sh"
+}
+
+provisioner "shell" {
+  inline = [
+    "sudo install -m 0755 -o root -g root /tmp/disable-unattended-upgrades.sh /usr/local/sbin/disable-unattended-upgrades",
+    "sudo /usr/local/sbin/disable-unattended-upgrades",
+    "sudo rm -f /usr/local/sbin/disable-unattended-upgrades"
+  ]
+}
+```
+
+That keeps the Packer HCL readable while still making the image build fail if the policy script fails. Do not leave this as a wiki-only instruction. If the template is the source of truth for node operating-system behavior, the unattended-upgrades state belongs in the template build.
+
 ## Ansible Pattern
 
 In Ansible, avoid capturing newline-separated PIDs and passing them directly to `kill`. A task like this is unsafe when `pgrep` returns more than one process:
