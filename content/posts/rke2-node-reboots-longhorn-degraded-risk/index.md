@@ -9,7 +9,7 @@ categories = ['posts']
 
 Node reboots are easy to underestimate in Kubernetes. They look smaller than upgrades because the target version does not change, but the risk profile can be just as high when storage is already unhealthy.
 
-In one RKE2 maintenance window, the cluster needed operating-system reboots while Longhorn was not fully healthy. That changed the plan. The work could not be treated as a generic rolling reboot across every node. It needed role-based batches, explicit health gates, and a hard boundary around storage nodes until the Longhorn state was understood.
+In one RKE2 maintenance window, the cluster needed operating-system reboots while Longhorn was not fully healthy. That changed the plan. The work could not be treated as a generic rolling reboot across every node. It needed role-based batches, explicit health gates, and a hard boundary around storage nodes until the Longhorn state was understood. It also needed retained evidence; see [Kubernetes Maintenance Evidence Bundles Need A Redaction Plan](/field-notes/kubernetes-maintenance-evidence-bundles/) for the artifact-handling side of this procedure.
 
 The useful lesson was simple: when Longhorn is degraded, the reboot plan is a storage-risk plan first and a node-maintenance plan second.
 
