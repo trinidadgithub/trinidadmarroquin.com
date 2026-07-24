@@ -11,7 +11,7 @@ Good maintenance windows produce evidence. Bad evidence bundles become a new sec
 
 During RKE2 reboot and upgrade work, the most useful artifacts were not complicated: preflight JSON, per-batch reboot logs, final cluster state captures, and error files. They proved which context was used, which nodes were touched, whether boot IDs changed, whether workers were drained, whether PodDisruptionBudgets blocked eviction, and whether the cluster returned to the expected baseline.
 
-That same evidence can expose internal hostnames, IP addresses, SSH usernames, kubeconfig paths, workload names, Vault paths, webhook URLs, and temporary access helpers. Treat maintenance output as operational evidence and sensitive data at the same time.
+That same evidence can expose internal hostnames, IP addresses, SSH usernames, kubeconfig paths, workload names, Vault paths, webhook URLs, and temporary access helpers. Treat maintenance output as operational evidence and sensitive data at the same time. For the access-helper side of this problem, see [Temporary Privileged DaemonSets Are Host Access Changes](/field-notes/temporary-privileged-daemonset-maintenance-access/).
 
 ## Keep The Bundle Shape Boring
 

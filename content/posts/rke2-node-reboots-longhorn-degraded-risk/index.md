@@ -127,7 +127,7 @@ If those answers are unknown, the safe action is to skip the storage node and co
 
 ## Keep Temporary Access Temporary
 
-Maintenance windows often require short-lived access helpers: temporary sudo rules, one-time SSH keys, a jump-host allowance, or an emergency operator account. Those changes should be part of the runbook, not a forgotten side effect.
+Maintenance windows often require short-lived access helpers: temporary sudo rules, one-time SSH keys, a jump-host allowance, or an emergency operator account. Those changes should be part of the runbook, not a forgotten side effect. If Kubernetes is used to deliver host access, treat that as a host mutation; see [Temporary Privileged DaemonSets Are Host Access Changes](/field-notes/temporary-privileged-daemonset-maintenance-access/).
 
 Track them explicitly:
 
