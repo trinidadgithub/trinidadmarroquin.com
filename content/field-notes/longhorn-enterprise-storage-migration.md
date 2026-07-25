@@ -106,3 +106,5 @@ Retain Longhorn volumes and snapshots for at least one full retention cycle afte
 ## Related Operations Note
 
 If a Longhorn volume fails to attach with `no scheduled replicas` or `Replica Scheduling Failure`, do not treat it as a migration problem first. Confirm whether the issue is disk pressure, scheduled-capacity overcommitment, orphaned replica data, or unused PVCs. See [Longhorn No Scheduled Replicas Under Disk Pressure](/field-notes/longhorn-no-scheduled-replicas-disk-pressure/).
+
+For repeatable review, the public [`ops-toolbox` Longhorn utilities](https://github.com/trinidadgithub/ops-toolbox/tree/main/kubernetes/longhorn) provide read-only checks for scheduler pressure, orphaned replica data, and PVC ownership signals.
