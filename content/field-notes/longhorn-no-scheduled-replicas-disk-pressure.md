@@ -395,9 +395,20 @@ Use this order during an incident:
 9. Recheck `storageScheduled`, `storageAvailable`, and the disk `Schedulable` condition.
 10. Address the durable cause: add capacity, reduce replica count for appropriate workloads, move large observability data, or right-size retained PVCs through migration.
 
+## Reusable Utilities
+
+The manual checks in this note have reusable versions in the public `ops-toolbox` repository:
+
+- [`longhorn-scheduler-pressure-report.sh`](https://github.com/trinidadgithub/ops-toolbox/blob/main/kubernetes/longhorn/longhorn-scheduler-pressure-report.sh) reports Longhorn disk schedulability, scheduled capacity, available capacity, and scheduled replica counts.
+- [`longhorn-orphan-report.sh`](https://github.com/trinidadgithub/ops-toolbox/blob/main/kubernetes/longhorn/longhorn-orphan-report.sh) reports Longhorn orphan resources and exact overlap with active Replica CRs.
+- [`longhorn-pvc-ownership-audit.sh`](https://github.com/trinidadgithub/ops-toolbox/blob/main/kubernetes/longhorn/longhorn-pvc-ownership-audit.sh) audits PVC ownership signals before cleanup review.
+
+Those tools are read-only by default. They are intended to preserve the audit workflow without carrying environment-specific names, customer data, or incident artifacts.
+
 ## References
 
 - [Longhorn Documentation](https://longhorn.io/docs/)
 - [Longhorn Orphaned Data Cleanup](https://longhorn.io/docs/latest/advanced-resources/orphaned-data-cleanup/)
 - [Longhorn Metrics](https://longhorn.io/docs/latest/monitoring/metrics/)
+- [ops-toolbox Longhorn utilities](https://github.com/trinidadgithub/ops-toolbox/tree/main/kubernetes/longhorn)
 - [Longhorn To Enterprise Storage Migration Patterns](/field-notes/longhorn-enterprise-storage-migration/)

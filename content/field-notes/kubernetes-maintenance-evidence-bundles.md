@@ -74,6 +74,8 @@ kubectl -n longhorn-system get volumes.longhorn.io,replicas.longhorn.io,nodes.lo
 kubectl -n longhorn-system get pdb -o wide
 ```
 
+For reusable Longhorn evidence collection, the public [`ops-toolbox` Longhorn utilities](https://github.com/trinidadgithub/ops-toolbox/tree/main/kubernetes/longhorn) include read-only reports for scheduler pressure, orphan resources, and PVC ownership signals.
+
 The important part is not the exact command list. The important part is that the same evidence exists before the first node and after the last node.
 
 ## Drain Output Is Evidence
