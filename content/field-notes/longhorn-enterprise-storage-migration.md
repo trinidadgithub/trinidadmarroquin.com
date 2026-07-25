@@ -102,3 +102,7 @@ kubectl exec <pod> -- rm /data/test
 ```
 
 Retain Longhorn volumes and snapshots for at least one full retention cycle after migration completes successfully.
+
+## Related Operations Note
+
+If a Longhorn volume fails to attach with `no scheduled replicas` or `Replica Scheduling Failure`, do not treat it as a migration problem first. Confirm whether the issue is disk pressure, scheduled-capacity overcommitment, orphaned replica data, or unused PVCs. See [Longhorn No Scheduled Replicas Under Disk Pressure](/field-notes/longhorn-no-scheduled-replicas-disk-pressure/).
