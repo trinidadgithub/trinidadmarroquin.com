@@ -17,6 +17,8 @@ How quickly are we consuming the error budget?
 
 That question is easier to defend during an incident. It connects the alert to user impact, time window, and reliability policy instead of dashboard aesthetics.
 
+For the conceptual model behind these rules, see [Burn-Rate Alerting Concepts For Operators](/field-notes/burn-rate-alerting-concepts-for-operators/).
+
 ## Start With A Request-Based SLI
 
 For HTTP services, start with request success ratio before adding more complicated signals.
@@ -286,4 +288,5 @@ Start with one request-based SLO. Define the failure policy. Add multi-window bu
 - [Google SRE Workbook — Alerting on SLOs](https://sre.google/workbook/alerting-on-slos/)
 - [Google SRE Workbook — Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 - [Prometheus Alerting Rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
+- [Burn-Rate Alerting Concepts For Operators](/field-notes/burn-rate-alerting-concepts-for-operators/)
 - [Building A Small SLI Lab With Flask, Prometheus, And Grafana](/field-notes/sli-lab-flask-prometheus-grafana/)
