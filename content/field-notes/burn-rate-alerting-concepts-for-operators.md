@@ -11,7 +11,7 @@ Burn-rate alerting is easier to operate when the team understands the concepts b
 
 The implementation details matter, but the operational idea is simple: alert when a service is consuming its allowed failure budget too quickly. That is different from alerting because a metric crossed a convenient threshold.
 
-This note explains the mental model behind burn-rate alerts. For Prometheus examples and alert rule structure, see [SLO Burn-Rate Alerting With Prometheus](/field-notes/slo-burn-rate-alerting-prometheus/).
+This note explains the mental model behind burn-rate alerts. For Prometheus examples and alert rule structure, see [SLO Burn-Rate Alerting With Prometheus](/field-notes/slo-burn-rate-alerting-prometheus/). For dashboard design after the alert fires, see [What To Put On An SLO Dashboard](/field-notes/slo-dashboard-first-response-view/).
 
 ## Burn-Rate Alerts
 
@@ -233,3 +233,6 @@ If those pieces are missing, Prometheus can still evaluate the rule, but the org
 - [Google SRE Workbook - Alerting on SLOs](https://sre.google/workbook/alerting-on-slos/)
 - [Google SRE Workbook - Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 - [SLO Burn-Rate Alerting With Prometheus](/field-notes/slo-burn-rate-alerting-prometheus/)
+- [What To Put On An SLO Dashboard](/field-notes/slo-dashboard-first-response-view/)
+- [Incident Review Template For SRE Teams](/field-notes/incident-review-template-for-sre-teams/)
+- [On-Call Escalation Policy For Platform Teams](/field-notes/on-call-escalation-policy-platform-teams/)
