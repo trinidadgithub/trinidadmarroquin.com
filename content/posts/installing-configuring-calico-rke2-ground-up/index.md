@@ -455,6 +455,7 @@ Calico is ready when these are true:
 - [Calico IP Audit Zero Targets Does Not Mean Zero Nodes](/field-notes/calico-ip-audit-zero-targets/) — how to interpret mismatch-only Calico audit scripts.
 - [DNS Drift Detector Calico Overlay False Positives](/field-notes/dns-drift-detector-calico-overlay-filter/) — why Calico overlay links should not be parsed as DNS search domains.
 - [Remediation Audits With NotReady Nodes And Calico Checks](/field-notes/remediation-audits-notready-calico-inventory/) — how to keep NotReady nodes visible during remediation and Calico validation.
+- [RKE2 Calico Readiness Failures From Stale Port Owners](/field-notes/rke2-calico-stale-port-owners-after-upgrade/) — how to diagnose old node-local Calico or Typha processes holding readiness ports after RKE2 changes.
 - [RKE2 kube-proxy CrashLoopBackOff After Upgrade Due To UFW](/field-notes/rke2-kube-proxy-crashloop-ufw-after-upgrade/) — reminder that host firewall drift can look like a Kubernetes dataplane failure.
 
 The installation is only the beginning. The durable operating model is explicit CNI ownership, clear node IP selection, repeatable validation, and audit output that tells operators what was actually checked.
