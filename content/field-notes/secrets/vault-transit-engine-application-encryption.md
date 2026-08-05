@@ -235,4 +235,4 @@ Operate it like a production dependency: narrow policies, owner-mapped keys, tes
 
 - [Vault Policy Auth And Secrets Engines](/projects/secrets-management-with-vault/policy-auth-secrets-engines/)
 - [Vault Token Lease Audit And Recovery Practices](/projects/secrets-management-with-vault/token-lease-audit-recovery/)
-- [Secrets Rotation Patterns With Vault](/field-notes/secrets-rotation-patterns-with-vault/)
+- [Secrets Rotation Patterns With Vault](/field-notes/secrets/secrets-rotation-patterns-with-vault/)
