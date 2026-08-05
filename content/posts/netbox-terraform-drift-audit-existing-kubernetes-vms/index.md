@@ -113,7 +113,7 @@ retire old VM and state
 repeat one node at a time
 ```
 
-For workers, temporary extra capacity can make migration easier. For control-plane and etcd nodes, the sequence needs stricter quorum and health checks.
+For workers, temporary extra capacity can make migration easier. For control-plane and etcd nodes, the sequence needs stricter quorum and health checks. For the rehearsal pattern, see [Fast OS Template Node Replacement Rehearsal](/field-notes/fast-os-template-node-replacement-rehearsal/).
 
 ## Responsibility Split
 
