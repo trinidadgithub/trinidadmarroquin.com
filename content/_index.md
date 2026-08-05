@@ -6,17 +6,31 @@ description = 'Personal site for Trinidad Marroquin, an SRE and DevOps engineer 
 +++
 
 <section class="site-hero">
-  <p class="eyebrow">SRE / DevOps Engineering</p>
+  <p class="eyebrow">SRE / DevOps / Platform Engineering</p>
   <h1>Reliable infrastructure, kept understandable.</h1>
-  <p class="hero-copy">I am Trinidad Marroquin. I work on Kubernetes platforms, cloud infrastructure, vCenter, automation, CI/CD, secrets management, and observability for systems that need to be operated with confidence.</p>
+  <p class="hero-copy">I am Trinidad Marroquin, an SRE / DevOps / Platform Engineer focused on Kubernetes, infrastructure automation, observability, secrets management, and production operations for systems that need to be operated with confidence.</p>
   <div class="hero-actions">
-    <a href="/projects/">View Projects</a>
-    <a href="/field-notes/">Field Notes</a>
     <a href="/resume/">Resume</a>
+    <a href="/field-notes/">Field Notes</a>
+    <a href="/projects/">Projects</a>
+    <a href="/about/">Contact</a>
   </div>
 </section>
 
 I work on infrastructure that needs to be understandable, repeatable, and boring in production. My focus areas include Kubernetes, cloud platforms, vCenter, Terraform, Rancher, Packer, Vault, CI/CD, Linux systems, and observability.
+
+## Best Fit
+
+- SRE, DevOps, Platform Engineering, and Infrastructure Automation roles.
+- Kubernetes and Rancher platform operations, especially environments that need clear upgrade, recovery, and evidence practices.
+- Terraform, Packer, Vault, CI/CD, Linux, vSphere, and observability-heavy infrastructure.
+- Teams that value practical runbooks, safer changes, useful alerts, and systems that can be debugged under pressure.
+
+## Start Here
+
+- Recruiters and hiring managers: start with my [resume](/resume/) and [projects](/projects/).
+- Technical reviewers: start with [field notes](/field-notes/) for practical operations references and failure-mode writeups.
+- Platform/SRE reviewers: see [Kubernetes Platform Operations](/field-notes/kubernetes/), [Observability And Incidents](/field-notes/observability/), and [Vault And Secrets](/field-notes/secrets/).
 
 ## Focus Areas
 
