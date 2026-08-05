@@ -143,6 +143,8 @@ For control-plane or etcd nodes:
 - verify etcd health after each step.
 - do not reuse hostname/IP until old membership is safely removed.
 
+For a more detailed rehearsal shape using prebuilt powered-off VMs, see [Fast OS Template Node Replacement Rehearsal](/field-notes/fast-os-template-node-replacement-rehearsal/).
+
 ## Suggested Tool Split
 
 Use the right tool for each layer:

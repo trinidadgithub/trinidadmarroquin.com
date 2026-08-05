@@ -78,7 +78,7 @@ kubectl -n longhorn-system get volumes.longhorn.io
 kubectl -n longhorn-system get replicas.longhorn.io
 ```
 
-For a reusable version of the Longhorn storage checks, see the public [`ops-toolbox` Longhorn utilities](https://github.com/trinidadgithub/ops-toolbox/tree/main/kubernetes/longhorn). The scheduler pressure report is especially useful before deciding whether a storage-bearing node is safe to reboot.
+For a reusable version of the Longhorn storage checks, see the public [`ops-toolbox` Longhorn utilities](https://github.com/trinidadgithub/ops-toolbox/tree/main/kubernetes/longhorn). The scheduler pressure report is especially useful before deciding whether a storage-bearing node is safe to reboot. If `longhornctl` is part of the operator workstation, keep its role explicit; see [Longhornctl Workstation Install And Operations Boundary](/field-notes/longhornctl-workstation-install-operations-boundary/).
 
 Continue only when the previous batch has returned to the expected baseline. If the baseline already includes degraded storage, write down that accepted condition. Do not let a known pre-existing degraded state hide a new regression.
 
