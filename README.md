@@ -38,6 +38,7 @@ Content gaps are closed in focused clusters. Current coverage highlights include
 
 - Observability & Incident Response: SLO burn-rate alerting, SLO dashboard design, incident review, and on-call escalation practices.
 - Kubernetes Platform Operations: RKE2, Longhorn, Calico, ingress, cert-manager, Velero, cluster autoscaler, node maintenance, and operational evidence patterns.
+- Secrets Management With Vault: PKI, transit encryption, Kubernetes auth, rotation patterns, policy design, leases, audit, and recovery practices.
 - Infrastructure Automation: Terraform, Packer, vSphere, NetBox, Concourse, and GitOps-oriented workflows.
 
 Local planning notes for future content gaps are kept out of Git.
