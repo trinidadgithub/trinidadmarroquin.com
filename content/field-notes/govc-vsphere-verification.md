@@ -7,7 +7,7 @@ tags = ['govc', 'vsphere', 'vmware', 'terraform']
 categories = ['field-notes']
 +++
 
-`govc` is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config.
+`govc` is useful when Terraform says one thing and the VM behaves like something else. It gives a direct view into vSphere inventory, VM paths, NIC backing, and extra config. For virtual CD-ROM device cleanup, see [vSphere CD-ROM Host Device Cleanup With govc](/field-notes/vsphere-cdrom-host-device-cleanup-govc/).
 
 ## Load Environment
 

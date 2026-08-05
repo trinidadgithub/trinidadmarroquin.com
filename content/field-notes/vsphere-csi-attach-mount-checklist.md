@@ -7,7 +7,7 @@ tags = ['kubernetes', 'vsphere', 'vmware', 'storage', 'troubleshooting']
 categories = ['field-notes']
 +++
 
-Use this checklist when a Kubernetes workload has a PVC that should use vSphere CSI, but the pod is pending, stuck in init, or failing to mount the volume.
+Use this checklist when a Kubernetes workload has a PVC that should use vSphere CSI, but the pod is pending, stuck in init, or failing to mount the volume. For resize-specific CNS task triage, see [vSphere CSI CNS ExtendVolume Triage](/field-notes/vsphere-csi-cns-extendvolume-triage/). If GitOps keeps restarting CSI controllers during a storage freeze, see [GitOps-Owned vSphere CSI Maintenance Pauses](/field-notes/gitops-owned-vsphere-csi-maintenance-pause/).
 
 The goal is to follow the volume from intent to pod readiness:
 

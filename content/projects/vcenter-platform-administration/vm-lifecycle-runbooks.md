@@ -32,6 +32,7 @@ Useful runbooks include:
 - provision a VM from template.
 - resize CPU, memory, or disk.
 - add or change network adapters.
+- audit or remove unused virtual CD-ROM devices.
 - snapshot before risky maintenance.
 - restore from backup or snapshot.
 - retire and delete a VM.
@@ -63,7 +64,7 @@ During an incident, preserve evidence:
 - recent automation runs.
 - guest logs when accessible.
 
-Avoid making multiple speculative changes at once. vCenter incidents often cross host, storage, network, and guest boundaries.
+Avoid making multiple speculative changes at once. vCenter incidents often cross host, storage, network, and guest boundaries. For a specific virtual media cleanup pattern, see [vSphere CD-ROM Host Device Cleanup With govc](/field-notes/vsphere-cdrom-host-device-cleanup-govc/).
 
 ## References
 

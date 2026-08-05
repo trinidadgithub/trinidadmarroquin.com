@@ -115,6 +115,8 @@ node Ready after reboot
 
 This prevents a false success where SSH reconnects but the host never restarted, or Kubernetes still shows stale node information while the kubelet is catching up.
 
+If a node reboots unexpectedly during a vSphere-backed incident, include vCenter task and event history in the evidence bundle. A vSphere HA reset from VMware Tools heartbeat failure looks different from an in-guest reboot or Rancher/system-upgrade action; see [vSphere HA Reset Evidence For Kubernetes Nodes](/field-notes/vsphere-ha-reset-evidence-kubernetes-nodes/).
+
 ## Redact Before Sharing
 
 Raw maintenance artifacts are usually safe to keep in the controlled operations workspace. They are not safe to paste into tickets, public notes, blog posts, or vendor cases without review.
