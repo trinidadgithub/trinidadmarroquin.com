@@ -22,27 +22,27 @@ I work on infrastructure that needs to be understandable, repeatable, and boring
 
 <div class="card-grid">
   <section class="info-card">
-    <h3>Kubernetes Platforms</h3>
+    <h3><a href="/field-notes/kubernetes/">Kubernetes Platforms</a></h3>
     <p>Cluster operations, Rancher management, upgrades, access patterns, and production readiness.</p>
   </section>
   <section class="info-card">
-    <h3>Infrastructure As Code</h3>
+    <h3><a href="/field-notes/terraform/">Infrastructure As Code</a></h3>
     <p>Terraform modules, reviewable plans, environment promotion, and safer operational changes.</p>
   </section>
   <section class="info-card">
-    <h3>Cloud And Virtualization</h3>
+    <h3><a href="/field-notes/vsphere/">Cloud And Virtualization</a></h3>
     <p>Cloud platform operations, vCenter administration, VM lifecycle, templates, identity, and network foundations.</p>
   </section>
   <section class="info-card">
-    <h3>Build And Delivery</h3>
+    <h3><a href="/field-notes/cicd/">Build And Delivery</a></h3>
     <p>Packer image pipelines and CI/CD workflows that keep deployments repeatable and debuggable.</p>
   </section>
   <section class="info-card">
-    <h3>Secrets Management</h3>
+    <h3><a href="/field-notes/secrets/">Secrets Management</a></h3>
     <p>HashiCorp Vault operations, policy design, secrets engines, authentication methods, and operational guardrails.</p>
   </section>
   <section class="info-card">
-    <h3>Observability</h3>
+    <h3><a href="/field-notes/observability/">Observability</a></h3>
     <p>Metrics, logs, alerts, dashboards, and incident follow-up focused on useful operating signals.</p>
   </section>
 </div>
