@@ -231,6 +231,6 @@ Successful rotation means the new secret is issued, delivered, consumed, verifie
 ## References
 
 - [Vault Token Lease Audit And Recovery Practices](/projects/secrets-management-with-vault/token-lease-audit-recovery/)
-- [Vault PKI Secrets Engine For Internal Certificates](/field-notes/vault-pki-secrets-engine-internal-certificates/)
-- [Vault Transit Engine For Application Encryption](/field-notes/vault-transit-engine-application-encryption/)
-- [Vault Kubernetes Auth Method Deep Dive](/field-notes/vault-kubernetes-auth-method-deep-dive/)
+- [Vault PKI Secrets Engine For Internal Certificates](/field-notes/secrets/vault-pki-secrets-engine-internal-certificates/)
+- [Vault Transit Engine For Application Encryption](/field-notes/secrets/vault-transit-engine-application-encryption/)
+- [Vault Kubernetes Auth Method Deep Dive](/field-notes/secrets/vault-kubernetes-auth-method-deep-dive/)

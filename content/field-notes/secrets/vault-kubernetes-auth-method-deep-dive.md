@@ -227,6 +227,6 @@ Treat the mapping as production access control. Review auth mounts, role binding
 
 ## References
 
-- [Vault PKI Secrets Engine For Internal Certificates](/field-notes/vault-pki-secrets-engine-internal-certificates/)
-- [Secrets Rotation Patterns With Vault](/field-notes/secrets-rotation-patterns-with-vault/)
+- [Vault PKI Secrets Engine For Internal Certificates](/field-notes/secrets/vault-pki-secrets-engine-internal-certificates/)
+- [Secrets Rotation Patterns With Vault](/field-notes/secrets/secrets-rotation-patterns-with-vault/)
 - [Kubernetes Maintenance Evidence Bundles](/field-notes/kubernetes-maintenance-evidence-bundles/)
