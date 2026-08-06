@@ -8,7 +8,7 @@ description = 'Personal site for Trinidad Marroquin, an SRE and DevOps engineer 
 <section class="site-hero">
   <p class="eyebrow">SRE / DevOps / Platform Engineering</p>
   <h1>Reliable infrastructure, kept understandable.</h1>
-  <p class="hero-copy">I am Trinidad Marroquin, an SRE / DevOps / Platform Engineer focused on Kubernetes, infrastructure automation, observability, secrets management, and production operations for systems that need to be operated with confidence.</p>
+  <p class="hero-copy">I am Trinidad Marroquin, an SRE / DevOps / Platform Engineer focused on Kubernetes, infrastructure automation, observability, secrets management, and production operations for systems that need to be operated with confidence. I also bring technical leadership experience from leading a DevOps engineering team for three years.</p>
   <div class="hero-actions">
     <a href="/resume/">Resume</a>
     <a href="/field-notes/">Field Notes</a>
