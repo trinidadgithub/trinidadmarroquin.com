@@ -35,3 +35,8 @@ Good infrastructure should be boring for the right reasons. It should be repeata
 I prefer operational maturity that shows up in everyday work: readable repositories, consistent naming, reviewable plans, clear pipeline output, alerts tied to action, and documentation that reflects how the system is actually run.
 
 This site is where I collect project notes, operational lessons, and technical writing that may be useful to other engineers working on similar systems.
+
+## Contact
+
+- [LinkedIn](https://www.linkedin.com/in/trinidad-marroquin-9a786311a/)
+- [GitHub](https://github.com/trinidadgithub)
