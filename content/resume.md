@@ -49,15 +49,19 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 
 - The University of Texas at San Antonio: graduate-level Data Science Certificate coursework, 9 credit hours, 4.0 GPA. Courses included Programming for Data Science, Statistical Methods in Research, Introduction to Data Science, and Data Organization & Visualization. Transcript issued November 8, 2024.
 - Caltech Center for Technology and Management Education / Simplilearn: Post Graduate Program in DevOps, completed June 2, 2022. Certificate ID: `52288585`.
-- Kubernetes and Cloud Native Associate (KCNA).
-- LFS158: Introduction to Kubernetes.
-- LFS151: Introduction to Cloud Infrastructure Technologies.
+- The Linux Foundation: KCNA: Kubernetes and Cloud Native Associate. Issued February 2025, expires February 2027. Certificate ID: `LF-b5hanhynvo`.
+- The Linux Foundation: LFS250: Kubernetes and Cloud Native Essentials.
+- The Linux Foundation: LFS158: Introduction to Kubernetes.
+- The Linux Foundation: LFS151: Introduction to Cloud Infrastructure Technologies.
+- The Linux Foundation: LFS101: Introduction to Linux.
+- Credly profile: [credly.com/users/trinidad-marroquin](https://www.credly.com/users/trinidad-marroquin).
+- Previously held Credly-listed certifications: HashiCorp Certified: Terraform Associate (003), AWS Certified Cloud Practitioner.
 - Additional technical training and certifications completed over time as part of ongoing retooling across Linux, cloud, DevOps, SRE, and platform engineering. Details available upon request.
 
 ## Languages
 
-- English.
-- Spanish.
+- English
+- Spanish
 
 ## Selected Proof Of Work
 
@@ -129,5 +133,6 @@ Graduate-level Data Science Certificate coursework, 2023-2024. Completed 9 credi
 
 - [LinkedIn](https://www.linkedin.com/in/trinidad-marroquin-9a786311a/)
 - [GitHub](https://github.com/trinidadgithub)
+- [Credly](https://www.credly.com/users/trinidad-marroquin)
 - [trinidadmarroquin.com](https://trinidadmarroquin.com/)
 - <trinidad.marroquin@gmail.com>
