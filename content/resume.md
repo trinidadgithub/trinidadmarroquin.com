@@ -52,7 +52,7 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 - Kubernetes and Cloud Native Associate (KCNA).
 - LFS158: Introduction to Kubernetes.
 - LFS151: Introduction to Cloud Infrastructure Technologies.
-- Linux training.
+- Additional technical training and certifications completed over time as part of ongoing retooling across Linux, cloud, DevOps, SRE, and platform engineering. Details available upon request.
 
 ## Languages
 
