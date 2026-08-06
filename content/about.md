@@ -38,5 +38,5 @@ This site is where I collect project notes, operational lessons, and technical w
 
 ## Contact
 
-- [LinkedIn](https://www.linkedin.com/in/trinidadmarroquin/)
-- [GitHub](https://github.com/tmarroquin)
+- [LinkedIn](https://www.linkedin.com/in/trinidad-marroquin-9a786311a/)
+- [GitHub](https://github.com/trinidadgithub)

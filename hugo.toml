@@ -60,15 +60,15 @@ enableEmoji = false
   publisherType = "Person"
 
 [params.footer]
-  text = "[GitHub](https://github.com/tmarroquin) · [LinkedIn](https://www.linkedin.com/in/trinidadmarroquin/)"
+  text = "[GitHub](https://github.com/trinidadgithub) · [LinkedIn](https://www.linkedin.com/in/trinidad-marroquin-9a786311a/)"
 
 [[params.socialIcons]]
   name = "github"
-  url = "https://github.com/tmarroquin"
+  url = "https://github.com/trinidadgithub"
 
 [[params.socialIcons]]
   name = "linkedin"
-  url = "https://www.linkedin.com/in/trinidadmarroquin/"
+  url = "https://www.linkedin.com/in/trinidad-marroquin-9a786311a/"
 
 [menu]
   [[menu.main]]

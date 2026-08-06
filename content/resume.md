@@ -7,11 +7,13 @@ description = 'Resume summary for Trinidad Marroquin, SRE and DevOps engineer.'
 
 ## Trinidad Marroquin
 
-SRE / DevOps / Platform Engineer focused on infrastructure reliability, Kubernetes operations, infrastructure as code, CI/CD, secrets management, and observability.
+Practice Lead - Site Reliability Engineering & DevOps
+
+SRE / DevOps / Platform Engineer with 25 years of information technology experience across infrastructure operations, automation, CI/CD, cloud platforms, databases, systems administration, and reliability practices.
 
 ## Professional Summary
 
-Systems engineer focused on making infrastructure repeatable, observable, and maintainable. Comfortable working across Kubernetes platforms, Terraform-managed infrastructure, vSphere, image pipelines, CI/CD, Vault, Linux systems, and production operations.
+Quality-driven and practical information technologist focused on making infrastructure repeatable, observable, secure, and maintainable. Experienced across Kubernetes platforms, Terraform-managed infrastructure, vSphere, image pipelines, CI/CD, Vault, Linux systems, cloud platforms, database operations, and production support.
 
 I care about clear operating models: versioned changes, useful alerts, readable pipeline output, documented recovery paths, and systems that can be debugged under pressure.
 
@@ -33,6 +35,19 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 - Observability with metrics, logs, alerting, dashboards, and incident follow-up.
 - vSphere / vCenter operations for VM lifecycle, Kubernetes node support, CSI troubleshooting, and automation integration.
 - Linux systems, scripting, automation, troubleshooting, and production support.
+- AWS, Azure, Prometheus, Grafana, Jenkins, Hudson, Nexus, Maven, Puppet, Python, Bash, Tomcat, GlassFish, Apache HTTPD, and Oracle database administration.
+
+## Certifications
+
+- Kubernetes and Cloud Native Associate (KCNA).
+- LFS158: Introduction to Kubernetes.
+- LFS151: Introduction to Cloud Infrastructure Technologies.
+- Linux training.
+
+## Languages
+
+- English.
+- Spanish.
 
 ## Selected Proof Of Work
 
@@ -44,24 +59,61 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 
 ## Experience
 
-Add current and previous roles here with a short summary of scope, systems owned, and operational outcomes.
+### trinidadmarroquin.com - Site Reliability Engineering & DevOps
 
-Suggested format:
+January 2025 - Present | Texas, United States
 
-- Role, company, dates.
-- Infrastructure or services supported.
-- Tools and platforms used.
-- Reliability, automation, delivery, or observability improvements.
+- Built a public engineering log focused on SRE, DevOps, Kubernetes, vCenter, Terraform, Vault, Packer, observability, CI/CD, and production operations.
+- Published field notes, project writeups, and operational references covering failure modes, runbooks, evidence collection, alerting, dashboards, secrets management, and infrastructure automation.
+- Developed companion patterns for safe operational tooling, read-only diagnostics, and sanitized public technical documentation.
 
-## Selected Work
+### Donyati - Practice Lead, Site Reliability Engineering & DevOps
 
-- Built and maintained infrastructure automation for repeatable environment changes.
-- Supported Kubernetes platform operations with attention to upgrades, reliability, and recovery.
-- Improved deployment and validation workflows through clearer CI/CD pipelines.
-- Created operational documentation for systems that need to be debugged under pressure.
-- Helped turn monitoring data into useful operating signals through alert and dashboard improvements.
+April 2020 - January 2025 | Texas, United States
+
+- Led SRE and DevOps practice direction with hands-on leadership for infrastructure optimization, automation, documentation, and operational process improvement.
+- Developed training programs, documentation practices, and tool evaluation frameworks for SRE and DevOps processes.
+- Standardized best practices across teams using structured documentation for tooling, incident response, infrastructure as code, and operational learning.
+- Created reusable templates for tool evaluation and post-incident reviews to improve team efficiency and knowledge sharing.
+- Facilitated collaborative learning and team-wide contribution to documentation and best practices for performance optimization and infrastructure scalability.
+- Documented deep operational insight into AWS, Azure, Terraform, Kubernetes, Prometheus, Grafana, and related platform technologies.
+
+### Independent Consultant - Independent Consultant
+
+March 2020 - April 2020 | San Antonio, Texas Metropolitan Area
+
+- Helped teams address hands-on technical problems while improving reliability, security, repeatability, and operational resilience.
+- Focused on practical guidance for robust systems, adaptable processes, and dependable infrastructure practices.
+
+### H-E-B - Lead Technical Specialist
+
+September 2003 - March 2020
+
+- Worked in an infrastructure provisioning role building and configuring virtual machines from templates across development, certification, and production environments.
+- Provided input to internal cloud teams for automation and template design improvements.
+- Managed middleware platforms including Tomcat, GlassFish, and Apache HTTPD servers.
+- Worked with infrastructure teams to build environments for internally developed and commercial applications.
+- Supported monitoring, patching, and security maintenance for managed systems.
+- Developed RPM packages to maintain consistent deployments across a large number of systems.
+- Used Puppet to maintain RPM installations for distributed systems.
+- Used Jenkins, Hudson, Nexus, and Maven to move application code from development to certification to production environments.
+- Built Python and Bash scripts to automate routine tasks and support administration duties.
+
+### Valero Energy Corporation - Oracle Database Administrator
+
+June 2001 - September 2003
+
+- Supported Oracle database administration responsibilities.
+
+## Education
+
+### The University of Texas at San Antonio
+
+Bachelor of Applied Science (BASc), Mathematics and Computer Science, 1994.
 
 ## Contact
 
-- [LinkedIn](https://www.linkedin.com/in/trinidadmarroquin/)
-- [GitHub](https://github.com/tmarroquin)
+- [LinkedIn](https://www.linkedin.com/in/trinidad-marroquin-9a786311a/)
+- [GitHub](https://github.com/trinidadgithub)
+- [trinidadmarroquin.com](https://trinidadmarroquin.com/)
+- <trinidad.marroquin@gmail.com>
