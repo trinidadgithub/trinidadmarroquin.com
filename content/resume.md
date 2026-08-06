@@ -13,7 +13,7 @@ SRE / DevOps / Platform Engineer with 25 years of information technology experie
 
 ## Professional Summary
 
-Quality-driven and practical information technologist focused on making infrastructure repeatable, observable, secure, and maintainable. Experienced across Kubernetes platforms, Terraform-managed infrastructure, vSphere, image pipelines, CI/CD, Vault, Linux systems, cloud platforms, database operations, and production support.
+Quality-driven and practical information technologist focused on making infrastructure repeatable, observable, secure, and maintainable. Experienced across Kubernetes platforms, Terraform-managed infrastructure, vSphere, image pipelines, CI/CD, Vault, Ansible, NetBox, Linux systems, cloud platforms, database operations, and production support.
 
 I care about clear operating models: versioned changes, useful alerts, readable pipeline output, documented recovery paths, and systems that can be debugged under pressure.
 
@@ -27,15 +27,23 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 
 ## Core Skills
 
-- Kubernetes platform operations and Rancher management.
-- Terraform provisioning, module design, state organization, and plan review.
-- Packer image builds, template lifecycle, and repeatable machine provisioning.
-- Vault operations, secrets engines, Kubernetes auth, PKI, transit encryption, token lifecycle, and rotation patterns.
-- CI/CD pipeline design, including validation, promotion, and deployment workflows.
-- Observability with metrics, logs, alerting, dashboards, and incident follow-up.
-- vSphere / vCenter operations for VM lifecycle, Kubernetes node support, CSI troubleshooting, and automation integration.
-- Linux systems, scripting, automation, troubleshooting, and production support.
-- AWS, Azure, Prometheus, Grafana, Jenkins, Hudson, Nexus, Maven, Puppet, Python, Bash, Tomcat, GlassFish, Apache HTTPD, and Oracle database administration.
+- Kubernetes platform operations: Rancher, RKE2, Longhorn, Calico, ingress, cert-manager, Velero, cluster autoscaler, node lifecycle, upgrade sequencing, and operational evidence collection.
+- Infrastructure as code: Terraform provisioning, module design, state organization, provider behavior, plan review, vSphere automation, and environment promotion.
+- Image and node pipelines: Packer image builds, template lifecycle, validation gates, OS template hygiene, and repeatable machine provisioning.
+- Secrets and security operations: Vault deployment, policy design, secrets engines, Kubernetes auth, PKI, transit encryption, token lifecycle, lease review, rotation patterns, audit logging, and operational guardrails.
+- Automation and inventory: Ansible remediation workflows, per-cluster inventory patterns, Vault-backed variables, NetBox ownership data, Python scripting, Bash scripting, and repeatable operational audits.
+- CI/CD and delivery: Concourse, Jenkins, Hudson, Nexus, Maven, validation stages, promotion workflows, deployment safety, and pipeline troubleshooting.
+- Observability and incident response: Prometheus, Grafana, SLOs, burn-rate alerting, dashboard design, alert routing, incident review, escalation, and evidence bundles.
+- Virtualization and platform operations: vSphere / vCenter, VM lifecycle, resource and template hygiene, CSI/CNS troubleshooting, Kubernetes node support, storage attach/mount triage, and automation integration.
+- Linux and middleware operations: Linux systems administration, patching, security maintenance, RPM packaging, Puppet, Tomcat, GlassFish, Apache HTTPD, and Oracle database administration.
+- Cloud platforms: AWS, Azure, cloud infrastructure patterns, identity, networking, monitoring, and platform operations.
+
+## Core Strengths
+
+- Turning messy infrastructure behavior into clear runbooks, checklists, and operational evidence.
+- Building automation that stays inspectable, reversible, and safe for production operators.
+- Connecting platform engineering practices across Kubernetes, vSphere, Terraform, Vault, CI/CD, observability, and Linux systems.
+- Writing deep technical documentation that helps engineers troubleshoot under pressure.
 
 ## Certifications
 
@@ -57,6 +65,8 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 - [Secrets Management With Vault](/projects/secrets-management-with-vault/) - Vault deployment, policy, auth methods, leases, audit, PKI, transit, and rotation practices.
 - [Terraform Infrastructure Modules](/projects/terraform-infrastructure-modules/) - module boundaries, plan review, and environment ownership.
 - [vCenter Platform Administration](/projects/vcenter-platform-administration/) - VM lifecycle, platform hygiene, automation integration, and Kubernetes storage touchpoints.
+- [Packer Image Pipelines](/projects/packer-image-pipelines/) - image versioning, validation gates, base image hardening, and image factory workflows.
+- [CI/CD Pipeline Design](/projects/cicd-pipeline-design/) - validation, promotion, credential handling, deployment patterns, Concourse, and Terraform workflows.
 
 ## Experience
 
@@ -64,9 +74,9 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 
 January 2025 - Present | Texas, United States
 
-- Built a public engineering log focused on SRE, DevOps, Kubernetes, vCenter, Terraform, Vault, Packer, observability, CI/CD, and production operations.
-- Published field notes, project writeups, and operational references covering failure modes, runbooks, evidence collection, alerting, dashboards, secrets management, and infrastructure automation.
-- Developed companion patterns for safe operational tooling, read-only diagnostics, and sanitized public technical documentation.
+- Built a public engineering log focused on SRE, DevOps, Kubernetes, vCenter, Terraform, Vault, Packer, NetBox, observability, CI/CD, security guardrails, and production operations.
+- Published field notes, project writeups, and operational references covering failure modes, runbooks, evidence collection, alerting, dashboards, secrets management, Kubernetes storage, vSphere automation, and infrastructure automation.
+- Developed companion patterns for safe operational tooling, read-only diagnostics, sanitized public technical documentation, and operator-friendly evidence collection.
 
 ### Donyati - Practice Lead, Site Reliability Engineering & DevOps
 
@@ -77,7 +87,7 @@ April 2020 - January 2025 | Texas, United States
 - Standardized best practices across teams using structured documentation for tooling, incident response, infrastructure as code, and operational learning.
 - Created reusable templates for tool evaluation and post-incident reviews to improve team efficiency and knowledge sharing.
 - Facilitated collaborative learning and team-wide contribution to documentation and best practices for performance optimization and infrastructure scalability.
-- Documented deep operational insight into AWS, Azure, Terraform, Kubernetes, Prometheus, Grafana, and related platform technologies.
+- Documented deep operational insight into AWS, Azure, Terraform, Kubernetes, Prometheus, Grafana, CI/CD, automation, incident response, and related platform technologies.
 
 ### Independent Consultant - Independent Consultant
 
@@ -98,7 +108,7 @@ September 2003 - March 2020
 - Developed RPM packages to maintain consistent deployments across a large number of systems.
 - Used Puppet to maintain RPM installations for distributed systems.
 - Used Jenkins, Hudson, Nexus, and Maven to move application code from development to certification to production environments.
-- Built Python and Bash scripts to automate routine tasks and support administration duties.
+- Built Python and Bash scripts to automate routine tasks, support administration duties, package repeatable operations, and reduce manual toil.
 
 ### Valero Energy Corporation - Oracle Database Administrator
 
