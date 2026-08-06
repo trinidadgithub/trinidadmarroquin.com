@@ -47,6 +47,7 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 
 ## Certifications
 
+- The University of Texas at San Antonio: graduate-level Data Science Certificate coursework, 9 credit hours, 4.0 GPA. Courses included Programming for Data Science, Statistical Methods in Research, Introduction to Data Science, and Data Organization & Visualization. Transcript issued November 8, 2024.
 - Caltech Center for Technology and Management Education / Simplilearn: Post Graduate Program in DevOps, completed June 2, 2022. Certificate ID: `52288585`.
 - Kubernetes and Cloud Native Associate (KCNA).
 - LFS158: Introduction to Kubernetes.
@@ -121,6 +122,8 @@ June 2001 - September 2003
 ### The University of Texas at San Antonio
 
 Bachelor of Applied Science (BASc), Mathematics and Computer Science, 1994.
+
+Graduate-level Data Science Certificate coursework, 2023-2024. Completed 9 credit hours with 4.0 GPA.
 
 ## Contact
 
