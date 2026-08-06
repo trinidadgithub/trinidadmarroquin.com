@@ -9,7 +9,7 @@ description = 'Resume summary for Trinidad Marroquin, SRE and DevOps engineer.'
 
 Practice Lead - Site Reliability Engineering & DevOps
 
-SRE / DevOps / Platform Engineer with 25 years of information technology experience across infrastructure operations, automation, CI/CD, cloud platforms, databases, systems administration, and reliability practices.
+SRE / DevOps / Platform Engineer with 25 years of information technology experience across infrastructure operations, automation, CI/CD, cloud platforms, databases, systems administration, and reliability practices, including three years leading a DevOps engineering team.
 
 ## Professional Summary
 
@@ -88,6 +88,7 @@ January 2025 - Present | Texas, United States
 April 2020 - January 2025 | Texas, United States
 
 - Led SRE and DevOps practice direction with hands-on leadership for infrastructure optimization, automation, documentation, and operational process improvement.
+- Led a team of DevOps engineers for three years, providing technical direction, mentoring, delivery coordination, and hands-on support across infrastructure automation, CI/CD, cloud, and reliability work.
 - Developed training programs, documentation practices, and tool evaluation frameworks for SRE and DevOps processes.
 - Standardized best practices across teams using structured documentation for tooling, incident response, infrastructure as code, and operational learning.
 - Created reusable templates for tool evaluation and post-incident reviews to improve team efficiency and knowledge sharing.
