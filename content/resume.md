@@ -39,6 +39,7 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 
 ## Certifications
 
+- Caltech Center for Technology and Management Education / Simplilearn: Post Graduate Program in DevOps, completed June 2, 2022. Certificate ID: `52288585`.
 - Kubernetes and Cloud Native Associate (KCNA).
 - LFS158: Introduction to Kubernetes.
 - LFS151: Introduction to Cloud Infrastructure Technologies.
