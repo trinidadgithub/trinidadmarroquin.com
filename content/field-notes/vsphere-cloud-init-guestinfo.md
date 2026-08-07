@@ -84,6 +84,8 @@ sudo systemctl enable cloud-init-local cloud-init cloud-config cloud-final open-
 sudo shutdown -h now
 ```
 
+For a bootstrap-specific sealing checklist, including clone-time identity, data-disk ownership, status markers, and final power-off, see [Packer Template Sealing After Clone-Time Bootstrap](/field-notes/packer-template-sealing-after-clone-bootstrap/).
+
 ## Terraform Pattern
 
 In the module, guestinfo injection usually looks like this:

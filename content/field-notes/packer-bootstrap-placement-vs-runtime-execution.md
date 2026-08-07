@@ -17,7 +17,7 @@ Do not diagnose all three as “bootstrap did not work.” Ask which layer faile
 
 ## Placement Is Packer's Job
 
-For a reusable vSphere template, Packer should place static resources only:
+For a reusable vSphere template, Packer should place static resources only. For the follow-on sealing pattern after the bootstrap payload is placed and validated, see [Packer Template Sealing After Clone-Time Bootstrap](/field-notes/packer-template-sealing-after-clone-bootstrap/).
 
 ```text
 /usr/local/bin/platform-bootstrap

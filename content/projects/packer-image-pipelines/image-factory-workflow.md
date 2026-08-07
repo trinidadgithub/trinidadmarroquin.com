@@ -52,6 +52,8 @@ Each build:
 7. Runs validation checks against the test instance.
 8. Promotes the template to production folders.
 
+When the image includes a clone-time bootstrap entrypoint, the template sealing step should validate the static mechanism without baking environment-specific state. See [Packer Template Sealing After Clone-Time Bootstrap](/field-notes/packer-template-sealing-after-clone-bootstrap/).
+
 ## Validation Gates
 
 A build that fails any gate does not become a template:
