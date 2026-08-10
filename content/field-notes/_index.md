@@ -39,6 +39,12 @@ Field Notes are practical operating references: commands, checks, failure modes,
   </section>
 
   <section class="project-card">
+    <p class="eyebrow">Compliance</p>
+    <h2><a href="/field-notes/security/">Security And Compliance</a></h2>
+    <p>Pod security standards, Kubernetes audit logging, CIS benchmark review, and STIG-oriented baseline review practices for platform teams.</p>
+  </section>
+
+  <section class="project-card">
     <p class="eyebrow">Cloud</p>
     <h2><a href="/field-notes/cloud/">Cloud Platforms</a></h2>
     <p>Operational notes for cloud-based platforms, account structure, identity, networking, cost awareness, and service-level troubleshooting.</p>
