@@ -7,7 +7,7 @@ tags = ['kubernetes', 'vsphere', 'vmware', 'csi', 'storage', 'troubleshooting', 
 categories = ['field-notes']
 +++
 
-A vSphere CSI controller log that says a CNS `ExtendVolume` task is pending does not immediately tell you whether the workload is blocked by resize, attachment, mount, or a stale backend task. The first job is to map the CNS volume ID back to Kubernetes state and avoid turning a storage delay into a destructive rollback.
+A vSphere CSI controller log that says a CNS `ExtendVolume` task is pending does not immediately tell you whether the workload is blocked by resize, attachment, mount, or a stale backend task. The first job is to map the CNS volume ID back to Kubernetes state and avoid turning a storage delay into a destructive rollback. For the broader maintenance journal that ties this pattern to GitOps containment, vCenter task queues, VM device cleanup, and stop conditions, see [Journal: When Storage Triage Turns Into Platform Maintenance](/posts/vsphere-csi-cdrom-maintenance-journal/).
 
 The useful triage order is:
 

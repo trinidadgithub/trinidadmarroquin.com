@@ -160,4 +160,4 @@ An evidence bundle should answer five questions:
 
 If the bundle answers those questions, it is useful during review. If it also has a redaction plan, it is safe to reuse for procedures, postmortems, and public writing.
 
-The runbook is the plan. The evidence bundle is how you prove the plan actually happened.
+The runbook is the plan. The evidence bundle is how you prove the plan actually happened. A larger example of this evidence model across vSphere CSI triage, GitOps containment, VM device cleanup, node reboots, and cleanup gates is [Journal: When Storage Triage Turns Into Platform Maintenance](/posts/vsphere-csi-cdrom-maintenance-journal/).
