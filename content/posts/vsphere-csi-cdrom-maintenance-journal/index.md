@@ -295,6 +295,7 @@ The tactical pieces from this incident are split into smaller notes:
 - [vSphere CSI CNS ExtendVolume Triage](/field-notes/vsphere-csi-cns-extendvolume-triage/)
 - [GitOps-Owned vSphere CSI Maintenance Pauses](/field-notes/gitops-owned-vsphere-csi-maintenance-pause/)
 - [vSphere CD-ROM Host Device Cleanup With govc](/field-notes/vsphere-cdrom-host-device-cleanup-govc/)
+- [vSphere CD-ROM Cleanup With Power-Cycle Gates](/field-notes/vsphere-cdrom-powercycle-maintenance-gates/)
 - [vSphere HA Reset Evidence For Kubernetes Nodes](/field-notes/vsphere-ha-reset-evidence-kubernetes-nodes/)
 - [Kubernetes Retained PV Missing PVC Rebind](/field-notes/kubernetes-retained-pv-missing-pvc-rebind/)
 - [Kubernetes Maintenance Evidence Bundles Need A Redaction Plan](/field-notes/kubernetes-maintenance-evidence-bundles/)
