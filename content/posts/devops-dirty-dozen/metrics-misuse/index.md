@@ -142,7 +142,7 @@ What number does your organization celebrate that might be hiding the real probl
 
 ## References
 
-- [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
+- [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/product/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
 - [The DevOps Handbook](https://itrevolution.com/devops-handbook/) by Gene Kim, Patrick Debois, John Willis, and Jez Humble
 - [Google SRE Book — Service Level Objectives](https://sre.google/sre-book/service-level-objectives/)
 - [Google SRE Workbook — Implementing SLOs](https://sre.google/workbook/implementing-slos/)

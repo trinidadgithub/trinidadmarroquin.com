@@ -135,7 +135,7 @@ Has your organization fallen into the trap of relying on tools to solve cultural
 ## References
 
 - [The DevOps Handbook](https://itrevolution.com/devops-handbook/) by Gene Kim, Patrick Debois, John Willis, and Jez Humble
-- [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
+- [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/product/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
 - [DORA: Generative organizational culture](https://dora.dev/devops-capabilities/cultural/generative-organizational-culture)
 - [Team Topologies](https://teamtopologies.com/) by Matthew Skelton and Manuel Pais
 - [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) — Melvin Conway

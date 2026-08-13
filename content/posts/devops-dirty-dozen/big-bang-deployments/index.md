@@ -147,7 +147,7 @@ What is the largest release your team still treats as normal? What would it take
 ## References
 
 - [Continuous Delivery](https://continuousdelivery.com/) by Jez Humble and David Farley
-- [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
+- [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/product/accelerate/) by Nicole Forsgren, Jez Humble, and Gene Kim
 - [The DevOps Handbook](https://itrevolution.com/devops-handbook/) by Gene Kim, Patrick Debois, John Willis, and Jez Humble
 - [Martin Fowler: Feature Toggles](https://martinfowler.com/articles/feature-toggles.html)
 - [Google SRE Book — Managing Critical State](https://sre.google/sre-book/managing-critical-state/)
