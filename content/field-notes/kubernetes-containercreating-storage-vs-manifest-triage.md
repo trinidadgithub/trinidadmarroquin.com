@@ -101,6 +101,12 @@ working volume:  state=online   online=true   sessions=2
 
 That comparison is the key. If the ACL or export is present but the array volume is offline, the node-side CSI error is downstream. The kubelet can retry forever, but the device will not appear until the backend presents it.
 
+This is also the point where escalation should become precise. Do not ask the storage team to "check storage" in the abstract. Provide the PVC name, PV name, CSI volume handle, affected node, storage class, and the exact CSI error. That gives the storage administrator enough evidence to verify the backend object directly.
+
+In the incident behind this note, that escalation confirmed the array volume was `offline` with an operator/user offline reason. That array-side state wedged the Kubernetes storage lifecycle: Kubernetes had a valid claim and CSI had a backend volume handle, but the LUN was never presented to the node. Once the storage administrator manually set the backend volume online, the lifecycle unblocked. Kubernetes completed the pending delete/recreate path, provisioned a fresh volume, and the workload moved out of `ContainerCreating`.
+
+The important follow-up remained open: why the storage volume went offline in the first place. Treat `offline_reason=user` as a separate audit trail, not as a resolved Kubernetes root cause.
+
 ## Watch For PVC Protection Deadlocks
 
 A common failed remediation is deleting the PVC while the stuck pod still references it.
@@ -119,6 +125,8 @@ Before forcing anything, decide the intended data outcome.
 If the data matters, restore the backend volume first and let kubelet retry staging. If the workload is being reset or decommissioned, scale down or remove the workload so the PVC can release cleanly.
 
 The dangerous middle path is letting a StatefulSet reprovision a fresh PVC without noticing that the old backend volume still contains the previous data.
+
+When a storage administrator changes backend state during the incident, watch Kubernetes immediately afterward. The array fix may not attach the old data volume if Kubernetes already has a deletion or replacement workflow in progress. It may simply unblock the lifecycle manager enough to remove the old PVC/PV and create a new one.
 
 ## Prove Whether Recovery Used Old Or New Storage
 
@@ -184,7 +192,9 @@ CSI driver and volume handle
 node-side CSI plugin error
 storage provider publish/export log
 array state: online/offline, ACL/export, sessions
+storage-admin confirmation of backend health and state change
 whether the old volume still exists and contains data
+whether Kubernetes reused the original volume or provisioned a replacement
 ```
 
 For a missing-manifest `ContainerCreating` incident, keep this evidence:
