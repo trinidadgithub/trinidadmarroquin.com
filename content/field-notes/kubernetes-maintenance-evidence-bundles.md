@@ -78,6 +78,8 @@ For reusable Longhorn evidence collection, the public [`ops-toolbox` Longhorn ut
 
 The important part is not the exact command list. The important part is that the same evidence exists before the first node and after the last node.
 
+For pods stuck in `ContainerCreating`, collect the exact event path before deciding whether the issue is storage, configuration, or both. A CSI `device not found` error needs PVC/PV/driver/backend evidence; a missing `ConfigMap` or `Secret` needs manifest ownership evidence. See [Kubernetes ContainerCreating: Split Storage Failures From Missing Manifests](/field-notes/kubernetes-containercreating-storage-vs-manifest-triage/).
+
 ## Drain Output Is Evidence
 
 Do not discard drain output. It often reveals the real maintenance constraint.
