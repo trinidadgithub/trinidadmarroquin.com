@@ -61,7 +61,7 @@ The cost of broken feedback loops compounds because each ignored signal erodes t
 
 5. **User Trust Erodes Slowly, Then All At Once:** Users notice when their feedback disappears into a void. They stop reporting issues. The silence is not a sign that things are working — it is a sign that users have given up.
 
-{{< figure src="eroding-trust.svg" alt="A faucet labeled 'user feedback' dripping into a bucket with a crack at the bottom" caption="Every ignored signal is a crack in the organizational learning system." >}}
+{{< figure src="eroding-trust.svg" alt="A concrete dam holding back a reservoir, with a jagged crack splitting the wall and water bursting through" caption="Every ignored signal is a crack in the organizational learning system." >}}
 
 ## A Real-World Example: The Latency That Did Not Matter
 

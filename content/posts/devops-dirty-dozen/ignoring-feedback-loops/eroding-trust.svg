@@ -1,26 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
-  <title id="title">Eroding trust</title>
-  <desc id="desc">A faucet labeled user feedback dripping into a bucket with a crack at the bottom.</desc>
+  <title id="title">Crack in the organizational learning system</title>
+  <desc id="desc">A concrete dam holding back a reservoir of ignored signals. A jagged crack splits the wall and water bursts through, showing how one ignored signal grows into a structural failure.</desc>
   <rect width="1200" height="675" fill="#0f172a"/>
-  <g fill="none" stroke="#f97316" stroke-width="6" stroke-linecap="round">
-    <path d="M300 120 L300 180 L500 180 L500 120"/>
-    <path d="M300 180 Q300 260 300 320"/>
-    <path d="M500 180 Q500 260 500 320"/>
-    <path d="M300 320 L500 320"/>
-    <line x1="400" y1="320" x2="400" y2="360"/>
+
+  <rect x="110" y="120" width="610" height="350" fill="#1e3a8a"/>
+  <path d="M110 120 Q230 100 350 120 T590 125 T720 120" fill="none" stroke="#2563eb" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <g stroke="#60a5fa" stroke-width="3" fill="none" opacity="0.45">
+    <path d="M130 200 Q230 192 330 200 T540 200 T680 198"/>
+    <path d="M150 260 Q250 252 350 260 T560 260 T690 258"/>
+    <path d="M130 320 Q220 314 320 320 T520 318 T650 316"/>
+    <path d="M160 380 Q240 376 320 380 T480 378 T600 376"/>
   </g>
-  <text x="400" y="170" fill="#f8fafc" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" font-weight="700">User Feedback</text>
-  <circle cx="400" cy="380" r="4" fill="#3b82f6" opacity="0.8"/>
-  <circle cx="400" cy="410" r="4" fill="#3b82f6" opacity="0.6"/>
-  <circle cx="400" cy="440" r="4" fill="#3b82f6" opacity="0.4"/>
-  <rect x="320" y="460" width="200" height="180" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="4"/>
-  <rect x="320" y="460" width="200" height="30" rx="12" fill="#78350f"/>
-  <text x="420" y="482" fill="#fca5a5" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Bucket</text>
-  <path d="M430 580 L520 620 L560 620 L470 580Z" fill="#1e293b" stroke="#f43f5e" stroke-width="3"/>
-  <path d="M440 610 L500 610" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
-  <g fill="#fca5a5" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" opacity="0.7">
-    <text x="550" y="590">Ignored</text>
-    <text x="550" y="612">feedback</text>
+
+  <polygon points="720,40 860,40 880,500 700,500" fill="#334155"/>
+  <polyline points="720,40 700,500" fill="none" stroke="#1f2937" stroke-width="8"/>
+  <polyline points="700,500 880,500" fill="none" stroke="#1f2937" stroke-width="6"/>
+  <g stroke="#1f2937" stroke-width="4" opacity="0.6">
+    <line x1="715" y1="130" x2="862" y2="130"/>
+    <line x1="709" y1="250" x2="868" y2="250"/>
+    <line x1="704" y1="380" x2="873" y2="380"/>
   </g>
+
+  <path d="M760 80 L792 124 L768 168 L808 214 L782 266 L820 318 L792 372 L828 428 L820 452" fill="none" stroke="#f43f5e" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+  <path d="M760 80 L792 124 L768 168 L808 214 L782 266 L820 318 L792 372 L828 428 L820 452" fill="none" stroke="#f43f5e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="none" stroke="#fca5a5" stroke-width="3" stroke-linecap="round" opacity="0.8">
+    <path d="M760 80 L734 122 L746 158"/>
+    <path d="M808 214 L846 200 L860 230"/>
+    <path d="M820 318 L790 344 L786 380"/>
+  </g>
+
+  <path d="M822 430 C880 430 920 450 940 480" fill="none" stroke="#3b82f6" stroke-width="16" stroke-linecap="round"/>
+  <path d="M824 428 C878 428 916 448 936 478" fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+  <g fill="#60a5fa">
+    <circle cx="946" cy="496" r="7"/>
+    <circle cx="914" cy="510" r="5"/>
+    <circle cx="960" cy="508" r="4"/>
+    <circle cx="884" cy="520" r="3"/>
+  </g>
+  <g stroke="#f8fafc" stroke-width="4" stroke-linecap="round" opacity="0.8">
+    <line x1="822" y1="418" x2="840" y2="404"/>
+    <line x1="830" y1="436" x2="852" y2="426"/>
+    <line x1="828" y1="416" x2="838" y2="398"/>
+  </g>
+
   <text x="600" y="620" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-style="italic">Every ignored signal is a crack in the organizational learning system.</text>
 </svg>
