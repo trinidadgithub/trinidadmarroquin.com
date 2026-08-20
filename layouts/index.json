@@ -5,7 +5,7 @@
     {{- $.Scratch.Add "index" (dict
       "title" .Title
       "content" .Plain
-      "permalink" .Permalink
+      "permalink" .RelPermalink
       "summary" (.Summary | plainify)
       "tags" (.Params.tags | default slice)
       "categories" (.Params.categories | default slice)
