@@ -107,6 +107,8 @@ In the incident behind this note, that escalation confirmed the array volume was
 
 The important follow-up remained open: why the storage volume went offline in the first place. Treat `offline_reason=user` as a separate audit trail, not as a resolved Kubernetes root cause.
 
+Another storage-backed `ContainerCreating` shape is a node-side discovery failure after attach succeeds. If iSCSI-backed pods only fail when the CSI node plugin needs fresh discovery, compare the driver-equivalent `iscsiadm` command with host routes and iface bindings; see [When open-iscsi Iface Bindings Break CSI Discovery](/field-notes/open-iscsi-iface-bindings-csi-discovery/).
+
 ## Watch For PVC Protection Deadlocks
 
 A common failed remediation is deleting the PVC while the stuck pod still references it.

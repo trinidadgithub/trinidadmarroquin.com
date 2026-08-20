@@ -80,6 +80,10 @@ The important part is not the exact command list. The important part is that the
 
 For pods stuck in `ContainerCreating`, collect the exact event path before deciding whether the issue is storage, configuration, or both. A CSI `device not found` error needs PVC/PV/driver/backend evidence; a missing `ConfigMap` or `Secret` needs manifest ownership evidence. See [Kubernetes ContainerCreating: Split Storage Failures From Missing Manifests](/field-notes/kubernetes-containercreating-storage-vs-manifest-triage/).
 
+If the maintenance window uses Alertmanager silences, keep the alert baseline and final silence state in the bundle too. A quiet pager does not prove a clean cluster; direct Kubernetes and Prometheus checks still need to run while notifications are muted. See [Alertmanager Silences Need Independent Maintenance Health Checks](/field-notes/alertmanager-silences-maintenance-health-checks/).
+
+For host-level storage diagnostics, keep the boundary explicit: what ran through the CSI node pod, what ran through a temporary privileged debug pod, what was read-only, what changed host state, and where rollback files were preserved. See [CSI Node Storage Diagnostics Need A Host Boundary](/field-notes/csi-node-storage-diagnostics-host-boundary/).
+
 ## Drain Output Is Evidence
 
 Do not discard drain output. It often reveals the real maintenance constraint.
