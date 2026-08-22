@@ -15,3 +15,11 @@ Discussion space for Packer image pipeline work.
 - [Image versioning for rollback, auditability, and change history](image-versioning/)
 - [Validation gates for boot, access, agents, and baseline configuration](image-validation-gates/)
 - [Image factory workflow with vSphere and Packer](image-factory-workflow/)
+
+## Related Field Notes
+
+- [Packer Windows Image Pipeline Boundaries](/field-notes/packer-windows-image-pipeline-boundaries/)
+- [Packer HCL2 Migration Operational Pattern](/field-notes/packer-hcl2-migration-operational-pattern/)
+- [Packer Artifact Storage And Promotion Records](/field-notes/packer-artifact-storage-promotion-records/)
+- [Packer Bootstrap Placement Versus Runtime Execution](/field-notes/packer-bootstrap-placement-vs-runtime-execution/)
+- [Packer Template Sealing After Clone-Time Bootstrap](/field-notes/packer-template-sealing-after-clone-bootstrap/)
