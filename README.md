@@ -41,6 +41,7 @@ Content gaps are closed in focused clusters. Current coverage highlights include
 - Secrets Management With Vault: PKI, transit encryption, Kubernetes auth, rotation patterns, policy design, leases, audit, and recovery practices.
 - Security And Compliance: pod security standards, Kubernetes audit logging, CIS benchmark review, and STIG-oriented Linux baseline review practices.
 - Terraform Infrastructure Modules: module composition, remote state design, provider versioning and upgrade, state movement, and plan review practices.
+- Packer Image Pipelines: Linux and Windows template lifecycle, HCL2 migration, artifact storage, sealing, validation gates, and promotion records.
 - Infrastructure Automation: Terraform, Packer, vSphere, NetBox, Concourse, and GitOps-oriented workflows.
 
 Local planning notes for future content gaps are kept out of Git.
