@@ -1,6 +1,7 @@
 +++
 title = 'Packer Template Sealing After Clone-Time Bootstrap'
 date = 2026-08-07T00:00:00-05:00
+lastmod = 2026-08-20T00:00:00-05:00
 draft = false
 description = 'Field note for sealing vSphere Packer templates after clone-time bootstrap: validate the static entrypoint, keep runtime ownership in Terraform/cloud-init, remove identity-bearing state at capture, derive identity at clone time, and power off cleanly for templates.'
 tags = ['packer', 'vsphere', 'cloud-init', 'terraform', 'bootstrap', 'templates', 'operations']
