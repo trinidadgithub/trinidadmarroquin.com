@@ -61,6 +61,12 @@ Field Notes are practical operating references: commands, checks, failure modes,
     <h2><a href="/field-notes/observability/">Observability And Incidents</a></h2>
     <p>Alert review, dashboard checks, log queries, incident timelines, service ownership, and post-incident follow-up prompts.</p>
   </section>
+
+  <section class="project-card">
+    <p class="eyebrow">Resilience</p>
+    <h2><a href="/field-notes/disaster-recovery/">Disaster Recovery</a></h2>
+    <p>Full-site recovery planning, cross-region readiness checks, restore evidence, failover decisions, and operational proof before declaring recovery complete.</p>
+  </section>
 </div>
 
 <!-- These notes should stay short, opinionated, and operational. The goal is not to replace official documentation; it is to capture the judgment that makes the commands useful. -->
