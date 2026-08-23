@@ -42,6 +42,7 @@ Content gaps are closed in focused clusters. Current coverage highlights include
 - Security And Compliance: pod security standards, Kubernetes audit logging, CIS benchmark review, and STIG-oriented Linux baseline review practices.
 - Terraform Infrastructure Modules: module composition, remote state design, provider versioning and upgrade, state movement, and plan review practices.
 - Packer Image Pipelines: Linux and Windows template lifecycle, HCL2 migration, artifact storage, sealing, validation gates, and promotion records.
+- vCenter Platform Administration: cluster boundaries, DRS and resource pool operations, tag/custom attribute ownership, govc verification, and vSphere automation guardrails.
 - Infrastructure Automation: Terraform, Packer, vSphere, NetBox, Concourse, and GitOps-oriented workflows.
 
 Local planning notes for future content gaps are kept out of Git.
