@@ -44,6 +44,7 @@ Content gaps are closed in focused clusters. Current coverage highlights include
 - Packer Image Pipelines: Linux and Windows template lifecycle, HCL2 migration, artifact storage, sealing, validation gates, and promotion records.
 - vCenter Platform Administration: cluster boundaries, DRS and resource pool operations, tag/custom attribute ownership, govc verification, and vSphere automation guardrails.
 - Disaster Recovery: full-site recovery planning, cross-region failover readiness, DR evidence bundles, etcd snapshot recovery, and Velero workload restore practices.
+- FinOps And Cost Allocation: Kubernetes cost labels, request rightsizing, showback and chargeback decision records, quota ownership, and capacity-cost review practices.
 - Infrastructure Automation: Terraform, Packer, vSphere, NetBox, Concourse, and GitOps-oriented workflows.
 
 Local planning notes for future content gaps are kept out of Git.
