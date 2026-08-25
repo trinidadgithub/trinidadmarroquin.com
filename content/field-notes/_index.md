@@ -67,6 +67,12 @@ Field Notes are practical operating references: commands, checks, failure modes,
     <h2><a href="/field-notes/disaster-recovery/">Disaster Recovery</a></h2>
     <p>Full-site recovery planning, cross-region readiness checks, restore evidence, failover decisions, and operational proof before declaring recovery complete.</p>
   </section>
+
+  <section class="project-card">
+    <p class="eyebrow">Cost</p>
+    <h2><a href="/field-notes/finops/">FinOps And Cost Allocation</a></h2>
+    <p>Kubernetes cost labels, request rightsizing, showback records, quota ownership, and capacity signals that connect engineering behavior to spend.</p>
+  </section>
 </div>
 
 <!-- These notes should stay short, opinionated, and operational. The goal is not to replace official documentation; it is to capture the judgment that makes the commands useful. -->
