@@ -79,6 +79,12 @@ Field Notes are practical operating references: commands, checks, failure modes,
     <h2><a href="/field-notes/service-mesh/">Service Mesh Operations</a></h2>
     <p>Mesh adoption boundaries, mTLS rollout, traffic policy ownership, sidecar behavior, and telemetry checks before moving user traffic.</p>
   </section>
+
+  <section class="project-card">
+    <p class="eyebrow">Stateful Platforms</p>
+    <h2><a href="/field-notes/database-operators/">Database Operators</a></h2>
+    <p>PostgreSQL and MySQL operator ownership, backup/failover validation, replica health, storage assumptions, and restore evidence for Kubernetes databases.</p>
+  </section>
 </div>
 
 <!-- These notes should stay short, opinionated, and operational. The goal is not to replace official documentation; it is to capture the judgment that makes the commands useful. -->
