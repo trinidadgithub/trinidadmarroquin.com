@@ -91,6 +91,12 @@ Field Notes are practical operating references: commands, checks, failure modes,
     <h2><a href="/field-notes/gitops-operators/">GitOps Operators</a></h2>
     <p>ArgoCD and Flux reconciliation boundaries, sync ownership, drift response, prune safety, promotion evidence, and controller failure signals.</p>
   </section>
+
+  <section class="project-card">
+    <p class="eyebrow">Delivery</p>
+    <h2><a href="/field-notes/github-actions/">GitHub Actions CI</a></h2>
+    <p>Workflow trigger design, permissions, runner trust boundaries, OIDC credentials, reusable workflows, concurrency controls, and artifact evidence.</p>
+  </section>
 </div>
 
 <!-- These notes should stay short, opinionated, and operational. The goal is not to replace official documentation; it is to capture the judgment that makes the commands useful. -->
