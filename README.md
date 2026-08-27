@@ -48,6 +48,7 @@ Content gaps are closed in focused clusters. Current coverage highlights include
 - Service Mesh Operations: mesh adoption boundaries, mTLS rollout, traffic policy ownership, sidecar behavior, and telemetry/debugging checks.
 - Database Operators In Kubernetes: PostgreSQL and MySQL operator ownership, backup/failover readiness, replication health, restore rehearsals, and application cutover validation.
 - GitOps Operators: ArgoCD and Flux reconciliation boundaries, sync ownership, drift response, prune safety, promotion evidence, and controller failure signals.
+- GitHub Actions CI: workflow trigger boundaries, runner trust, OIDC credentials, reusable workflow contracts, concurrency controls, and retained CI evidence.
 - Infrastructure Automation: Terraform, Packer, vSphere, NetBox, Concourse, and GitOps-oriented workflows.
 
 Local planning notes for future content gaps are kept out of Git.
