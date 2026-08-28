@@ -37,12 +37,12 @@ Site configuration lives in `hugo.toml`.
 Content gaps are closed in focused clusters. Current coverage highlights include:
 
 - Observability & Incident Response: SLO burn-rate alerting, SLO dashboard design, incident review, and on-call escalation practices.
-- Kubernetes Platform Operations: RKE2, Longhorn, Calico, Cilium, NetworkPolicy, egress control, ingress, cert-manager, Velero, cluster autoscaler, node maintenance, and operational evidence patterns.
+- Kubernetes Platform Operations: RKE2, Longhorn, Calico, Cilium, NetworkPolicy, egress control, ingress, cert-manager, Velero, cluster autoscaler, etcd certificate recovery, node maintenance, and operational evidence patterns.
 - Secrets Management With Vault: PKI, transit encryption, Kubernetes auth, rotation patterns, policy design, leases, audit, and recovery practices.
 - Security And Compliance: pod security standards, Kubernetes audit logging, CIS benchmark review, and STIG-oriented Linux baseline review practices.
 - Terraform Infrastructure Modules: module composition, remote state design, provider versioning and upgrade, state movement, and plan review practices.
 - Packer Image Pipelines: Linux and Windows template lifecycle, HCL2 migration, artifact storage, sealing, validation gates, and promotion records.
-- vCenter Platform Administration: cluster boundaries, DRS and resource pool operations, tag/custom attribute ownership, govc verification, and vSphere automation guardrails.
+- vCenter Platform Administration: cluster boundaries, DRS and resource pool operations, tag/custom attribute ownership, govc verification, vSphere CSI snapshots, and automation guardrails.
 - Disaster Recovery: full-site recovery planning, cross-region failover readiness, DR evidence bundles, etcd snapshot recovery, and Velero workload restore practices.
 - FinOps And Cost Allocation: Kubernetes cost labels, request rightsizing, showback and chargeback decision records, quota ownership, and capacity-cost review practices.
 - Service Mesh Operations: mesh adoption boundaries, mTLS rollout, traffic policy ownership, sidecar behavior, and telemetry/debugging checks.
