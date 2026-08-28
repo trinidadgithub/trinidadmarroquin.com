@@ -37,7 +37,7 @@ Site configuration lives in `hugo.toml`.
 Content gaps are closed in focused clusters. Current coverage highlights include:
 
 - Observability & Incident Response: SLO burn-rate alerting, SLO dashboard design, incident review, and on-call escalation practices.
-- Kubernetes Platform Operations: RKE2, Longhorn, Calico, ingress, cert-manager, Velero, cluster autoscaler, node maintenance, and operational evidence patterns.
+- Kubernetes Platform Operations: RKE2, Longhorn, Calico, Cilium, NetworkPolicy, egress control, ingress, cert-manager, Velero, cluster autoscaler, node maintenance, and operational evidence patterns.
 - Secrets Management With Vault: PKI, transit encryption, Kubernetes auth, rotation patterns, policy design, leases, audit, and recovery practices.
 - Security And Compliance: pod security standards, Kubernetes audit logging, CIS benchmark review, and STIG-oriented Linux baseline review practices.
 - Terraform Infrastructure Modules: module composition, remote state design, provider versioning and upgrade, state movement, and plan review practices.
