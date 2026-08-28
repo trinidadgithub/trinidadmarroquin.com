@@ -81,6 +81,12 @@ Field Notes are practical operating references: commands, checks, failure modes,
   </section>
 
   <section class="project-card">
+    <p class="eyebrow">Networking</p>
+    <h2><a href="/field-notes/kubernetes-networking/">Kubernetes Networking</a></h2>
+    <p>Cilium readiness, NetworkPolicy rollout, egress ownership, DNS dependencies, CNI boundaries, and evidence for safe network enforcement.</p>
+  </section>
+
+  <section class="project-card">
     <p class="eyebrow">Stateful Platforms</p>
     <h2><a href="/field-notes/database-operators/">Database Operators</a></h2>
     <p>PostgreSQL and MySQL operator ownership, backup/failover validation, replica health, storage assumptions, and restore evidence for Kubernetes databases.</p>
