@@ -7,13 +7,13 @@ description = 'Resume summary for Trinidad Marroquin, SRE and DevOps engineer.'
 
 ## Trinidad Marroquin
 
-Site Reliability & Platform Engineering
+Practice Lead - Site Reliability Engineering & DevOps
 
-SRE / DevOps / Platform Engineer with 25 years of information technology experience across Kubernetes platforms, infrastructure automation, CI/CD, cloud platforms, databases, systems administration, observability, operational tooling, and reliability practices, including three years leading a DevOps engineering team.
+SRE / DevOps / Platform Engineer with 25 years of information technology experience across infrastructure operations, automation, CI/CD, cloud platforms, databases, systems administration, and reliability practices, including three years leading a DevOps engineering team.
 
 ## Professional Summary
 
-Quality-driven and practical information technologist focused on making infrastructure repeatable, observable, secure, maintainable, and diagnosable under pressure. Experienced across Kubernetes platforms, Terraform-managed infrastructure, vSphere, image pipelines, CI/CD, Vault, Ansible, NetBox, Linux systems, cloud platforms, database operations, and production support.
+Quality-driven and practical information technologist focused on making infrastructure repeatable, observable, secure, and maintainable. Experienced across Kubernetes platforms, Terraform-managed infrastructure, vSphere, image pipelines, CI/CD, Vault, Ansible, NetBox, Linux systems, cloud platforms, database operations, and production support.
 
 I care about clear operating models: versioned changes, useful alerts, readable pipeline output, documented recovery paths, and systems that can be debugged under pressure.
 
@@ -28,11 +28,10 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 ## Core Skills
 
 - Kubernetes platform operations: Rancher, RKE2, Longhorn, Calico, ingress, cert-manager, Velero, cluster autoscaler, node lifecycle, upgrade sequencing, and operational evidence collection.
-- Kubernetes capacity engineering: commitment and utilization analysis, workload density, node sizing, drain/failure headroom, scaling recommendations, and requests/limits rightsizing where appropriate.
 - Infrastructure as code: Terraform provisioning, module design, state organization, provider behavior, plan review, vSphere automation, and environment promotion.
 - Image and node pipelines: Packer image builds, template lifecycle, validation gates, OS template hygiene, and repeatable machine provisioning.
 - Secrets and security operations: Vault deployment, policy design, secrets engines, Kubernetes auth, PKI, transit encryption, token lifecycle, lease review, rotation patterns, audit logging, and operational guardrails.
-- Automation and inventory: Ansible remediation workflows, per-cluster inventory patterns, Vault-backed variables, NetBox ownership data, Python and Bash scripting, read-only diagnostics, reusable operator utilities, evidence collection, and repeatable operational audits.
+- Automation and inventory: Ansible remediation workflows, per-cluster inventory patterns, Vault-backed variables, NetBox ownership data, Python scripting, Bash scripting, and repeatable operational audits.
 - CI/CD and delivery: Concourse, Jenkins, Hudson, Nexus, Maven, validation stages, promotion workflows, deployment safety, and pipeline troubleshooting.
 - Observability and incident response: Prometheus, Grafana, SLOs, burn-rate alerting, dashboard design, alert routing, incident review, escalation, and evidence bundles.
 - Virtualization and platform operations: vSphere / vCenter, VM lifecycle, resource and template hygiene, CSI/CNS troubleshooting, Kubernetes node support, storage attach/mount triage, and automation integration.
@@ -42,9 +41,8 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 ## Core Strengths
 
 - Turning messy infrastructure behavior into clear runbooks, checklists, and operational evidence.
-- Building automation and diagnostic tooling that stays inspectable, testable, reversible, and safe for production operators.
+- Building automation that stays inspectable, reversible, and safe for production operators.
 - Connecting platform engineering practices across Kubernetes, vSphere, Terraform, Vault, CI/CD, observability, and Linux systems.
-- Using AI assistance pragmatically for investigation, troubleshooting, code and tooling development, and technical analysis while keeping human verification and operational guardrails authoritative.
 - Writing deep technical documentation that helps engineers troubleshoot under pressure.
 
 ## Certifications
@@ -82,9 +80,8 @@ I care about clear operating models: versioned changes, useful alerts, readable 
 January 2025 - Present | Texas, United States
 
 - Built a public engineering log focused on SRE, DevOps, Kubernetes, vCenter, Terraform, Vault, Packer, NetBox, observability, CI/CD, security guardrails, and production operations.
-- Published field notes, project writeups, and operational references covering failure modes, runbooks, evidence collection, capacity engineering, alerting, dashboards, secrets management, Kubernetes storage, vSphere automation, and infrastructure automation.
+- Published field notes, project writeups, and operational references covering failure modes, runbooks, evidence collection, alerting, dashboards, secrets management, Kubernetes storage, vSphere automation, and infrastructure automation.
 - Developed companion patterns for safe operational tooling, read-only diagnostics, sanitized public technical documentation, and operator-friendly evidence collection.
-- Developed read-only operational tooling with fixture-driven tests that replay Kubernetes, Longhorn, and VMware conditions without requiring live infrastructure.
 
 ### Donyati - Practice Lead, Site Reliability Engineering & DevOps
 
