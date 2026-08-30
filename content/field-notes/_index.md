@@ -35,7 +35,7 @@ Field Notes are practical operating references: commands, checks, failure modes,
   <section class="project-card">
     <p class="eyebrow">Security</p>
     <h2><a href="/field-notes/secrets/">Vault And Secrets</a></h2>
-    <p>Vault PKI, transit encryption, Kubernetes auth, rotation patterns, token behavior, policy review, lease handling, and operational safety practices.</p>
+    <p>Vault PKI, transit encryption, Kubernetes auth, Kubernetes Secret rotation, external secret operators, token behavior, policy review, lease handling, and operational safety practices.</p>
   </section>
 
   <section class="project-card">
