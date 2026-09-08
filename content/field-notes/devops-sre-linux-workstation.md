@@ -166,6 +166,8 @@ sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 
 The default `~/.kube/config` merge approach becomes unwieldy with more than a few clusters.
 
+If a newly downloaded kubeconfig works by itself but fails when merged with the workstation's normal `KUBECONFIG`, check for duplicate user names and stale token shadowing before changing cluster RBAC. See [KUBECONFIG Merge Order Can Shadow Fresh Rancher Tokens](/field-notes/kubeconfig-merge-token-shadowing/).
+
 ```bash
 # Per-project kubeconfig directories
 mkdir -p ~/.kube/configs
