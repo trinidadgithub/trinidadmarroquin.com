@@ -81,6 +81,8 @@ Non-empty `.err` files are not automatically failures. For example, Kubernetes `
 
 Rancher can create managed Plans in `cattle-system` while older GitOps-managed Plans still exist in `system-upgrade`.
 
+Also check whether each Plan's node selector and tolerations agree. A worker Plan that excludes control-plane and etcd nodes can still select tainted monitor or infrastructure nodes and create upgrade Jobs that never schedule; see [RKE2 System Upgrade Plans Need Taint-Aware Node Selection](/field-notes/system-upgrade-plan-taints-node-selector/).
+
 Check all Plans:
 
 ```bash
