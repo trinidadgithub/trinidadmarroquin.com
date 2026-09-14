@@ -230,6 +230,8 @@ That includes:
 
 Afterward, do not run a broad `terraform apply` until the full-plan drift is resolved. In this case, the full refactor still needed data disk sizing reconciliation for existing nodes.
 
+If the remaining full-plan drift comes from intentional live vSphere moves or CSI-attached disks, treat that as an ownership problem before applying. See [Terraform Refresh-Only Before Narrow vSphere Applies](/field-notes/terraform-refresh-only-before-narrow-vsphere-apply/).
+
 ## Guardrails
 
 - `terraform validate` only proves configuration syntax and provider schema compatibility.

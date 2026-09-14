@@ -159,3 +159,5 @@ Use the right tool for each layer:
 A drift audit is successful when it tells you not to apply.
 
 If NetBox is clean but vSphere drift is risky, stop at the checkpoint and move to a replacement-node runbook.
+
+If the drift was intentionally created by incident response or storage relocation, see [Terraform Refresh-Only Before Narrow vSphere Applies](/field-notes/terraform-refresh-only-before-narrow-vsphere-apply/) for a safer refresh-only and replan workflow.
