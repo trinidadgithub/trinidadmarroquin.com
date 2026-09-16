@@ -38,6 +38,8 @@ Avoid labels such as request ID, user ID, session ID, full URL, or error message
 
 High-cardinality Loki labels can make the logging backend expensive and unreliable in the exact moment operators need it.
 
+The collector layer needs guardrails too. If Grafana Alloy ships logs into Loki, set resource limits and verify missing Loki endpoints do not create retry loops. See [Grafana Alloy Log Collector CPU Guardrails](/field-notes/grafana-alloy-log-collector-cpu-guardrails/).
+
 ## Tempo Trace Requirements
 
 For traces to help during incidents, applications need:

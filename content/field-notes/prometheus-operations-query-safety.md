@@ -11,6 +11,8 @@ Prometheus is easy to start and easy to overload.
 
 Most production problems are not caused by one bad alert. They come from unclear scrape ownership, high-cardinality labels, expensive dashboard queries, or rule changes that nobody can explain during an incident.
 
+The same ownership rule applies to observability agents. If Grafana Alloy collects logs, give it resource limits and backend-readiness checks too. See [Grafana Alloy Log Collector CPU Guardrails](/field-notes/grafana-alloy-log-collector-cpu-guardrails/).
+
 ## Own The Scrape Path
 
 Every scrape target should have an owner and a reason to exist.
