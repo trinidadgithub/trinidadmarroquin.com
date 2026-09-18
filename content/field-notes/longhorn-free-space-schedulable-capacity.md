@@ -1,6 +1,6 @@
 +++
 title = 'Longhorn Free Space Is Not Schedulable Capacity'
-date = 2026-09-18T00:00:00-05:00
+date = 2026-09-17T00:00:00-05:00
 draft = false
 description = 'Field note for diagnosing Longhorn replica scheduling failures where disks still show physical available capacity but scheduled capacity accounting prevents placement.'
 tags = ['longhorn', 'kubernetes', 'storage', 'rke2', 'operations', 'troubleshooting']
