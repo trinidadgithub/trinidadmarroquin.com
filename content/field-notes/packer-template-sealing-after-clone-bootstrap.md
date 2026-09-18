@@ -80,6 +80,8 @@ sudo shutdown -h now
 - cloud-init services and `open-vm-tools` are re-enabled for cloned VMs.
 - The image-factory cleanup gate records "no build artifacts, SSH host keys rotated."
 
+If starting `open-vm-tools` or installing `openssh-server` drops the active Packer SSH communicator during the build, treat that as a provisioner boundary problem. See [Packer SSH Disconnects From Service Restarts](/field-notes/packer-ssh-disconnect-service-restart-boundaries/).
+
 Shutdown (rather than reboot) before capture leaves the final state stable for template conversion.
 
 ### Sealing Considerations

@@ -98,6 +98,8 @@ Examples of useful signals:
 
 For Longhorn, an instance-manager PDB can temporarily block eviction. That is useful information, not just noisy output. It tells the operator that storage components were in the disruption path and that future worker maintenance should account for Longhorn placement before assuming a normal drain will be quick.
 
+If a Longhorn storage node has degraded volumes with their only running replica on that same node, stop the reboot rollout until redundancy is restored or the risk is explicitly accepted. See [Kubernetes OS Maintenance Needs Storage Safety Gates](/field-notes/kubernetes-os-maintenance-storage-safety/).
+
 ## Verify Reboot With Two Views
 
 SSH availability only proves a host is reachable. It does not prove the host rebooted.
