@@ -1,6 +1,7 @@
 +++
 title = 'The Infrastructure Was Ready. The Product Wasn’t.'
-draft = true
+date = 2026-10-14T00:00:00-05:00
+draft = false
 description = 'When does Kubernetes help a team deliver software, and when does maintaining the platform consume the time it was meant to save?'
 tags = ['kubernetes', 'platform-engineering', 'devops', 'software-delivery', 'sre']
 categories = ['posts']
