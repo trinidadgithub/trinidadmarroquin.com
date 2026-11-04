@@ -2,12 +2,12 @@
 title = "The Cluster Was Gone. The Storage Wasn't."
 date = 2026-10-26T00:00:00-05:00
 draft = false
-description = 'An HPE Nimble PVC cleanup after an RKE2 decommission, reconciled across canary, earlier-batch, bulk-deletion, and array inventory evidence.'
+description = 'An HPE Nimble PVC cleanup after an RKE2 decommission, from offline-volume batches through the last online PVCs and independent array verification.'
 tags = ['kubernetes', 'rke2', 'rancher', 'hpe', 'storage', 'csi', 'decommissioning', 'operations']
 categories = ['field-notes']
 +++
 
-The Rancher-managed RKE2 cluster had already been shut down. On the HPE Nimble array, I could still list 1,209 volumes named like Kubernetes PVCs. Nine were online; 1,200 were offline. Powering down the VMs had ended the cluster's ability to reconcile storage, but it had not removed the storage objects themselves.
+The Rancher-managed RKE2 cluster had already been shut down. On the HPE Nimble array, I could still list 1,209 volumes named like Kubernetes PVCs. Nine were online; 1,200 were offline. Powering down the VMs had ended the cluster's ability to reconcile storage, but it had not removed the storage objects themselves. By November 4, only two deliberately preserved snapshot-bearing PVC volumes remained.
 
 This was a decommission, not a temporary maintenance shutdown. Even so, `offline` was a description of a volume's current state, not permission to erase it. A volume could still belong to another consumer of the array, be needed for recovery, or carry snapshots. With the retired Kubernetes API unavailable, I had to work from retained ownership and approval records plus the array's own inventory, then check the array again after each stage.
 
@@ -52,20 +52,30 @@ The full dry-run journal accounted for 1,199 entries after excluding the canary:
 
 The bulk utility processed only the 1,172 approved names. Its journal has a `delete_intent,started` and a `delete,success` record for each one; the reported run had no skips or failures. For each target the code checked a fresh per-batch listing, queried `vol --info` immediately before deletion, and required a successful new listing in which that name was absent afterward. These are useful controls, but the final check still had to come from an inventory collected outside the utility.
 
-## What the Final Inventory Established
+## The Nine Volumes Still Online
 
-I reconciled the independent before-and-after listings against all three execution journals and the approval list:
+The independent inventory after the offline-volume cleanup showed 11 PVCs: the two snapshot exceptions and **nine still online**. That was an intermediate state, not the end of the decommission. An online volume with zero connections is not necessarily serving I/O, but its online state is also not proof that somebody has authorized deletion. I went back to per-volume information and a separate ownership decision before touching those nine.
 
-| PVC inventory | Before | After |
-| --- | ---: | ---: |
-| Total volumes | 1,209 | 11 |
-| Online | 9 | 9 |
-| Offline | 1,200 | 2 |
-| Provisioned size | 23.24 TiB | 0.64 TiB |
-| Reported volume usage | 1.44 TiB | about 0.01 TiB |
+The operator reports inspecting and manually taking the first online volume offline, deleting it, and checking that it was gone. The saved `before.txt` listing contains it; `after-offline.txt` does not. I found no separate successful-delete journal for this manual operation, so its deletion method rests on the operator account and its disappearance on the independent listings, not on a fabricated script result.
 
-Exactly 1,198 names in the first listing were absent in the final one: **one canary**, **25 from the earlier batch**, and **1,172 from the bulk run**. None of the 1,172 final approved targets remained. The same nine online PVC names remained, and the only two offline PVCs left were the snapshot-bearing exceptions. This reconciles the count change without crediting the bulk utility for the earlier batch.
+For the other eight, the saved pre-offline `vol --info` records show zero connections and snapshots, no locked snapshots, protection or volume collection, no clone/parent dependency, and no connected initiators. They do **not** all show empty ACLs: three records contain an initiator-group access entry on indented lines. That did not establish active connections, but it did require care. The operator reports taking the eight offline without force. A fresh `vol --list` then showed each as `No` with offline reason `User`; the later dry run passed all eight live checks. The utility's ACL parser reads the empty header but not indented entries, however. Without post-offline per-volume captures, I cannot establish whether those entries cleared before deletion.
 
-The roughly 22.60 TiB reduction in provisioned PVC size and roughly 1.43 TiB difference in reported volume usage compare two inventory snapshots. They are not measurements of physical array space reclaimed. The outstanding work is to identify the owners, dependencies, and retention rules for the two preserved volumes and their snapshots; their offline state does not answer those questions.
+The approved list for the final eight matched both their dry-run passes and eight `delete,success` journal rows. A subsequent independent `vol --list` contained none of them. As with the canary and bulk run, I treated the utility's `Passed: 8/8` as a result to verify, not a substitute for checking the array.
+
+## What the Final Inventories Established
+
+I reconciled the original listing, the intermediate post-bulk listing, and the November 4 final listing against the execution journals and approval lists:
+
+| PVC inventory | Initial | After offline-volume cleanup | November 4 final |
+| --- | ---: | ---: | ---: |
+| Total volumes | 1,209 | 11 | 2 |
+| Online | 9 | 9 | 0 |
+| Offline | 1,200 | 2 | 2 |
+| Provisioned size | 23.24 TiB | 0.64 TiB | about 0.04 TiB |
+| Reported volume usage | 1.44 TiB | about 0.01 TiB | about 0.01 TiB |
+
+The first transition removed 1,198 names: **one canary**, **25 from the earlier batch**, and **1,172 from the bulk run**. The second removed nine more: **one handled manually** and **eight in the final journaled batch**. These are disjoint identifiers. Of the original 1,209, the November 4 listing retains exactly two, both offline and each with 1,020 snapshots. No approved bulk or final-eight target remains. The final inventory proves **1,207 original names are absent**; the journals themselves record 1,206 unique script deletions, while the ninth later removal is supported by the operator account and intermediate/final listings.
+
+The provisioned-size and reported-usage changes compare volume listings, not measurements of physical array space reclaimed. The outstanding work is to identify the owners, dependencies, and retention rules for the two preserved volumes and their 2,040 snapshots; their offline state does not answer those questions.
 
 What stayed with me was the handoff between lifecycles. Shutting down Kubernetes did not run its CSI deletion workflow. The array could tell me whether volumes existed, were presented, or carried snapshots; it could not grant data-disposal authority. Approval, live validation, a recorded deletion attempt, and independent inventory reconciliation were each a different piece of the decommission—and all four were needed to say what actually happened.
