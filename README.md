@@ -12,6 +12,13 @@ Install Hugo, then run:
 hugo server
 ```
 
+Open **http://localhost:1313/**. The development configuration in
+`config/development/hugo.toml` keeps generated navigation on localhost and writes
+preview output to `.hugo-preview/`. Production builds use `public/`, so running
+`hugo` while the preview server is active does not replace preview pages with
+production-domain links. Restart an already-running server after adding this
+configuration.
+
 Build the static site:
 
 ```bash

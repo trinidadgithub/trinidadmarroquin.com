@@ -2,10 +2,14 @@
 title = "The Cluster Was Gone. The Storage Wasn't."
 date = 2026-10-26T00:00:00-05:00
 draft = false
-description = 'An HPE Nimble PVC cleanup after an RKE2 decommission, from offline-volume batches through the last online PVCs and independent array verification.'
+description = 'Part 1 of Decommissioning Beyond Kubernetes: residual HPE Nimble volumes, controlled cleanup, independent verification, and the final snapshot investigation.'
+lastmod = 2026-11-20T00:00:00-06:00
 tags = ['kubernetes', 'rke2', 'rancher', 'hpe', 'storage', 'csi', 'decommissioning', 'operations']
 categories = ['field-notes']
+series = ['Decommissioning Beyond Kubernetes']
 +++
+
+Part 1 of [Decommissioning Beyond Kubernetes](/posts/decommissioning-beyond-kubernetes/).
 
 The Rancher-managed RKE2 cluster had already been shut down. On the HPE Nimble array, I could still list 1,209 volumes named like Kubernetes PVCs. Nine were online; 1,200 were offline. Powering down the VMs had ended the cluster's ability to reconcile storage, but it had not removed the storage objects themselves. By November 4, only two deliberately preserved snapshot-bearing PVC volumes remained.
 
@@ -76,6 +80,30 @@ I reconciled the original listing, the intermediate post-bulk listing, and the N
 
 The first transition removed 1,198 names: **one canary**, **25 from the earlier batch**, and **1,172 from the bulk run**. The second removed nine more: **one handled manually** and **eight in the final journaled batch**. These are disjoint identifiers. Of the original 1,209, the November 4 listing retains exactly two, both offline and each with 1,020 snapshots. No approved bulk or final-eight target remains. The final inventory proves **1,207 original names are absent**; the journals themselves record 1,206 unique script deletions, while the ninth later removal is supported by the operator account and intermediate/final listings.
 
-The provisioned-size and reported-usage changes compare volume listings, not measurements of physical array space reclaimed. The outstanding work is to identify the owners, dependencies, and retention rules for the two preserved volumes and their 2,040 snapshots; their offline state does not answer those questions.
+The provisioned-size and reported-usage changes compare volume listings, not measurements of physical array space reclaimed. At that checkpoint, the outstanding work was to identify the owners, dependencies, and retention rules for the two preserved volumes and their 2,040 snapshots; their offline state did not answer those questions.
+
+## Closing the Snapshot Chapter
+
+The investigation continued after the November 4 two-volume checkpoint. The retained conversation records a snapshot-inventory summary with 1,020 entries per volume, all listed as offline with status `Okay`. Several visible snapshot-name timestamps were roughly 1.6 seconds apart. That was a reason to inspect their metadata rather than assume an ordinary backup schedule.
+
+One snapshot inspected from each volume carried the same description:
+
+```text
+Description: Automatic snap taken before volume resize-shrink case
+```
+
+That description identified the array-reported purpose of those two inspected snapshots. It did not establish the purpose of every snapshot, identify the caller, or prove that a shrink completed. A repeated controller request, an administrator, or another integration remained possible explanations for the accumulated history. I had no historical audit or controller logs in this record that settled the initiating cause.
+
+I subsequently reported that the last two volumes had been cleaned up and the operation was complete. The conversation preserves the proposed parent-volume deletion and verification procedure, followed by my completion confirmation; it does not reproduce the final deletion output or the zero-PVC inventory. The two-volume state above is therefore the last inventory-backed checkpoint presented here. The final cleanup is operator-reported closure, not an additional independently inspected zero-volume capture.
+
+The snapshot investigation is developed in [Part 2: Two Volumes, 2,040 Snapshots: Following the Metadata](/field-notes/nimble-snapshot-metadata-pre-shrink-investigation/). It closed the disposal work while leaving a useful historical question: what kept invoking the array's resize-related snapshot mechanism?
 
 What stayed with me was the handoff between lifecycles. Shutting down Kubernetes did not run its CSI deletion workflow. The array could tell me whether volumes existed, were presented, or carried snapshots; it could not grant data-disposal authority. Approval, live validation, a recorded deletion attempt, and independent inventory reconciliation were each a different piece of the decommission—and all four were needed to say what actually happened.
+
+## Continue the Series
+
+- **Companion reference:** [Investigation command and script index](/field-notes/nimble-storage-investigation-command-index/)
+
+- [Series overview and reading order](/posts/decommissioning-beyond-kubernetes/)
+- **Next:** [Two Volumes, 2,040 Snapshots: Following the Metadata](/field-notes/nimble-snapshot-metadata-pre-shrink-investigation/)
+- [Part 3: The Script Said Success. What Did the Array Say?](/posts/decommissioning-beyond-kubernetes/verified-cleanup/)
