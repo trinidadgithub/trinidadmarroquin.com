@@ -1,0 +1,6 @@
+# Keep local navigation and generated files separate from production builds.
+baseURL = 'http://localhost:1313/'
+publishDir = '.hugo-preview'
+
+[params]
+  env = 'development'
