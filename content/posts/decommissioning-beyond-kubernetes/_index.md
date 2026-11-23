@@ -31,4 +31,4 @@ The initial cleanup and November 4 two-volume checkpoint are supported by the in
 
 The series preserves those distinctions. A provisioned-size reduction is not a physical-space measurement. A missing name is not automatically a deletion by the current run. A snapshot description is not a record of who requested the operation.
 
-Decommissioning is complete when the remaining state is explained, and the evidence is clear about which outcomes were observed and which were reported.
+Decommissioning is complete when the remaining state has been accounted for, its disposition established, and the evidence distinguishes verified outcomes from reported ones.
