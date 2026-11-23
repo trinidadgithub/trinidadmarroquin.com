@@ -7,6 +7,8 @@ description = 'A three-part series on residual storage after Kubernetes decommis
 
 Turning off a Kubernetes cluster ends one lifecycle. Storage objects, snapshots, ownership decisions, and capacity accounting still need their own closure.
 
+For the preceding cluster-retirement operation, see [Retiring Rancher-Managed Kubernetes](/posts/retiring-rancher-managed-kubernetes/), covering Rancher cleanup, workload quiescence, storage exceptions, and node shutdown.
+
 This series follows an HPE Nimble cleanup that began with 1,209 array volumes named like Kubernetes PVCs. The investigation moved from offline-volume inventory through controlled deletion, nine online-volume exceptions, and two volumes containing 2,040 snapshots collectively. Along the way, the automation itself became part of the investigation.
 
 Each installment asks a different question: what remained, why it remained, and what evidence supports saying the work is complete?

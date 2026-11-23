@@ -2,16 +2,20 @@
 title = 'Shutting Down Kubernetes Is Not the Same as Decommissioning It'
 date = 2026-10-20T00:00:00-05:00
 draft = false
-description = 'What two Rancher-managed RKE2 retirements taught about management cleanup, recovery evidence, storage detach, controllers, and the boundary between shutdown and reclamation.'
+description = 'Part 1 of Retiring Rancher-Managed Kubernetes: management cleanup, recovery evidence, storage detach, controllers, and the boundary between shutdown and reclamation.'
+lastmod = 2026-11-21T00:00:00-06:00
 tags = ['rancher', 'rke2', 'kubernetes', 'decommissioning', 'storage', 'operations']
 categories = ['field-notes']
+series = ['Retiring Rancher-Managed Kubernetes']
 +++
+
+Part 1 of [Retiring Rancher-Managed Kubernetes](/posts/retiring-rancher-managed-kubernetes/).
 
 Powering off the nodes is a perfectly effective way to make a cluster unavailable. It is a poor definition of decommissioning.
 
 Two independently installed RKE2 clusters, registered with Rancher and backed by vSphere VMs, were retired after replacement clusters were brought online. One was a larger former UAT environment with three dedicated etcd members; the other was a former production environment with five. The same operating principles applied to both, but the storage state did not. That difference is where a generic shutdown checklist would have become dangerous.
 
-This account distinguishes command output and observed state from operator reports. The final shutdown of the production etcd servers is confirmed by the operator separately from the session PDF; the PDF ends with instructions for that step, not its execution output. The following is an operational analysis, not a claim that all physical resources have been reclaimed. A separate [decommissioning runbook](https://github.com/trinidadgithub/trinidadmarroquin.com/blob/main/notes/rancher-rke2-decommissioning-runbook.md) contains the reusable procedure and its stop gates.
+This account distinguishes command output and observed state from operator reports. The complete conversation export adds the operator's confirmation that the five production etcd VMs were powered off and the remaining VMs deleted. It does not include a final per-VM hypervisor inventory or array-side storage reconciliation. The following is an operational analysis, not a claim that all physical resources have been reclaimed. A separate [decommissioning runbook](https://github.com/trinidadgithub/trinidadmarroquin.com/blob/main/notes/rancher-rke2-decommissioning-runbook.md) contains the reusable procedure and its stop gates; the [companion command index](/field-notes/rancher-retirement-investigation-command-index/) provides intent-indexed investigation recipes.
 
 ## Find Out What Rancher Owns
 
@@ -45,7 +49,7 @@ Grafana supplied the warning against declaring victory from a single replica che
 
 UAT began with seven CSI `VolumeAttachment` objects tied to those stateful pods. After the seven workloads reached zero replicas, the attachment inventory was empty and the PVCs remained Bound. This verified that Kubernetes no longer reported those attachments. It did **not** independently verify array-side host mappings or authorize deleting the backed volumes.
 
-Production began with ten attached volumes: seven associated with the observability workloads and three associated with failed iSCSI test pods on monitoring nodes. Scaling the seven StatefulSets released their seven attachments, leaving **three** reporting `attached=true`. The pods had deletion timestamps roughly two months old; their PVCs were already `Terminating`. A later pod delete request did not clear the attachments in the observed output. The remaining condition was treated as a documented storage exception, not silently converted into a successful detach. The source does not show a successful array-side check or the three attachments disappearing before the monitor shutdown was reported.
+Production began with ten attached volumes: seven associated with the observability workloads and three associated with failed iSCSI test pods on monitoring nodes. Scaling the seven StatefulSets released their seven attachments, leaving **three** reporting `attached=true`. The pods had deletion timestamps predating the retirement; their PVCs were already `Terminating`. A later pod delete request did not clear the attachments in the observed output. The remaining condition was treated as a documented storage exception, not silently converted into a successful detach. The source does not show a successful array-side check or the three attachments disappearing before the monitor shutdown was reported.
 
 This was a consequential choice. Forcing removal of a `VolumeAttachment` or a PVC finalizer might have accelerated the appearance of completion while making the storage record less trustworthy, especially with `Delete` reclaim policies. Proceeding with an exception requires named storage ownership, an assessment of guest mounts and sessions, and a later array-side reconciliation. The transcript recommended local iSCSI and multipath checks for the three monitors, but does not show their results. Those checks must not be retroactively marked complete.
 
@@ -61,14 +65,23 @@ The sequence used for the UAT cluster kept the Kubernetes API and CSI machinery 
 
 On the first UAT worker, stopping `rke2-agent` left systemd reporting `failed` and containerd shims still running. The operator ran `rke2-killall.sh`, then checked processes, mounts, and multipath output. That script forcefully cleans up RKE2-managed processes and mounts; it is not an application shutdown method. It belongs after stateful workloads have stopped, not at the start of a decommission. The canary was also reported powered off in a vCenter screenshot. Later `NotReady` node entries showed the workers and monitors stopped reporting to Kubernetes; `NotReady` is not a VM power-state check. Some pod records still showed `Running` on retired nodes, while other controllers scheduled replacement pods on surviving nodes.
 
-UAT's operator subsequently reported all nodes shut down, and the conversation treated the API load balancers as shut down too. The PDF does not include a per-VM final power-state inventory for all of them. For production, the operator reported workers and monitors powered off and later reported masters and API load balancers powered off. **The operator has separately confirmed that all production etcd servers were also shut down**, but their execution output and final vCenter power-state inventory are not in the PDF.
+UAT's operator subsequently reported all nodes shut down, and the conversation treated the API load balancers as shut down too. The record does not include a per-VM final power-state inventory for all of them. For production, the operator reported workers and monitors powered off and later reported masters and API load balancers powered off. **The complete export then records that the five production etcd nodes were powered off and the remaining VMs deleted.** That closes the operator-reported virtualization phase; the command output and complete final vCenter inventory are still absent from the export.
 
 ## The Boundary That Matters
 
 Rancher registration removal, workload quiescence, CSI detachment, RKE2 service shutdown, VM power-off, and permanent infrastructure deletion are different states. Both cluster retirements reached reported node shutdown; production's three legacy storage attachments and the outstanding inventory work make it especially important not to call that verified storage reclamation.
 
-The shutdown unblocked the next owners; it did not do their work for them. The remaining order was to inventory the legacy PVC-backed storage with the storage team, establish ownership and deletion approval, then remove powered-off VMs after the agreed retention period without touching shared storage. NetBox IP assignments and DNS records, monitoring targets and alerts, and the decommission record came afterward. A planned Terraform import for the former UAT cluster was no longer needed; the record does not show that its task was actually closed. The operator reported that neither retired cluster had Terraform state, a fact to recheck independently for any future retirement.
+The shutdown unblocked the next owners; it did not do their work for them. The planned handoff covered storage inventory and deletion approval, VM retention and removal, NetBox IP assignments and DNS records, monitoring targets and alerts, and the decommission record. The later VM-deletion report must not be read as proof that every earlier retention or storage gate had been documented. A planned Terraform import for the former UAT cluster was no longer needed; the record does not show that its task was actually closed. The operator reported that neither retired cluster had Terraform state, a fact to recheck independently for any future retirement.
 
 After Kubernetes goes offline, its CSI driver cannot complete the normal PVC/PV deletion workflow. Remaining backend volumes and any stale host mappings must instead be reconciled through the storage management interfaces, using the pre-shutdown PV-to-claim inventory. Keep the former UAT and production inventories separate; an approval for one cluster does not authorize deleting a similarly named volume in the other.
 
 The reusable method is to keep the next dependency alive until its final useful check is done, and to give each irreversible step its own evidence. A snapshot checksum is not an application backup. A `0/0` Deployment is not proof of no traffic. `NotReady` is not `poweredOff`. And a powered-off VM can still have a storage volume, DNS record, or inventory entry with somebody's name on it.
+
+## Continue the Series
+
+- [Series overview and evidence map](/posts/retiring-rancher-managed-kubernetes/)
+- **Next:** [The Cluster Was Unregistered. The Agents Were Still Running.](/posts/retiring-rancher-managed-kubernetes/management-cleanup/)
+- [Part 3: Zero Replicas Is Not a Shutdown Plan](/posts/retiring-rancher-managed-kubernetes/reconciliation-and-storage/)
+- [Part 4: Keep the API Until Its Last Useful Check](/posts/retiring-rancher-managed-kubernetes/shutdown-and-handoff/)
+- [Companion investigation command index](/field-notes/rancher-retirement-investigation-command-index/)
+- **The storage sequel:** [Decommissioning Beyond Kubernetes](/posts/decommissioning-beyond-kubernetes/)
